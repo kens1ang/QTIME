@@ -1,13 +1,6 @@
 <script>
 import { layoutMethods } from "@/state/helpers";
-import img1 from "../assets/images/products/img-1.png"
-import img2 from "../assets/images/products/img-2.png"
-import img3 from "../assets/images/products/img-3.png"
-import img4 from "../assets/images/products/img-6.png"
-import img5 from "../assets/images/products/img-5.png"
-
 import simplebar from "simplebar-vue";
-
 import i18n from "../i18n";
 
 /**
@@ -16,49 +9,6 @@ import i18n from "../i18n";
 export default {
   data() {
     return {
-      cartItems: [
-        {
-          id: 1,
-          productImage: img1,
-          productName: "Branded T-Shirts",
-          productLink: "/ecommerce/product-details",
-          quantity: "10 x $32",
-          itemPrice: "320",
-        },
-        {
-          id: 2,
-          productImage: img2,
-          productName: "Bentwood Chair",
-          productLink: "/ecommerce/product-details",
-          quantity: "5 x $18",
-          itemPrice: "89",
-        },
-        {
-          id: 3,
-          productImage: img3,
-          productName: "Borosil Paper Cup",
-          productLink: "/ecommerce/product-details",
-          quantity: "3 x $250",
-          itemPrice: "750",
-        },
-        {
-          id: 4,
-          productImage: img4,
-          productName: "Gray Styled T-Shirt",
-          productLink: "/ecommerce/product-details",
-          quantity: "1 x $1250",
-          itemPrice: "1250",
-        },
-        {
-          id: 5,
-          productImage: img5,
-          productName: "Stillbird Helmet",
-          productLink: "/ecommerce/product-details",
-          quantity: "2 x $495",
-          itemPrice: "990",
-        },
-      ],
-
       languages: [{
         flag: require("@/assets/images/flags/us.svg"),
         language: "en",
@@ -431,6 +381,7 @@ export default {
             </BDropdownItem>
           </BDropdown>
 
+          <!-- Language -->
           <BDropdown class="dropdown" variant="ghost-secondary" dropstart
             :offset="{ alignmentAxis: 55, crossAxis: 15, mainAxis: -50 }"
             toggle-class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle arrow-none"
@@ -446,146 +397,7 @@ export default {
             </BLink>
           </BDropdown>
 
-          <BDropdown class="dropdown" variant="ghost-secondary" dropstart
-            :offset="{ alignmentAxis: 57, crossAxis: 0, mainAxis: -42 }"
-            toggle-class="btn-icon btn-topbar rounded-circle mode-layout ms-1 arrow-none"
-            menu-class="p-0 dropdown-menu-end">
-            <template #button-content>
-              <i class="bx bx-category-alt fs-22"></i>
-            </template>
-            <div class="p-3 border-top-0 dropdown-head border-start-0 border-end-0 border-dashed border dropdown-menu-lg">
-              <BRow class="align-items-center">
-                <BCol>
-                  <h6 class="m-0 fw-semibold fs-15">Web Apps</h6>
-                </BCol>
-                <BCol cols="auto">
-                  <BLink href="#!" class="btn btn-sm btn-soft-info">
-                    View All Apps
-                    <i class="ri-arrow-right-s-line align-middle"></i>
-                  </BLink>
-                </BCol>
-              </BRow>
-            </div>
-
-            <div class="p-2">
-              <BRow class="g-0">
-                <BCol>
-                  <BLink class="dropdown-icon-item" href="#!">
-                    <img src="@/assets/images/brands/github.png" alt="Github" />
-                    <span>GitHub</span>
-                  </BLink>
-                </BCol>
-                <BCol>
-                  <BLink class="dropdown-icon-item" href="#!">
-                    <img src="@/assets/images/brands/bitbucket.png" alt="bitbucket" />
-                    <span>Bitbucket</span>
-                  </BLink>
-                </BCol>
-                <BCol>
-                  <BLink class="dropdown-icon-item" href="#!">
-                    <img src="@/assets/images/brands/dribbble.png" alt="dribbble" />
-                    <span>Dribbble</span>
-                  </BLink>
-                </BCol>
-              </BRow>
-
-              <BRow class="g-0">
-                <BCol>
-                  <BLink class="dropdown-icon-item" href="#!">
-                    <img src="@/assets/images/brands/dropbox.png" alt="dropbox" />
-                    <span>Dropbox</span>
-                  </BLink>
-                </BCol>
-                <BCol>
-                  <BLink class="dropdown-icon-item" href="#!">
-                    <img src="@/assets/images/brands/mail_chimp.png" alt="mail_chimp" />
-                    <span>Mail Chimp</span>
-                  </BLink>
-                </BCol>
-                <BCol>
-                  <BLink class="dropdown-icon-item" href="#!">
-                    <img src="@/assets/images/brands/slack.png" alt="slack" />
-                    <span>Slack</span>
-                  </BLink>
-                </BCol>
-              </BRow>
-            </div>
-          </BDropdown>
-
-          <BDropdown variant="ghost-secondary" dropstart :offset="{ alignmentAxis: 57, crossAxis: 0, mainAxis: -42 }"
-            class="ms-1 dropdown" toggle-class="btn-icon btn-topbar rounded-circle mode-layout arrow-none"
-            menu-class="dropdown-menu-xl dropdown-menu-end p-0" text="Manual close (auto-close=false)"
-            auto-close="outside">
-            <template #button-content>
-              <i class="bx bx-shopping-bag fs-22"></i>
-              <span
-                class="position-absolute topbar-badge cartitem-badge fs-10 translate-middle badge rounded-pill bg-info">{{
-                  cartItems.length }} </span>
-            </template>
-
-            <div class="p-3 border-top-0 border-start-0 dropdown-head border-end-0 border-dashed border dropdown-menu-xl">
-              <BRow class="align-items-center">
-                <BCol>
-                  <h6 class="m-0 fs-16 fw-semibold"> My Cart</h6>
-                </BCol>
-                <BCol cols="auto">
-                  <BBadge variant="warning-subtle" class="bg-warning-subtle text-warning fs-13"><span
-                      class="cartitem-badge"> {{ cartItems.length }} </span>
-                    items</BBadge>
-                </BCol>
-              </BRow>
-            </div>
-            <simplebar data-simplebar style="max-height: 300px">
-              <div class="p-2">
-                <div class="text-center empty-cart" id="empty-cart" v-if="cartItems.length === 0">
-                  <div class="avatar-md mx-auto my-3">
-                    <div class="avatar-title bg-info-subtle text-info fs-36 rounded-circle">
-                      <i class="bx bx-cart"></i>
-                    </div>
-                  </div>
-                  <h5 class="mb-3">Your Cart is Empty!</h5>
-                  <router-link to="/ecommerce/products" class="btn btn-success w-md mb-3">Shop Now</router-link>
-                </div>
-                <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2"
-                  v-for="(item, index) in cartItems" :key="index">
-                  <div class="d-flex align-items-center">
-                    <img :src="item.productImage" class="me-3 rounded-circle avatar-sm p-2 bg-light" />
-                    <div class="flex-grow-1">
-                      <h6 class="mt-0 mb-1 fs-14">
-                        <router-link :to="item.productLink" class="text-reset">{{ item.productName }}</router-link>
-                      </h6>
-                      <p class="mb-0 fs-12 text-muted">
-                        Quantity: <span>{{ item.quantity }}</span>
-                      </p>
-                    </div>
-                    <div class="px-2">
-                      <h5 class="m-0 fw-normal">$<span class="cart-item-price">{{ item.itemPrice }}</span></h5>
-                    </div>
-                    <div class="ps-2">
-                      <button type="button" class="btn btn-ghost-secondary btn-sm btn-icon remove-item-btn"
-                        @click="removeItem(item)">
-                        <i class="ri-close-fill fs-16"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </simplebar>
-            <div v-if="cartItems.length" class="p-3 border-bottom-0 border-start-0 border-end-0 border-dashed border"
-              id="checkout-elem">
-              <div class="d-flex justify-content-between align-items-center pb-3">
-                <h5 class="m-0 text-muted">Total:</h5>
-                <div class="px-2">
-                  <h5 class="m-0" id="cart-item-total">${{ calculateTotalPrice }}</h5>
-                </div>
-              </div>
-
-              <router-link to="/ecommerce/checkout" class="btn btn-success text-center w-100">
-                Checkout
-              </router-link>
-            </div>
-          </BDropdown>
-
+          <!-- Fullscreen -->
           <div class="ms-1 header-item d-none d-sm-flex">
             <BButton type="button" variant="ghost-secondary" class="btn-icon btn-topbar rounded-circle"
               data-toggle="fullscreen" @click="initFullScreen">
@@ -593,6 +405,7 @@ export default {
             </BButton>
           </div>
 
+          <!-- Dark/Light Mode -->
           <div class="ms-1 header-item d-none d-sm-flex">
             <BButton type="button" variant="ghost-secondary" class="btn-icon btn-topbar rounded-circle light-dark-mode"
               @click="toggleDarkMode">
@@ -600,6 +413,7 @@ export default {
             </BButton>
           </div>
 
+          <!-- Notification -->
           <BDropdown variant="ghost-dark" dropstart class="ms-1 dropdown"
             :offset="{ alignmentAxis: 57, crossAxis: 0, mainAxis: -42 }"
             toggle-class="btn-icon btn-topbar rounded-circle arrow-none" id="page-header-notifications-dropdown"
@@ -870,6 +684,7 @@ export default {
             </BTabs>
           </BDropdown>
 
+          <!-- User profile -->
           <BDropdown variant="link" class="ms-sm-3 header-item topbar-user" toggle-class="rounded-circle arrow-none"
             menu-class="dropdown-menu-end" :offset="{ alignmentAxis: -14, crossAxis: 0, mainAxis: 0 }">
             <template #button-content>
@@ -918,6 +733,7 @@ export default {
               <span class="align-middle" data-key="t-logout"> Logout</span>
             </router-link>
           </BDropdown>
+
         </div>
       </div>
     </div>

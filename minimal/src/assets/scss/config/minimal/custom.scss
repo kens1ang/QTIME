@@ -6,6 +6,32 @@ Contact: support@themesbrand.com
 File: Custom Css File
 */
 
+// Custom CSS
+
+.navdiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navdiv ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.topnavlink {
+  list-style-type: none;
+  margin-right: 50px;
+  color: #6d7080;
+}
+
+.topnavlink:hover {
+  color: #00bd9d;
+}
+
+// End of Custom CSS
+
 .flatpickr-calendar {
   background-color: var(--#{$prefix}secondary-bg) !important;
   box-shadow: 1px 0 0 var(--#{$prefix}border-color), -1px 0 0 var(--#{$prefix}border-color),
@@ -606,3 +632,4 @@ File: Custom Css File
     }
   }
 }
+

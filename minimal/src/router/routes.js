@@ -57,6 +57,60 @@ export default [
     },
   },
   {
+    path: "/project/index",
+    name: "project",
+    meta: {
+      title: "Project",
+      authRequired: true,
+    },
+    component: () => import("../views/management/project/index.vue"),
+  },
+  {
+    path: "/company/index",
+    name: "company",
+    meta: {
+      title: "Company",
+      authRequired: true,
+    },
+    component: () => import("../views/management/company/index.vue"),
+  },
+  {
+    path: "/system-user/index",
+    name: "system-user",
+    meta: {
+      title: "System User",
+      authRequired: true,
+    },
+    component: () => import("../views/management/system-user/index.vue"),
+  },
+  {
+    path: "/company-schedule/index",
+    name: "company-schedule",
+    meta: {
+      title: "Company Schedule",
+      authRequired: true,
+    },
+    component: () => import("../views/management/company-schedule/index.vue"),
+  },
+  {
+    path: "/employee/index",
+    name: "employee",
+    meta: {
+      title: "Employee",
+      authRequired: true,
+    },
+    component: () => import("../views/management/employee/index.vue"),
+  },
+  {
+    path: "/public-holiday/index",
+    name: "public-holiday",
+    meta: {
+      title: "Public Holiday",
+      authRequired: true,
+    },
+    component: () => import("../views/management/public-holiday/index.vue"),
+  },
+  {
     path: "/",
     name: "default",
     meta: {
