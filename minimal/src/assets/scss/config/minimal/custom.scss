@@ -79,6 +79,15 @@ ul.submenu {
   align-items: center;
 }
 
+.breadcrumb {
+  padding-top: 2px;
+  margin-bottom: 3px;
+}
+
+.breadcrumb a {
+  font-size: 15px;
+}
+
 // End of Custom CSS
 
 .flatpickr-calendar {

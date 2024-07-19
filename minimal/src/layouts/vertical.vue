@@ -13,7 +13,13 @@ localStorage.setItem('hoverd', false);
  * Vertical layout
  */
 export default {
-  components: { NavBar, RightBar, Footer, Menu, simplebar },
+  components: { 
+    NavBar, 
+    RightBar, 
+    Footer, 
+    Menu, 
+    simplebar 
+  },
   data() {
     return {
       isMenuCondensed: false,

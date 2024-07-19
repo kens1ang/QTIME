@@ -8,10 +8,11 @@
         PageHeader,
       },
     };
-  </script>
+</script>
     
 <template>
   <Layout>
+
     <PageHeader>
       <template v-slot:navigation>
         <div class="navdiv">
@@ -23,8 +24,8 @@
               </router-link>
               <ul class="submenu">
                 <li><router-link to="/system-user/user-management">User Management</router-link></li>
-                <li><router-link to="/access-control">Access Control</router-link></li>
-                <li><router-link to="/poster-portal">Poster Portal</router-link></li>
+                <li><router-link to="/system-user/access-control">Access Control</router-link></li>
+                <li><router-link to="/system-user/poster-portal">Poster Portal</router-link></li>
               </ul>
             </li>
             <li><router-link class="topnavlink" to="/company/index"><span>Company</span></router-link></li>
@@ -48,5 +49,8 @@
         </div>
       </template>
     </PageHeader>
+
+    <slot name="content"></slot>
+
   </Layout>
 </template>

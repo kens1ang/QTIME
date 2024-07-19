@@ -57,33 +57,6 @@ export default [
     },
   },
   {
-    path: "/project/index",
-    name: "project",
-    meta: {
-      title: "Project",
-      authRequired: true,
-    },
-    component: () => import("../views/management/project/index.vue"),
-  },
-  {
-    path: "/company/index",
-    name: "company",
-    meta: {
-      title: "Company",
-      authRequired: true,
-    },
-    component: () => import("../views/management/company/index.vue"),
-  },
-  {
-    path: "/system-user/index",
-    name: "system-user",
-    meta: {
-      title: "System User",
-      authRequired: true,
-    },
-    component: () => import("../views/management/system-user/index.vue"),
-  },
-  {
     path: "/system-user/user-management",
     name: "user-management",
     meta: {
@@ -93,31 +66,22 @@ export default [
     component: () => import("../views/management/system-user/user-management.vue"),
   },
   {
-    path: "/company-schedule/index",
-    name: "company-schedule",
+    path: "/system-user/access-control",
+    name: "access-control",
     meta: {
-      title: "Company Schedule",
+      title: "Access Control",
       authRequired: true,
     },
-    component: () => import("../views/management/company-schedule/index.vue"),
+    component: () => import("../views/management/system-user/access-control.vue"),
   },
   {
-    path: "/employee/index",
-    name: "employee",
+    path: "/system-user/poster-portal",
+    name: "poster-portal",
     meta: {
-      title: "Employee",
+      title: "Poster Portal",
       authRequired: true,
     },
-    component: () => import("../views/management/employee/index.vue"),
-  },
-  {
-    path: "/public-holiday/index",
-    name: "public-holiday",
-    meta: {
-      title: "Public Holiday",
-      authRequired: true,
-    },
-    component: () => import("../views/management/public-holiday/index.vue"),
+    component: () => import("../views/management/system-user/poster-portal.vue"),
   },
   {
     path: "/",

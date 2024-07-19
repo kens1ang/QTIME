@@ -289,7 +289,7 @@ export default {
 
         <!-- Management -->
         <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/project/index">
+          <router-link class="nav-link menu-link" to="/system-user/user-management">
             <UsersIcon width="24" height="24" />
             <span data-key="t-widgets">{{ $t("Management") }}</span>
           </router-link>
