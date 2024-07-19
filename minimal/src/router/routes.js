@@ -84,6 +84,15 @@ export default [
     component: () => import("../views/management/system-user/index.vue"),
   },
   {
+    path: "/system-user/user-management",
+    name: "user-management",
+    meta: {
+      title: "User Management",
+      authRequired: true,
+    },
+    component: () => import("../views/management/system-user/user-management.vue"),
+  },
+  {
     path: "/company-schedule/index",
     name: "company-schedule",
     meta: {
