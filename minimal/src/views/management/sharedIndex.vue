@@ -26,6 +26,7 @@
                 <li><router-link to="/system-user/user-management">User Management</router-link></li>
                 <li><router-link to="/system-user/access-control">Access Control</router-link></li>
                 <li><router-link to="/system-user/poster-portal">Poster Portal</router-link></li>
+                <li><router-link to="/system-user/backup-database">Backup Database</router-link></li>
               </ul>
             </li>
             <li><router-link class="topnavlink" to="/company/index"><span>Company</span></router-link></li>

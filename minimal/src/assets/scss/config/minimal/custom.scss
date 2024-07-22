@@ -79,13 +79,24 @@ ul.submenu {
   align-items: center;
 }
 
-.breadcrumb {
+.breadcrumb { 
   padding-top: 2px;
-  margin-bottom: 3px;
 }
 
 .breadcrumb a {
-  font-size: 15px;
+  font-size: 13px;
+}
+
+.btnlabel {
+  visibility: hidden;
+}
+
+.collapse {
+  display: none;
+}
+
+.collapse.show {
+  display: table-row;
 }
 
 // End of Custom CSS
