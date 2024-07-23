@@ -80,28 +80,15 @@ export default {
 
     <div class="auth-page-content">
       <BContainer>
-        <BRow>
-          <BCol lg="12">
-            <div class="text-center mt-sm-5 mb-4 text-white-50">
-              <div>
-                <router-link to="/" class="d-inline-block auth-logo">
-                  <img src="@/assets/images/logo-light.png" alt="" height="20" />
-                </router-link>
-              </div>
-              <p class="mt-3 fs-15 fw-medium">
-                Premium Admin & Dashboard Template
-              </p>
-            </div>
-          </BCol>
-        </BRow>
+        <br><br><br>
 
         <BRow class="justify-content-center">
           <BCol md="8" lg="6" xl="5">
             <BCard no-body class="mt-4">
               <BCardBody class="p-4">
                 <div class="text-center mt-2">
-                  <h5 class="text-primary">Forgot Password?</h5>
-                  <p class="text-muted">Reset password with velzon</p>
+                  <h5 class="text-primary">Change Password</h5>
+                  <p class="text-muted">Reset password with QTime</p>
 
                   <lottie class="avatar-xl" colors="primary:#0ab39c,secondary:#405189" :options="defaultOptions"
                     :height="120" :width="120" />
@@ -112,7 +99,16 @@ export default {
                   <BAlert v-model="isResetError" class="mb-4" variant="danger" dismissible>{{ error }}</BAlert>
                   <form @submit.prevent="tryToReset">
                     <div class="mb-4">
-                      <label class="form-label">Email</label>
+                      <label class="form-label">New Password</label>
+                      <input type="email" v-model="email" class="form-control" id="email"
+                        :class="{ 'is-invalid': submitted && v$.email.$errors }" placeholder="Enter Email" />
+                      <div v-for="(item, index) in v$.email.$errors" :key="index" class="invalid-feedback">
+                        <span v-if="item.$message">{{ item.$message }}</span>
+                      </div>
+                    </div>
+
+                    <div class="mb-4">
+                      <label class="form-label">Confirm Password</label>
                       <input type="email" v-model="email" class="form-control" id="email"
                         :class="{ 'is-invalid': submitted && v$.email.$errors }" placeholder="Enter Email" />
                       <div v-for="(item, index) in v$.email.$errors" :key="index" class="invalid-feedback">
@@ -122,40 +118,16 @@ export default {
 
                     <div class="text-center mt-4">
                       <BButton variant="success" class="w-100" type="submit">
-                        Send Reset Link
+                        Change Password
                       </BButton>
                     </div>
                   </form>
                 </div>
               </BCardBody>
             </BCard>
-
-            <div class="mt-4 text-center">
-              <p class="mb-0">
-                Wait, I remember my password...
-                <router-link to="/login" class="fw-semibold text-primary text-decoration-underline">
-                  Click here
-                </router-link>
-              </p>
-            </div>
           </BCol>
         </BRow>
       </BContainer>
     </div>
-
-    <footer class="footer">
-      <BContainer>
-        <BRow>
-          <BCol lg="12">
-            <div class="text-center">
-              <p class="mb-0 text-muted">
-                &copy; {{ new Date().getFullYear() }} Velzon. Crafted with
-                <i class="mdi mdi-heart text-danger"></i> by Themesbrand
-              </p>
-            </div>
-          </BCol>
-        </BRow>
-      </BContainer>
-    </footer>
   </div>
 </template>

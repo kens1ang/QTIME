@@ -246,27 +246,6 @@ export default {
     <div class="layout-width">
       <div class="navbar-header">
         <div class="d-flex">
-          <!-- LOGO -->
-          <!-- <div class="navbar-brand-box horizontal-logo">
-            <router-link to="/" class="logo logo-dark">
-              <span class="logo-sm">
-                <img src="@/assets/images/logo-sm.png" alt="" height="22" />
-              </span>
-              <span class="logo-lg">
-                <img src="@/assets/images/logo-dark.png" alt="" height="17" />
-              </span>
-            </router-link>
-
-            <router-link to="/" class="logo logo-light">
-              <span class="logo-sm">
-                <img src="@/assets/images/logo-sm.png" alt="" height="22" />
-              </span>
-              <span class="logo-lg">
-                <img src="@/assets/images/logo-light.png" alt="" height="17" />
-              </span>
-            </router-link>
-          </div> -->
-
           <button type="button" class="btn btn-sm px-3 fs-16 header-item vertical-menu-btn topnav-hamburger"
             id="topnav-hamburger-icon">
             <span class="hamburger-icon">
@@ -693,20 +672,14 @@ export default {
                 <img class="rounded-circle header-profile-user" src="@/assets/images/users/avatar-1.jpg"
                   alt="Header Avatar">
                 <span class="text-start ms-xl-2">
-                  <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Edward
-                    Diana</span>
-                  <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Founder</span>
+                  <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Testing SSA Acount</span>
+                  <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">SSA</span>
                 </span>
               </span>
             </template>
-            <h6 class="dropdown-header">Welcome Anna!</h6>
             <router-link class="dropdown-item" to="/pages/profile"><i
                 class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
               <span class="align-middle"> Profile</span>
-            </router-link>
-            <router-link class="dropdown-item" to="/chat">
-              <i class=" mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i>
-              <span class="align-middle"> Messages</span>
             </router-link>
             <router-link class="dropdown-item" to="/apps/tasks-kanban">
               <i class="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i>
@@ -717,18 +690,10 @@ export default {
               <span class="align-middle"> Help</span>
             </router-link>
             <div class="dropdown-divider"></div>
-            <router-link class="dropdown-item" to="/pages/profile"><i
-                class="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i>
-              <span class="align-middle"> Balance : <b>$5971.67</b></span>
-            </router-link>
             <router-link class="dropdown-item" to="/pages/profile-setting">
               <BBadge variant="success-subtle" class="bg-success-subtle text-success mt-1 float-end">New</BBadge><i
                 class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
-              <span class="align-middle"> Settings</span>
-            </router-link>
-            <router-link class="dropdown-item" to="/auth/lockscreen-basic"><i
-                class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i>
-              <span class="align-middle"> Lock screen</span>
+              <span class="align-middle">Settings</span>
             </router-link>
             <router-link class="dropdown-item" to="/logout"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
               <span class="align-middle" data-key="t-logout"> Logout</span>

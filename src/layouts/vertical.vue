@@ -6,7 +6,6 @@ import { layoutComputed } from "@/state/helpers";
 import NavBar from "@/components/nav-bar";
 import Menu from "@/components/menu.vue";
 import RightBar from "@/components/right-bar";
-import Footer from "@/components/footer";
 localStorage.setItem('hoverd', false);
 
 /**
@@ -16,7 +15,6 @@ export default {
   components: { 
     NavBar, 
     RightBar, 
-    Footer, 
     Menu, 
     simplebar 
   },
@@ -165,7 +163,6 @@ export default {
           <slot />
         </BContainer>
       </div>
-      <Footer />
     </div>
     <RightBar />
   </div>

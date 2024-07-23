@@ -32,19 +32,7 @@ export default {
 
     <div class="auth-page-content">
       <BContainer>
-        <BRow>
-          <BCol lg="12">
-            <div class="text-center mt-sm-5 mb-4 text-white-50">
-              <div>
-                <router-link to="/" class="d-inline-block auth-logo">
-                  <img src="@/assets/images/logo-light.png" alt="" height="20">
-                </router-link>
-              </div>
-              <p class="mt-3 fs-15 fw-medium">Premium Admin & Dashboard Template</p>
-            </div>
-          </BCol>
-        </BRow>
-
+       <br><br><br><br>
         <BRow class="justify-content-center">
           <BCol md="8" lg="6" xl="5">
             <BCard no-body class="mt-4">
@@ -53,8 +41,7 @@ export default {
                   :width="180" />
                 <div class="mt-4 pt-2">
                   <h5>You are Logged Out</h5>
-                  <p class="text-muted">Thank you for using <span class="fw-semibold">velzon</span>
-                    admin template</p>
+                  <p class="text-muted">Thank you for sign in <span class="fw-semibold">QTime</span></p>
                   <div class="mt-4">
                     <router-link to="/auth/signin-basic" class="btn btn-success w-100">Sign In
                     </router-link>

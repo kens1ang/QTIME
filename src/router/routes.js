@@ -21,24 +21,6 @@ export default [
     },
   },
   {
-    path: "/register",
-    name: "Register",
-    component: () => import("../views/account/register.vue"),
-    meta: {
-      title: "Register",
-      beforeResolve(routeTo, routeFrom, next) {
-        // If the user is already logged in
-        if (store.getters["auth/loggedIn"]) {
-          // Redirect to the home page instead
-          next({ name: "default" });
-        } else {
-          // Continue to the login page
-          next();
-        }
-      },
-    },
-  },
-  {
     path: "/forgot-password",
     name: "Forgot password",
     component: () => import("../views/account/forgot-password.vue"),
@@ -1218,14 +1200,6 @@ export default [
       title: "Logout", authRequired: true,
     },
     component: () => import('../views/auth/logout/basic')
-  },
-  {
-    path: '/auth/logout-cover',
-    name: 'logout-cover',
-    meta: {
-      title: "Logout", authRequired: true,
-    },
-    component: () => import('../views/auth/logout/cover')
   },
   {
     path: '/auth/success-msg-basic',

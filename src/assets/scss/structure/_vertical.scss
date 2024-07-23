@@ -289,7 +289,7 @@
     display: none;
 }
 
-:is([data-layout="vertical"], [data-layout="semibox"]) {
+:is([data-layout="vertical"]) {
     .app-menu {
         .row {
             margin: 0;

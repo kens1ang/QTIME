@@ -52,31 +52,14 @@ export default {
 
   mounted() {
     this.initActiveMenu();
-    if (this.rmenu == 'vertical' && this.layoutType == 'twocolumn') {
+    if (this.rmenu == 'vertical') {
       document.documentElement.setAttribute("data-layout", "vertical");
     }
     document.getElementById('overlay').addEventListener('click', () => {
       document.body.classList.remove('vertical-sidebar-enable');
     });
 
-    window.addEventListener("resize", () => {
-      if (this.layoutType == 'twocolumn') {
-        var windowSize = document.documentElement.clientWidth;
-        if (windowSize < 767) {
-          document.documentElement.setAttribute("data-layout", "vertical");
-          this.rmenu = 'vertical';
-          localStorage.setItem('rmenu', 'vertical');
-        } else {
-          document.documentElement.setAttribute("data-layout", "vertical");
-          this.rmenu = 'twocolumn';
-          localStorage.setItem('rmenu', 'twocolumn');
-          setTimeout(() => {
-            this.initActiveMenu();
-          }, 50);
-
-        }
-      }
-    });
+    
     if (document.querySelectorAll(".navbar-nav .collapse")) {
       let collapses = document.querySelectorAll(".navbar-nav .collapse");
 
@@ -169,38 +152,11 @@ export default {
         });
         if (matchingMenuItem) {
           this.activateParentDropdown(matchingMenuItem);
-        } else {
-          var id = pathName.replace("/", "");
-          if (id) document.body.classList.add("twocolumn-panel");
-          this.activateIconSidebarActive(pathName);
-        }
+        } 
       }
     },
 
-    updateMenu(e, event) {
-
-      document.body.classList.remove("twocolumn-panel");
-      const ul = document.getElementById("navbar-nav");
-      if (ul) {
-        const items = Array.from(ul.querySelectorAll(".show"));
-        items.forEach((item) => {
-          item.classList.remove("show");
-        });
-      }
-      const icons = document.getElementById("two-column-menu");
-      if (icons) {
-        const activeIcons = Array.from(
-          icons.querySelectorAll(".nav-icon.active")
-        );
-        activeIcons.forEach((item) => {
-          item.classList.remove("active");
-        });
-      }
-      document.getElementById(e).classList.add("show");
-      event.target.classList.add("active")
-      this.activateIconSidebarActive("#" + e);
-    },
-
+   
     removeActivation(items) {
       items.forEach((item) => {
         if (item.classList.contains("menu-link")) {
@@ -250,25 +206,13 @@ export default {
       return false;
     },
 
-    activateIconSidebarActive(id) {
-      var menu = document.querySelector(
-        "#two-column-menu .simplebar-content-wrapper a[href='" +
-        id +
-        "'].nav-icon"
-      );
-      if (menu !== null) {
-        menu.classList.add("active");
-      }
-    },
   },
 };
 </script>
 
 <template>
   <BContainer fluid>
-    <div id="two-column-menu"></div>
-
-    <template v-if="layoutType === 'vertical' || layoutType === 'semibox'">
+    <template v-if="layoutType === 'vertical'">
       <ul class="navbar-nav h-100" id="navbar-nav">
         
         <!-- Dashboards -->
