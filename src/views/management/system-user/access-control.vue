@@ -1,14 +1,22 @@
 <script>
 
 import Index from '../sharedIndex.vue';
+import breadcrumbs from '../../../components/breadcrumbs.vue';
 
 export default {
     components: {
         Index,
+        breadcrumbs
     },
     data () {
         return {
             title: 'Access Control',
+            breadcrumbs: [
+                { name: "Management", link: "/project/index" },
+                { name: "System User", link: "/system-user/index" },
+                { name: "Access Control", link: "/system-user/access-control" },
+            ],
+            modaltoAdd: false,
         }
     }
 };
@@ -25,30 +33,32 @@ document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(button => {
     <Index>
         <template v-slot:content>
             
-            <h1 style="font-size: 20px;">{{ title }}</h1>
-    
-            <BBreadcrumb class="breadcrumb">
-                <BBreadcrumbItem router-link to="/project/index"> Management </BBreadcrumbItem>
-                <BBreadcrumbItem router-link to="/system-user/user-management"> System User </BBreadcrumbItem>
-                <BBreadcrumbItem router-link to="/system-user/user-management"> {{ title }} </BBreadcrumbItem>
-            </BBreadcrumb>
+            <div class="d-sm-flex align-items-center justify-content-between">
+                <h1 style="font-size: 25px;">{{ title }}</h1>
+                <breadcrumbs :pages="breadcrumbs" />
+            </div>
 
             <!-- Table -->
             <div class="card-body" style="margin-bottom: 30px; margin-top: 30px;">
                 <div class="listjs-table" id="customerList">
                     <div class="row g-4 mb-3">
                         <div class="col-sm-auto">
-                            <div>
-                                <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal" style="margin-right: 10px;">
-                                    <i class="ri-add-line align-bottom me-1"></i> Add
-                                </button>
-                                <button class="btn btn-light waves-effect">
-                                    <i class='bx bx-filter'></i>
-                                </button>
+                            <button type="button" class="btn btn-soft-primary waves-effect waves-light material-shadow-none" @click="showModal(false)" style="margin-right: 10px;">
+                                <i class="ri-add-line align-bottom me-1"></i> Add Permission
+                            </button>
+                            <button class="btn btn-soft-danger" @click="deleteAlert">
+                                <i class="ri-delete-bin-2-line"></i>
+                            </button>
+                        </div>
+                        <div class="col-sm">
+                            <div class="d-flex justify-content-sm-end">
+                                <div class="search-box ms-2">
+                                    <input type="text" class="form-control search" placeholder="Search...">
+                                    <i class="ri-search-line search-icon"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="table-responsive table-card mt-3 mb-1" style="max-height: 500px; overflow: auto;">
                         <table class="table align-middle table-nowrap" id="customerTable">
                             <thead class="table-light">
@@ -194,6 +204,26 @@ document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(button => {
                     </div>
                 </div>
             </div>
+
+            <BModal v-model="modaltoAdd" header-class="p-3 bg-info-subtle" content-class="border-0" hide-footer
+                title="Add New Permission" class="v-modal-custom" centered no-close-on-backdrop no-fade>
+                <b-form action="#">
+                    <BRow>
+                        <BCol lg="12">
+                            <label for="module" class="form-label">Module</label>
+                            <input type="text" class="form-control" id="boardName" placeholder="Enter module">
+                            <label for="permission" class="form-label">Permission</label>
+                            <input type="text" class="form-control" id="boardName" placeholder="Enter permission">
+                        </BCol>
+                        <div class="mt-4">
+                            <div class="hstack gap-2 justify-content-end">
+                                <BButton type="button" variant="light" @click="modaltoAdd = false">Cancel</BButton>
+                                <BButton type="button" variant="success" id="addNewBoard">Add</BButton>
+                            </div>
+                        </div>
+                    </BRow>
+                </b-form>
+            </BModal>
 
         </template>
     </Index>

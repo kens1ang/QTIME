@@ -1,34 +1,64 @@
 <script>
-
 import Index from '../sharedIndex.vue';
+import breadcrumbs from '@/components/breadcrumbs.vue';
+import Swal from "sweetalert2";
 
 export default {
-    components: {
-        Index,
-    },
     data () {
         return {
             title: 'User Management',
+            breadcrumbs: [
+                { name: 'Management', link: '/project/index' },
+                { name: 'System User', link: '/system-user/user-management' },
+                { name: 'User Management', link: '/system-user/user-management' }
+            ],
+            modaltoAdd: false,
+            modalTitle: 'Add User', // Initial title for the modal
+        }
+    },
+    components: {
+        Index,
+        breadcrumbs,
+    },
+    methods: {
+        deleteAlert() {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#34c38f",
+                cancelButtonColor: "#f46a6a",
+                confirmButtonText: "Yes, delete it!",
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire("Deleted!", "Your file has been deleted.", "success");
+                }
+            });
+        },
+        showModal(isEdit) {
+            if (isEdit) {
+                this.modalTitle = 'Edit User';
+            } else {
+                this.modalTitle = 'Add User';
+            }
+            this.modaltoAdd = true;
         }
     }
 };
-
 </script>
 
 <template>
     <Index>
         <template v-slot:content>
 
-            <h1 style="font-size: 20px;">{{ title }}</h1>
-
-            <BBreadcrumb class="breadcrumb">
-                <BBreadcrumbItem router-link to="/project/index"> Management </BBreadcrumbItem>
-                <BBreadcrumbItem router-link to="/system-user/user-management"> System User </BBreadcrumbItem>
-                <BBreadcrumbItem router-link to="/system-user/user-management"> {{ title }} </BBreadcrumbItem>
-            </BBreadcrumb>
+            <div class="d-sm-flex align-items-center justify-content-between">
+                <h1 style="font-size: 25px;">{{ title }}</h1>
+                <breadcrumbs :pages="breadcrumbs" />
+            </div>
 
             <!-- Filter -->
-            <BRow class="mt-3">
+            <!-- <BRow class="mt-3">
                 <BCol xl="2" lg="2" md="2">
                     <div>
                         <label for="placeholderInput" class="form-label">Name</label>
@@ -93,20 +123,26 @@ export default {
                     <button type="button" class="btn btn-outline-success waves-effect waves-light material-shadow-none" style="margin-left: 10px;">Reset</button>
                 </BCol> 
 
-            </BRow>
+            </BRow> -->
 
             <!-- Table -->
-            <div class="card-body" style="margin-bottom: 30px;">
+            <div class="card-body" style="margin-bottom: 30px; margin-top: 30px;">
                 <div class="listjs-table" id="customerList">
                     <div class="row g-4 mb-3">
                         <div class="col-sm-auto">
-                            <div>
-                                <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal" style="margin-right: 10px;">
-                                    <i class="ri-add-line align-bottom me-1"></i> Add
-                                </button>
-                                <button class="btn btn-soft-danger" onClick="deleteMultiple()">
-                                    <i class="ri-delete-bin-2-line"></i>
-                                </button>
+                            <button type="button" class="btn btn-soft-primary waves-effect waves-light material-shadow-none" @click="showModal(false)" style="margin-right: 10px;">
+                                <i class="ri-add-line align-bottom me-1"></i> Add User
+                            </button>
+                            <button class="btn btn-soft-danger" @click="deleteAlert">
+                                <i class="ri-delete-bin-2-line"></i>
+                            </button>
+                        </div>
+                        <div class="col-sm">
+                            <div class="d-flex justify-content-sm-end">
+                                <div class="search-box ms-2">
+                                    <input type="text" class="form-control search" placeholder="Search...">
+                                    <i class="ri-search-line search-icon"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -122,13 +158,13 @@ export default {
                                     </th>
                                     <th class="sort" data-sort="name">Name</th>
                                     <th class="sort" data-sort="username">Username</th>
-                                    <th class="sort" data-sort="password">Password</th>
+                                    <th>Password</th>
                                     <th class="sort" data-sort="email">Email</th>
-                                    <th class="sort" data-sort="accesslevel">Access</th>
-                                    <th class="sort" data-sort="mobileaccess">Mobile</th>
-                                    <th class="sort" data-sort="staffcode">Staff Code</th>
+                                    <th>Access</th>
+                                    <th>Mobile</th>
+                                    <th>QAward</th>
+                                    <th>Staff Code</th>
                                     <th>Actions</th>
-                                    <!-- <th><i style="font-size: 20px;" class='bx bxs-cog' ></i></th> -->
                                 </tr>
                             </thead>
                             <tbody class="list form-check-all">
@@ -147,135 +183,15 @@ export default {
                                     <td class="email">abdulrahman@metrio.com.my</td>
                                     <td class="accesslevel">Site</td>
                                     <td class="mobileaccess">Yes</td>
+                                    <td class="qawardaccess">Yes</td>
                                     <td class="staffcode">000117</td>
                                     <td>
                                         <div class="d-flex gap-2">
-                                            <!-- <div class="edit">
-                                                <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
+                                            <div class="edit">
+                                                <button class="btn btn-sm btn-success edit-item-btn" @click="showModal(true)">Edit</button>
                                             </div>
                                             <div class="remove">
-                                                <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
-                                            </div> -->
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm  dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i style="font-size: 20px;" class="bx bx-dots-vertical-rounded"></i>
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item">Edit</a>
-                                                    <a class="dropdown-item">Remove</a>
-                                                    <a class="dropdown-item">Details</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                        </div>
-                                    </th>
-                                    <td class="id" style="display:none;">
-                                        <a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a>
-                                    </td>
-                                    <td class="name">ABDUL RAHMAN BIN SAFARUDIN</td>
-                                    <td class="username">abdulrahman</td>
-                                    <td class="password">***********</td>
-                                    <td class="email">abdulrahman@metrio.com.my</td>
-                                    <td class="accesslevel">Site</td>
-                                    <td class="mobileaccess">Yes</td>
-                                    <td class="staffcode">000117</td>
-                                    <td>
-                                        <div class="d-flex gap-2">
-                                            <!-- <div class="edit">
-                                                <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
-                                            </div>
-                                            <div class="remove">
-                                                <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
-                                            </div> -->
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm  dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i style="font-size: 20px;" class="bx bx-dots-vertical-rounded"></i>
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Remove</a>
-                                                    <a class="dropdown-item" href="#">Details</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                        </div>
-                                    </th>
-                                    <td class="id" style="display:none;">
-                                        <a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a>
-                                    </td>
-                                    <td class="name">ABDUL RAHMAN BIN SAFARUDIN</td>
-                                    <td class="username">abdulrahman</td>
-                                    <td class="password">***********</td>
-                                    <td class="email">abdulrahman@metrio.com.my</td>
-                                    <td class="accesslevel">Site</td>
-                                    <td class="mobileaccess">Yes</td>
-                                    <td class="staffcode">000117</td>
-                                    <td>
-                                        <div class="d-flex gap-2">
-                                            <!-- <div class="edit">
-                                                <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
-                                            </div>
-                                            <div class="remove">
-                                                <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
-                                            </div> -->
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm  dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i style="font-size: 20px;" class="bx bx-dots-vertical-rounded"></i>
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Remove</a>
-                                                    <a class="dropdown-item" href="#">Details</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                        </div>
-                                    </th>
-                                    <td class="id" style="display:none;">
-                                        <a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a>
-                                    </td>
-                                    <td class="name">ABDUL RAHMAN BIN SAFARUDIN</td>
-                                    <td class="username">abdulrahman</td>
-                                    <td class="password">***********</td>
-                                    <td class="email">abdulrahman@metrio.com.my</td>
-                                    <td class="accesslevel">Site</td>
-                                    <td class="mobileaccess">Yes</td>
-                                    <td class="staffcode">000117</td>
-                                    <td>
-                                        <div class="d-flex gap-2">
-                                            <!-- <div class="edit">
-                                                <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
-                                            </div>
-                                            <div class="remove">
-                                                <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteRecordModal">Remove</button>
-                                            </div> -->
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm  dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i style="font-size: 20px;" class="bx bx-dots-vertical-rounded"></i>
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#">Edit</a>
-                                                    <a class="dropdown-item" href="#">Remove</a>
-                                                    <a class="dropdown-item" href="#">Details</a>
-                                                </div>
+                                                <button class="btn btn-sm btn-danger remove-item-btn" @click="deleteAlert">Remove</button>
                                             </div>
                                         </div>
                                     </td>
@@ -304,6 +220,47 @@ export default {
                     </div>
                 </div>
             </div>
+
+            <BModal v-model="modaltoAdd" :title="modalTitle" header-class="p-3 bg-info-subtle" content-class="border-0" hide-footer
+                class="v-modal-custom" centered no-close-on-backdrop no-fade>
+                <b-form action="#">
+                    <BRow>
+                        <BCol lg="12">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="boardName" placeholder="Enter name">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="boardName" placeholder="Enter username">
+                            <label for="paswword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="boardName" placeholder="Enter password">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="boardName" placeholder="Enter email">
+                            <label for="staffcode" class="form-label">Staff Code</label>
+                            <input type="text" class="form-control" id="boardName" placeholder="Enter code">
+                            <label for="accesslevel">Access Level</label>
+                            <select class="form-select mb-3">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                            <label for="mobileaccess">Mobile Access</label>
+                            <select class="form-select mb-3">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                            <label for="qawardaccess">QAward Access</label>
+                            <select class="form-select mb-3">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </BCol>
+                        <div class="mt-4">
+                            <div class="hstack gap-2 justify-content-end">
+                                <BButton type="button" variant="light" @click="modaltoAdd = false">Cancel</BButton>
+                                <BButton type="button" variant="success" id="addNewBoard">Apply</BButton>
+                            </div>
+                        </div>
+                    </BRow>
+                </b-form>
+            </BModal>
 
         </template>
     </Index>
