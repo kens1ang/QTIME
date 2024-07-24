@@ -14,8 +14,6 @@ export default {
 };
 </script>
 
-
-
 <template>
   <BRow>
     <BCol cols="12"> 

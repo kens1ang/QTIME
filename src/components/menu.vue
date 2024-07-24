@@ -217,7 +217,7 @@ export default {
         
         <!-- Dashboards -->
         <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/widgets">
+          <router-link class="nav-link menu-link" to="/">
             <HomeIcon width="24" height="24" />
             <span data-key="t-widgets">{{ $t("Dashboard") }}</span>
           </router-link>
@@ -281,7 +281,7 @@ export default {
 
         <!-- Logout -->
         <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/widgets">
+          <router-link class="nav-link menu-link" to="/logout">
             <LogOutIcon width="24" height="24" />
             <span data-key="t-widgets">{{ $t("Log out") }}</span>
           </router-link>

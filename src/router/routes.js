@@ -66,6 +66,15 @@ export default [
     component: () => import("../views/management/system-user/poster-portal.vue"),
   },
   {
+    path: "/system-user/backup-database",
+    name: "backup-database",
+    meta: {
+      title: "Backup Database",
+      authRequired: true,
+    },
+    component: () => import("../views/management/system-user/backup-database.vue"),
+  },
+  {
     path: "/",
     name: "default",
     meta: {
