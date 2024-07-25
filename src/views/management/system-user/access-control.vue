@@ -1,13 +1,10 @@
 <script>
-
+import { reactive } from 'vue';
 import Index from '../sharedIndex.vue';
-import breadcrumbs from '../../../components/breadcrumbs.vue';
+import breadcrumbs from '@/components/breadcrumbs.vue';
+import Swal from "sweetalert2";
 
 export default {
-    components: {
-        Index,
-        breadcrumbs
-    },
     data () {
         return {
             title: 'Access Control',
@@ -17,16 +14,39 @@ export default {
                 { name: "Access Control", link: "/system-user/access-control" },
             ],
             modaltoAdd: false,
+            collapsedRows: reactive({}),
+        };
+    },
+    components: {
+        Index,
+        breadcrumbs,
+    },
+    methods: {
+        toggleRow(rowId) {
+            if (this.collapsedRows[rowId]) {
+                delete this.collapsedRows[rowId];
+            } else {
+                this.collapsedRows[rowId] = true;
+            }
+        },
+        deleteAlert() {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#34c38f",
+                cancelButtonColor: "#f46a6a",
+                confirmButtonText: "Yes, delete it!",
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire("Deleted!", "Your file has been deleted.", "success");
+                }
+            });
         }
     }
 };
 
-document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(button => {
-    button.addEventListener('click', () => {
-        const target = document.querySelector(button.getAttribute('data-bs-target'));
-        target.classList.toggle('show');
-    });
-});
 </script>
 
 <template>
@@ -34,7 +54,7 @@ document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(button => {
         <template v-slot:content>
             
             <div class="d-sm-flex align-items-center justify-content-between">
-                <h1 style="font-size: 25px;">{{ title }}</h1>
+                <h1 style="font-size: 25px; margin-top: 5px">{{ title }}</h1>
                 <breadcrumbs :pages="breadcrumbs" />
             </div>
 
@@ -43,7 +63,7 @@ document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(button => {
                 <div class="listjs-table" id="customerList">
                     <div class="row g-4 mb-3">
                         <div class="col-sm-auto">
-                            <button type="button" class="btn btn-soft-primary waves-effect waves-light material-shadow-none" @click="showModal(false)" style="margin-right: 10px;">
+                            <button type="button" class="btn btn-soft-primary waves-effect waves-light material-shadow-none" @click="modaltoAdd = !modaltoAdd" style="margin-right: 10px;">
                                 <i class="ri-add-line align-bottom me-1"></i> Add Permission
                             </button>
                             <button class="btn btn-soft-danger" @click="deleteAlert">
@@ -60,7 +80,7 @@ document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(button => {
                         </div>
                     </div>
                     <div class="table-responsive table-card mt-3 mb-1" style="max-height: 500px; overflow: auto;">
-                        <table class="table align-middle table-nowrap" id="customerTable">
+                        <table class="table align-middle table-nowrap" id="tabularPermission">
                             <thead class="table-light">
                                 <tr>
                                     <th></th>
@@ -81,123 +101,123 @@ document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(button => {
                                 </tr>
                             </thead>
                             <tbody class="list form-check-all">
-                                <tr data-toggle="collapse" data-target="#row1">
-                                    <td>
-                                        <button type="button" class="btn btn-sm" data-bs-toggle="collapse" data-bs-target="#collapseRow1" aria-expanded="false" aria-controls="collapseRow1">
-                                            <i style="font-size: 20px;" class='bx bx-chevron-down' ></i>
+                                <tr>
+                                    <td @click="toggleRow('row1')" :class="{'collapsed': collapsedRows['row1']}">
+                                        <button type="button" class="btn btn-sm" aria-expanded="false">
+                                            <i style="font-size: 20px;" :class="collapsedRows['row1'] ? 'bx bx-chevron-up' : 'bx bx-chevron-down'"></i>
                                         </button>
                                     </td>
                                     <td>
                                         Attendance
                                     </td>
                                     <td>
-                                        <div class="form-check form-check-outline form-check-success mb-3">
+                                        <div class="form-check form-check-outline form-check-success">
                                             <input class="form-check-input" type="checkbox" id="formCheck15" checked>
                                             <label class="form-check-label" for="formCheck15">
                                             </label>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="form-check form-check-outline form-check-success mb-3">
+                                        <div class="form-check form-check-outline form-check-success">
                                             <input class="form-check-input" type="checkbox" id="formCheck15" checked>
                                             <label class="form-check-label" for="formCheck15">
                                             </label>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="form-check form-check-outline form-check-success mb-3">
+                                        <div class="form-check form-check-outline form-check-success">
                                             <input class="form-check-input" type="checkbox" id="formCheck15" checked>
                                             <label class="form-check-label" for="formCheck15">
                                             </label>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="form-check form-check-outline form-check-success mb-3">
+                                        <div class="form-check form-check-outline form-check-success">
                                             <input class="form-check-input" type="checkbox" id="formCheck15" checked>
                                             <label class="form-check-label" for="formCheck15">
                                             </label>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="form-check form-check-outline form-check-success mb-3">
+                                        <div class="form-check form-check-outline form-check-success">
                                             <input class="form-check-input" type="checkbox" id="formCheck15" checked>
                                             <label class="form-check-label" for="formCheck15">
                                             </label>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="form-check form-check-outline form-check-success mb-3">
+                                        <div class="form-check form-check-outline form-check-success">
                                             <input class="form-check-input" type="checkbox" id="formCheck15" checked>
                                             <label class="form-check-label" for="formCheck15">
                                             </label>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="form-check form-check-outline form-check-success mb-3">
+                                        <div class="form-check form-check-outline form-check-success">
                                             <input class="form-check-input" type="checkbox" id="formCheck15" checked>
                                             <label class="form-check-label" for="formCheck15">
                                             </label>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="form-check form-check-outline form-check-success mb-3">
+                                        <div class="form-check form-check-outline form-check-success">
                                             <input class="form-check-input" type="checkbox" id="formCheck15" checked>
                                             <label class="form-check-label" for="formCheck15">
                                             </label>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="form-check form-check-outline form-check-success mb-3">
+                                        <div class="form-check form-check-outline form-check-success">
                                             <input class="form-check-input" type="checkbox" id="formCheck15" checked>
                                             <label class="form-check-label" for="formCheck15">
                                             </label>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="form-check form-check-outline form-check-success mb-3">
+                                        <div class="form-check form-check-outline form-check-success">
                                             <input class="form-check-input" type="checkbox" id="formCheck15" checked>
                                             <label class="form-check-label" for="formCheck15">
                                             </label>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="form-check form-check-outline form-check-success mb-3">
+                                        <div class="form-check form-check-outline form-check-success">
                                             <input class="form-check-input" type="checkbox" id="formCheck15" checked>
                                             <label class="form-check-label" for="formCheck15">
                                             </label>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="form-check form-check-outline form-check-success mb-3">
+                                        <div class="form-check form-check-outline form-check-success">
                                             <input class="form-check-input" type="checkbox" id="formCheck15" checked>
                                             <label class="form-check-label" for="formCheck15">
                                             </label>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="form-check form-check-outline form-check-success mb-3">
+                                        <div class="form-check form-check-outline form-check-success">
                                             <input class="form-check-input" type="checkbox" id="formCheck15" checked>
                                             <label class="form-check-label" for="formCheck15">
                                             </label>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr id="collapseRow1" class="collapse">
+                                <tr v-show="collapsedRows['row1']" class="collapseRow">
                                     <td></td>
                                     <td colspan="1">Edit Attendance</td>
-                                    <td><div class="form-check form-check-outline form-check-success mb-3"><input class="form-check-input" type="checkbox" id="formCheck1" checked></div></td>
-                                    <td><div class="form-check form-check-outline form-check-success mb-3"><input class="form-check-input" type="checkbox" id="formCheck2" checked></div></td>
-                                    <td><div class="form-check form-check-outline form-check-success mb-3"><input class="form-check-input" type="checkbox" id="formCheck3" checked></div></td>
-                                    <td><div class="form-check form-check-outline form-check-success mb-3"><input class="form-check-input" type="checkbox" id="formCheck4" checked></div></td>
-                                    <td><div class="form-check form-check-outline form-check-success mb-3"><input class="form-check-input" type="checkbox" id="formCheck5" checked></div></td>
-                                    <td><div class="form-check form-check-outline form-check-success mb-3"><input class="form-check-input" type="checkbox" id="formCheck6" checked></div></td>
-                                    <td><div class="form-check form-check-outline form-check-success mb-3"><input class="form-check-input" type="checkbox" id="formCheck7" checked></div></td>
-                                    <td><div class="form-check form-check-outline form-check-success mb-3"><input class="form-check-input" type="checkbox" id="formCheck8" checked></div></td>
-                                    <td><div class="form-check form-check-outline form-check-success mb-3"><input class="form-check-input" type="checkbox" id="formCheck9" checked></div></td>
-                                    <td><div class="form-check form-check-outline form-check-success mb-3"><input class="form-check-input" type="checkbox" id="formCheck10" checked></div></td>
-                                    <td><div class="form-check form-check-outline form-check-success mb-3"><input class="form-check-input" type="checkbox" id="formCheck11" checked></div></td>
-                                    <td><div class="form-check form-check-outline form-check-success mb-3"><input class="form-check-input" type="checkbox" id="formCheck12" checked></div></td>
-                                    <td><div class="form-check form-check-outline form-check-success mb-3"><input class="form-check-input" type="checkbox" id="formCheck13" checked></div></td>
+                                    <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck1" checked></div></td>
+                                    <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck2" checked></div></td>
+                                    <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck3" checked></div></td>
+                                    <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck4" checked></div></td>
+                                    <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck5" checked></div></td>
+                                    <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck6" checked></div></td>
+                                    <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck7" checked></div></td>
+                                    <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck8" checked></div></td>
+                                    <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck9" checked></div></td>
+                                    <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck10" checked></div></td>
+                                    <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck11" checked></div></td>
+                                    <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck12" checked></div></td>
+                                    <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck13" checked></div></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -205,24 +225,24 @@ document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(button => {
                 </div>
             </div>
 
-            <BModal v-model="modaltoAdd" header-class="p-3 bg-info-subtle" content-class="border-0" hide-footer
-                title="Add New Permission" class="v-modal-custom" centered no-close-on-backdrop no-fade>
-                <b-form action="#">
-                    <BRow>
-                        <BCol lg="12">
+            <BModal v-model="modaltoAdd" modal-class="zoomIn" header-class="p-3 bg-primary-subtle" content-class="border-0" hide-footer
+                title="Create Permission" class="v-modal-custom" centered no-close-on-backdrop no-fade>
+                <BForm action="#">
+                    <BRow class="g-3">
+                        <BCol lg="6">
                             <label for="module" class="form-label">Module</label>
                             <input type="text" class="form-control" id="boardName" placeholder="Enter module">
+                        </BCol>
+                        <BCol lg="6">
                             <label for="permission" class="form-label">Permission</label>
                             <input type="text" class="form-control" id="boardName" placeholder="Enter permission">
                         </BCol>
-                        <div class="mt-4">
-                            <div class="hstack gap-2 justify-content-end">
-                                <BButton type="button" variant="light" @click="modaltoAdd = false">Cancel</BButton>
-                                <BButton type="button" variant="success" id="addNewBoard">Add</BButton>
-                            </div>
+                        <div class="hstack gap-2 justify-content-end">
+                            <BButton type="button" variant="ghost-success" @click="modaltoAdd = false"><i class="ri-close-line align-bottom"></i>Cancel</BButton>
+                            <BButton type="submit" variant="primary" id="addNewBoard">Create</BButton>
                         </div>
                     </BRow>
-                </b-form>
+                </BForm>        
             </BModal>
 
         </template>

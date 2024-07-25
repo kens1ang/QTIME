@@ -15,7 +15,7 @@ export default {
     },
     titleText() {
       Swal.fire("The Internet?", "That thing is still around?", "question");
-    },
+    },  
     successmsg() {
       Swal.fire("Good job!", "You clicked the button!", "success");
     },

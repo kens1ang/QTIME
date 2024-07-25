@@ -13,7 +13,7 @@ export default {
                 { name: 'User Management', link: '/system-user/user-management' }
             ],
             modaltoAdd: false,
-            modalTitle: 'Add User', // Initial title for the modal
+            modalTitle: 'Add User', 
         }
     },
     components: {
@@ -53,7 +53,7 @@ export default {
         <template v-slot:content>
 
             <div class="d-sm-flex align-items-center justify-content-between">
-                <h1 style="font-size: 25px;">{{ title }}</h1>
+                <h1 style="font-size: 25px; margin-top: 5px">{{ title }}</h1>
                 <breadcrumbs :pages="breadcrumbs" />
             </div>
 
@@ -221,46 +221,60 @@ export default {
                 </div>
             </div>
 
-            <BModal v-model="modaltoAdd" :title="modalTitle" header-class="p-3 bg-info-subtle" content-class="border-0" hide-footer
-                class="v-modal-custom" centered no-close-on-backdrop no-fade>
-                <b-form action="#">
-                    <BRow>
-                        <BCol lg="12">
+            <BModal v-model="modaltoAdd" modal-class="zoomIn" :title="modalTitle" title-class="exampleModalLabel" header-class="p-3 bg-primary-subtle" content-class="border-0" hide-footer
+                class="v-modal-custom" centered no-close-on-backdrop no-fade size="lg">
+                <b-form action="#" class="tablelist-form">
+                    <BRow class="g-3">
+                        <BCol lg="6">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" class="form-control" id="boardName" placeholder="Enter name">
+                        </BCol>
+                        <BCol lg="6"> 
                             <label for="username" class="form-label">Username</label>
                             <input type="text" class="form-control" id="boardName" placeholder="Enter username">
+                        </BCol>
+                        <BCol lg="6"> 
                             <label for="paswword" class="form-label">Password</label>
                             <input type="password" class="form-control" id="boardName" placeholder="Enter password">
+                        </BCol>
+                        <BCol lg="6">     
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="boardName" placeholder="Enter email">
+                        </BCol>
+                        <BCol lg="6">     
                             <label for="staffcode" class="form-label">Staff Code</label>
                             <input type="text" class="form-control" id="boardName" placeholder="Enter code">
-                            <label for="accesslevel">Access Level</label>
-                            <select class="form-select mb-3">
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                            <label for="mobileaccess">Mobile Access</label>
-                            <select class="form-select mb-3">
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                            <label for="qawardaccess">QAward Access</label>
-                            <select class="form-select mb-3">
+                        </BCol>
+                        <BCol lg="6">     
+                            <label for="accesslevel" class="form-label">Access Level</label>
+                            <select class="form-select">
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
                         </BCol>
-                        <div class="mt-4">
+                        <BCol lg="6"> 
+                            <label for="mobileaccess">Mobile Access</label>
+                            <select class="form-select">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </BCol>
+                        <BCol lg="6"> 
+                            <label for="qawardaccess">QAward Access</label>
+                            <select class="form-select">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </BCol>
+                        <div class="modal-footer v-modal-footer">
                             <div class="hstack gap-2 justify-content-end">
                                 <BButton type="button" variant="light" @click="modaltoAdd = false">Cancel</BButton>
-                                <BButton type="button" variant="success" id="addNewBoard">Apply</BButton>
+                                <BButton type="submit" variant="success" id="addNewBoard">Apply</BButton>
                             </div>
                         </div>
                     </BRow>
                 </b-form>
-            </BModal>
+            </BModal> 
 
         </template>
     </Index>
