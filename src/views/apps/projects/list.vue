@@ -186,7 +186,7 @@ export default {
       </BCol>
     </BRow>
 
-    <BRow>
+    <BRow>  
       <BCol xxl="3" sm="6" class="project-card" v-for="( item, index ) of  projectListWidgets2 " :key="index">
         <BCard no-body>
           <BCardBody>

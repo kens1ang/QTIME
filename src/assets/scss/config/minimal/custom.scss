@@ -35,8 +35,9 @@ File: Custom Css File
   visibility: hidden;
   opacity: 0;
   position: absolute;
-  background-color: #E6F1E4;
+  background-color: #ffffff;
   z-index: 1;
+  box-shadow: $box-shadow-lg;
 }
 
 ul.submenu {
