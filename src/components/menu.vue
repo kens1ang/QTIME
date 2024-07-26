@@ -287,6 +287,14 @@ export default {
           </router-link>
         </li>
 
+        <!-- Template -->
+        <li class="nav-item">
+          <router-link class="nav-link menu-link" to="/template">
+            <ClipboardIcon width="24" height="24" />
+            <span data-key="t-widgets">{{ $t("Template") }}</span>
+          </router-link>
+        </li>
+
       </ul>
     </template>
   </BContainer>

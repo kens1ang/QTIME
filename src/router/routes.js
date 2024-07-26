@@ -81,7 +81,7 @@ export default [
       title: "Dashboard",
       authRequired: true,
     },
-    component: () => import("../views/dashboard/ecommerce/index.vue"),
+    component: () => import("../views/dashboard/project-insight.vue"),
   },
   {
     path: "/dashboard/crypto",
