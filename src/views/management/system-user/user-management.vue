@@ -28,8 +28,12 @@ export default {
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#34c38f",
-                cancelButtonColor: "#f46a6a",
                 confirmButtonText: "Yes, delete it!",
+                cancelButtonColor: "#f46a6a",
+                customClass: {
+                    confirmButton: 'order-confirm-button',
+                    cancelButton: 'order-cancel-button'
+                }
             }).then((result) => {
                 if (result.value) {
                     Swal.fire("Deleted!", "Your file has been deleted.", "success");

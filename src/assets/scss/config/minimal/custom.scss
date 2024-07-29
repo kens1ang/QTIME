@@ -127,6 +127,20 @@ ul.submenu {
   object-fit: cover;
 }
 
+.swal2-confirm.order-confirm-button {
+  order: 2; 
+}
+
+.swal2-cancel.order-cancel-button {
+  order: 1; 
+}
+
+.swal2-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
 // End of Custom CSS
 
 .flatpickr-calendar {
