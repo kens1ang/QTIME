@@ -81,7 +81,16 @@ export default [
       title: "Dashboard",
       authRequired: true,
     },
-    component: () => import("../views/dashboard/project-insight/project-insight.vue"),
+    component: () => import("../views/dashboard/project-insight/index.vue"),
+  },
+  {
+    path: "/dashboard/project-progress-budget",
+    name: "project-progress-budget",
+    meta: {
+      title: "Project Progress & Budget",
+      authRequired: true,
+    },
+    component: () => import("../views/dashboard/project-progress-budget/index.vue"),
   },
   {
     path: "/dashboard/crypto",

@@ -154,7 +154,6 @@ export default {
       }
     },
 
-   
     removeActivation(items) {
       items.forEach((item) => {
         if (item.classList.contains("menu-link")) {
@@ -223,7 +222,7 @@ export default {
 
         <!-- Attendance -->
         <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/widgets">
+          <router-link class="nav-link menu-link" to="/">
             <BriefcaseIcon width="24" height="24" />
             <span data-key="t-widgets">{{ $t("Attendance") }}</span>
           </router-link>
@@ -239,7 +238,7 @@ export default {
 
         <!-- Task Management -->
         <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/widgets">
+          <router-link class="nav-link menu-link" to="/">
             <ClipboardIcon width="24" height="24" />
             <span data-key="t-widgets">{{ $t("Task Management") }}</span>
           </router-link>
@@ -247,7 +246,7 @@ export default {
 
         <!-- Machinery -->
         <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/widgets">
+          <router-link class="nav-link menu-link" to="/">
             <ToolIcon width="24" height="24" />
             <span data-key="t-widgets">{{ $t("Machinery") }}</span>
           </router-link>
@@ -255,7 +254,7 @@ export default {
         
         <!-- Reporting -->
         <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/widgets">
+          <router-link class="nav-link menu-link" to="/">
             <BarChartIcon width="24" height="24" />
             <span data-key="t-widgets">{{ $t("Reporting") }}</span>
           </router-link>
@@ -263,7 +262,7 @@ export default {
 
         <!-- Cuztomization -->
         <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/widgets">
+          <router-link class="nav-link menu-link" to="/">
             <Edit3Icon width="24" height="24" />
             <span data-key="t-widgets">{{ $t("Cuztomization") }}</span>
           </router-link>
@@ -271,7 +270,7 @@ export default {
 
         <!-- System -->
         <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/widgets">
+          <router-link class="nav-link menu-link" to="/">
             <GridIcon width="24" height="24" />
             <span data-key="t-widgets">{{ $t("System") }}</span>
           </router-link>

@@ -5,11 +5,11 @@ export default {
   setup() {
     return {
       series: [{
-        name: "Revenue",
+        name: "Actual",
         data: [20, 25, 30, 35, 40, 55, 70, 110, 150, 180, 210, 250],
       },
       {
-        name: "Expenses",
+        name: "Planned",
         data: [12, 17, 45, 42, 24, 35, 42, 75, 102, 108, 156, 199],
       },
       ],
@@ -65,9 +65,9 @@ export default {
 </script>
 
 <template>
-  <BCard no-body class="card-height-100">
+  <BCard no-body class="card-height-80">
     <BCardHeader class="align-items-center d-flex py-0">
-      <BCardTitle class="mb-0 flex-grow-1">Balance Overview</BCardTitle>
+      <BCardTitle class="mb-0 flex-grow-1">Budget Overview</BCardTitle>
       <div class="flex-shrink-0">
         <BDropdown variant="link" class="card-header-dropdown" toggle-class="text-reset dropdown-btn arrow-none"
           menu-class="dropdown-menu-end" aria-haspopup="true" :offset="{ alignmentAxis: -3, crossAxis: 0, mainAxis: 0 }">
@@ -85,19 +85,19 @@ export default {
       <ul class="list-inline main-chart text-center mb-0">
         <li class="list-inline-item chart-border-left me-0 border-0">
           <h4 class="text-primary">
-            $584k
-            <span class="text-muted d-inline-block fs-13 align-middle ms-2">Revenue</span>
+            $2.04M
+            <span class="text-muted d-inline-block fs-13 align-middle ms-2">Actual</span>
           </h4>
         </li>
         <li class="list-inline-item chart-border-left me-0">
           <h4>
-            $497k<span class="text-muted d-inline-block fs-13 align-middle ms-2">Expenses</span>
+            $3.63M<span class="text-muted d-inline-block fs-13 align-middle ms-2">Planned</span>
           </h4>
         </li>
         <li class="list-inline-item chart-border-left me-0">
           <h4>
-            <span data-plugin="counterup">3.6</span>%<span
-              class="text-muted d-inline-block fs-13 align-middle ms-2">Profit Ratio</span>
+            <span data-plugin="counterup">56.11</span>%<span
+              class="text-muted d-inline-block fs-13 align-middle ms-2">Utilized</span>
           </h4>
         </li>
       </ul>
