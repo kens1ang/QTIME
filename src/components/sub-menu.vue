@@ -49,8 +49,8 @@ export default {
         return 'Ecommerce';
       }else if (path.startWith('/crypto/')){
         return 'Crypto';
-      }else if (path.startWith('/tables/')){
-        return 'Table';
+      }else if (path.startWith('/system/')){
+        return 'System';
       }
       return 'No Title'; 
     },

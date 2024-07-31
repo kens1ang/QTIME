@@ -214,7 +214,7 @@ export default {
           <a class="nav-link menu-link">
             <HomeIcon width="24" height="24" />
             <span data-key="t-dashboards" class="Menuspan">
-              <router-link :to="{ name: 'dashboard-analytics' }" class="MenuText">{{ $t('Dashboard') }}</router-link>
+              <router-link :to="{ name: 'default' }" class="MenuText">{{ $t('Dashboard') }}</router-link>
             </span>
           </a>
         </li>

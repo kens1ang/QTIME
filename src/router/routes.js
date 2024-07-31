@@ -87,8 +87,10 @@ export default [
     meta: { title: "Schedule", authRequired: true },
     component: () => import("../views/system/maintenance/schedule.vue"),
   },
+
+  // Dashboard Folder
   {
-    path: "/",
+    path: "/dashboard/project-insight",
     name: "default",
     meta: {
       title: "Dashboard",
