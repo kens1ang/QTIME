@@ -5,24 +5,22 @@ import {
 import {
   HomeIcon,
   GridIcon,
-  UsersIcon,
-  ClipboardIcon,
-  ToolIcon,
-  BarChartIcon,
-  Edit3Icon,
-  BriefcaseIcon,
+  FileTextIcon,
+  DatabaseIcon,
+  PieChartIcon,
+  ArchiveIcon,
+  LayersIcon
 } from "@zhuowenli/vue-feather-icons";
 
 export default {
   components: {
     HomeIcon,
     GridIcon,
-    UsersIcon,
-    ClipboardIcon,
-    ToolIcon,
-    BarChartIcon,
-    Edit3Icon,
-    BriefcaseIcon,
+    FileTextIcon,
+    DatabaseIcon,
+    PieChartIcon,
+    ArchiveIcon,
+    LayersIcon
   },
   data() {
     return {
@@ -209,73 +207,65 @@ export default {
 
 <template>
   <BContainer fluid>
+    <div id="two-column-menu"></div>
     <template v-if="layoutType === 'vertical'">
       <ul class="navbar-nav h-100" id="navbar-nav">
-        
-        <!-- Dashboards -->
         <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/">
+          <a class="nav-link menu-link">
             <HomeIcon width="24" height="24" />
-            <span data-key="t-widgets">{{ $t("Dashboard") }}</span>
-          </router-link>
+            <span data-key="t-dashboards" class="Menuspan">
+              <router-link :to="{ name: 'dashboard-analytics' }" class="MenuText">{{ $t('Dashboard') }}</router-link>
+            </span>
+          </a>
         </li>
-
-        <!-- Attendance -->
         <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/">
-            <BriefcaseIcon width="24" height="24" />
-            <span data-key="t-widgets">{{ $t("Attendance") }}</span>
-          </router-link>
-        </li>
-
-        <!-- Management -->
-        <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/system-user/user-management">
-            <UsersIcon width="24" height="24" />
-            <span data-key="t-widgets">{{ $t("Management") }}</span>
-          </router-link>
-        </li>
-
-        <!-- Task Management -->
-        <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/">
-            <ClipboardIcon width="24" height="24" />
-            <span data-key="t-widgets">{{ $t("Task Management") }}</span>
-          </router-link>
-        </li>
-
-        <!-- Machinery -->
-        <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/">
-            <ToolIcon width="24" height="24" />
-            <span data-key="t-widgets">{{ $t("Machinery") }}</span>
-          </router-link>
-        </li>
-        
-        <!-- Reporting -->
-        <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/">
-            <BarChartIcon width="24" height="24" />
-            <span data-key="t-widgets">{{ $t("Reporting") }}</span>
-          </router-link>
-        </li>
-
-        <!-- Cuztomization -->
-        <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/">
-            <Edit3Icon width="24" height="24" />
-            <span data-key="t-widgets">{{ $t("Cuztomization") }}</span>
-          </router-link>
-        </li>
-
-        <!-- System -->
-        <li class="nav-item">
-          <router-link class="nav-link menu-link" to="/">
+          <a class="nav-link menu-link">
             <GridIcon width="24" height="24" />
-            <span data-key="t-widgets">{{ $t("System") }}</span>
-          </router-link>
+            <span data-key="t-apps" class="Menuspan">
+              <router-link :to="{ name: 'projects-list' }" class="MenuText">{{ $t('Attendance') }}</router-link>
+            </span>
+          </a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link menu-link">
+            <FileTextIcon width="24" height="24" />
+            <span data-key="t-invoices" class="Menuspan">
+              <router-link :to="{ name: 'invoice-list' }" class="MenuText">{{ $t('Task Management') }}</router-link>
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link menu-link">
+            <DatabaseIcon width="24" height="24" />
+            <span data-key="t-jobs" class="Menuspan">
+              <router-link :to="{ name: 'job-application' }" class="MenuText">{{ $t('Machinery') }}</router-link>
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link menu-link">
+            <PieChartIcon width="24" height="24" />
+            <span data-key="t-ecommerce" class="Menuspan">
+              <router-link :to="{ name: 'customers' }" class="MenuText">{{ $t('Reporting') }}</router-link>
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link menu-link">
+            <ArchiveIcon width="24" height="24" />
+            <span data-key="t-form" class="Menuspan">
+              <router-link :to="{ name: 'form-advanced' }" class="MenuText">{{ $t('Customization') }}</router-link>
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link menu-link">
+            <LayersIcon width="24" height="24" />
+            <span data-key="t-system" class="Menuspan">
+              <router-link :to="{ name: 'basic-system' }" class="MenuText">{{ $t('System') }}</router-link>
+            </span>
+          </a>
+        </li>
       </ul>
     </template>
   </BContainer>

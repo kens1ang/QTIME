@@ -2,7 +2,7 @@
 import router from "@/router";
 import simplebar from "simplebar-vue";
 import { layoutComputed } from "@/state/helpers";
-
+import SubMenu from "@/components/sub-menu.vue";
 import NavBar from "@/components/nav-bar";
 import Menu from "@/components/menu.vue";
 import RightBar from "@/components/right-bar";
@@ -16,7 +16,8 @@ export default {
     NavBar, 
     RightBar, 
     Menu, 
-    simplebar 
+    simplebar,
+    SubMenu 
   },
   data() {
     return {
@@ -160,6 +161,7 @@ export default {
       <div class="page-content">
         <!-- Start Content-->
         <BContainer fluid>
+          <SubMenu />
           <slot />
         </BContainer>
       </div>

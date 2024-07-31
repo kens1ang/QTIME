@@ -1,7 +1,6 @@
 <script>
 
 import Index from "@/views/dashboard/sharedIndex.vue";
-import breadcrumbs from "@/components/breadcrumbs.vue";
 import headcountOverview from "./headcount-overview.vue";
 import taskPlanning from "./headcount-category.vue";
 import upcomingPlan from "./upcoming-plan.vue";
@@ -11,15 +10,10 @@ export default {
     data() {
         return {
             title: "Project Insight",
-            breadcrumbs: [
-                { name: 'Dashboard', link: '/' },
-                { name: 'Project Insight', link: '/' },
-            ],
         }
     },
     components: {
         Index,
-        breadcrumbs,
         headcountOverview,
         taskPlanning,
         upcomingPlan,
@@ -37,7 +31,7 @@ export default {
                 <div class="d-flex align-items-center">
                     <h1 style="font-size: 25px; margin-top: 5px">{{ title }} AR496</h1>
                 </div>
-                <breadcrumbs :pages="breadcrumbs" />
+              
             </div>
 
             <BRow>

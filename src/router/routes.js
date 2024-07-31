@@ -38,41 +38,54 @@ export default [
       },
     },
   },
+  //System folder
   {
-    path: "/system-user/user-management",
-    name: "user-management",
-    meta: {
-      title: "User Management",
-      authRequired: true,
-    },
-    component: () => import("../views/management/system-user/user-management.vue"),
+    path: "/system/basic",
+    name: "basic-system",
+    meta: { title: "System", authRequired: true },
+    component: () => import("../views/system/basic"),
   },
   {
-    path: "/system-user/access-control",
+    path: "/system/access-control",
     name: "access-control",
-    meta: {
-      title: "Access Control",
-      authRequired: true,
-    },
-    component: () => import("../views/management/system-user/access-control.vue"),
+    meta: { title: "Access Permission", authRequired: true },
+    component: () => import("../views/system/admin/access-control.vue"),
   },
   {
-    path: "/system-user/poster-portal",
-    name: "poster-portal",
-    meta: {
-      title: "Poster Portal",
-      authRequired: true,
-    },
-    component: () => import("../views/management/system-user/poster-portal.vue"),
-  },
-  {
-    path: "/system-user/backup-database",
+    path: "/system/backup-database",
     name: "backup-database",
-    meta: {
-      title: "Backup Database",
-      authRequired: true,
-    },
-    component: () => import("../views/management/system-user/backup-database.vue"),
+    meta: { title: "Backup Database", authRequired: true },
+    component: () => import("../views/system/admin/backup-database.vue"),
+  },
+  {
+    path: "/system/poster-portal",
+    name: "poster-portal",
+    meta: { title: "Backup Database", authRequired: true },
+    component: () => import("../views/system/admin/poster-portal.vue"),
+  },
+  {
+    path: "/system/user-management",
+    name: "user-management",
+    meta: { title: "User Management", authRequired: true },
+    component: () => import("../views/system/admin/user-management.vue"),
+  },
+  {
+    path: "/system/company",
+    name: "company",
+    meta: { title: "Company", authRequired: true },
+    component: () => import("../views/system/maintenance/company.vue"),
+  },
+  {
+    path: "/system/project",
+    name: "project",
+    meta: { title: "Project", authRequired: true },
+    component: () => import("../views/system/maintenance/project.vue"),
+  },
+  {
+    path: "/system/schedule",
+    name: "schedule",
+    meta: { title: "Schedule", authRequired: true },
+    component: () => import("../views/system/maintenance/schedule.vue"),
   },
   {
     path: "/",
@@ -121,7 +134,7 @@ export default [
     path: "/dashboard/analytics",
     name: "dashboard-analytics",
     meta: {
-      title: "Analytics", authRequired: true,
+      title: "Project Insight", authRequired: true,
     },
     component: () => import("../views/dashboard/analytics/index"),
   },
@@ -259,7 +272,7 @@ export default [
   {
     path: "/apps/projects-list",
     name: "projects-list",
-    meta: { title: "Projects List", authRequired: true },
+    meta: { title: "Attendance Details", authRequired: true },
     component: () => import("../views/apps/projects/list"),
   },
   {
@@ -331,7 +344,7 @@ export default [
   {
     path: "/ecommerce/customers",
     name: "customers",
-    meta: { title: "Customers", authRequired: true },
+    meta: { title: "Reporting", authRequired: true },
     component: () => import("../views/apps/ecommerce/customers"),
   },
   {
@@ -433,7 +446,7 @@ export default [
   {
     path: "/invoices/list",
     name: "invoice-list",
-    meta: { title: "Invoice List", authRequired: true },
+    meta: { title: "Personal Task Dashboard", authRequired: true },
     component: () => import("../views/apps/invoices/list"),
   },
   {
@@ -445,7 +458,7 @@ export default [
   {
     path: "/jobs/application",
     name: "job-application",
-    meta: { title: "Job Application", authRequired: true },
+    meta: { title: "Machinery", authRequired: true },
     component: () => import("../views/apps/jobs/application"),
   },
   {
@@ -714,7 +727,7 @@ export default [
   {
     path: "/form/advanced",
     name: "form-advanced",
-    meta: { title: "Form Advance", authRequired: true },
+    meta: { title: "Customization", authRequired: true },
     component: () => import("../views/forms/advanced"),
   },
   {

@@ -361,20 +361,70 @@ export default {
             </BDropdownItem>
           </BDropdown>
 
-          <!-- Language -->
           <BDropdown class="dropdown" variant="ghost-secondary" dropstart
-            :offset="{ alignmentAxis: 55, crossAxis: 15, mainAxis: -50 }"
-            toggle-class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle arrow-none"
-            menu-class="dropdown-menu-end">
-            <template #button-content> <img id="header-lang-img" src="@/assets/images/flags/us.svg" alt="Header Language"
-                height="20" class="rounded">
+            :offset="{ alignmentAxis: 57, crossAxis: 0, mainAxis: -42 }"
+            toggle-class="btn-icon btn-topbar rounded-circle mode-layout ms-1 arrow-none"
+            menu-class="p-0 dropdown-menu-end">
+            <template #button-content>
+              <i class="bx bx-category-alt fs-22"></i>
             </template>
-            <BLink href="javascript:void(0);" class="dropdown-item notify-item language py-2"
-              v-for="(entry, key) in languages" :data-lang="entry.language" :title="entry.title"
-              @click="setLanguage(entry.language, entry.title, entry.flag)" :key="key">
-              <img :src="entry.flag" alt="user-image" class="me-2 rounded" height="18">
-              <span class="align-middle">{{ entry.title }}</span>
-            </BLink>
+            <div class="p-3 border-top-0 dropdown-head border-start-0 border-end-0 border-dashed border dropdown-menu-lg">
+              <BRow class="align-items-center">
+                <BCol>
+                  <h6 class="m-0 fw-semibold fs-15">Project List</h6>
+                </BCol>
+                <BCol cols="auto">
+                  <BLink href="#!" class="btn btn-sm btn-soft-info">
+                    View Project List
+                    <i class="ri-arrow-right-s-line align-middle"></i>
+                  </BLink>
+                </BCol>
+              </BRow>
+            </div>
+
+            <div class="p-2">
+              <BRow class="g-0">
+                <BCol>
+                  <BLink class="dropdown-icon-item" href="#!">
+                    <img src="@/assets/images/brands/slack.png" alt="Github" />
+                    <span>AR496</span>
+                  </BLink>
+                </BCol>
+                <BCol>
+                  <BLink class="dropdown-icon-item" href="#!">
+                    <img src="@/assets/images/brands/slack.png" alt="bitbucket" />
+                    <span>BH1-B3B4</span>
+                  </BLink>
+                </BCol>
+                <BCol>
+                  <BLink class="dropdown-icon-item" href="#!">
+                    <img src="@/assets/images/brands/slack.png" alt="dribbble" />
+                    <span>BKT22F</span>
+                  </BLink>
+                </BCol>
+              </BRow>
+
+              <BRow class="g-0">
+                <BCol>
+                  <BLink class="dropdown-icon-item" href="#!">
+                    <img src="@/assets/images/brands/slack.png" alt="dropbox" />
+                    <span>BKT2CH</span>
+                  </BLink>
+                </BCol>
+                <BCol>
+                  <BLink class="dropdown-icon-item" href="#!">
+                    <img src="@/assets/images/brands/slack.png" alt="mail_chimp" />
+                    <span>BKT2PS</span>
+                  </BLink>
+                </BCol>
+                <BCol>
+                  <BLink class="dropdown-icon-item" href="#!">
+                    <img src="@/assets/images/brands/slack.png" alt="slack" />
+                    <span>CS2</span>
+                  </BLink>
+                </BCol>
+              </BRow>
+            </div>
           </BDropdown>
 
           <!-- Fullscreen -->
