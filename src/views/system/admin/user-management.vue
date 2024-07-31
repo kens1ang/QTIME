@@ -4,6 +4,12 @@ import Layout from "@/layouts/main.vue";
 import PageHeader from "@/components/page-header";
 
 export default {
+    data() {
+        return {
+            modaltoAdd: false,
+            modalTitle: ''
+        };
+    },
     components: {
         Layout,
         PageHeader,  
@@ -43,7 +49,7 @@ export default {
 <template>
     <Layout>
         <PageHeader title="User Management" pageTitle="System" subTitle="Admin" />
-        
+
         <!-- Table -->
         <div class="card-body" style="margin-bottom: 30px; margin-top: 30px;">
             <div class="listjs-table" id="customerList">
