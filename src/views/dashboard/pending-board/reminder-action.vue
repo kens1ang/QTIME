@@ -1,7 +1,7 @@
 <script>
 
-import Index from "@/views/dashboard/sharedIndex.vue";
-import breadcrumbs from "@/components/breadcrumbs.vue";
+import Layout from "@/layouts/main.vue";
+import PageHeader from "@/components/page-header";
 
 export default {
     data() {
@@ -15,24 +15,17 @@ export default {
         }
     },
     components: {
-        Index,
-        breadcrumbs,
+        Layout,
+        PageHeader
     },
 };
 
 </script>
 
 <template>
-    <Index>
-        <template v-slot:content>
+    <Layout>
+        <PageHeader title="Reminder Action" subTitle="Dashboard" pageTitle="Pending Board"/>
 
-            <div class="d-sm-flex align-items-center justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1 style="font-size: 25px; margin-top: 5px">{{ title }}</h1>
-                </div>
-                <breadcrumbs :pages="breadcrumbs" />
-            </div>
 
-        </template>
-    </Index>
+    </Layout>
 </template>

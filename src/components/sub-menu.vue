@@ -1,26 +1,21 @@
 <template>
   <BRow id="sub-menu" style="margin-bottom: 20px;margin-top: -12px;">
-        <div class="navdiv">
-          <ul>
-            <li v-for="(subItem, index) in subMenuItems" :key="index" class="submenu-container">
-              <router-link class="topnavlink" :to="subItem.path">
-                <span>{{ subItem.name }}</span>
-              </router-link>
-              <ul v-if="subItem.children" class="submenu">
-                <li v-for="(child, cIndex) in subItem.children" :key="cIndex">
-                  <router-link :to="child.path">{{ child.name }}</router-link>
-                </li>
-              </ul>
+    <div class="navdiv">
+      <ul>
+        <li v-for="(subItem, index) in subMenuItems" :key="index" class="submenu-container">
+          <router-link class="topnavlink" :to="subItem.path">
+            <span>{{ subItem.name }}</span>
+          </router-link>
+          <ul v-if="subItem.children" class="submenu">
+            <li v-for="(child, cIndex) in subItem.children" :key="cIndex">
+              <router-link :to="child.path">{{ child.name }}</router-link>
             </li>
           </ul>
-      </div>
-  
+        </li>
+      </ul>
+    </div>
   </BRow>
 </template>
-
-
-
-
 
 
 <script>
@@ -55,17 +50,17 @@ export default {
       return 'No Title'; 
     },
     getSubMenuItems(path) {
-      if (path.startsWith('/dashboard/')) {
+      if (path === '/' || path.startsWith('/dashboard/')) {
         return [
-          { name: 'Project Insight', path: '' },
+          { name: 'Project Insight', path: '/' },
           { name: 'Pending Board',
             children: [
-                { name: 'Pending Payment', path: '' },
-                { name: 'Pending Approval', path: '' },
-                { name: 'Reminder Action', path: '' }
+                { name: 'Pending Payment', path: '/dashboard/pending-payment' },
+                { name: 'Pending Approval', path: '/dashboard/pending-approval' },
+                { name: 'Reminder Action', path: '/dashboard/reminder-action' }
             ]
            },
-          { name: 'Overall Project Progress & Expenses', path: '' }
+          { name: 'Overall Project Progress & Expenses', path: '/dashboard/project-progress-budget' }
         ];
       }else if (path.startsWith('/apps/')) {
         return [
@@ -214,7 +209,7 @@ export default {
                 { name: 'Public Holiday', path: '' },
             ]
            },
-           { name: 'Operation Menual', path:'' },
+           { name: 'Operation Manual', path:'' },
          
         ]
       }

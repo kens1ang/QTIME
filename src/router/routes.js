@@ -38,6 +38,9 @@ export default [
       },
     },
   },
+
+  //QTIME
+
   //System folder
   {
     path: "/system/basic",
@@ -90,13 +93,40 @@ export default [
 
   // Dashboard Folder
   {
-    path: "/dashboard/project-insight",
+    path: "/",
     name: "default",
     meta: {
-      title: "Dashboard",
+      title: "Project Insight",
       authRequired: true,
     },
     component: () => import("../views/dashboard/project-insight/index.vue"),
+  },
+  {
+    path: "/dashboard/pending-payment",
+    name: "pending-payment",
+    meta: {
+      title: "Pending Payment",
+      authRequired: true,
+    },
+    component: () => import("../views/dashboard/pending-board/pending-payment.vue"),
+  },
+  {
+    path: "/dashboard/pending-approval",
+    name: "pending-approval",
+    meta: {
+      title: "Pending Approval",
+      authRequired: true,
+    },
+    component: () => import("../views/dashboard/pending-board/pending-approval.vue"),
+  },
+  {
+    path: "/dashboard/reminder-action",
+    name: "reminder-action",
+    meta: {
+      title: "Reminder Action",
+      authRequired: true,
+    },
+    component: () => import("../views/dashboard/pending-board/reminder-action.vue"),
   },
   {
     path: "/dashboard/project-progress-budget",
@@ -107,6 +137,9 @@ export default [
     },
     component: () => import("../views/dashboard/project-progress-budget/index.vue"),
   },
+
+  //end of QTIME
+
   {
     path: "/dashboard/crypto",
     name: "dashboard-crypto",
