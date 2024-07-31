@@ -1,26 +1,16 @@
 <script>
 import { ref, watch } from "vue";
-import Index from '../sharedIndex.vue';
 import useVuelidate from "@vuelidate/core";
 import DropZone from "@/components/widgets/dropZone";
-import breadcrumbs from "@/components/breadcrumbs.vue";
 import Swal from "sweetalert2";
+import Layout from "@/layouts/main.vue";
+import PageHeader from "@/components/page-header";
 
 export default {
   components: {
-    Index,
+    Layout,
+    PageHeader,
     DropZone,
-    breadcrumbs,
-  },
-  data() {
-    return {
-      title: 'Poster Portal',
-      breadcrumbs: [
-        { name: "Management", link: "/project/index" },
-        { name: "System User", link: "/system-user/index" },
-        { name: "Poster Portal", link: "/system-user/poster-portal" },
-      ],
-    };
   },
   methods: {
     deleteRecord(index) {
@@ -104,14 +94,8 @@ export default {
 
 
 <template>
-    <Index>
-        <template v-slot:content>
-
-        <div class="d-sm-flex align-items-center justify-content-between">
-          <h1 style="font-size: 25px; margin-top: 5px">{{ title }}</h1>
-          <breadcrumbs :pages="breadcrumbs" />
-        </div>
-
+    <Layout>
+      <PageHeader title="Poster Portal" pageTitle="System" subTitle="Admin" />
         <BRow class="justify-content-center mt-5">
             <BCol lg="6">
             <BCard no-body>
@@ -164,8 +148,6 @@ export default {
             <button type="button" class="btn btn-primary waves-effect waves-light" @click="successmsg">Save</button>
           </BCol>
         </BRow>
-
-        </template>
-    </Index>
+    </Layout>
 </template>
   

@@ -1,35 +1,19 @@
 <script>
-
-import Index from '../sharedIndex.vue';
-import breadcrumbs from '../../../components/breadcrumbs.vue';
+import Layout from "@/layouts/main.vue";
+import PageHeader from "@/components/page-header";
 
 export default {
     components: {
-        Index,
-        breadcrumbs
+        Layout,
+        PageHeader,  
     },
-    data () {
-        return {
-            title: 'Backup Database',
-            breadcrumbs: [
-                { name: 'Management', link: '/project/index' },
-                { name: 'System User', link: '/system-user/user-management' },
-                { name: 'Backup Database', link: '/system-user/backup-database' }
-            ]
-        }
-    }
 };
 
 </script>
 
 <template>
-    <Index>
-        <template v-slot:content>
-            <div class="d-sm-flex align-items-center justify-content-between">
-                <h1 style="font-size: 25px; margin-top: 5px">{{ title }}</h1>
-                <breadcrumbs :pages="breadcrumbs" />
-            </div>
-
+    <Layout>
+        <PageHeader title="Backup Database" pageTitle="System" subTitle="Admin" />
             <BCard no-body class="border card-border-light mt-3">
                 <BCardBody>
                     <BRow>
@@ -124,7 +108,5 @@ export default {
                     </a>
                 </div>
             </div>
-            
-        </template>
-    </Index>
+    </Layout>
 </template>

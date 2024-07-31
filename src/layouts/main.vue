@@ -13,15 +13,12 @@ export default {
     computed: {
         ...layoutComputed,
     },
-    mounted() {
-        // document.querySelector("html").setAttribute('dir', 'rtl');
-    }
 };
 </script>
 
 <template>
     <div>
-        <Vertical v-if="layoutType === 'vertical' || layoutType === 'semibox'" :layout="layoutType">
+        <Vertical v-if="layoutType === 'vertical' " :layout="layoutType">
             <slot />
         </Vertical>
     </div>

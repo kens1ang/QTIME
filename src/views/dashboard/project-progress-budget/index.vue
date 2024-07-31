@@ -1,7 +1,6 @@
 <script>
 
 import Index from "@/views/dashboard/sharedIndex.vue";
-import breadcrumbs from "@/components/breadcrumbs.vue";
 import projectStatus from "./project-status.vue";
 import budgetOverview from "./budget-overview.vue";
 import costBreakdown from "./cost-breakdown.vue";
@@ -10,15 +9,11 @@ export default {
     data() {
         return {
             title: "Overall Project Progress & Expenses",
-            breadcrumbs: [
-                { name: 'Dashboard', link: '/' },
-                { name: 'Project Insight', link: '/' },
-            ],
+            
         }
     },
     components: {
         Index,
-        breadcrumbs,
         budgetOverview,
         costBreakdown,
         projectStatus,

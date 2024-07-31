@@ -1,25 +1,20 @@
 <script>
 import { reactive } from 'vue';
-import Index from '../sharedIndex.vue';
-import breadcrumbs from '@/components/breadcrumbs.vue';
 import Swal from "sweetalert2";
+import Layout from "@/layouts/main.vue";
+import PageHeader from "@/components/page-header";
 
 export default {
     data () {
         return {
-            title: 'Access Control',
-            breadcrumbs: [
-                { name: "Management", link: "/project/index" },
-                { name: "System User", link: "/system-user/index" },
-                { name: "Access Control", link: "/system-user/access-control" },
-            ],
             modaltoAdd: false,
             collapsedRows: reactive({}),
         };
     },
     components: {
-        Index,
-        breadcrumbs,
+        Layout,
+        PageHeader,
+
     },
     methods: {
         toggleRow(rowId) {
@@ -54,15 +49,8 @@ export default {
 </script>
 
 <template>
-    <Index>
-        <template v-slot:content>
-            
-            <div class="d-sm-flex align-items-center justify-content-between">
-                <h1 style="font-size: 25px; margin-top: 5px">{{ title }}</h1>
-                <breadcrumbs :pages="breadcrumbs" />
-            </div>
-
-            <!-- Table -->
+    <Layout>
+        <PageHeader title="Access Control" pageTitle="System" subTitle="Admin" />
             <div class="card-body" style="margin-bottom: 30px; margin-top: 30px;">
                 <div class="listjs-table" id="customerList">
                     <div class="row g-4 mb-3">
@@ -249,6 +237,5 @@ export default {
                 </BForm>        
             </BModal>
 
-        </template>
-    </Index>
+    </Layout>
 </template>
