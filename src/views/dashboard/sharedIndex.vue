@@ -24,7 +24,9 @@
               </router-link>
               <ul class="submenu">
                 <li><router-link to="/pending-board/pending-payment">Pending Payment</router-link></li>
-                <li><router-link to="/pending-board/pending-approval">Pending Approval</router-link></li>
+                <li class="submenu-item">
+                  <router-link to="/pending-board/pending-approval">Pending Approval</router-link>
+                </li>
                 <li><router-link to="/pending-board/reminder-action">Reminder Action</router-link></li>
               </ul>
             </li>
@@ -38,3 +40,6 @@
 
   </Layout>
 </template>
+
+<style>
+</style>

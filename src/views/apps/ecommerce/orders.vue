@@ -385,7 +385,7 @@ export default {
     <PageHeader title="Orders" pageTitle="Ecommerce" />
     <BRow>
       <BCol lg="12">
-        <BCard no-body id="orderList">
+        <BCard no-body id="orderList">  
           <BCardHeader class="border-0">
             <BRow class="align-items-center gy-3">
               <BCol cols="sm">
