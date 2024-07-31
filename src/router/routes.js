@@ -38,6 +38,54 @@ export default [
       },
     },
   },
+
+  // QTIME
+  
+  {
+    path: "/pending-board/pending-payment",
+    name: "pending-payment",
+    meta: {
+      title: "Pending Payment",
+      authRequired: true,
+    },
+    component: () => import("../views/dashboard/pending-board/pending-payment.vue"),
+  },
+  {
+    path: "/pending-board/pending-approval",
+    name: "pending-approval",
+    meta: {
+      title: "Pending Approval",
+      authRequired: true,
+    },
+    component: () => import("../views/dashboard/pending-board/pending-approval.vue"),
+  },
+  {
+    path: "/pending-board/reminder-action",
+    name: "reminder-action",
+    meta: {
+      title: "Reminder Action",
+      authRequired: true,
+    },
+    component: () => import("../views/dashboard/pending-board/reminder-action.vue"),
+  },
+  {
+    path: "/",
+    name: "default",
+    meta: {
+      title: "Dashboard",
+      authRequired: true,
+    },
+    component: () => import("../views/dashboard/project-insight/index.vue"),
+  },
+  {
+    path: "/dashboard/project-progress-budget",
+    name: "project-progress-budget",
+    meta: {
+      title: "Project Progress & Budget",
+      authRequired: true,
+    },
+    component: () => import("../views/dashboard/project-progress-budget/index.vue"),
+  },
   {
     path: "/system-user/user-management",
     name: "user-management",
@@ -74,24 +122,9 @@ export default [
     },
     component: () => import("../views/management/system-user/backup-database.vue"),
   },
-  {
-    path: "/",
-    name: "default",
-    meta: {
-      title: "Dashboard",
-      authRequired: true,
-    },
-    component: () => import("../views/dashboard/project-insight/index.vue"),
-  },
-  {
-    path: "/dashboard/project-progress-budget",
-    name: "project-progress-budget",
-    meta: {
-      title: "Project Progress & Budget",
-      authRequired: true,
-    },
-    component: () => import("../views/dashboard/project-progress-budget/index.vue"),
-  },
+
+  // end of changes
+
   {
     path: "/dashboard/crypto",
     name: "dashboard-crypto",

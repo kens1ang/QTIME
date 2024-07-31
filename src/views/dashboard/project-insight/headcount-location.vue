@@ -65,18 +65,16 @@ export default {
 <template>
   <BCard no-body class="card-height-100">
     <BCardHeader class="align-items-center d-flex py-0">
-      <BCardTitle class="mb-0 flex-grow-1">Headcount by Category</BCardTitle>
+      <BCardTitle class="mb-0 flex-grow-1">Headcount by Location</BCardTitle>
       <div class="flex-shrink-0">
-        <BDropdown variant="link" class="card-header-dropdown" toggle-class="text-reset dropdown-btn arrow-none"
-          menu-class="dropdown-menu-end" aria-haspopup="true" :offset="{ alignmentAxis: -3, crossAxis: 0, mainAxis: 0 }">
-          <template #button-content> <span class="fw-semibold text-uppercase fs-12">Sort by: </span><span
-              class="text-muted">General Worker<i class="mdi mdi-chevron-down ms-1"></i></span>
-          </template>
-          <BDropdownItem>General Worker</BDropdownItem>
-          <BDropdownItem>Subcon Worker</BDropdownItem>
-          <BDropdownItem>Subcon</BDropdownItem>
-          <BDropdownItem>Operator</BDropdownItem>
-        </BDropdown>
+          <BDropdown variant="link" class="card-header-dropdown" toggle-class="text-reset dropdown-btn arrow-none"
+              menu-class="dropdown-menu-end" aria-haspopup="true"
+              :offset="{ alignmentAxis: -140, crossAxis: 0, mainAxis: 0 }">
+              <template #button-content><span class="text-muted fs-18"><i class="mdi mdi-dots-vertical"></i></span>
+              </template>
+              <BDropdownItem>Edit</BDropdownItem>
+              <BDropdownItem>Remove</BDropdownItem>
+          </BDropdown>
       </div>
     </BCardHeader>
     <BCardBody>

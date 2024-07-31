@@ -23,9 +23,9 @@
                 <span>Pending Board</span>
               </router-link>
               <ul class="submenu">
-                <li><router-link to="/">Pending Payment</router-link></li>
-                <li><router-link to="/">Pending Approval</router-link></li>
-                <li><router-link to="/">Reminder Action</router-link></li>
+                <li><router-link to="/pending-board/pending-payment">Pending Payment</router-link></li>
+                <li><router-link to="/pending-board/pending-approval">Pending Approval</router-link></li>
+                <li><router-link to="/pending-board/reminder-action">Reminder Action</router-link></li>
               </ul>
             </li>
             <li><router-link class="topnavlink" to="/dashboard/project-progress-budget"><span>Overall Project Progress & Expenses</span></router-link></li>

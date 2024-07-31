@@ -3,7 +3,7 @@
 import Index from "@/views/dashboard/sharedIndex.vue";
 import breadcrumbs from "@/components/breadcrumbs.vue";
 import headcountOverview from "./headcount-overview.vue";
-import taskPlanning from "./headcount-category.vue";
+import taskPlanning from "./headcount-location.vue";
 import upcomingPlan from "./upcoming-plan.vue";
 import gwTaskplanning from "./gw-taskplanning.vue";
 
