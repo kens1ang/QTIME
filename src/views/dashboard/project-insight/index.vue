@@ -3,9 +3,13 @@
 import Layout from "@/layouts/main.vue";
 import PageHeader from "@/components/page-header";
 import headcountOverview from "./headcount-overview.vue";
-import taskPlanning from "./headcount-location.vue";
+import headcountLocation from "./headcount-location.vue";
 import upcomingPlan from "./upcoming-plan.vue";
 import gwTaskplanning from "./gw-taskplanning.vue";
+import headcountSubconGeneral from "./headcount-subconGeneral.vue";
+import headcountSubcon from "./headcount-subcon.vue";
+import headcountOperator from "./headcount-operator.vue";
+import headcountSubelement from "./headcount-subelement.vue";
 
 export default {
     data() {
@@ -15,11 +19,15 @@ export default {
     },
     components: {
         headcountOverview,
-        taskPlanning,
+        headcountLocation,
         upcomingPlan,
         gwTaskplanning,
         Layout,
         PageHeader,
+        headcountSubconGeneral,
+        headcountSubcon,
+        headcountOperator,
+        headcountSubelement
     },
 };
 
@@ -31,7 +39,7 @@ export default {
 
         <div class="d-sm-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-                <h1 style="font-size: 25px; margin-top: 5px">AR496</h1>
+                <h1 style="font-size: 25px; margin-top: 5px">FORUM2</h1>
             </div>
         </div>
 
@@ -41,7 +49,7 @@ export default {
                     <BCardHeader>
                         <BRow class="d-flex justify-content-between align-items-center">
                             <BCol class="d-flex align-items-center">    
-                                <h5 class="mb-0">Headcount</h5>
+                                <h5 class="mb-0">Total Headcount</h5>
                             </BCol>
                         </BRow>
                     </BCardHeader>
@@ -127,9 +135,26 @@ export default {
             <BCol xxl="6">
                 <headcountOverview />
             </BCol>
+            <BCol xxl="3" md="4">
+                <headcountLocation />
+            </BCol>
+            <BCol xxl="3" md="4">
+                <headcountSubelement />
+            </BCol>
+        </BRow>
 
-            <BCol xxl="6" md="6">
-                <taskPlanning />
+        <BRow>
+            <BCol xxl="12" md="12">
+                <headcountSubconGeneral />
+            </BCol>
+        </BRow>
+
+        <BRow>
+            <BCol xxl="6">
+                <headcountSubcon />
+            </BCol>
+            <BCol xxl="6">
+                <headcountOperator />
             </BCol>
         </BRow>
 

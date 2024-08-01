@@ -61,6 +61,16 @@ export default {
                     </BCardBody>
                 </BCard>
             </BCol>
+
+            <BCol xl="4">
+                <BCard no-body class="border card-border-light mt-3">
+                    <BCardBody>
+                        <h6>Backcarge Amount:</h6>
+                        <h6>Backcarge Rate:</h6>
+                        <h6>Overdue Duration:</h6>
+                    </BCardBody>
+                </BCard>
+            </BCol>
         </BRow>
 
         <!--Budget & Expenses-->

@@ -57,13 +57,13 @@ export default {
     };
   },
   components: {
-    UsersIcon
+    UsersIcon,
   }
 };
 </script>
 
 <template>
-  <BCard no-body class="card-height-100">
+  <BCard no-body class="card-height-50">
     <BCardHeader class="align-items-center d-flex py-0">
       <BCardTitle class="mb-0 flex-grow-1">Headcount by Location</BCardTitle>
       <div class="flex-shrink-0">
@@ -86,42 +86,55 @@ export default {
             <tr>
               <td>
                 <h4 class="text-truncate fs-14 fs-medium mb-0">
-                  <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>Car Park
+                  <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>PODIUM
                 </h4>
               </td>
               <td>
                 <p class="text-end">
-                  <UsersIcon class="me-2 icon-sm"></UsersIcon>2
+                  <UsersIcon class="me-2 icon-sm"></UsersIcon>45
                 </p>
               </td>
             </tr>
             <tr>
               <td>
                 <h4 class="text-truncate fs-14 fs-medium mb-0">
-                  <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>Car Park
+                  <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>OFFICE
                 </h4>
               </td>
               <td>
                 <p class="text-end">
-                  <UsersIcon class="me-2 icon-sm"></UsersIcon>2
+                  <UsersIcon class="me-2 icon-sm"></UsersIcon>21
                 </p>
               </td>
             </tr>
             <tr>
               <td>
                 <h4 class="text-truncate fs-14 fs-medium mb-0">
-                  <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>Car Park
+                  <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>APARTMENT
                 </h4>
               </td>
               <td>
                 <p class="text-end">
-                  <UsersIcon class="me-2 icon-sm"></UsersIcon>2
+                  <UsersIcon class="me-2 icon-sm"></UsersIcon>14
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4 class="text-truncate fs-14 fs-medium mb-0">
+                  <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>SOHO
+                </h4>
+              </td>
+              <td>
+                <p class="text-end">
+                  <UsersIcon class="me-2 icon-sm"></UsersIcon>12
                 </p>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
+
     </BCardBody>
   </BCard>
 </template>
