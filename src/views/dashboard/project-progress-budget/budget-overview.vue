@@ -67,7 +67,7 @@ export default {
 <template>
   <BCard no-body class="card-height-80">
     <BCardHeader class="align-items-center d-flex py-0">
-      <BCardTitle class="mb-0 flex-grow-1">Budget Overview</BCardTitle>
+      <BCardTitle class="mb-0 flex-grow-1">Budget Varience Actual vs. Planned</BCardTitle>
       <div class="flex-shrink-0">
         <BDropdown variant="link" class="card-header-dropdown" toggle-class="text-reset dropdown-btn arrow-none"
           menu-class="dropdown-menu-end" aria-haspopup="true" :offset="{ alignmentAxis: -3, crossAxis: 0, mainAxis: 0 }">

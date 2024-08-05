@@ -84,7 +84,7 @@ export default {
       <BCardTitle class="mb-0 flex-grow-1">Cost Breakdown</BCardTitle>
       <div>
         <div class="flex-shrink-0 ms-2">
-          <BDropdown variant="link" class="card-header-dropdown" toggle-class="btn btn-soft-primary btn-sm arrow-none"
+          <BDropdown variant="link" class="card-header-dropdown" toggle-class="btn btn-ghost-dark btn-sm arrow-none"
             menu-class="dropdown-menu-end" :offset="{ alignmentAxis: -105, crossAxis: 0, mainAxis: 10 }">
             <template #button-content><span class="text-uppercase">Category<i
                   class="mdi mdi-chevron-down align-middle ms-1"></i></span></template>
@@ -102,8 +102,8 @@ export default {
         <li class="list-group-item px-0">
           <div class="d-flex">
             <div class="flex-shrink-0 avatar-xs">
-              <span class="avatar-title bg-light p-1 rounded-circle">
-                <img src="@/assets/images/svg/crypto-icons/btc.svg" class="img-fluid" alt="" />
+              <span class="avatar-title p-1 rounded-circle">
+                <i class='bx bx-hard-hat'></i>              
               </span>
             </div>
             <div class="flex-grow-1 ms-2">
@@ -118,8 +118,8 @@ export default {
         <li class="list-group-item px-0">
           <div class="d-flex">
             <div class="flex-shrink-0 avatar-xs">
-              <span class="avatar-title bg-light p-1 rounded-circle">
-                <img src="@/assets/images/svg/crypto-icons/btc.svg" class="img-fluid" alt="" />
+              <span class="avatar-title p-1 rounded-circle">
+                <i class='bx bx-hard-hat'></i>              
               </span>
             </div>
             <div class="flex-grow-1 ms-2">
@@ -134,8 +134,8 @@ export default {
         <li class="list-group-item px-0">
           <div class="d-flex">
             <div class="flex-shrink-0 avatar-xs">
-              <span class="avatar-title bg-light p-1 rounded-circle">
-                <img src="@/assets/images/svg/crypto-icons/btc.svg" class="img-fluid" alt="" />
+              <span class="avatar-title p-1 rounded-circle">
+                <i class='bx bx-hard-hat'></i>              
               </span>
             </div>
             <div class="flex-grow-1 ms-2">
@@ -150,8 +150,8 @@ export default {
         <li class="list-group-item px-0">
           <div class="d-flex">
             <div class="flex-shrink-0 avatar-xs">
-              <span class="avatar-title bg-light p-1 rounded-circle">
-                <img src="@/assets/images/svg/crypto-icons/btc.svg" class="img-fluid" alt="" />
+              <span class="avatar-title p-1 rounded-circle">
+                <i class='bx bx-hard-hat'></i>              
               </span>
             </div>
             <div class="flex-grow-1 ms-2">

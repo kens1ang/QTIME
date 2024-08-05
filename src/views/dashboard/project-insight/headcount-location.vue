@@ -1,6 +1,8 @@
 <script>
 import { UsersIcon } from '@zhuowenli/vue-feather-icons';
 
+import headcountSubelement from "./headcount-subelement.vue";
+
 import getChartColorsArray from "@/common/getChartColorsArray";
 
 export default {
@@ -58,12 +60,13 @@ export default {
   },
   components: {
     UsersIcon,
+    headcountSubelement
   }
 };
 </script>
 
 <template>
-  <BCard no-body class="card-height-50">
+  <BCard no-body class="card-height-100">
     <BCardHeader class="align-items-center d-flex py-0">
       <BCardTitle class="mb-0 flex-grow-1">Headcount by Location</BCardTitle>
       <div class="flex-shrink-0">
@@ -78,63 +81,70 @@ export default {
       </div>
     </BCardHeader>
     <BCardBody>
-      <apexchart class="apex-charts" dir="ltr" height="219" :series="series" :options="chartOptions"></apexchart>
+      <BRow>
+        <BCol xxl="5">
+        <apexchart class="apex-charts" dir="ltr" height="219" :series="series" :options="chartOptions"></apexchart>
 
-      <div class="table-responsive mt-3">
-        <table class="table table-borderless table-sm table-centered align-middle table-nowrap mb-0">
-          <tbody class="border-0">
-            <tr>
-              <td>
-                <h4 class="text-truncate fs-14 fs-medium mb-0">
-                  <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>PODIUM
-                </h4>
-              </td>
-              <td>
-                <p class="text-end">
-                  <UsersIcon class="me-2 icon-sm"></UsersIcon>45
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h4 class="text-truncate fs-14 fs-medium mb-0">
-                  <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>OFFICE
-                </h4>
-              </td>
-              <td>
-                <p class="text-end">
-                  <UsersIcon class="me-2 icon-sm"></UsersIcon>21
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h4 class="text-truncate fs-14 fs-medium mb-0">
-                  <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>APARTMENT
-                </h4>
-              </td>
-              <td>
-                <p class="text-end">
-                  <UsersIcon class="me-2 icon-sm"></UsersIcon>14
-                </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h4 class="text-truncate fs-14 fs-medium mb-0">
-                  <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>SOHO
-                </h4>
-              </td>
-              <td>
-                <p class="text-end">
-                  <UsersIcon class="me-2 icon-sm"></UsersIcon>12
-                </p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+        <div class="table-responsive mt-3">
+          <table class="table table-borderless table-sm table-centered align-middle table-nowrap mb-0">
+            <tbody class="border-0">
+              <tr>
+                <td>
+                  <h4 class="text-truncate fs-14 fs-medium mb-0">
+                    <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>PODIUM
+                  </h4>
+                </td>
+                <td>
+                  <p class="text-end">
+                    <UsersIcon class="me-2 icon-sm"></UsersIcon>45
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4 class="text-truncate fs-14 fs-medium mb-0">
+                    <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>OFFICE
+                  </h4>
+                </td>
+                <td>
+                  <p class="text-end">
+                    <UsersIcon class="me-2 icon-sm"></UsersIcon>21
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4 class="text-truncate fs-14 fs-medium mb-0">
+                    <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>APARTMENT
+                  </h4>
+                </td>
+                <td>
+                  <p class="text-end">
+                    <UsersIcon class="me-2 icon-sm"></UsersIcon>14
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <h4 class="text-truncate fs-14 fs-medium mb-0">
+                    <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>SOHO
+                  </h4>
+                </td>
+                <td>
+                  <p class="text-end">
+                    <UsersIcon class="me-2 icon-sm"></UsersIcon>12
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </BCol>
 
+        <BCol xxl="7">
+          <headcountSubelement/>
+        </BCol>
+      </BRow>
     </BCardBody>
   </BCard>
 </template>

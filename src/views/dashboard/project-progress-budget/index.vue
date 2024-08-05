@@ -53,11 +53,18 @@ export default {
                 </BCard>                                                                                                                                                                                                                                            
             </BCol>
 
-            <BCol xl="4">
+            <BCol xl="2">
                 <BCard no-body class="border card-border-light mt-3">
                     <BCardBody>
-                        <h6>Project Duration:</h6>
-                        <h6>Project Completion Rate:</h6>
+                        <h6>Utilized Days:</h6>
+                    </BCardBody>
+                </BCard>
+            </BCol>
+
+            <BCol xl="2">
+                <BCard no-body class="border card-border-light mt-3">
+                    <BCardBody>
+                        <h6>Completion Percentage:</h6>
                     </BCardBody>
                 </BCard>
             </BCol>
@@ -96,3 +103,8 @@ export default {
         </BRow>
     </Layout>
 </template>
+
+<style>
+
+
+</style>

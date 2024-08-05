@@ -7,7 +7,7 @@ export default {
 <template>
     <BCard no-body class="card-height-100">
         <BCardBody>
-            <div class="table-responsive table-card">
+            <div class="table-responsive table-card overflow-auto" style="max-height: 400px;">
                 <table class="table align-middle table-borderless table-centered table-nowrap mb-0">
                     <thead class="text-muted table-light">
                         <tr>
