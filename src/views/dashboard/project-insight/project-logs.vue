@@ -65,15 +65,23 @@ export default {
 <template>
     <BCard no-body>
         <BCardHeader class="align-items-center d-flex py-0">
-            <BCardTitle class="mb-0 flex-grow-1">Upcoming Tasks</BCardTitle>
+            <BCardTitle class="mb-0 flex-grow-1">Event Logs</BCardTitle>
             <div class="flex-shrink-0">
-                <BDropdown variant="link" class="card-header-dropdown" toggle-class="text-reset dropdown-btn arrow-none"
-                    menu-class="dropdown-menu-end" aria-haspopup="true"
-                    :offset="{ alignmentAxis: -140, crossAxis: 0, mainAxis: 0 }">
-                    <template #button-content><span class="text-muted fs-18"><i class="mdi mdi-dots-vertical"></i></span>
-                    </template>
-                    <BDropdownItem>Edit</BDropdownItem>
-                    <BDropdownItem>Remove</BDropdownItem>
+                <BDropdown
+                variant="link"
+                class="card-header-dropdown"
+                toggle-class="text-reset dropdown-btn arrow-none"
+                menu-class="dropdown-menu-end"
+                aria-haspopup="true"
+                :offset="{ alignmentAxis: -3, crossAxis: 0, mainAxis: 0 }"
+                >
+                <template #button-content>
+                    <span class="fw-semibold text-uppercase fs-12">Sort by: </span
+                    ><span class="text-muted"
+                    >Most Recent<i class="mdi mdi-chevron-down ms-1"></i
+                    ></span>
+                </template>
+                <BDropdownItem>Least Recent</BDropdownItem>
                 </BDropdown>
             </div>
         </BCardHeader>
@@ -129,10 +137,10 @@ export default {
                         <li class="page-item disabled">
                             <BLink href="#" class="page-link">←</BLink>
                         </li>
-                        <li class="page-item">
+                        <li class="page-item active">
                             <BLink href="#" class="page-link">1</BLink>
                         </li>
-                        <li class="page-item active">
+                        <li class="page-item">
                             <BLink href="#" class="page-link">2</BLink>
                         </li>
                         <li class="page-item">

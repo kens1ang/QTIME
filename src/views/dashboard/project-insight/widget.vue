@@ -54,7 +54,7 @@ export default {
 <template>
   <BCard no-body class="crm-widget">
     <BCardBody class="p-0">
-      <BRow class="row-cols-xxl-6 row-cols-md-3 row-cols-1 g-0">
+      <BRow class="row-cols-xxl-3 row-cols-md-3 row-cols-1 g-0">
         <BCol v-for="(item, index) of crmWidgets" :key="index">
           <div class="py-4 px-3">
             <h5 class="text-muted text-uppercase fs-13">

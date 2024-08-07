@@ -52,7 +52,7 @@ export default {
     getSubMenuItems(path) {
       if (path === '/' || path.startsWith('/dashboard/')) {
         return [
-          { name: 'Project Insight', path: '/' },
+          { name: 'Project Insight', path: '/', },
           { name: 'Pending Board',
             children: [
                 { name: 'Pending Payment', path: '/dashboard/pending-payment' },

@@ -1,0 +1,7 @@
+Also encountered this issue with rangeBar. toRaw() does solve the error but because my data is retrieved asynchronously, the graph wouldn't display since toRaw() disables Vue's reactive behaviour.
+
+I worked around this new issue by following this trick; ie:
+
+I added a :key="refreshKey" attribute to the <apexchart> component
+Declared as const refreshKey = ref(0)
+Once the data is available and has been inserted into the chart's series structure, simply increment the trigger as refreshKey.value += 1

@@ -1,5 +1,5 @@
 <script>
-import { UsersIcon } from '@zhuowenli/vue-feather-icons';
+import { UsersIcon } from "@zhuowenli/vue-feather-icons";
 
 import headcountSubelement from "./headcount-subelement.vue";
 
@@ -54,14 +54,16 @@ export default {
           tickAmount: 4,
           min: 0,
         },
-        colors: getChartColorsArray('["--vz-primary","--vz-primary-rgb, 0.60", "--vz-primary-rgb, 0.75"]'),
+        colors: getChartColorsArray(
+          '["--vz-primary","--vz-primary-rgb, 0.60", "--vz-primary-rgb, 0.75"]'
+        ),
       },
     };
   },
   components: {
     UsersIcon,
-    headcountSubelement
-  }
+    headcountSubelement,
+  },
 };
 </script>
 
@@ -70,79 +72,107 @@ export default {
     <BCardHeader class="align-items-center d-flex py-0">
       <BCardTitle class="mb-0 flex-grow-1">Headcount by Location</BCardTitle>
       <div class="flex-shrink-0">
-          <BDropdown variant="link" class="card-header-dropdown" toggle-class="text-reset dropdown-btn arrow-none"
-              menu-class="dropdown-menu-end" aria-haspopup="true"
-              :offset="{ alignmentAxis: -140, crossAxis: 0, mainAxis: 0 }">
-              <template #button-content><span class="text-muted fs-18"><i class="mdi mdi-dots-vertical"></i></span>
-              </template>
-              <BDropdownItem>Edit</BDropdownItem>
-              <BDropdownItem>Remove</BDropdownItem>
-          </BDropdown>
+        <BDropdown
+          variant="link"
+          class="card-header-dropdown"
+          toggle-class="text-reset dropdown-btn arrow-none"
+          menu-class="dropdown-menu-end"
+          aria-haspopup="true"
+          :offset="{ alignmentAxis: -140, crossAxis: 0, mainAxis: 0 }"
+        >
+          <template #button-content
+            ><span class="text-muted fs-18"
+              ><i class="mdi mdi-dots-vertical"></i
+            ></span>
+          </template>
+          <BDropdownItem>Edit</BDropdownItem>
+          <BDropdownItem>Remove</BDropdownItem>
+        </BDropdown>
       </div>
     </BCardHeader>
     <BCardBody>
       <BRow>
         <BCol xxl="5">
-        <apexchart class="apex-charts" dir="ltr" height="219" :series="series" :options="chartOptions"></apexchart>
+          <apexchart
+            class="apex-charts"
+            dir="ltr"
+            height="219"
+            :series="series"
+            :options="chartOptions"
+          ></apexchart>
 
-        <div class="table-responsive mt-3">
-          <table class="table table-borderless table-sm table-centered align-middle table-nowrap mb-0">
-            <tbody class="border-0">
-              <tr>
-                <td>
-                  <h4 class="text-truncate fs-14 fs-medium mb-0">
-                    <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>PODIUM
-                  </h4>
-                </td>
-                <td>
-                  <p class="text-end">
-                    <UsersIcon class="me-2 icon-sm"></UsersIcon>45
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h4 class="text-truncate fs-14 fs-medium mb-0">
-                    <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>OFFICE
-                  </h4>
-                </td>
-                <td>
-                  <p class="text-end">
-                    <UsersIcon class="me-2 icon-sm"></UsersIcon>21
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h4 class="text-truncate fs-14 fs-medium mb-0">
-                    <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>APARTMENT
-                  </h4>
-                </td>
-                <td>
-                  <p class="text-end">
-                    <UsersIcon class="me-2 icon-sm"></UsersIcon>14
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h4 class="text-truncate fs-14 fs-medium mb-0">
-                    <i class="ri-stop-fill align-middle fs-18 text-primary me-2"></i>SOHO
-                  </h4>
-                </td>
-                <td>
-                  <p class="text-end">
-                    <UsersIcon class="me-2 icon-sm"></UsersIcon>12
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+          <div class="table-responsive mt-3">
+            <table
+              class="table table-borderless table-sm table-centered align-middle table-nowrap mb-0"
+            >
+              <tbody class="border-0">
+                <tr>
+                  <td>
+                    <h4 class="text-truncate fs-14 fs-medium mb-0">
+                      <i
+                        class="ri-stop-fill align-middle fs-18 text-primary me-2"
+                      ></i
+                      >PODIUM
+                    </h4>
+                  </td>
+                  <td>
+                    <p class="text-end">
+                      <UsersIcon class="me-2 icon-sm"></UsersIcon>45
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h4 class="text-truncate fs-14 fs-medium mb-0">
+                      <i
+                        class="ri-stop-fill align-middle fs-18 text-primary me-2"
+                      ></i
+                      >OFFICE
+                    </h4>
+                  </td>
+                  <td>
+                    <p class="text-end">
+                      <UsersIcon class="me-2 icon-sm"></UsersIcon>21
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h4 class="text-truncate fs-14 fs-medium mb-0">
+                      <i
+                        class="ri-stop-fill align-middle fs-18 text-primary me-2"
+                      ></i
+                      >APARTMENT
+                    </h4>
+                  </td>
+                  <td>
+                    <p class="text-end">
+                      <UsersIcon class="me-2 icon-sm"></UsersIcon>14
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h4 class="text-truncate fs-14 fs-medium mb-0">
+                      <i
+                        class="ri-stop-fill align-middle fs-18 text-primary me-2"
+                      ></i
+                      >SOHO
+                    </h4>
+                  </td>
+                  <td>
+                    <p class="text-end">
+                      <UsersIcon class="me-2 icon-sm"></UsersIcon>12
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </BCol>
 
         <BCol xxl="7">
-          <headcountSubelement/>
+          <headcountSubelement />
         </BCol>
       </BRow>
     </BCardBody>
