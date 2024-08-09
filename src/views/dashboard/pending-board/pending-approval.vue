@@ -6,11 +6,6 @@ export default {
     data() {
         return {
             title: "Pending Approval",
-            breadcrumbs: [
-                { name: 'Dashboard', link: '/' },
-                { name: 'Pending Board', link: '/' },
-                { name: 'Pending Approval', link: '/' },
-            ],
             currentTab: 'attendance', // Initialize the default tab
         }
     },

@@ -5,31 +5,59 @@ const basicTimelineChart = {
     {
       data: [
         {
-          x: "Code",
+          x: "HOUSEKEEPING",
           y: [
             new Date("2019-03-02").getTime(),
             new Date("2019-03-04").getTime(),
           ],
         },
         {
-          x: "Test",
+          x: "HOUSEKEEPING",
+          y: [
+            new Date("2019-03-02").getTime(),
+            new Date("2019-03-05").getTime(),
+          ],
+        },
+        {
+          x: "OPERATOR",
           y: [
             new Date("2019-03-04").getTime(),
             new Date("2019-03-08").getTime(),
           ],
         },
         {
-          x: "Validation",
+          x: "OPERATOR",
+          y: [
+            new Date("2019-03-04").getTime(),
+            new Date("2019-03-13").getTime(),
+          ],
+        },
+        {
+          x: ["SITE", "FACILITY"],
           y: [
             new Date("2019-03-08").getTime(),
             new Date("2019-03-12").getTime(),
           ],
         },
         {
-          x: "Deployment",
+          x: ["DEFECT", "WORKS", "(CONST)"],
+          y: [
+            new Date("2019-03-12").getTime(),
+            new Date("2019-03-13").getTime(),
+          ],
+        },
+        {
+          x: ["DEFECT", "WORKS", "(CONST)"],
           y: [
             new Date("2019-03-12").getTime(),
             new Date("2019-03-18").getTime(),
+          ],
+        },
+        {
+          x: ["DEFECT", "WORKS", "(PDI)"],
+          y: [
+            new Date("2019-03-12").getTime(),
+            new Date("2019-03-13").getTime(),
           ],
         },
       ],
@@ -49,15 +77,14 @@ const basicTimelineChart = {
     plotOptions: {
       bar: {
         horizontal: true,
+        rangeBarGroupRows: true,
       },
     },
     colors: getChartColorsArray('["--vz-primary"]'),
     xaxis: {
       type: "datetime",
-    },
-    yaxis: {
       title: {
-        text: "Tasks",
+        text: "Day",
       },
     },
     tooltip: {

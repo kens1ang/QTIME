@@ -7,11 +7,6 @@ export default {
     data() {
         return {
             title: "Pending Payment",
-            breadcrumbs: [
-                { name: 'Dashboard', link: '/' },
-                { name: 'Pending Board', link: '/' },
-                { name: 'Pending Payment', link: '/' },
-            ],
         };
     },
     components: {

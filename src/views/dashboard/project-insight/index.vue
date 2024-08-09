@@ -3,9 +3,12 @@ import Layout from "@/layouts/main.vue";
 import PageHeader from "@/components/page-header";
 import headcountOverview from "./headcount/headcount-overview.vue";
 import headcountLocation from "./headcount-location.vue";
-import projectLogs from "./project-logs.vue";
 import headcountWorkertype from "./headcount/headcount-workertype.vue";
-import projectTimeline from "./project-timeline.vue";
+import projectTimeline from "./task-management/project-timeline.vue";
+import timelineDetails from "./task-management/timeline-details.vue";
+import projectLogs from "./task-management/project-logs.vue";
+import widget from "./widget.vue";
+import weather from "./weather.vue";
 
 export default {
   data() {
@@ -16,11 +19,14 @@ export default {
   components: {
     headcountOverview,
     headcountLocation,
-    projectLogs,
     Layout,
     PageHeader,
     headcountWorkertype,
     projectTimeline,
+    widget,
+    weather,
+    projectLogs,
+    timelineDetails,
   },
 };
 </script>
@@ -29,10 +35,22 @@ export default {
   <Layout>
     <PageHeader title="Project Insight" subTitle="Dashboard" />
 
+    <!-- Project Name -->
     <div class="d-sm-flex align-items-center justify-content-between mb-3">
       <h1 style="font-size: 25px; margin-top: 5px">FORUM2</h1>
     </div>
 
+    <!-- Widgets & Weather -->
+    <BRow class="custom-breakpoint">
+      <BCol xl="6" md="12">
+        <widget />
+      </BCol>
+      <BCol xl="6" md="12">
+        <weather />
+      </BCol>
+    </BRow>
+
+    <!-- Headcount by Subelement & Overview-->
     <BRow>
       <BCol xxl="6">
         <BCard no-body>
@@ -62,21 +80,8 @@ export default {
               </BDropdown>
             </div>
           </BCardHeader>
-          <BCardBody>
-            <BTabs nav-class="mb-3">
-              <BTab title="General Worker">
-                <headcountWorkertype />
-              </BTab>
-              <BTab title="Subcon as KSK">
-                <headcountWorkertype />
-              </BTab>
-              <BTab title="Subcon">
-                <headcountWorkertype />
-              </BTab>
-              <BTab title="Operator">
-                <headcountWorkertype />
-              </BTab>
-            </BTabs>
+          <BCardBody class="p-0">
+            <headcountWorkertype />
           </BCardBody>
         </BCard>
       </BCol>
@@ -85,19 +90,20 @@ export default {
       </BCol>
     </BRow>
 
-    <!--Headcount-->
+    <!-- Headcount by Location & Project Logs -->
     <BRow>
-      <BCol xxl="12" md="4">
+      <BCol xxl="8" md="4">
         <headcountLocation />
+      </BCol>
+      <BCol xl="4">
+        <projectLogs />
       </BCol>
     </BRow>
 
+    <!-- Project Timeline -->
     <BRow>
-      <BCol xl="5">
-        <projectLogs />
-      </BCol>
-      <BCol xl="7">
-        <BCard no-body>
+      <BCol xl="12">
+        <BCard no-body class="card-height-100">
           <BCardHeader class="align-items-center d-flex py-0">
             <BCardTitle class="mb-0 flex-grow-1">Project Timeline</BCardTitle>
             <div class="flex-shrink-0">
@@ -122,23 +128,38 @@ export default {
               </BDropdown>
             </div>
           </BCardHeader>
-          <BCardBody>
-            <BTabs nav-class="mb-3">
-              <BTab title="General Worker">
-                <projectTimeline />
-              </BTab>
-              <BTab title="Subcon as KSK">
-                <projectTimeline />
-              </BTab>
-              <BTab title="Staff">
-                <projectTimeline />
-              </BTab>
-            </BTabs>
-          </BCardBody>
+          <BRow>
+            <BCol xl="8" class="pe-0">
+              <BCard
+                no-body
+                class="mb-0 border-start-0 border-top-0 border-bottom-0 rounded-0"
+              >
+                <BCardBody class="p-0">
+                  <projectTimeline />
+                </BCardBody>
+              </BCard>
+            </BCol>
+            <BCol xl="4" class="ps-0">
+              <BCard
+                no-body
+                class="mb-0 border-start-0 border-top-0 border-bottom-0 border-end-0 overflow-auto"
+                style="max-height: 500px"
+              >
+                <timelineDetails />
+              </BCard>
+            </BCol>
+          </BRow>
         </BCard>
       </BCol>
     </BRow>
   </Layout>
 </template>
 
-<style></style>
+<style>
+@media (max-width: 1399.98px) {
+  .custom-breakpoint .col-xl-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+</style>

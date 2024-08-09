@@ -1,8 +1,3 @@
-<script>
-export default {
-
-};
-</script>
 
 <template>
     <BCard no-body class="card-height-100">

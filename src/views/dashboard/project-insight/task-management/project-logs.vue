@@ -7,8 +7,9 @@ export default {
                     id: 1,
                     date: "25",
                     weekDay: "Tue",
-                    time: "DEFECT WORKS (CONST)",
-                    caption: "Other (specified in Remark)",
+                    time: "New Member to Group",
+                    caption: "nurfirdaus_2 safety wok (2)",
+                    location: "BUILDING, Level 6",
                     subItem: [
                         { id: 1, img: require("@/assets/images/users/avatar-1.jpg") },
                         { id: 2, img: require("@/assets/images/users/avatar-2.jpg") },
@@ -17,11 +18,12 @@ export default {
                     bgcolor: "bg-info"
                 },
                 {
-                    id: 2,
+                    id: 2,  
                     date: "20",
                     weekDay: "Wed",
-                    time: "DEFECT WORKS (CONST)",
-                    caption: "Other (specified in Remark)",
+                    time: "Incident and Accident Report",
+                    caption: "Crane Malfunction During Lift",
+                    location: "TOWER CRANE",
                     subItem: [
                         { id: 1, img: require("@/assets/images/users/avatar-4.jpg") },
                         { id: 2, img: require("@/assets/images/users/avatar-5.jpg") },
@@ -34,8 +36,9 @@ export default {
                     id: 3,
                     date: "17",
                     weekDay: "Wed",
-                    time: "DEFECT WORKS (CONST)",
-                    caption: "Other (specified in Remark)",
+                    time: "Weekly Site Meeting",
+                    caption: "8:00 a.m. - 10:00 a.m.",
+                    location: "Level 2, Block A",
                     subItem: [
                         { id: 1, img: require("@/assets/images/users/avatar-8.jpg") },
                         { id: 2, img: require("@/assets/images/users/avatar-1.jpg") },
@@ -47,8 +50,9 @@ export default {
                     id: 4,
                     date: "12",
                     weekDay: "Tue",
-                    time: "DEFECT WORKS (CONST)",
-                    caption: "Other (specified in Remark)",
+                    time: "Request for Deadline Extension",
+                    caption: "DEFECT WORKS (CONST)",
+                    location: "PODIUM",
                     subItem: [
                         { id: 1, img: require("@/assets/images/users/avatar-1.jpg") },
                         { id: 2, img: require("@/assets/images/users/avatar-5.jpg") },
@@ -63,7 +67,7 @@ export default {
 </script>
 
 <template>
-    <BCard no-body>
+    <BCard no-body class="card-height-100">
         <BCardHeader class="align-items-center d-flex py-0">
             <BCardTitle class="mb-0 flex-grow-1">Event Logs</BCardTitle>
             <div class="flex-shrink-0">
@@ -101,25 +105,9 @@ export default {
                             <h5 class="text-muted mt-0 mb-1 fs-13">{{ item.time }}</h5>
                             <BLink href="#" class="text-reset fs-14 mb-0">{{ item.caption }}</BLink>
                         </BCol>
-                        <BCol sm="auto">
-                            <div class="avatar-group">
-                                <div class="avatar-group-item" v-for="(subitem, index) of item.subItem" :key="index">
-                                    <BLink href="javascript: void(0);" class="d-inline-block" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" title="" data-bs-original-title="Stine Nielsen">
-                                        <img :src="`${subitem.img}`" alt="" class="rounded-circle avatar-xxs">
-                                    </BLink>
-                                </div>
-
-                                <div class="avatar-group-item">
-                                    <BLink href="javascript: void(0);">
-                                        <div class="avatar-xxs">
-                                            <span :class="`avatar-title rounded-circle ${item.bgcolor} text-white`">
-                                                {{ item.imgNumber }}
-                                            </span>
-                                        </div>
-                                    </BLink>
-                                </div>
-                            </div>
+                        <BCol>
+                            <h5 class="text-muted mt-0 mb-1 fs-13">Location:</h5>
+                            <BLink href="#" class="text-reset fs-14 mb-0">{{ item.location }}</BLink>
                         </BCol>
                     </BRow>
                 </li>

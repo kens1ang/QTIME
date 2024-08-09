@@ -1,12 +1,19 @@
 <script>
-import { distributedColumnchart } from "./workertype-data.js";
+import { basicTimelineChart } from "./timeline-data.js";
+import { toRaw } from "vue";
 
 export default {
   data() {
     return {
-      distributedColumnchart: distributedColumnchart,
+      series: basicTimelineChart.series,
+      chartOptions: basicTimelineChart.chartOptions,
       currentTab: "generalworker",
     };
+  },
+  computed: {
+    rawSeries() {
+      return toRaw(this.series);
+    },
   },
   methods: {
     setTab(tab) {
@@ -17,7 +24,6 @@ export default {
 </script>
 
 <template>
-  <!-- Nav Tabs-->
   <ul class="nav nav-tabs nav-tabs-custom nav-primary" role="tablist">
     <li class="nav-item">
       <a
@@ -42,63 +48,42 @@ export default {
     <li class="nav-item">
       <a
         class="nav-link py-3"
-        :class="{ active: currentTab === 'subcon' }"
-        @click.prevent="setTab('subcon')"
+        :class="{ active: currentTab === 'staff' }"
+        @click.prevent="setTab('staff')"
         href="#"
       >
-        Subcon
-      </a>
-    </li>
-    <li class="nav-item">
-      <a
-        class="nav-link py-3"
-        :class="{ active: currentTab === 'operator' }"
-        @click.prevent="setTab('operator')"
-        href="#"
-      >
-        Operator
+        Staff
       </a>
     </li>
   </ul>
 
-  <!-- General Worker -->
   <div v-if="currentTab === 'generalworker'">
     <apexchart
       class="apex-charts"
-      height="350"
+      height="450"
       dir="ltr"
-      :series="distributedColumnchart.series"
-      :options="distributedColumnchart.chartOptions"
+      :series="rawSeries"
+      :options="chartOptions"
     ></apexchart>
   </div>
-  <!-- Subcon as KSK -->
+
   <div v-if="currentTab === 'subconasksk'">
     <apexchart
       class="apex-charts"
-      height="350"
+      height="450"
       dir="ltr"
-      :series="distributedColumnchart.series"
-      :options="distributedColumnchart.chartOptions"
+      :series="rawSeries"
+      :options="chartOptions"
     ></apexchart>
   </div>
-  <!-- Subcon -->
-  <div v-if="currentTab === 'subcon'">
+
+  <div v-if="currentTab === 'staff'">
     <apexchart
       class="apex-charts"
-      height="350"
+      height="450"
       dir="ltr"
-      :series="distributedColumnchart.series"
-      :options="distributedColumnchart.chartOptions"
-    ></apexchart>
-  </div>
-  <!-- Operator -->
-  <div v-if="currentTab === 'operator'">
-    <apexchart
-      class="apex-charts"
-      height="350"
-      dir="ltr"
-      :series="distributedColumnchart.series"
-      :options="distributedColumnchart.chartOptions"
+      :series="rawSeries"
+      :options="chartOptions"
     ></apexchart>
   </div>
 </template>

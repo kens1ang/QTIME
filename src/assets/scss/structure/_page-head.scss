@@ -5,8 +5,8 @@
 .page-title-box {
     padding: 10px $grid-gutter-width;
     padding-bottom: 0;
-    background-color: var(--#{$prefix}secondary-bg);
-    box-shadow: var(--#{$prefix}page-title-box-shadow);
+    background-color: var(--#{$prefix}primary-bg);
+    // box-shadow: var(--#{$prefix}page-title-box-shadow);
     border-top: 1px solid var(--#{$prefix}page-title-border);
     // margin: -23px (-$grid-gutter-width * 1) $grid-gutter-width (-$grid-gutter-width * 1);
     margin: -23px (-$grid-gutter-width * 1) 10px (-$grid-gutter-width * 1);

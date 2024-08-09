@@ -1,63 +1,42 @@
-import getChartColorsArray from "@/common/getChartColorsArray";
-
-const colors = getChartColorsArray('["--vz-primary", "--vz-success",  "--vz-gray-200", "--vz-secondary", "--vz-primary-rgb, 0.6", "--vz-info"]');
 
 const distributedColumnchart = {
-    series: [{
-        data: [21, 22, 10, 28, 16, 21, 13, 30],
-    },],
-    chartOptions: {
-        chart: {
-            height: 350,
-            type: "bar",
-            events: {
-                click: function () {
-                    // console.log(chart, w, e)
-                },
-            },
-        },
-        colors: colors,
-        plotOptions: {
-            bar: {
-                columnWidth: "45%",
-                distributed: true,
-            },
-        },
-        dataLabels: {
-            enabled: false,
-        },
-        legend: {
-            show: false,
-        },
-        xaxis: {
-            categories: [
-                ["PROTECTION"],
-                ["SURVEY", "ASSISTANCE"],   
-                ["TRAFFIC", "CONTROLLER"],
-                ["SAFETY", "HEALTH &", "ENVIRONMENT"],
-                ["OPERATOR"],
-                ["WORK ORDER"],
-                ["LOGISTICS"],
-                ["DEFECT", "WORKS", "(CONST)"],
-            ],
-            labels: {
-                style: {
-                    colors: colors,
-                    fontSize: "12px",
-                },
-            },
-            title: {
-                text: "Subelement",
-            }
-        },
-        yaxis: {
-            title: {
-                text: "Headcount",
-            },
-        },  
+  series: [{
+    name: 'Headcount',
+    type: 'column',
+    data: [2, 2, 3, 5, 7, 7]
+  }, {
+    name: 'Working Hours',
+    type: 'line',
+    data: [6, 7, 7, 8, 9, 10]
+  }],
+  chartOptions: {
+    chart: {
+      height: 350,
+      type: 'line',
+      toolbar: {
+        show: false
+      }
     },
+    stroke: {
+      width: [0, 4]
+    },
+    dataLabels: {
+      enabled: true,
+      enabledOnSeries: [1]
+    },
+    labels: ['OPERATOR', ['SITE', 'FACILITY'], 'HOUSEKEEPING', ['DEFECT', 'WORKS (CONST)'], ['DEFECT', 'WORKS (PDI)'], 'WORK ON BEHALF'],
+    yaxis: [{
+      title: {
+        text: 'Headcount',
+      },
+    
+    }, {
+      opposite: true,
+      title: {
+        text: 'Working Hours'
+      }
+    }]
+  },
 };
 
-export {
-    distributedColumnchart,
-};
+export { distributedColumnchart };

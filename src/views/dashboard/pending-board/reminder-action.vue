@@ -7,11 +7,6 @@ export default {
     data() {
         return {
             title: "Reminder Action",
-            breadcrumbs: [
-                { name: 'Dashboard', link: '/' },
-                { name: 'Pending Board', link: '/' },
-                { name: 'Reminder Action', link: '/' },
-            ],
         }
     },
     components: {
