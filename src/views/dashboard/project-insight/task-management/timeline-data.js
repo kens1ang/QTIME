@@ -78,6 +78,10 @@ const basicTimelineChart = {
       bar: {
         horizontal: true,
         rangeBarGroupRows: true,
+        borderRadius: 10,
+        borderRadiusApplication: "end",
+        borderRadiusWhenStacked: "last",
+        rangeBarOverlap: true,
       },
     },
     colors: getChartColorsArray('["--vz-primary"]'),

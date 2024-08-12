@@ -6,7 +6,7 @@ export const state = {
   mode: 'light',
   position: 'fixed',
   sidebarView: 'default',
-  sidebarColor: 'light',
+  sidebarColor: 'dark',
   sidebarImage: 'none',
   preloader: 'disable',
   visibility: 'show'

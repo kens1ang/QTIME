@@ -2,7 +2,7 @@
 import Layout from "@/layouts/main.vue";
 import PageHeader from "@/components/page-header";
 import headcountOverview from "./headcount/headcount-overview.vue";
-import headcountLocation from "./headcount-location.vue";
+import headcountLocation from "./headcount/headcount-location.vue";
 import headcountWorkertype from "./headcount/headcount-workertype.vue";
 import projectTimeline from "./task-management/project-timeline.vue";
 import timelineDetails from "./task-management/timeline-details.vue";
@@ -93,7 +93,33 @@ export default {
     <!-- Headcount by Location & Project Logs -->
     <BRow>
       <BCol xxl="8" md="4">
-        <headcountLocation />
+        <BCard no-body class="card-height-100">
+          <BCardHeader class="align-items-center d-flex py-0">
+            <BCardTitle class="mb-0 flex-grow-1"
+              >Headcount by Location</BCardTitle
+            >
+            <div class="flex-shrink-0">
+              <BDropdown
+                variant="link"
+                class="card-header-dropdown"
+                toggle-class="text-reset dropdown-btn arrow-none"
+                menu-class="dropdown-menu-end"
+                :offset="{ alignmentAxis: -140, crossAxis: 0, mainAxis: 0 }"
+              >
+                <template #button-content>
+                  <span class="text-muted fs-16"
+                    ><i class="mdi mdi-dots-vertical align-middle"></i
+                  ></span>
+                </template>
+                <BDropdownItem>Add Location</BDropdownItem>
+                <BDropdownItem>Add RFID</BDropdownItem>
+              </BDropdown>
+            </div>
+          </BCardHeader>
+          <BCardBody class="p-0">
+            <headcountLocation />
+          </BCardBody>
+        </BCard>
       </BCol>
       <BCol xl="4">
         <projectLogs />
