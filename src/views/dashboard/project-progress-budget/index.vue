@@ -102,14 +102,37 @@ export default {
             </BRow>
             <BRow>
               <BCol xl="7">
-                <h4>$1.02M</h4>
-                <h4>$1.81M</h4>
+                <BRow>
+                  <div
+                    class="d-flex justify-content-center align-items-center mt-5 border border-3 border-light border-top-0 border-start-0 border-end-0"
+                  >
+                    <h2 class="text-primary">
+                      $1.02M
+                      <span
+                        class="text-muted d-inline-block fs-15 align-middle ms-2"
+                        >Actual</span
+                      >
+                    </h2>
+                  </div>
+                </BRow>
+                <BRow>
+                  <div
+                    class="d-flex justify-content-center align-items-center mt-3"
+                  >
+                    <h2>
+                      $1.81M<span
+                        class="text-muted d-inline-block fs-15 align-middle ms-2"
+                        >Planned</span
+                      >
+                    </h2>
+                  </div>
+                </BRow>
               </BCol>
               <BCol xl="5">
                 <div class="container">
                   <h6 class="text-muted">Utilized Budget %</h6>
                   <div class="progress" style="--i: 85; --clr: #08bc9c">
-                    <h3>50<span>%</span></h3>
+                    <h3>56<span>%</span></h3>
                   </div>
                 </div>
               </BCol>
@@ -128,12 +151,38 @@ export default {
               </div>
             </BRow>
             <BRow>
-              <BCol xl="7"></BCol>
+              <BCol xl="7">
+                <BRow>
+                  <div
+                    class="d-flex justify-content-center align-items-center mt-5 border border-3 border-light border-top-0 border-start-0 border-end-0"
+                  >
+                    <h2 class="text-primary">
+                      $1.02M
+                      <span
+                        class="text-muted d-inline-block fs-15 align-middle ms-2"
+                        >Actual</span
+                      >
+                    </h2>
+                  </div>
+                </BRow>
+                <BRow>
+                  <div
+                    class="d-flex justify-content-center align-items-center mt-3"
+                  >
+                  <h2>
+                    $1.81M<span
+                      class="text-muted d-inline-block fs-15 align-middle ms-2"
+                      >Planned</span
+                    >
+                  </h2>
+                </div>
+                </BRow>
+              </BCol>
               <BCol xl="5">
                 <div class="container">
                   <h6 class="text-muted">Utilized Budget %</h6>
                   <div class="progress" style="--i: 85; --clr: #08bc9c">
-                    <h3>50<span>%</span></h3>
+                    <h3>56<span>%</span></h3>
                   </div>
                 </div>
               </BCol>
