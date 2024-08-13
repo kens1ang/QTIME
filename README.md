@@ -5,4 +5,6 @@ Velzon Vue Admin Default Version
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1bb98563-804e-4bdf-a2b6-7ef330278738/deploy-status)](https://app.netlify.com/sites/qtimedemo/deploys)
 
 ### hosting main branch
-(qtimedemo.netlify.app)
+You can view the live demo of the project here: [Netlify Live Demo](https:qtimedemo.netlify.app)
+
+()
