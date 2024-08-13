@@ -7,7 +7,7 @@ const distributedColumnchart = {
   }, {
     name: 'Working Hours',
     type: 'line',
-    data: [6, 7, 7, 8, 9, 10]
+    data: [16, 16, 24, 40, 56, 56]
   }],
   chartOptions: {
     chart: {

@@ -3,8 +3,8 @@ import Layout from "@/layouts/main.vue";
 import PageHeader from "@/components/page-header";
 import headcountOverview from "./headcount/headcount-overview.vue";
 import headcountLocation from "./headcount/headcount-location.vue";
-import headcountWorkertype from "./headcount/headcount-workertype.vue";
-import projectTimeline from "./task-management/project-timeline.vue";
+import headcountSubelement from "./headcount/headcount-subelement.vue";
+import ongoingTask from "./task-management/ongoing-task.vue";
 import timelineDetails from "./task-management/timeline-details.vue";
 import projectLogs from "./task-management/project-logs.vue";
 import widget from "./widget.vue";
@@ -21,8 +21,8 @@ export default {
     headcountLocation,
     Layout,
     PageHeader,
-    headcountWorkertype,
-    projectTimeline,
+    headcountSubelement,
+    ongoingTask,
     widget,
     weather,
     projectLogs,
@@ -70,18 +70,18 @@ export default {
                 <template #button-content>
                   <span class="fw-semibold text-uppercase fs-12">Sort by: </span
                   ><span class="text-muted"
-                    >Day<i class="mdi mdi-chevron-down ms-1"></i
+                    >Today<i class="mdi mdi-chevron-down ms-1"></i
                   ></span>
                 </template>
-                <BDropdownItem>Day</BDropdownItem>
-                <BDropdownItem>Week</BDropdownItem>
-                <BDropdownItem>Month</BDropdownItem>
-                <BDropdownItem>Year</BDropdownItem>
+                <BDropdownItem>Today</BDropdownItem>
+                <BDropdownItem>This Week</BDropdownItem>
+                <BDropdownItem>This Month</BDropdownItem>
+                <BDropdownItem>This Year</BDropdownItem>
               </BDropdown>
             </div>
           </BCardHeader>
           <BCardBody class="p-0">
-            <headcountWorkertype />
+            <headcountSubelement />
           </BCardBody>
         </BCard>
       </BCol>
@@ -131,7 +131,7 @@ export default {
       <BCol xl="12">
         <BCard no-body class="card-height-100">
           <BCardHeader class="align-items-center d-flex py-0">
-            <BCardTitle class="mb-0 flex-grow-1">Project Timeline</BCardTitle>
+            <BCardTitle class="mb-0 flex-grow-1">Ongoing Task</BCardTitle>
             <div class="flex-shrink-0">
               <BDropdown
                 variant="link"
@@ -161,7 +161,7 @@ export default {
                 class="mb-0 border-start-0 border-top-0 border-bottom-0 rounded-0"
               >
                 <BCardBody class="p-0">
-                  <projectTimeline />
+                  <ongoingTask />
                 </BCardBody>
               </BCard>
             </BCol>

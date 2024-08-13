@@ -3,11 +3,24 @@ export default {
   data() {
     return {
       currentTab: "attendance",
+      showPodiumDetails: false,
+      showCarParkDetails: false,
+      showOfficeDetails: false,
+      showBuildingDetails: false,
     };
   },
   methods: {
     setTab(tab) {
       this.currentTab = tab;
+    },
+    togglePodiumDetails() {
+      this.showPodiumDetails = !this.showPodiumDetails;
+    },
+    toggleCarParkDetails() {
+      this.showCarParkDetails = !this.showCarParkDetails;
+    },
+    toggleBuildingDetails() {
+      this.showBuildingDetails = !this.showBuildingDetails;
     },
   },
 };
@@ -40,15 +53,54 @@ export default {
 
   <!-- Attendance -->
   <div v-if="currentTab === 'attendance'">
-    <div class="pin carpark">
+    <div class="pin carpark" @click="toggleCarParkDetails">
       <span>Car Park: 9</span>
     </div>
-    <div class="pin podium">
+
+    <div v-if="showCarParkDetails">
+      <div class="pin carpark-level-3">
+        <span>Level 3: 7</span>
+      </div>
+      <div class="pin carpark-level-2">
+        <span>Level 2: 2</span>
+      </div>
+    </div>
+
+    <div class="pin podium" @click="togglePodiumDetails">
       <span>Podium: 7</span>
     </div>
-    <div class="pin building">
+
+    <div v-if="showPodiumDetails">
+      <div class="pin podium-ground-floor">
+        <span>Ground Floor: 6</span>
+      </div>
+      <div class="pin podium-level-5">
+        <span>Level 5: 1</span>
+      </div>
+    </div>
+
+    <div class="pin building" @click="toggleBuildingDetails">
       <span>Building: 9</span>
     </div>
+
+    <div v-if="showBuildingDetails">
+      <div class="pin building-level-9">
+        <span>Level 9: 2</span>
+      </div>
+      <div class="pin building-level-8">
+        <span>Level 8: 1</span>
+      </div>
+      <div class="pin building-level-6">
+        <span>Level 6: 2</span>
+      </div>
+      <div class="pin building-level-12">
+        <span>Level 12: 3</span>
+      </div>
+      <div class="pin building-level-14">
+        <span>Level 14: 1</span>
+      </div>
+    </div>
+
     <div class="pin office">
       <span>Office: 10</span>
     </div>
@@ -96,7 +148,7 @@ export default {
     </BCol>
     <BCol xl="3" class="ps-0">
       <BCardBody>
-        <div class="table-responsive table-card">
+        <div class="table-responsive table-card overflow-auto" style="max-height: 500px;">
           <table
             class="table align-middle table-borderless table-centered table-nowrap mb-0"
           >
@@ -121,6 +173,26 @@ export default {
               </tr>
               <tr>
                 <td>Office</td>
+                <td>10</td>
+              </tr>
+              <tr class="text-muted table-light">
+                <th scope="col">Subelement</th>
+                <th scope="col"></th>
+              </tr>
+              <tr>
+                <td>Operator</td>
+                <td>9</td>
+              </tr>
+              <tr>
+                <td>Work on Behalf</td>
+                <td>7</td>
+              </tr>
+              <tr>
+                <td>Site Facility</td>
+                <td>9</td>
+              </tr>
+              <tr>
+                <td>Housekeeping</td>
                 <td>10</td>
               </tr>
             </tbody>
@@ -176,6 +248,7 @@ export default {
   border-radius: 3em;
   padding: 0.3em 0.6em;
   font-size: 0.9em;
+  color: black;
 }
 
 .carpark {
@@ -240,6 +313,51 @@ export default {
 
 .rfid9 {
   top: 45%;
+  left: 70%;
+}
+
+.carpark-level-3 {
+  top: 30%;
+  left: 10%;
+}
+
+.carpark-level-2 {
+  top: 40%;
+  left: 10%;
+}
+
+.podium-ground-floor {
+  top: 50%;
+  left: 40%;
+}
+
+.podium-level-5 {
+  top: 40%;
+  left: 40%;
+}
+
+.building-level-9 {
+  top: 90%;
+  left: 50%;
+}
+
+.building-level-8 {
+  top: 90%;
+  left: 60%;
+}
+
+.building-level-6 {
+  top: 90%;
+  left: 40%;
+}
+
+.building-level-12 {
+  top: 80%;
+  left: 40%;
+}
+
+.building-level-14 {
+  top: 90%;
   left: 70%;
 }
 

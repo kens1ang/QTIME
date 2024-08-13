@@ -10,6 +10,7 @@ const basicTimelineChart = {
             new Date("2019-03-02").getTime(),
             new Date("2019-03-04").getTime(),
           ],
+          percentage: 70,
         },
         {
           x: "HOUSEKEEPING",
@@ -24,6 +25,7 @@ const basicTimelineChart = {
             new Date("2019-03-04").getTime(),
             new Date("2019-03-08").getTime(),
           ],
+          percentage: 40,
         },
         {
           x: "OPERATOR",
@@ -38,6 +40,7 @@ const basicTimelineChart = {
             new Date("2019-03-08").getTime(),
             new Date("2019-03-12").getTime(),
           ],
+          percentage: 100,
         },
         {
           x: ["DEFECT", "WORKS", "(CONST)"],
@@ -45,6 +48,7 @@ const basicTimelineChart = {
             new Date("2019-03-12").getTime(),
             new Date("2019-03-13").getTime(),
           ],
+          percentage: 15,
         },
         {
           x: ["DEFECT", "WORKS", "(CONST)"],
@@ -59,6 +63,7 @@ const basicTimelineChart = {
             new Date("2019-03-12").getTime(),
             new Date("2019-03-13").getTime(),
           ],
+          percentage: 100,
         },
       ],
     },
@@ -79,8 +84,6 @@ const basicTimelineChart = {
         horizontal: true,
         rangeBarGroupRows: true,
         borderRadius: 10,
-        borderRadiusApplication: "end",
-        borderRadiusWhenStacked: "last",
         rangeBarOverlap: true,
       },
     },
@@ -94,6 +97,18 @@ const basicTimelineChart = {
     tooltip: {
       x: {
         format: "dd MMM yyyy",
+      },
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function (val, opts) {
+        const percentage = opts.w.config.series[opts.seriesIndex].data[opts.dataPointIndex].percentage;
+        return percentage ? `${percentage}%` : ''; 
+      },
+      offsetX: 0,
+      style: {
+        colors: ['#fff'], 
+        fontSize: '12px',
       },
     },
   },

@@ -69,7 +69,7 @@ export default {
   <BCard no-body class="card-height-80">
     <BCardHeader class="align-items-center d-flex py-0">
       <BCardTitle class="mb-0 flex-grow-1"
-        >Budget Varience Actual vs. Planned</BCardTitle
+        >Labour Budget Varience Actual vs. Planned</BCardTitle
       >
       <div class="flex-shrink-0">
         <BDropdown
@@ -123,7 +123,7 @@ export default {
 
       <apexchart
         class="apex-charts"
-        height="290"
+        height="400"
         dir="ltr"
         :series="series"
         :options="chartOptions"

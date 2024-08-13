@@ -1,7 +1,6 @@
 <script>
 import Layout from "@/layouts/main.vue";
 import PageHeader from "@/components/page-header";
-import projectStatus from "./project-status.vue";
 import budgetOverview from "./budget-overview.vue";
 import costBreakdown from "./cost-breakdown.vue";
 
@@ -14,7 +13,6 @@ export default {
   components: {
     budgetOverview,
     costBreakdown,
-    projectStatus,
     Layout,
     PageHeader,
   },
@@ -48,9 +46,18 @@ export default {
             </BRow>
           </BCardHeader>
           <BCardBody>
-            <h6>Start Date:</h6>
-            <h6>Planned Finish Date:</h6>
-            <h6>Project Duration:</h6>
+            <BRow>
+              <BCol xl="8">
+                <h6>Start Date:</h6>
+                <h6>Planned Finish Date:</h6>
+                <h6>Proximate Duration:</h6>
+              </BCol>
+              <BCol xl="4" style="text-align: right">
+                <h6>01/01/2021</h6>
+                <h6>19/07/2021</h6>
+                <h6>200 days</h6>
+              </BCol>
+            </BRow>
           </BCardBody>
         </BCard>
       </BCol>
@@ -58,7 +65,7 @@ export default {
       <BCol xl="4">
         <BCard no-body class="border card-border-light mt-3">
           <BCardBody>
-            <h6>Utilized Days:</h6>
+            <h6 class="text-muted">Utilized Days:</h6>
             <div class="container">
               <div class="progress" style="--i: 85; --clr: #08bc9c">
                 <h3>100<span>days</span></h3>
@@ -71,7 +78,7 @@ export default {
       <BCol xl="4">
         <BCard no-body class="border card-border-light mt-3">
           <BCardBody>
-            <h6>Completion Percentage:</h6>
+            <h6 class="text-muted">Avg Complete:</h6>
             <div class="container">
               <div class="progress" style="--i: 85; --clr: #08bc9c">
                 <h3>50<span>%</span></h3>
@@ -82,13 +89,63 @@ export default {
       </BCol>
     </BRow>
 
+    <BRow>
+      <BCol xl="6">
+        <BCard no-body class="border card-border-light mt-3">
+          <BCardBody>
+            <BRow class="mb-3">
+              <div
+                class="location d-flex align-items-center justify-content-center gap-1"
+              >
+                <h6 class="text-muted">General Worker</h6>
+              </div>
+            </BRow>
+            <BRow>
+              <BCol xl="7">
+                <h4>$1.02M</h4>
+                <h4>$1.81M</h4>
+              </BCol>
+              <BCol xl="5">
+                <div class="container">
+                  <h6 class="text-muted">Utilized Budget %</h6>
+                  <div class="progress" style="--i: 85; --clr: #08bc9c">
+                    <h3>50<span>%</span></h3>
+                  </div>
+                </div>
+              </BCol>
+            </BRow>
+          </BCardBody>
+        </BCard>
+      </BCol>
+      <BCol xl="6">
+        <BCard no-body class="border card-border-light mt-3">
+          <BCardBody>
+            <BRow class="mb-3">
+              <div
+                class="location d-flex align-items-center justify-content-center gap-1"
+              >
+                <h6 class="text-muted">Subcon as General Worker</h6>
+              </div>
+            </BRow>
+            <BRow>
+              <BCol xl="7"></BCol>
+              <BCol xl="5">
+                <div class="container">
+                  <h6 class="text-muted">Utilized Budget %</h6>
+                  <div class="progress" style="--i: 85; --clr: #08bc9c">
+                    <h3>50<span>%</span></h3>
+                  </div>
+                </div>
+              </BCol>
+            </BRow>
+          </BCardBody>
+        </BCard>
+      </BCol>
+    </BRow>
+
     <!--Budget & Expenses-->
     <BRow>
-      <BCol xxl="3" md="6">
-        <projectStatus />
-      </BCol>
-
-      <BCol xxl="6">
+      <BCol xxl="9">
         <budgetOverview />
       </BCol>
 
@@ -106,7 +163,6 @@ export default {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 40px;
 }
 
 .container .progress {
@@ -115,7 +171,7 @@ export default {
   height: 150px;
   border-radius: 50%;
   color: #fff;
-  background: #fff linear-gradient(to right, transparent 50%, var(--clr) 0);
+  background: #e0e0e0 linear-gradient(to right, transparent 50%, var(--clr) 0);
 }
 
 .container .progress h3 {
@@ -151,7 +207,7 @@ export default {
   border-radius: 50%;
   background: #fff;
   /* box-shadow: 10px 0 20px rgba(0, 0, 0, 0.1); */
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
   /* box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 4px 0px inset; */
 }
 
