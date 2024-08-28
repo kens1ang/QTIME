@@ -6,7 +6,7 @@ export default {
     data() {
         return {
             title: "Pending Approval",
-            currentTab: 'attendance', // Initialize the default tab
+            currentTab: 'attendance', 
         }
     },
     components: {
