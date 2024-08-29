@@ -111,13 +111,13 @@ export default [
     component: () => import("../views/dashboard/pending-board/pending-payment.vue"),
   },
   {
-    path: "/dashboard/pending-approval",
-    name: "pending-approval",
+    path: "/dashboard/pending-board",
+    name: "pending-board",
     meta: {
-      title: "Pending Approval",
+      title: "Pending Board",
       authRequired: true,
     },
-    component: () => import("../views/dashboard/pending-board/pending-approval.vue"),
+    component: () => import("../views/dashboard/pending-board/pending-board.vue"),
   },
   {
     path: "/dashboard/reminder-action",

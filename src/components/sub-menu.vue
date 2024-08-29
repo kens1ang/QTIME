@@ -53,13 +53,7 @@ export default {
       if (path === '/' || path.startsWith('/dashboard/')) {
         return [
           { name: 'Project Insight', path: '/', },
-          { name: 'Pending Board',
-            children: [
-                { name: 'Pending Payment', path: '/dashboard/pending-payment' },
-                { name: 'Pending Approval', path: '/dashboard/pending-approval' },
-                { name: 'Reminder Action', path: '/dashboard/reminder-action' }
-            ]
-           },
+          { name: 'Pending Board', path: '/dashboard/pending-board' },
           { name: 'Overall Project Progress & Expenses', path: '/dashboard/project-progress-budget' }
         ];
       }else if (path.startsWith('/apps/')) {
