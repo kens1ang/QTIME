@@ -318,6 +318,7 @@ export default {
       </b-form>
     </BModal>
 
+    <!-- Modal Approval List -->
     <BModal
       v-model="approvalModal"
       modal-class="zoomIn"
@@ -464,6 +465,7 @@ export default {
       </div>
     </BModal>
 
+    <!-- Modal Site List -->
     <BModal
       v-model="siteModal"
       modal-class="zoomIn"
