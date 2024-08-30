@@ -3,12 +3,14 @@ import Layout from "@/layouts/main.vue";
 import PageHeader from "@/components/page-header";
 import Details from "./details.vue";
 import ApprovalHistory from "./approval-history.vue";
+import Payment from "./payment.vue";
+import Summary from "./summary.vue";
 
 export default {
   data() {
     return {
       title: "Attendance",
-      currentTab: "details",
+      currentTab: "summary",
     };
   },
   components: {
@@ -16,6 +18,8 @@ export default {
     PageHeader,
     Details,
     ApprovalHistory,
+    Payment,
+    Summary,
   },
   methods: {
     setTab(tab) {
@@ -73,27 +77,94 @@ export default {
       </li>
     </ul>
 
-    <!-- Page title -->
+    <!-- Page title & Reports-->
     <div class="d-flex justify-content-between align-items-center">
-      <h4>SCPT1A-Parcel2(308U) - General Worker - 1/01/2024 To 15/01/2024</h4>
-      <div>
+      <!-- Page Title -->
+      <div class="col-7">
+        <div class="d-flex gap-3 align-items-center justify-content-start">
+          <h4>SCPT1A-Parcel2(308U) - General Worker - Period 1</h4>
+          <span class="badge bg-primary-subtle text-primary">Printed</span>
+        </div>
+      </div>  
+
+      <!-- Reports -->
+      <div class="col-5 text-end">
+        <button
+          v-if="currentTab === 'summary'"
+          type="button"
+          class="btn btn-sm btn-outline-primary waves-effect waves-light me-2"
+        >
+          <i class="ri-time-line label-icon align-middle fs-16 me-2"></i
+          >Hours Report
+        </button>
+
+        <button
+          v-if="currentTab === 'payment'"
+          type="button"
+          class="btn mt-2 btn-sm btn-outline-primary waves-effect waves-light me-2"
+        >
+          <i
+            class="ri-file-excel-2-line label-icon align-middle fs-16 me-2"
+          ></i>
+          AA Only Attendance Summary
+        </button>
+
+        <button
+          v-if="currentTab === 'payment'"
+          type="button"
+          class="btn mt-2 btn-sm btn-outline-primary waves-effect waves-light me-2"
+        >
+          <i
+            class="ri-file-excel-2-line label-icon align-middle fs-16 me-2"
+          ></i>
+          ACC Attendance Summary
+        </button>
+
+        <button
+          v-if="currentTab === 'payment'"
+          type="button"
+          class="btn mt-2 btn-sm btn-outline-primary waves-effect waves-light me-2"
+        >
+          <i
+            class="ri-file-excel-2-line label-icon align-middle fs-16 me-2"
+          ></i>
+          HR Payroll Report
+        </button>
+
+        <button
+          v-if="currentTab === 'payment'"
+          type="button"
+          class="btn mt-2 btn-sm btn-outline-primary waves-effect waves-light me-2"
+        >
+          <i
+            class="ri-file-excel-2-line label-icon align-middle fs-16 me-2"
+          ></i>
+          Instapay Report
+        </button>
+
         <button
           v-if="currentTab === 'details' || currentTab === 'approvalHistory'"
           type="button"
-          class="btn btn-outline-primary waves-effect waves-light me-2"
+          class="btn btn-sm btn-outline-primary waves-effect waves-light me-2"
         >
-          <i class="bx bxs-file-export label-icon align-middle fs-16 me-2"></i
+          <i class="ri-file-excel-2-line label-icon align-middle fs-16 me-2"></i
           >Export Excel
         </button>
+
         <button
           v-if="currentTab === 'details'"
           type="button"
-          class="btn btn-outline-primary waves-effect waves-light"
+          class="btn btn-sm btn-outline-primary waves-effect waves-light me-2"
         >
-          <i class="bx bx-line-chart label-icon align-middle fs-16 me-2"></i
+          <i class="ri-line-chart-line label-icon align-middle fs-16 me-2"></i
           >Export Excel Analytics
         </button>
       </div>
+    </div>
+
+    <!-- Summary -->
+    <div v-if="currentTab === 'summary'">
+      <Summary />
     </div>
 
     <!-- Attendance -->
@@ -104,6 +175,11 @@ export default {
     <!-- Approval History -->
     <div v-if="currentTab === 'approvalHistory'">
       <ApprovalHistory />
+    </div>
+
+    <!-- Payment -->
+    <div v-if="currentTab === 'payment'">
+      <Payment />
     </div>
   </Layout>
 </template>

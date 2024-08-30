@@ -46,20 +46,19 @@ export default {
 </script>
 
 <template>
-
   <div class="card-body" style="margin-bottom: 30px; margin-top: 30px">
     <div class="listjs-table" id="customerList">
       <div class="row g-4 mb-3">
         <div class="col-sm-auto">
           <button
             type="button"
-            class="btn btn-soft-primary waves-effect waves-light material-shadow-none"
+            class="btn btn-outline-primary waves-effect waves-light material-shadow-none"
             @click="showModal(false)"
             style="margin-right: 10px"
           >
             <i class="ri-add-line align-bottom me-1"></i> Add Attendance
           </button>
-          <button class="btn btn-soft-danger" @click="deleteAlert">
+          <button class="btn btn-outline-danger" @click="deleteAlert">
             <i class="ri-delete-bin-2-line"></i>
           </button>
         </div>
@@ -142,25 +141,29 @@ export default {
                 <div class="d-flex gap-2">
                   <button
                     type="button"
-                    class="btn btn-sm btn-light edit-item-btn"
+                    class="btn btn-sm btn-warning edit-item-btn"
                   >
                     RFID
                   </button>
                   <div class="edit">
-                    <button
-                      class="btn btn-sm btn-success edit-item-btn"
+                    <BButton
+                      variant="soft-info"
+                      size="sm"
+                      class="edit-list"
                       @click="showModal(true)"
                     >
-                      Edit
-                    </button>
+                      <i class="ri-pencil-fill align-bottom"></i>
+                    </BButton>
                   </div>
                   <div class="remove">
-                    <button
-                      class="btn btn-sm btn-danger remove-item-btn"
+                    <BButton
+                      variant="soft-danger"
+                      size="sm"
+                      class="remove-list"
                       @click="deleteAlert"
                     >
-                      Remove
-                    </button>
+                      <i class="ri-delete-bin-5-fill align-bottom"></i>
+                    </BButton>
                   </div>
                 </div>
               </td>
@@ -258,25 +261,29 @@ export default {
                 <div class="d-flex gap-2">
                   <button
                     type="button"
-                    class="btn btn-sm btn-light edit-item-btn"
+                    class="btn btn-sm btn-warning edit-item-btn"
                   >
                     RFID
                   </button>
                   <div class="edit">
-                    <button
-                      class="btn btn-sm btn-success edit-item-btn"
+                    <BButton
+                      variant="soft-info"
+                      size="sm"
+                      class="edit-list"
                       @click="showModal(true)"
                     >
-                      Edit
-                    </button>
+                      <i class="ri-pencil-fill align-bottom"></i>
+                    </BButton>
                   </div>
                   <div class="remove">
-                    <button
-                      class="btn btn-sm btn-danger remove-item-btn"
+                    <BButton
+                      variant="soft-danger"
+                      size="sm"
+                      class="remove-list"
                       @click="deleteAlert"
                     >
-                      Remove
-                    </button>
+                      <i class="ri-delete-bin-5-fill align-bottom"></i>
+                    </BButton>
                   </div>
                 </div>
               </td>
