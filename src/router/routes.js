@@ -127,12 +127,6 @@ export default [
     meta: { title: "Attendance", authRequired: true },
     component: () => import("../views/attendance/index"),
   },
-  {
-    path: "/attendance/edit",
-    name: "attendance-edit",
-    meta: { title: "Edit Attendance", authRequired: true },
-    component: () => import("../views/attendance/edit-details"),
-  },
 
   //end of QTIME
 

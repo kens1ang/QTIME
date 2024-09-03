@@ -106,16 +106,14 @@ export default {
               <th>Date</th>
               <th>Rate</th>
               <th>OT Rate</th>
-              <th>In</th>
-              <th>Out</th>
-              <th>Hours at Site</th>
+              <th>In & Out</th>
               <th>Working Hours</th>
               <th>Approved Pre-OT</th>
               <th>Actual OT</th>
               <th>ADJ OT</th>
-              <th>Special ADJ</th>
+              <th>ADJ Hours</th>
               <th>ADJ (RM)</th>
-              <th>Total Payable</th>
+              <th>Total Payable Hours</th>
               <th>Total Pay (RM)</th>
               <th>Sub Element</th>
               <th>Task/ Sub Sub Element</th>
@@ -123,7 +121,6 @@ export default {
               <th>BC (hr)</th>
               <th>Remark</th>
               <th>Loc 1</th>
-              <th>Loc 2</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -142,9 +139,7 @@ export default {
               <td>01/01/24 Mon</td>
               <td>8.7500</td>
               <td>8.7500</td>
-              <td>01-Jan 07:23</td>
-              <td>01-Jan 20:07</td>
-              <td>12.73</td>
+              <td>07:23 - 20:07</td>
               <td>8.00</td>
               <td></td>
               <td>3.00</td>
@@ -159,23 +154,23 @@ export default {
               <td>0</td>
               <td>KSK Leader</td>
               <td></td>
-              <td></td>
               <td>
                 <div class="d-flex gap-2">
-                  <!-- <button
+                  <button
                     type="button"
                     class="btn btn-sm btn-warning edit-item-btn"
                     @click="RfidModal = !RfidModal"
                   >
                     RFID
-                  </button> -->
+                  </button>
                   <div class="edit">
-                    <BButton variant="soft-info" size="sm" class="edit-list">
-                      <router-link
-                        :to="{ name: 'attendance-edit' }"
-                        class="MenuText"
-                        ><i class="ri-pencil-fill align-bottom"></i
-                      ></router-link>
+                    <BButton
+                      variant="soft-info"
+                      size="sm"
+                      class="edit-list"
+                      @click="showModal(true)"
+                    >
+                      <i class="ri-pencil-fill align-bottom"></i>
                     </BButton>
                   </div>
                   <div class="remove">
@@ -247,16 +242,14 @@ export default {
               <th>Date</th>
               <th>Rate</th>
               <th>OT Rate</th>
-              <th>In</th>
-              <th>Out</th>
-              <th>Hours at Site</th>
+              <th>In & Out</th>
               <th>Working Hours</th>
               <th>Approved Pre-OT</th>
               <th>Actual OT</th>
               <th>ADJ OT</th>
-              <th>Special ADJ</th>
+              <th>ADJ Hours</th>
               <th>ADJ (RM)</th>
-              <th>Total Payable</th>
+              <th>Total Payable Hours</th>
               <th>Total Pay (RM)</th>
               <th>Sub Element</th>
               <th>Task/ Sub Sub Element</th>
@@ -264,7 +257,6 @@ export default {
               <th>BC (hr)</th>
               <th>Remark</th>
               <th>Loc 1</th>
-              <th>Loc 2</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -283,9 +275,7 @@ export default {
               <td>01/01/24 Mon</td>
               <td>8.7500</td>
               <td>8.7500</td>
-              <td>01-Jan 07:23</td>
-              <td>01-Jan 20:07</td>
-              <td>12.73</td>
+              <td>07:23 - 20:07</td>
               <td>8.00</td>
               <td></td>
               <td>3.00</td>
@@ -299,7 +289,6 @@ export default {
               <td></td>
               <td>0</td>
               <td>KSK Leader</td>
-              <td></td>
               <td></td>
               <td>
                 <div class="d-flex gap-2">

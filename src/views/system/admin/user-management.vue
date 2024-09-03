@@ -114,7 +114,6 @@ export default {
                 <th class="sort" data-sort="email">Email</th>
                 <th>Access</th>
                 <th>Mobile</th>
-                <th>QAward</th>
                 <th>Staff Code</th>
                 <th>Approval List</th>
                 <th>Site List</th>
@@ -144,7 +143,6 @@ export default {
                 <td class="email">abdulrahman@metrio.com.my</td>
                 <td class="accesslevel">Site</td>
                 <td class="mobileaccess">Yes</td>
-                <td class="qawardaccess">Yes</td>
                 <td class="staffcode">000117</td>
                 <td>
                   <button
@@ -494,42 +492,35 @@ export default {
         </div>
       </div>
 
-      <div
-        class="accordion accordion-flush overflow-auto"
-        id="accordionPanelsStayOpenExample"
-      >
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-            <button
-              class="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#panelsStayOpen-collapseOne"
-              aria-expanded="true"
-              aria-controls="panelsStayOpen-collapseOne"
-            >
-              Site List
-            </button>
-          </h2>
-          <div
-            id="panelsStayOpen-collapseOne"
-            class="accordion-collapse collapse show"
-            aria-labelledby="panelsStayOpen-headingOne"
-          >
-            <div class="accordion-body p-0">
-              <ol class="list-group list-group-flush list-group-numbered">
-                <li class="list-group-item">FORUM2</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
+      <table class="table table-nowrap">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Site Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1.</td>
+            <td>FORUM2</td>
+            <td>
+              <div class="d-flex gap-2">
+                <div class="edit">
+                  <BButton variant="soft-info" size="sm" class="edit-list">
+                    <i class="ri-pencil-fill align-bottom"></i>
+                  </BButton>
+                </div>
+                <div class="remove">
+                  <BButton variant="soft-danger" size="sm" class="remove-list">
+                    <i class="ri-delete-bin-5-fill align-bottom"></i>
+                  </BButton>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </BModal>
   </Layout>
 </template>
-
-<style>
-td {
-  text-align: center;
-}
-</style>

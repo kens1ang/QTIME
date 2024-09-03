@@ -37,6 +37,24 @@
               <td>2024-01-09 16:34:21</td>
               <td></td>
               <td>
+                <span class="badge bg-danger-subtle text-danger">Rejected</span>
+              </td>
+            </tr>
+            <tr>
+              <td>TEOH YIN ZHENG</td>
+              <td>2024-01-10</td>
+              <td>2024-01-09 16:34:21</td>
+              <td></td>
+              <td>
+                <span class="badge bg-warning-subtle text-warning">Pending</span>
+              </td>
+            </tr>
+            <tr>
+              <td>TEOH YIN ZHENG</td>
+              <td>2024-01-10</td>
+              <td>2024-01-09 16:34:21</td>
+              <td></td>
+              <td>
                 <span class="badge bg-primary-subtle text-primary"
                   >Approved</span
                 >
@@ -48,7 +66,20 @@
               <td>2024-01-09 16:34:21</td>
               <td></td>
               <td>
-                <span class="badge bg-danger-subtle text-danger">Rejected</span>
+                <span class="badge bg-primary-subtle text-primary"
+                  >Approved</span
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>TEOH YIN ZHENG</td>
+              <td>2024-01-10</td>
+              <td>2024-01-09 16:34:21</td>
+              <td></td>
+              <td>
+                <span class="badge bg-primary-subtle text-primary"
+                  >Approved</span
+                >
               </td>
             </tr>
           </tbody>

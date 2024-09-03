@@ -81,9 +81,12 @@ export default {
     <div class="d-flex justify-content-between align-items-center">
       <!-- Page Title -->
       <div class="col-7">
-        <div class="d-flex gap-3 align-items-center justify-content-start">
+        <div v-if="currentTab != 'approvalHistory'" class="d-flex gap-3 align-items-center justify-content-start">
           <h4>SCPT1A-Parcel2(308U) - General Worker - Period 1</h4>
           <span class="badge bg-primary-subtle text-primary">Printed</span>
+        </div>
+        <div v-if="currentTab === 'approvalHistory'" class="d-flex gap-3 align-items-center justify-content-start">
+          <h4>SCPT1A-Parcel2(308U) - General Worker</h4>
         </div>
       </div>  
 
@@ -143,7 +146,7 @@ export default {
         </button>
 
         <button
-          v-if="currentTab === 'details' || currentTab === 'approvalHistory'"
+          v-if="currentTab === 'details'"
           type="button"
           class="btn btn-sm btn-outline-primary waves-effect waves-light me-2"
         >

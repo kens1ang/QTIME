@@ -62,7 +62,9 @@ export default {
                 <i :class="`${item.icon} display-6 text-muted`"></i>
               </div>
               <div class="flex-grow-1 ms-3">
-                <h2 class="mb-0">{{item.prefix}}{{ item.counter }}{{ item.suffix }}</h2>
+                <h2 class="mb-0">
+                  {{ item.prefix }}{{ item.counter }}{{ item.suffix }}
+                </h2>
               </div>
             </div>
           </div>
@@ -117,6 +119,28 @@ export default {
                 VS July 2nd half: KSK Amt reduce RMM1,429. KSK Headcount reduce
                 3, 30-->27 Pax
               </td>
+            </tr>
+            <tr>
+              <td>TEOH YIN ZHENG</td>
+              <td>2024-01-10</td>
+              <td>2024-01-09 16:34:21</td>
+              <td>
+                <span class="badge bg-warning-subtle text-warning"
+                  >Pending</span
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>TEOH YIN ZHENG</td>
+              <td>2024-01-10</td>
+              <td>2024-01-09 16:34:21</td>
+              <td>
+                <span class="badge bg-warning-subtle text-warning"
+                  >Pending</span
+                >
+              </td>
+              <td></td>
             </tr>
           </tbody>
         </table>
