@@ -8,6 +8,8 @@ export default {
       currentTab: "details",
       modaltoAdd: false,
       modalTitle: "",
+      RfidModal: false,
+      RfidModalTitle: "RFID",
     };
   },
   methods: {
@@ -83,6 +85,16 @@ export default {
         <table class="table align-middle table-nowrap" id="customerTable">
           <thead class="table-success">
             <tr>
+              <th>
+                <div class="form-check form-check-outline form-check-success">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="formCheck15"
+                  />
+                  <label class="form-check-label" for="formCheck15"> </label>
+                </div>
+              </th>
               <th>Name: Asmadi</th>
               <th>ID: 300822</th>
               <th colspan="20"></th>
@@ -90,6 +102,7 @@ export default {
           </thead>
           <thead class="table-light custom-th">
             <tr>
+              <th></th>
               <th>Date</th>
               <th>Rate</th>
               <th>OT Rate</th>
@@ -116,6 +129,16 @@ export default {
           </thead>
           <tbody class="list form-check-all">
             <tr>
+              <td>
+                <div class="form-check form-check-outline form-check-success">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="formCheck15"
+                  />
+                  <label class="form-check-label" for="formCheck15"> </label>
+                </div>
+              </td>
               <td>01/01/24 Mon</td>
               <td>8.7500</td>
               <td>8.7500</td>
@@ -139,20 +162,20 @@ export default {
               <td></td>
               <td>
                 <div class="d-flex gap-2">
-                  <button
+                  <!-- <button
                     type="button"
                     class="btn btn-sm btn-warning edit-item-btn"
+                    @click="RfidModal = !RfidModal"
                   >
                     RFID
-                  </button>
+                  </button> -->
                   <div class="edit">
-                    <BButton
-                      variant="soft-info"
-                      size="sm"
-                      class="edit-list"
-                      @click="showModal(true)"
-                    >
-                      <i class="ri-pencil-fill align-bottom"></i>
+                    <BButton variant="soft-info" size="sm" class="edit-list">
+                      <router-link
+                        :to="{ name: 'attendance-edit' }"
+                        class="MenuText"
+                        ><i class="ri-pencil-fill align-bottom"></i
+                      ></router-link>
                     </BButton>
                   </div>
                   <div class="remove">
@@ -203,6 +226,16 @@ export default {
         <table class="table align-middle table-nowrap" id="customerTable">
           <thead class="table-success">
             <tr>
+              <th>
+                <div class="form-check form-check-outline form-check-success">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="formCheck15"
+                  />
+                  <label class="form-check-label" for="formCheck15"> </label>
+                </div>
+              </th>
               <th>Name: Asmadi</th>
               <th>ID: 300822</th>
               <th colspan="20"></th>
@@ -210,6 +243,7 @@ export default {
           </thead>
           <thead class="table-light custom-th">
             <tr>
+              <th></th>
               <th>Date</th>
               <th>Rate</th>
               <th>OT Rate</th>
@@ -236,6 +270,16 @@ export default {
           </thead>
           <tbody class="list form-check-all">
             <tr>
+              <td>
+                <div class="form-check form-check-outline form-check-success">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="formCheck15"
+                  />
+                  <label class="form-check-label" for="formCheck15"> </label>
+                </div>
+              </td>
               <td>01/01/24 Mon</td>
               <td>8.7500</td>
               <td>8.7500</td>
@@ -262,6 +306,7 @@ export default {
                   <button
                     type="button"
                     class="btn btn-sm btn-warning edit-item-btn"
+                    @click="RfidModal = !RfidModal"
                   >
                     RFID
                   </button>
@@ -334,17 +379,17 @@ export default {
     size="lg"
   >
     <div class="row mb-3">
-      <div class="col-2 d-flex flex-column align-items-center">
-        <h5 class="text-muted">Name</h5>
-        <h4>Asmadi</h4>
+      <div class="col-2 d-flex flex-column">
+        <h6 class="text-muted">Name</h6>
+        <h5>Asmadi</h5>
       </div>
-      <div class="col-5 d-flex flex-column align-items-center">
-        <h5 class="text-muted">Project</h5>
-        <h4>SCPT1A-Parcel2(308U)</h4>
+      <div class="col-5 d-flex flex-column">
+        <h6 class="text-muted">Project</h6>
+        <h5>SCPT1A-Parcel2(308U)</h5>
       </div>
-      <div class="col-5 d-flex flex-column align-items-center">
-        <h5 class="text-muted">Last Updated By</h5>
-        <h4>sufi - 2024-01-07 01:16:57</h4>
+      <div class="col-5 d-flex flex-column">
+        <h6 class="text-muted">Last Updated By</h6>
+        <h5>sufi - 2024-01-07 01:16:57</h5>
       </div>
     </div>
 
@@ -352,11 +397,21 @@ export default {
       <BRow class="g-3">
         <BCol lg="6">
           <label for="exampleInputdate" class="form-label">Start Date</label>
-          <input type="date" class="form-control" id="exampleInputdate" />
+          <input
+            type="date"
+            class="form-control"
+            value="2024-01-01"
+            id="exampleInputdate"
+          />
         </BCol>
         <BCol lg="6">
           <label for="exampleInputdate" class="form-label">End Date</label>
-          <input type="date" class="form-control" id="exampleInputdate" />
+          <input
+            type="date"
+            class="form-control"
+            value="2024-01-01"
+            id="exampleInputdate"
+          />
         </BCol>
         <BCol lg="6">
           <label for="exampleInputtime" class="form-label">In</label>
@@ -364,7 +419,7 @@ export default {
             type="time"
             class="form-control"
             id="exampleInputtime"
-            value="08:56 AM"
+            value="07:23"
           />
         </BCol>
         <BCol lg="6">
@@ -373,7 +428,7 @@ export default {
             type="time"
             class="form-control"
             id="exampleInputtime"
-            value="08:56 AM"
+            value="20:07"
           />
         </BCol>
         <BCol lg="6">
@@ -382,6 +437,7 @@ export default {
             type="text"
             class="form-control"
             id="boardName"
+            value="0"
             placeholder=""
           />
         </BCol>
@@ -391,6 +447,7 @@ export default {
             type="text"
             class="form-control"
             id="boardName"
+            value="0"
             placeholder=""
           />
         </BCol>
@@ -400,6 +457,7 @@ export default {
             type="text"
             class="form-control"
             id="boardName"
+            value="0.00"
             placeholder=""
           />
         </BCol>
@@ -426,10 +484,10 @@ export default {
         <BCol lg="6">
           <label for="mobileaccess">BC/WO Hours</label>
           <input
-            type="time"
+            type="text"
             class="form-control"
             id="exampleInputtime"
-            value="08:56 AM"
+            value="0"
           />
         </BCol>
         <BCol lg="6">
@@ -439,6 +497,7 @@ export default {
             class="form-control"
             id="boardName"
             placeholder=""
+            value="KSK Leader"
           />
         </BCol>
         <BCol lg="6">
@@ -459,11 +518,134 @@ export default {
               >Cancel</BButton
             >
             <BButton type="submit" variant="success" id="addNewBoard"
-              >Apply</BButton
+              >Save</BButton
             >
           </div>
         </div>
       </BRow>
     </b-form>
+  </BModal>
+
+  <!--RFID-->
+  <BModal
+    v-model="RfidModal"
+    modal-class="zoomIn"
+    :title="RfidModalTitle"
+    title-class="exampleModalLabel"
+    header-class="p-3 bg-primary-subtle"
+    content-class="border-0"
+    hide-footer
+    class="v-modal-custom"
+    centered
+    no-fade
+    size="md"
+  >
+    <BRow>
+      <BCol>
+        <label for="readonlyPlaintext" class="form-label mb-0"
+          >RFID Tag Code:</label
+        >
+        <input
+          type="text"
+          class="form-control-plaintext"
+          id="readonlyPlaintext"
+          value="E2806995000050130DD59263"
+          readonly
+        />
+      </BCol>
+
+      <BCol>
+        <label for="readonlyPlaintext" class="form-label mb-0"
+          >Reader Name:</label
+        >
+        <input
+          type="text"
+          class="form-control-plaintext"
+          id="readonlyPlaintext"
+          value="Reader_2A"
+          readonly
+        />
+      </BCol>
+    </BRow>
+    <BRow>
+      <BCol>
+        <label for="readonlyPlaintext" class="form-label mb-0"
+          >Face Scan In:</label
+        >
+        <input
+          type="text"
+          class="form-control-plaintext"
+          id="readonlyPlaintext"
+          value="14:21:19"
+          readonly
+        />
+      </BCol>
+      <BCol>
+        <label for="readonlyPlaintext" class="form-label mb-0"
+          >Face Scan Out:</label
+        >
+        <input
+          type="text"
+          class="form-control-plaintext"
+          id="readonlyPlaintext"
+          value="14:49:37"
+          readonly
+        />
+      </BCol>
+    </BRow>
+    <BRow>
+      <BCol>
+        <label for="readonlyPlaintext" class="form-label mb-0">RFID In:</label>
+        <input
+          type="text"
+          class="form-control-plaintext"
+          id="readonlyPlaintext"
+          value="14:21:19"
+          readonly
+        />
+      </BCol>
+
+      <BCol>
+        <label for="readonlyPlaintext" class="form-label mb-0">RFID Out:</label>
+        <input
+          type="text"
+          class="form-control-plaintext"
+          id="readonlyPlaintext"
+          value="14:49:37"
+          readonly
+        />
+      </BCol>
+    </BRow>
+    <BRow>
+      <BCol>
+        <label for="readonlyPlaintext" class="form-label mb-0"
+          >Total Hours:</label
+        >
+        <input
+          type="text"
+          class="form-control-plaintext"
+          id="readonlyPlaintext"
+          value="0.47"
+          readonly
+        />
+      </BCol>
+    </BRow>
+
+    <!--Movement Tracking-->
+    <div class="text-muted">
+      <h6 class="mt-3">Movement Tracking</h6>
+    </div>
+    <table class="table table-nowrap">
+      <tbody>
+        <tr>
+          <td>14:49 PM</td>
+          <td>SITE OFFICE > OFFICE > N/A > N/A</td>
+        </tr>
+        <tr>
+          <td>14:21 PM</td>
+          <td>SITE OFFICE > OFFICE > N/A > N/A</td>
+        </tr>
+      </tbody>
+    </table>
   </BModal>
 </template>

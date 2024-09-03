@@ -333,17 +333,17 @@ export default {
       size="lg"
     >
       <div class="row mb-3">
-        <div class="col-4 d-flex flex-column align-items-center">
-          <h5 class="text-muted">Site</h5>
-          <h4>FORUM2</h4>
+        <div class="col-4 d-flex flex-column">
+          <h6 class="text-muted">Site</h6>
+          <h5>FORUM2</h5>
         </div>
-        <div class="col-4 d-flex flex-column align-items-center">
-          <h5 class="text-muted">Title</h5>
-          <h4>FORUM2</h4>
+        <div class="col-4 d-flex flex-column">
+          <h6 class="text-muted">Title</h6>
+          <h5>FORUM2</h5>
         </div>
-        <div class="col-4 d-flex flex-column align-items-center">
-          <h5 class="text-muted">Incharge</h5>
-          <h4>aadam</h4>
+        <div class="col-4 d-flex flex-column">
+          <h6 class="text-muted">Incharge</h6>
+          <h5>aadam</h5>
         </div>
       </div>
 
@@ -480,17 +480,17 @@ export default {
       size="md"
     >
       <div class="row mb-3">
-        <div class="col-4 d-flex flex-column align-items-center">
-          <h5 class="text-muted">Site</h5>
-          <h4>FORUM2</h4>
+        <div class="col-4 d-flex flex-column">
+          <h6 class="text-muted">Site</h6>
+          <h5>FORUM2</h5>
         </div>
-        <div class="col-4 d-flex flex-column align-items-center">
-          <h5 class="text-muted">Title</h5>
-          <h4>FORUM2</h4>
+        <div class="col-4 d-flex flex-column">
+          <h6 class="text-muted">Title</h6>
+          <h5>FORUM2</h5>
         </div>
-        <div class="col-4 d-flex flex-column align-items-center">
-          <h5 class="text-muted">Incharge</h5>
-          <h4>aadam</h4>
+        <div class="col-4 d-flex flex-column">
+          <h6 class="text-muted">Incharge</h6>
+          <h5>aadam</h5>
         </div>
       </div>
 
@@ -512,7 +512,7 @@ export default {
             </button>
           </h2>
           <div
-            id="panelsStayOpen-collapseOne" 
+            id="panelsStayOpen-collapseOne"
             class="accordion-collapse collapse show"
             aria-labelledby="panelsStayOpen-headingOne"
           >
