@@ -31,7 +31,10 @@ export default {
 
 <template>
   <Layout>
-    <PageHeader title="Attendance Details" subTitle="Attendance" />
+    <PageHeader v-if="currentTab === 'summary'" title="Attendance Summary" subTitle="Search Amend Attendance" />
+    <PageHeader v-if="currentTab === 'details'" title="Attendance Details" subTitle="Search Amend Attendance" />
+    <PageHeader v-if="currentTab === 'payment'" title="Payment" subTitle="Search Amend Attendance" />
+    <PageHeader v-if="currentTab === 'approvalHistory'" title="Approval History" subTitle="Search Amend Attendance" />
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-tabs-custom nav-primary mb-3" role="tablist">

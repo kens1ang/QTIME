@@ -48,7 +48,7 @@
             <td>
               <button type="button" class="btn btn-light btn-icon waves-effect">
                 <router-link :to="{ name: 'attendance-index' }" class="MenuText"
-                  ><i class="bx bx-list-ul"></i
+                  ><i class="bx bx-search-alt"></i
                 ></router-link>
               </button>
             </td>

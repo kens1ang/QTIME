@@ -13,16 +13,18 @@ export default {
     subTitle: {
       type: String,
       default: "",
-    }
+    },
   },
 };
 </script>
 
 <template>
-  <BRow style="margin-bottom: 10px;">
+  <BRow style="margin-bottom: 10px">
     <BRow>
-      <BCol cols="12"> 
-        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+      <BCol cols="12">
+        <div
+          class="page-title-box d-sm-flex align-items-center justify-content-between"
+        >
           <h4 class="mb-sm-0">{{ title }}</h4>
           <div class="page-title-right">
             <ol class="breadcrumb m-0">

@@ -1,77 +1,126 @@
 <script>
+import { CountTo } from "vue3-count-to";
+
 export default {
-  setup() {
-    return {
-      crmWidgets: [
-        {
-          id: 1,
-          label: "Total Headcount",
-          icon: "bx bx-hard-hat",
-          counter: 20,
-          decimals: 0,
-        },
-        {
-          id: 2,
-          label: "Total Backcharge",
-          icon: "bx bx-money-withdraw",
-          counter: 17532,
-          decimals: 0,
-          prefix: "RM",
-        },
-        {
-          id: 3,
-          label: "Total Cash",
-          icon: "bx bx-money",
-          counter: 3066,
-          decimals: 69,
-          prefix: "RM",
-        },
-        {
-          id: 4,
-          label: "Total Instapay",
-          icon: "bx bx-credit-card",
-          counter: 42934,
-          decimals: 0,
-          prefix: "RM",
-        },
-        {
-          id: 4,
-          label: "Total Payment",
-          icon: "bx bx-dollar",
-          counter: 28468,
-          decimals: 0,
-          prefix: "RM",
-        },
-      ],
-    };
+  components: {
+    CountTo,
   },
 };
 </script>
 
 <template>
-  <BCard no-body class="crm-widget mt-3">
-    <BCardBody class="p-0">
-      <BRow class="row-cols-xxl-5 row-cols-md-3 row-cols-1 g-0">
-        <BCol v-for="(item, index) of crmWidgets" :key="index">
-          <div class="py-4 px-3">
-            <h5 class="text-muted text-uppercase fs-13">
-              {{ item.label }}
-            </h5>
-            <div class="d-flex align-items-center">
-              <div class="flex-shrink-0">
-                <i :class="`${item.icon} display-6 text-muted`"></i>
-              </div>
-              <div class="flex-grow-1 ms-3">
-                <h2 class="mb-0">
-                  {{ item.prefix }}{{ item.counter }}{{ item.suffix }}
-                </h2>
-              </div>
+  <BRow>
+    <BCol lg="4">
+      <BCard no-body class="card-height-100 mt-3">
+        <BCardBody>
+          <div class="d-flex align-items-center">
+            <div class="avatar-sm flex-shrink-0">
+              <span
+                class="avatar-title bg-warning-subtle text-warning rounded-2 fs-2"
+              >
+                <i class="bx bx-hard-hat"></i>
+              </span>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <p class="text-uppercase fw-medium text-muted mb-3">
+                Total Headcount
+              </p>
+              <h4 class="fs-4 mb-3">
+                <count-to
+                  :startVal="0"
+                  :endVal="20"
+                  :duration="1000"
+                ></count-to>
+              </h4>
+              <p class="text-muted mb-0">From 17 last period</p>
+            </div>
+            <div class="flex-shrink-0 align-self-center">
+              <BBadge
+                variant="warning-subtle"
+                class="bg-warning-subtle text-warning fs-12"
+                ><i class="ri-arrow-up-s-line fs-13 align-middle me-1"></i>17.66
+                %<span> </span>
+              </BBadge>
             </div>
           </div>
-        </BCol>
-      </BRow>
-    </BCardBody>
-  </BCard>
+        </BCardBody>
+      </BCard>
+    </BCol>
+    <BCol lg="4">
+      <BCard no-body class="card-height-100 mt-3">
+        <BCardBody>
+          <div class="d-flex align-items-center">
+            <div class="avatar-sm flex-shrink-0">
+              <span
+                class="avatar-title bg-primary-subtle text-primary rounded-2 fs-2"
+              >
+                <i class="bx bx-money-withdraw"></i>
+              </span>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <p class="text-uppercase fw-medium text-muted mb-3">
+                Total Backcharge
+              </p>
+              <h4 class="fs-4 mb-3">
+                RM
+                <count-to
+                  :startVal="0"
+                  :endVal="17532"
+                  :duration="1000"
+                ></count-to>
+              </h4>
+              <p class="text-muted mb-0">From RM 14,253.66 last period</p>
+            </div>
+            <div class="flex-shrink-0 align-self-center">
+              <BBadge
+                variant="success-subtle"
+                class="bg-success-subtle text-success fs-12"
+                ><i class="ri-arrow-up-s-line fs-13 align-middle me-1"></i>22.96
+                %<span> </span>
+              </BBadge>
+            </div>
+          </div>
+        </BCardBody>
+      </BCard>
+    </BCol>
+    <BCol lg="4">
+      <BCard no-body class="card-height-100 mt-3">
+        <BCardBody>
+          <div class="d-flex align-items-center">
+            <div class="avatar-sm flex-shrink-0">
+              <span
+                class="avatar-title bg-danger-subtle text-danger rounded-2 fs-2"
+              >
+                <i class="bx bx-money"></i>
+              </span>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <p class="text-uppercase fw-medium text-muted mb-3">
+                Total Payment
+              </p>
+              <h4 class="fs-4 mb-3">
+                RM
+                <count-to
+                  :startVal="0"
+                  :endVal="28468"
+                  :duration="1000"
+                ></count-to>
+              </h4>
+              <p class="text-muted mb-0">From RM 23,144.71 last period</p>
+            </div>
+            <div class="flex-shrink-0 align-self-center">
+              <BBadge
+                variant="danger-subtle"
+                class="bg-danger-subtle text-danger fs-12"
+                ><i class="ri-arrow-up-s-line fs-13 align-middle me-1"></i>22.96
+                %<span> </span>
+              </BBadge>
+            </div>
+          </div>
+        </BCardBody>
+      </BCard>
+    </BCol>
+  </BRow>
 
   <div class="card-body" style="margin-bottom: 30px; margin-top: 30px">
     <div class="listjs-table" id="customerList">
