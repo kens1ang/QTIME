@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-  <BRow style="margin-bottom: 10px">
+  <BRow>
     <BRow>
       <BCol cols="12">
         <div

@@ -5,6 +5,11 @@ export default {
   components: {
     CountTo,
   },
+  methods: {
+    formatNumber(val) {
+      return val.toFixed(2);
+    },
+  },
 };
 </script>
 
@@ -28,7 +33,7 @@ export default {
               <h4 class="fs-4 mb-3">
                 <count-to
                   :startVal="0"
-                  :endVal="20"
+                  :endVal="27"
                   :duration="1000"
                 ></count-to>
               </h4>
@@ -38,7 +43,7 @@ export default {
               <BBadge
                 variant="warning-subtle"
                 class="bg-warning-subtle text-warning fs-12"
-                ><i class="ri-arrow-up-s-line fs-13 align-middle me-1"></i>17.66
+                ><i class="ri-arrow-up-s-line fs-13 align-middle me-1"></i>55.55
                 %<span> </span>
               </BBadge>
             </div>
@@ -65,8 +70,10 @@ export default {
                 RM
                 <count-to
                   :startVal="0"
-                  :endVal="17532"
+                  :endVal="17532.66"
                   :duration="1000"
+                  :decimals="2"
+                  :formatter="formatNumber"
                 ></count-to>
               </h4>
               <p class="text-muted mb-0">From RM 14,253.66 last period</p>
@@ -103,6 +110,8 @@ export default {
                 <count-to
                   :startVal="0"
                   :endVal="28468"
+                  :decimals="2"
+                  :formatter="formatNumber"
                   :duration="1000"
                 ></count-to>
               </h4>
@@ -145,6 +154,37 @@ export default {
           </thead>
           <tbody class="list form-check-all">
             <tr>
+              <td>LOY LIT BARN</td>
+              <td></td>
+              <td></td>
+              <td>
+                <span class="badge bg-warning-subtle text-warning"
+                  >Pending</span
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>TEOH YIN ZHENG</td>
+              <td></td>
+              <td></td>
+              <td>
+                <span class="badge bg-warning-subtle text-warning"
+                  >Pending</span
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>LOY LIT BARN</td>
+              <td>2024-01-11</td>
+              <td>2024-01-10 16:34:21</td>
+              <td>
+                <span class="badge bg-danger-subtle text-danger">Rejected</span>
+              </td>
+              <td>backcharge and total payment incorrect</td>
+            </tr>
+            <tr>
               <td>TEOH YIN ZHENG</td>
               <td>2024-01-10</td>
               <td>2024-01-09 16:34:21</td>
@@ -154,42 +194,6 @@ export default {
                 >
               </td>
               <td>TOTAL 28165.72. headcount 27. back charge 13,463.50. .</td>
-            </tr>
-            <tr>
-              <td>TEOH YIN ZHENG</td>
-              <td>2024-01-10</td>
-              <td>2024-01-09 16:34:21</td>
-              <td>
-                <span class="badge bg-warning-subtle text-warning"
-                  >Pending</span
-                >
-              </td>
-              <td>
-                VS July 2nd half: KSK Amt reduce RMM1,429. KSK Headcount reduce
-                3, 30-->27 Pax
-              </td>
-            </tr>
-            <tr>
-              <td>TEOH YIN ZHENG</td>
-              <td>2024-01-10</td>
-              <td>2024-01-09 16:34:21</td>
-              <td>
-                <span class="badge bg-warning-subtle text-warning"
-                  >Pending</span
-                >
-              </td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>TEOH YIN ZHENG</td>
-              <td>2024-01-10</td>
-              <td>2024-01-09 16:34:21</td>
-              <td>
-                <span class="badge bg-warning-subtle text-warning"
-                  >Pending</span
-                >
-              </td>
-              <td></td>
             </tr>
           </tbody>
         </table>

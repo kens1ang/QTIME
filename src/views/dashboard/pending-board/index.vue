@@ -46,7 +46,7 @@ export default {
           href="#"
         >
           Attendance
-          <span class="badge bg-danger-subtle text-danger">1</span>
+          <span class="badge bg-danger-subtle text-danger">2</span>
         </a>
       </li>
       <li class="nav-item">

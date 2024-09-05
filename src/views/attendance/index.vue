@@ -2,7 +2,6 @@
 import Layout from "@/layouts/main.vue";
 import PageHeader from "@/components/page-header";
 import Details from "./details.vue";
-import ApprovalHistory from "./approval-history.vue";
 import Payment from "./payment.vue";
 import Summary from "./summary.vue";
 
@@ -11,13 +10,14 @@ export default {
     return {
       title: "Attendance",
       currentTab: "summary",
+      paymentVoucherTitle: "Payment Voucher",
+      paymentVoucherModal: false,
     };
   },
   components: {
     Layout,
     PageHeader,
     Details,
-    ApprovalHistory,
     Payment,
     Summary,
   },
@@ -25,16 +25,30 @@ export default {
     setTab(tab) {
       this.currentTab = tab;
     },
+    showPaymentVoucherModal() {
+      this.paymentVoucherModal = true;
+    },
   },
 };
 </script>
 
 <template>
   <Layout>
-    <PageHeader v-if="currentTab === 'summary'" title="Attendance Summary" subTitle="Search Amend Attendance" />
-    <PageHeader v-if="currentTab === 'details'" title="Attendance Details" subTitle="Search Amend Attendance" />
-    <PageHeader v-if="currentTab === 'payment'" title="Payment" subTitle="Search Amend Attendance" />
-    <PageHeader v-if="currentTab === 'approvalHistory'" title="Approval History" subTitle="Search Amend Attendance" />
+    <PageHeader
+      v-if="currentTab === 'summary'"
+      title="Attendance Summary"
+      subTitle="Search Amend Attendance"
+    />
+    <PageHeader
+      v-if="currentTab === 'details'"
+      title="Attendance Details"
+      subTitle="Search Amend Attendance"
+    />
+    <PageHeader
+      v-if="currentTab === 'payment'"
+      title="Payment"
+      subTitle="Search Amend Attendance"
+    />
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-tabs-custom nav-primary mb-3" role="tablist">
@@ -68,30 +82,17 @@ export default {
           Payment
         </a>
       </li>
-      <li class="nav-item">
-        <a
-          class="nav-link py-3"
-          :class="{ active: currentTab === 'approvalHistory' }"
-          @click.prevent="setTab('approvalHistory')"
-          href="#"
-        >
-          Approval History
-        </a>
-      </li>
     </ul>
 
     <!-- Page title & Reports-->
     <div class="d-flex justify-content-between align-items-center">
       <!-- Page Title -->
       <div class="col-7">
-        <div v-if="currentTab != 'approvalHistory'" class="d-flex gap-3 align-items-center justify-content-start">
-          <h4>SCPT1A-Parcel2(308U) - General Worker - Period 1</h4>
-          <span class="badge bg-primary-subtle text-primary">Printed</span>
+        <div class="d-flex align-items-center justify-content-start flex-wrap">
+          <h4>General Worker - Jan 2024 Period 1</h4>
+          <span class="badge bg-warning-subtle text-warning mb-2">pending</span>
         </div>
-        <div v-if="currentTab === 'approvalHistory'" class="d-flex gap-3 align-items-center justify-content-start">
-          <h4>SCPT1A-Parcel2(308U) - General Worker</h4>
-        </div>
-      </div>  
+      </div>
 
       <!-- Reports -->
       <div class="col-5 text-end">
@@ -100,8 +101,8 @@ export default {
           type="button"
           class="btn btn-sm btn-outline-primary waves-effect waves-light me-2"
         >
-          <i class="ri-time-line label-icon align-middle fs-16 me-2"></i
-          >Hours Report
+          <i class="ri-time-line label-icon align-middle fs-16 me-2"></i>Hours
+          Report
         </button>
 
         <button
@@ -149,6 +150,16 @@ export default {
         </button>
 
         <button
+          v-if="currentTab === 'payment'"
+          type="button"
+          class="btn mt-2 btn-sm btn-outline-primary waves-effect waves-light me-2"
+          @click="showPaymentVoucherModal"
+        >
+          <i class="ri-ticket-line label-icon align-middle fs-16 me-2"></i>
+          Payment Voucher
+        </button>
+
+        <button
           v-if="currentTab === 'details'"
           type="button"
           class="btn btn-sm btn-outline-primary waves-effect waves-light me-2"
@@ -178,16 +189,55 @@ export default {
       <Details />
     </div>
 
-    <!-- Approval History -->
-    <div v-if="currentTab === 'approvalHistory'">
-      <ApprovalHistory />
-    </div>
-
     <!-- Payment -->
     <div v-if="currentTab === 'payment'">
       <Payment />
     </div>
+
+    <!-- Payment Voucher -->
+    <BModal
+      v-model="paymentVoucherModal"
+      modal-class="zoomIn"
+      :title="paymentVoucherTitle"
+      title-class="exampleModalLabel"
+      header-class="p-3 bg-primary-subtle"
+      content-class="border-0"
+      hide-footer
+      class="v-modal-custom"
+      centered
+      no-fade
+      size="lg"
+    >
+      <div class="d-flex align-items-center mb-3">
+        <h5 class="fw-bold me-auto">Cash -- Total: RM 3,055.69</h5>
+        <button
+          type="button"
+          class="btn btn-outline-primary waves-effect waves-light me-3"
+        >
+          Print Incharge
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary waves-effect waves-light"
+        >
+          Print Individual
+        </button>
+      </div>
+      <div class="d-flex align-items-center mb-3">
+        <h5 class="fw-bold me-auto">Instapay -- Total: RM 42,934.00</h5>
+        <button
+          type="button"
+          class="btn btn-outline-primary waves-effect waves-light me-3"
+        >
+          Print Incharge
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-primary waves-effect waves-light"
+        >
+          Print Individual
+        </button>
+      </div>
+    </BModal>
   </Layout>
 </template>
-
-<style></style>
