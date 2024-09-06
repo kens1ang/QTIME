@@ -39,15 +39,7 @@ export default [
     },
   },
 
-  //QTIME
-
-  //System folder
-  {
-    path: "/system/basic",
-    name: "basic-system",
-    meta: { title: "System", authRequired: true },
-    component: () => import("../views/system/basic"),
-  },
+  //System  Admin folder
   {
     path: "/system/access-control",
     name: "access-control",
@@ -72,19 +64,55 @@ export default [
     meta: { title: "User Management", authRequired: true },
     component: () => import("../views/system/admin/user-management.vue"),
   },
+   //System Company folder
   {
     path: "/system/company",
     name: "company",
     meta: { title: "Company", authRequired: true },
-    component: () => import("../views/system/maintenance/company.vue"),
+    component: () => import("../views/system/maintenance/company/company.vue"),
   },
   {
-    path: "/system/project",
-    name: "project",
-    meta: { title: "Project", authRequired: true },
-    component: () => import("../views/system/maintenance/project.vue"),
+    path: "/system/company-detail",
+    name: "company-detail",
+    meta: { title: "Company Detail", authRequired: true },
+    component: () => import("../views/system/maintenance/company/company-detail.vue"),
+  },
+
+  //System Project folder
+  {
+    path: "/system/project-list",
+    name: "project-list",
+    meta: { title: "Project List", authRequired: true },
+    component: () => import("../views/system/maintenance/project/project-list.vue"),
   },
   {
+    path: "/system/project-detail",
+    name: "project-detail",
+    meta: { title: "Project Detail", authRequired: true },
+    component: () => import("../views/system/maintenance/project/project-detail.vue"),
+  },
+  //System Employee folder
+  {
+    path: "/system/employee",
+    name: "employee",
+    meta: { title: "Employee", authRequired: true },
+    component: () => import("../views/system/maintenance/employee/employee.vue"),
+  },
+  {
+    path: "/system/employee-qr",
+    name: "employee-qr",
+    meta: { title: "Employee QR", authRequired: true },
+    component: () => import("../views/system/maintenance/employee/employee-qr.vue"),
+  },
+ //Attendance folder
+ {
+    path: "/attendance/attendance-summary",
+    name: "attendance-summary",
+    meta: { title: "Attendance", authRequired: true },
+    component: () => import("../views/attendance/attendance-summary.vue"),
+  },
+
+ {
     path: "/system/schedule",
     name: "schedule",
     meta: { title: "Schedule", authRequired: true },

@@ -1,5 +1,4 @@
 <script>
-import Multiselect from "@vueform/multiselect";
 import "@vueform/multiselect/themes/default.css";
 
 import Layout from "@/layouts/main.vue";
@@ -8,7 +7,6 @@ import Swal from "sweetalert2";
 
 import Lottie from "@/components/widgets/lottie.vue";
 import animationData from "@/components/widgets/msoeawqm.json";
-import axios from 'axios';
 import animationData1 from "@/components/widgets/gsqxdxog.json";
 
 export default {
@@ -16,7 +14,6 @@ export default {
     Layout,
     PageHeader,
     lottie: Lottie,
-    Multiselect,
   },
   data() {
     return {
@@ -26,7 +23,12 @@ export default {
       perPage: 8,
       pages: [],
       searchQuery: null,
-      companies: [],
+      companies: [
+      { _id: '1', name: 'ALUNAN ASAS', owner: 'ALUNAN ASAS SDN BHD', industry_type: '257699-V', location: 'Penang', project: 'AR496, BG17-R1, BKT22F, BJO-B3B4' },
+      { _id: '2', name: 'SETAR QUAY', owner: 'SETAR QUAY SDN BHD', industry_type: '1111106-A', location: 'Penang', project: 'BKT2SQ' },
+      { _id: '3', name: 'SUNSURIA ASAS', owner: 'SUNSURIA ASAS SDN BHD', industry_type: '1177709-T', location: 'Kuala Lumpur', project: 'CHAPTER' },
+      { _id: '4', name: 'QASIS GLORY', owner: 'OASIS GLORY SDN BHD', industry_type: '1111106-A', location: 'Kuala Lumpur', project: 'KL OFFICE' },
+      ],
       defaultOptions: {
         animationData: animationData
       },
@@ -94,52 +96,6 @@ export default {
     },
   },
   methods: {
-    // 
-    handleSubmit() {
-      if (this.dataEdit) {
-        this.submitted = true;
-        if (this.submitted && (this.event.name && this.event.owner && this.event.industry_type && this.event.star_value && this.event.location && this.event.employee && this.event.website && this.event.contact_email && this.event.since)) {
-          this.addCompanyModal = false;
-
-          axios.patch(`https://api-node.themesbrand.website/apps/company/${this.event._id}`, this.event)
-            .then((response) => {
-              const data = response.data.data;
-              this.companies = this.companies.map(item => item._id.toString() == data._id.toString() ? { ...item, ...data } : item);
-            }).catch((er) => {
-              console.log(er);
-            });
-        }
-      } else {
-        this.submitted = true;
-        if (this.submitted && (this.event.name && this.event.owner && this.event.industry_type && this.event.star_value && this.event.location && this.event.employee && this.event.website && this.event.contact_email && this.event.since)) {
-          const data = {
-            _id: (Math.floor(Math.random() * 100 + 20) - 20),
-            image_src: require("@/assets/images/users/multi-user.jpg"),
-            ...this.event
-          };
-          this.addCompanyModal = false;
-
-          axios.post(`https://api-node.themesbrand.website/apps/company`, data)
-            .then((response) => {
-              this.companies.unshift(response.data.data);
-            }).catch((er) => {
-              console.log(er);
-            });
-        }
-      }
-    },
-
-    onSort(column) {
-      this.direction = this.direction === 'asc' ? 'desc' : 'asc';
-      const sortedArray = [...this.companies];
-      sortedArray.sort((a, b) => {
-        const res = a[column] < b[column] ? -1 : a[column] > b[column] ? 1 : 0;
-        return this.direction === 'asc' ? res : -res;
-      });
-      this.companies = sortedArray;
-    },
-
-
     editDetails(data) {
       this.dataEdit = true;
       this.addCompanyModal = true;
@@ -161,21 +117,7 @@ export default {
       this.event._id = data._id;
     },
 
-    deleteData() {
-      if (this.event._id) {
-        axios.delete(`https://api-node.themesbrand.website/apps/company/${this.event._id}`)
-          .then((response) => {
-            if (response.data.status === 'success') {
-              this.companies = this.companies.filter((item) => item._id != this.event._id);
-            }
-          }).catch((er) => {
-            console.log(er);
-          });
-
-        this.deleteModal = false;
-      }
-    },
-    //
+    
 
     deleteMultiple() {
       let ids_array = [];
@@ -218,16 +160,11 @@ export default {
     },
 
     showdetail(data) {
-      document.getElementById('imageid').setAttribute('src', data.image_src);
       document.getElementById('cname').innerHTML = data.name;
       document.getElementById('oname').innerHTML = data.owner;
       document.getElementById('iname').innerHTML = data.industry_type;
-      document.getElementById('rtng').innerHTML = data.star_value;
       document.getElementById('loc').innerHTML = data.location;
-      document.getElementById('emp').innerHTML = data.employee;
-      document.getElementById('webs').innerHTML = data.website;
-      document.getElementById('eml').innerHTML = data.employee;
-      document.getElementById('sic').innerHTML = data.since;
+      document.getElementById('project').innerHTML = data.project;
     },
 
     setPages() {
@@ -245,18 +182,6 @@ export default {
       return companies.slice(from, to);
     },
 
-  },
-
-  beforeMount() {
-    axios.get('https://api-node.themesbrand.website/apps/company').then((data) => {
-      this.companies = [];
-      data.data.data.forEach(row => {
-        row.image_src = 'https://api-node.themesbrand.website/images/' + row.image_src;
-        this.companies.push(row);
-      });
-    }).catch((er) => {
-      console.log(er);
-    });
   },
 
   mounted() {
@@ -299,11 +224,10 @@ export default {
 };
 </script>
 
-
 <template>
-  <Layout>
-    <PageHeader title="Companies" pageTitle="CRM" />
-    <BRow>
+    <Layout>
+        <PageHeader title="Company Overview" subTitle="Maintenance List" pageTitle="System" />
+        <BRow>
       <BCol lg="12">
         <BCard no-body>
           <BCardHeader>
@@ -316,21 +240,9 @@ export default {
               </div>
               <div class="flex-shrink-0">
                 <div class="hstack text-nowrap gap-2">
-                  <BButton variant="soft-danger" id="remove-actions" @click="deleteMultiple">
+                  <BButton class="btn btn-soft-danger" @click="deleteAlert">
                     <i class="ri-delete-bin-2-line"></i>
                   </BButton>
-                  <BButton variant="soft-primary">
-                    <i class="ri-filter-2-line me-1 align-bottom"></i> Filters
-                  </BButton>
-                  <BButton variant="soft-success">Import</BButton>
-                  <BDropdown variant="link" class="card-header-dropdown" toggle-class="btn btn-soft-danger arrow-none"
-                    menu-class="dropdown-menu-end" :offset="{ alignmentAxis: -105, crossAxis: 0, mainAxis: 10 }">
-                    <template #button-content><i class="ri-more-2-fill"></i></template>
-                    <BDropdownItem>All</BDropdownItem>
-                    <BDropdownItem>Last Week</BDropdownItem>
-                    <BDropdownItem>Last Month</BDropdownItem>
-                    <BDropdownItem>Last Year</BDropdownItem>
-                  </BDropdown>
                 </div>
               </div>
             </div>
@@ -348,18 +260,6 @@ export default {
                   <i class="ri-search-line search-icon"></i>
                 </div>
               </BCol>
-              <BCol md="auto" class="ms-auto">
-                <div class="d-flex align-items-center gap-2">
-                  <span class="text-muted flex-shrink-0">Sort by: </span>
-
-                  <Multiselect class="form-control" style="width:150px;" v-model="value" :close-on-select="true"
-                    :searchable="true" :create-option="true" :options="[
-                      { value: 'Owner', label: 'Owner' },
-                      { value: 'Company', label: 'Company' },
-                      { value: 'location', label: 'Location' },
-                    ]" />
-                </div>
-              </BCol>
             </BRow>
           </BCardHeader>
           <BCardBody>
@@ -374,17 +274,17 @@ export default {
                         </div>
                       </th>
                       <th class="sort" data-sort="name" scope="col" @click="onSort('name')">
-                        Company Name
+                        Company Code
                       </th>
-                      <th class="sort" data-sort="owner" scope="col" @click="onSort('owner')">Owner</th>
+                      <th class="sort" data-sort="owner" scope="col" @click="onSort('owner')">Name</th>
                       <th class="sort" data-sort="industry_type" scope="col" @click="onSort('industry_type')">
-                        Industry Type
+                        Registration Number
                       </th>
                       <th class="sort" data-sort="star_value" scope="col" @click="onSort('star_value')">
-                        Rating
+                        Address
                       </th>
                       <th class="sort" data-sort="location" scope="col" @click="onSort('location               ')">
-                        Location
+                        Prefix
                       </th>
                       <th scope="col">Action</th>
                     </tr>
@@ -401,9 +301,6 @@ export default {
                       </td>
                       <td>
                         <div class="d-flex align-items-center">
-                          <div class="flex-shrink-0">
-                            <img :src="data.image_src" alt="" class="avatar-xxs rounded-circle" />
-                          </div>
                           <div class="flex-grow-1 ms-2 name">
                             {{ data.name }}
                           </div>
@@ -411,23 +308,11 @@ export default {
                       </td>
                       <td class="owner">{{ data.owner }}</td>
                       <td class="industry_type">{{ data.industry_type }}</td>
-                      <td>
-                        <span class="star_value">{{ data.star_value }}</span>
-                        <i class="ri-star-fill text-warning align-bottom"></i>
-                      </td>
                       <td class="location">{{ data.location }}</td>
                       <td>
+                      </td>
+                      <td>
                         <ul class="list-inline hstack gap-2 mb-0">
-                          <li class="list-inline-item edit" v-b-tooltip.hover title="Call">
-                            <BLink href="javascript:void(0);" class="text-muted d-inline-block">
-                              <i class="ri-phone-line fs-16"></i>
-                            </BLink>
-                          </li>
-                          <li class="list-inline-item edit" v-b-tooltip.hover title="Message">
-                            <BLink href="javascript:void(0);" class="text-muted d-inline-block">
-                              <i class="ri-question-answer-line fs-16"></i>
-                            </BLink>
-                          </li>
                           <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" title="View"
                             @click="showdetail(data)">
                             <BLink href="javascript:void(0);"><i class="ri-eye-fill align-bottom text-muted"></i>
@@ -486,13 +371,13 @@ export default {
             <div class="position-relative d-inline-block">
               <div class="avatar-md">
                 <div class="avatar-title bg-light rounded-circle">
-                  <img src="@/assets/images/brands/mail_chimp.png" alt=""
+                  <img src="@/assets/images/brands/multi-user.jpg" alt=""
                     class="avatar-sm rounded-circle object-fit-cover" id="imageid" />
                 </div>
               </div>
             </div>
-            <h5 class="mt-3 mb-1" id="cname">Syntyce Solution</h5>
-            <p class="text-muted" id="oname">Michael Morris</p>
+            <h5 class="mt-3 mb-1" id="cname">ALUNAN ASAS</h5>
+            <p class="text-muted" id="oname">ALUNAN ASAS SDN BHD</p>
 
             <ul class="list-inline mb-0">
               <li class="list-inline-item avatar-xs">
@@ -505,50 +390,27 @@ export default {
                   <i class="ri-mail-line"></i>
                 </BLink>
               </li>
-              <li class="list-inline-item avatar-xs">
-                <BLink href="javascript:void(0);" class="avatar-title bg-primary-subtle text-primary fs-15 rounded">
-                  <i class="ri-question-answer-line"></i>
-                </BLink>
-              </li>
             </ul>
           </BCardBody>
           <BCardBody>
             <h6 class="text-muted text-uppercase fw-semibold mb-3">
-              Information
+              Remark
             </h6>
             <p class="text-muted mb-4">
-              A company incurs fixed and variable costs such as the purchase of
-              raw materials, salaries and overhead, as explained by
-              AccountingTools, Inc. Business owners have the discretion to
-              determine the actions.
+                Alunan Asas' success stems from its skilled engineering team, extensive machinery, 
+                and solid financial backing, positioning it as a leading player in 
+                the regional construction and property industry.
             </p>
             <div class="table-responsive table-card">
               <table class="table table-borderless mb-0">
                 <tbody>
                   <tr>
-                    <td class="fw-medium" scope="row">Industry Type</td>
-                    <td id="iname">Chemical Industries</td>
+                    <td class="fw-medium" scope="row">Registeration Number</td>
+                    <td id="iname">257699-V</td>
                   </tr>
                   <tr>
                     <td class="fw-medium" scope="row">Location</td>
-                    <td id="loc">Damascus, Syria</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-medium" scope="row">Employee</td>
-                    <td id="emp">10-50</td>
-                  </tr>
-                  <tr>
-                    <td class="fw-medium" scope="row">Rating</td>
-                    <td>
-                      <span id="rtng">4.0</span> <i class="ri-star-fill text-warning align-bottom"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="fw-medium" scope="row">Website</td>
-                    <td>
-                      <BLink href="javascript:void(0);" class="link-primary text-decoration-underline" id="webs">
-                        www.syntycesolution.com</BLink>
-                    </td>
+                    <td id="loc">12 Lorong Limau , Tamn limau 13800 Bukit Jali Kuala Lumpur</td>
                   </tr>
                   <tr>
                     <td class="fw-medium" scope="row">Contact Email</td>
@@ -556,10 +418,28 @@ export default {
                   </tr>
                   <tr>
                     <td class="fw-medium" scope="row">Since</td>
-                    <td id="sic">1995</td>
+                    <td id="sic">1993</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-medium" scope="row">Project</td>
+                    <td id="project">
+                      <span class="badge badge-label bg-info"><i class="mdi mdi-circle-medium"></i>AR496</span><br>
+                      <span class="badge badge-label bg-info"><i class="mdi mdi-circle-medium"></i>BG17-R1</span><br>
+                      <span class="badge badge-label bg-info"><i class="mdi mdi-circle-medium"></i>BKT22F</span><br>
+                      <span class="badge badge-label bg-info"><i class="mdi mdi-circle-medium"></i>BJO-B3B4</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td> <router-link to="/system/company-detail">
+                        <BButton type="button" variant="success">
+                            View Detail
+                        </BButton>
+                    </router-link></td>
                   </tr>
                 </tbody>
               </table>
+              
             </div>
           </BCardBody>
         </BCard>
@@ -573,29 +453,6 @@ export default {
         <input type="hidden" id="id">
         <BRow class="g-3">
           <BCol lg="12">
-            <div class="text-center">
-              <div class="position-relative d-inline-block">
-                <div class="position-absolute bottom-0 end-0">
-                  <label for="company-logo-input" class="mb-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                    aria-label="Select Image">
-                    <div class="avatar-xs cursor-pointer">
-                      <div class="avatar-title bg-light border rounded-circle text-muted">
-                        <i class="ri-image-fill"></i>
-                      </div>
-                    </div>
-                  </label>
-                  <input class="form-control d-none" value="" id="company-logo-input" type="file"
-                    accept="image/png, image/gif, image/jpeg">
-                </div>
-                <div class="avatar-lg p-1">
-                  <div class="avatar-title bg-light rounded-circle">
-                    <img :src="event.image_src || require('@/assets/images/users/multi-user.jpg')" id="companylogo-img"
-                      class="avatar-md rounded-circle object-fit-cover">
-                  </div>
-                </div>
-              </div>
-              <h5 class="fs-13 mt-3">Company Logo</h5>
-            </div>
             <div>
               <label for="companyname" class="form-label">Name</label>
               <input type="text" id="companyname" class="form-control" placeholder="Enter company name"
@@ -605,57 +462,82 @@ export default {
           </BCol>
           <BCol lg="6">
             <div>
-              <label for="ownername" class="form-label">Owner Name</label>
-              <input type="text" id="ownername" class="form-control" placeholder="Enter owner name" v-model="event.owner"
+              <label for="ownername" class="form-label">Code</label>
+              <input type="text" id="ownername" class="form-control" placeholder="Enter code" v-model="event.owner"
                 :class="{ 'is-invalid': submitted && !event.owner }">
-              <div class="invalid-feedback">Please enter a owner name.</div>
+              <div class="invalid-feedback">Please enter a code.</div>
             </div>
           </BCol>
           <BCol lg="6">
             <div>
-              <label for="industrytype" class="form-label">Industry Type</label>
-              <select class="form-select" id="industrytype" v-model="event.industry_type"
-                :class="{ 'is-invalid': submitted && !event.industry_type }">
-                <option value="">Select industry type</option>
-                <option value="Computer Industry">Computer Industry</option>
-                <option value="Chemical Industries">Chemical Industries</option>
-                <option value="Health Services">Health Services</option>
-                <option value="Telecommunications Services">Telecommunications Services</option>
-                <option value="Textiles: Clothing, Footwear">Textiles: Clothing, Footwear</option>
-              </select>
-              <div class="invalid-feedback">Please select a industry type.</div>
+              <label for="ownername" class="form-label">Registeration Number</label>
+              <input type="text" id="ownername" class="form-control" placeholder="Enter registeration number" v-model="event.owner"
+                :class="{ 'is-invalid': submitted && !event.owner }">
+              <div class="invalid-feedback">Please enter a registeration number.</div>
             </div>
           </BCol>
           <BCol lg="4">
             <div>
-              <label for="starvalue" class="form-label">Rating</label>
-              <input type="text" id="starvalue" class="form-control" placeholder="Enter rating" v-model="event.star_value"
+              <label for="starvalue" class="form-label">Address 1</label>
+              <input type="text" id="starvalue" class="form-control" placeholder="Enter address 1" v-model="event.star_value"
                 :class="{ 'is-invalid': submitted && !event.star_value }">
-              <div class="invalid-feedback">Please enter a rating.</div>
+              <div class="invalid-feedback">Please enter a address 1.</div>
             </div>
           </BCol>
           <BCol lg="4">
             <div>
-              <label for="location" class="form-label">Location</label>
-              <input type="text" id="location" class="form-control" placeholder="Enter location" v-model="event.location"
-                :class="{ 'is-invalid': submitted && !event.location }">
-              <div class="invalid-feedback">Please enter a location.</div>
+              <label for="location" class="form-label">Address 2</label>
+              <input type="text" id="location" class="form-control" placeholder="Enter address 2" v-model="event.address"
+                :class="{ 'is-invalid': submitted && !event.address }">
+              <div class="invalid-feedback">Please enter a address 2.</div>
             </div>
           </BCol>
           <BCol lg="4">
             <div>
-              <label for="employee" class="form-label">Employee</label>
-              <input type="text" id="employee" class="form-control" placeholder="Enter employee" v-model="event.employee"
+              <label for="employee" class="form-label">Address 3</label>
+              <input type="text" id="employee" class="form-control" placeholder="Enter address 3" v-model="event.employee"
                 :class="{ 'is-invalid': submitted && !event.employee }">
-              <div class="invalid-feedback">Please enter a employee.</div>
+              <div class="invalid-feedback">Please enter a address 3.</div>
             </div>
           </BCol>
-          <BCol lg="6">
+          <BCol lg="4">
             <div>
-              <label for="website" class="form-label">Website</label>
-              <input type="text" id="website" class="form-control" placeholder="Enter website" v-model="event.website"
+              <label for="starvalue" class="form-label">Postcode</label>
+              <input type="text" id="starvalue" class="form-control" placeholder="Enter postcode" v-model="event.star_value"
+                :class="{ 'is-invalid': submitted && !event.star_value }">
+              <div class="invalid-feedback">Please enter a postcode.</div>
+            </div>
+          </BCol>
+          <BCol lg="4">
+            <div>
+              <label for="location" class="form-label">City</label>
+              <input type="text" id="location" class="form-control" placeholder="Enter city" v-model="event.address"
+                :class="{ 'is-invalid': submitted && !event.address }">
+              <div class="invalid-feedback">Please enter a city.</div>
+            </div>
+          </BCol>
+          <BCol lg="4">
+            <div>
+              <label for="employee" class="form-label">State</label>
+              <input type="text" id="employee" class="form-control" placeholder="Enter State" v-model="event.employee"
+                :class="{ 'is-invalid': submitted && !event.employee }">
+              <div class="invalid-feedback">Please enter a State.</div>
+            </div>
+          </BCol>
+          <BCol lg="3">
+            <div>
+              <label for="employee" class="form-label">Country</label>
+              <input type="text" id="employee" class="form-control" placeholder="Enter Country" v-model="event.employee"
+                :class="{ 'is-invalid': submitted && !event.employee }">
+              <div class="invalid-feedback">Please enter a Country.</div>
+            </div>
+          </BCol>
+          <BCol lg="3">
+            <div>
+              <label for="website" class="form-label">Prefix</label>
+              <input type="text" id="website" class="form-control" placeholder="Enter Prefix" v-model="event.website"
                 :class="{ 'is-invalid': submitted && !event.website }">
-              <div class="invalid-feedback">Please enter a website.</div>
+              <div class="invalid-feedback">Please enter a Prefix.</div>
             </div>
           </BCol>
           <BCol lg="6">
@@ -668,10 +550,10 @@ export default {
           </BCol>
           <BCol lg="12">
             <div>
-              <label for="since" class="form-label">Since</label>
-              <input type="text" id="since" class="form-control" placeholder="Enter since" v-model="event.since"
+              <label for="since" class="form-label">Note</label>
+              <input type="text" id="since" class="form-control" placeholder="Enter note" v-model="event.since"
                 :class="{ 'is-invalid': submitted && !event.since }">
-              <div class="invalid-feedback">Please enter a year.</div>
+              <div class="invalid-feedback">Please enter a note.</div>
             </div>
           </BCol>
         </BRow>
@@ -699,5 +581,5 @@ export default {
         <button type="button" class="btn w-sm btn-primary" id="delete-record" @click="deleteData">Yes, Delete It!</button>
       </div>
     </BModal>
-  </Layout>
+    </Layout>
 </template>

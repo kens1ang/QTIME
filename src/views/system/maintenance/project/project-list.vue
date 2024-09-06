@@ -46,7 +46,7 @@ export default {
 
 <template>
     <Layout>
-        <PageHeader title="Project Management" subTitle="Maintenance List" pageTitle="System" />
+        <PageHeader title="Project Management"  pageTitle="System" />
         <div class="card-body" style="margin-bottom: 30px; margin-top: 30px;">
             <div class="listjs-table" id="customerList">
                 <div class="row g-4 mb-3">
@@ -81,8 +81,8 @@ export default {
                                 <th class="sort" data-sort="name">Name</th>
                                 <th class="sort" data-sort="regNo">Contract Value</th>
                                 <th class="sort" data-sort="regNo">Period</th>
-                                <th>Actual Date</th>
-                                <th>Prefix</th>
+                                <th>Actual Start Date</th>
+                                <th>Actual End Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -100,10 +100,108 @@ export default {
                                 <td class="name">AR496</td>
                                 <td></td>
                                 <td class="">2</td>
-                                <td class="mobileaccess">Start : 30-7-2024<br>End : 1-8-20</td>
-                                <td></td>
+                                <td class="mobileaccess">30-7-2024</td>
+                                <td>1-8-2024</td>
                                 <td>
                                     <div class="d-flex gap-2">
+                                        <div class="view">
+                                            <router-link to="/system/project-detail">
+                                            <button class="btn btn-sm btn-info view-item-btn" >View</button>
+                                            </router-link>
+                                        </div>
+                                        <div class="edit">
+                                            <button class="btn btn-sm btn-success edit-item-btn" @click="showModal(true)">Edit</button>
+                                        </div>
+                                        <div class="remove">
+                                            <button class="btn btn-sm btn-danger remove-item-btn" @click="deleteAlert">Remove</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                    </div>
+                                </th>
+                                <td class="id" style="display:none;">
+                                    <a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a>
+                                </td>
+                                <td class="code">BG17-R1</td>
+                                <td class="name">BG17-R1</td>
+                                <td></td>
+                                <td class="">2</td>
+                                <td class="mobileaccess">30-7-2024</td>
+                                <td>1-8-2024</td>
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <div class="view">
+                                            <router-link to="/system/project-detail">
+                                            <button class="btn btn-sm btn-info view-item-btn" >View</button>
+                                            </router-link>
+                                        </div>
+                                        <div class="edit">
+                                            <button class="btn btn-sm btn-success edit-item-btn" @click="showModal(true)">Edit</button>
+                                        </div>
+                                        <div class="remove">
+                                            <button class="btn btn-sm btn-danger remove-item-btn" @click="deleteAlert">Remove</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                    </div>
+                                </th>
+                                <td class="id" style="display:none;">
+                                    <a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a>
+                                </td>
+                                <td class="code">BKT22F</td>
+                                <td class="name">BKT22F</td>
+                                <td></td>
+                                <td class="">2</td>
+                                <td class="mobileaccess">30-7-2024</td>
+                                <td>1-08-2024</td>
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <div class="view">
+                                            <router-link to="/system/project-detail">
+                                            <button class="btn btn-sm btn-info view-item-btn" >View</button>
+                                            </router-link>
+                                        </div>
+                                        <div class="edit">
+                                            <button class="btn btn-sm btn-success edit-item-btn" @click="showModal(true)">Edit</button>
+                                        </div>
+                                        <div class="remove">
+                                            <button class="btn btn-sm btn-danger remove-item-btn" @click="deleteAlert">Remove</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                    </div>
+                                </th>
+                                <td class="id" style="display:none;">
+                                    <a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a>
+                                </td>
+                                <td class="code">BJO-B3B4</td>
+                                <td class="name">BJO-B3B4</td>
+                                <td></td>
+                                <td class="">2</td>
+                                                                <td>1-8-2024</td>
+                                                                <td>1-08-2024</td>
+                                <td>
+                                    <div class="d-flex gap-2">
+                                        <div class="view">
+                                            <router-link to="/system/project-detail">
+                                            <button class="btn btn-sm btn-info view-item-btn" >View</button>
+                                            </router-link>
+                                        </div>
                                         <div class="edit">
                                             <button class="btn btn-sm btn-success edit-item-btn" @click="showModal(true)">Edit</button>
                                         </div>

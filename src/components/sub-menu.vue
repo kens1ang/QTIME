@@ -62,9 +62,9 @@ export default {
            },
           { name: 'Overall Project Progress & Expenses', path: '/dashboard/project-progress-budget' }
         ];
-      }else if (path.startsWith('/apps/')) {
+      }else if (path.startsWith('/attendance/')) {
         return [
-          { name: 'Attendance Details', path: '' },
+          { name: 'Attendance Details', path: '/attendance/attendance-summary' },
           { name: 'Dashboard',
             children: [
                 { name: 'Status', path: '' },
@@ -179,19 +179,12 @@ export default {
       }
       else if (path.startsWith('/system/')) {
         return [
-        { name: 'Employee',
-            children: [
-                { name: 'General Worker (KSK)', path: '' },
-                { name: 'Staff', path: '' },
-                { name: 'Subcon Worker', path: '' },
-                { name: 'Operator', path: '' },
-                { name: 'Update KSK Hour Rate', path: '' },
-            ]
+          { name: 'Employee' , path: '/system/employee' ,
+            
            },
           { name: 'Admin', path: '/system/user-management' ,
             children: [
                   { name: 'System User', path: '/system/user-management' },
-                  { name: 'Access Permission', path: '/system/access-control' },
                   { name: 'Poster Portal', path: '/system/poster-portal' },
                   { name: 'Backup Database', path: '/system/backup-database' },
                   
@@ -199,14 +192,9 @@ export default {
            },
            { name: 'Maintenance List',
             children: [
-                { name: 'Company', path: '/system/company' },
-                { name: 'Project', path: '/system/project' },
+                { name: 'Company', path: '/system/company-detail' },
+                { name: 'Project', path: '/system/project-detail' },
                 { name: 'Sub Deparment', path: '' },
-                { name: 'Site', path: '' },
-                { name: 'Progress Group', path: '' },
-                { name: 'Mobile Clock-In', path: '' },
-                { name: 'Schedule', path: '/system/schedule' },
-                { name: 'Public Holiday', path: '' },
             ]
            },
            { name: 'Operation Manual', path:'' },

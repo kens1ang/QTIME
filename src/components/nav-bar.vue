@@ -374,7 +374,7 @@ export default {
                   <h6 class="m-0 fw-semibold fs-15">Project List</h6>
                 </BCol>
                 <BCol cols="auto">
-                  <BLink href="#!" class="btn btn-sm btn-soft-info">
+                  <BLink href="/system/project-list" class="btn btn-sm btn-soft-info">
                     View Project List
                     <i class="ri-arrow-right-s-line align-middle"></i>
                   </BLink>
@@ -385,19 +385,19 @@ export default {
             <div class="p-2">
               <BRow class="g-0">
                 <BCol>
-                  <BLink class="dropdown-icon-item" href="#!">
+                  <BLink class="dropdown-icon-item" href="/system/project-detail">
                     <img src="@/assets/images/brands/slack.png" alt="Github" />
                     <span>AR496</span>
                   </BLink>
                 </BCol>
                 <BCol>
-                  <BLink class="dropdown-icon-item" href="#!">
+                  <BLink class="dropdown-icon-item" href="/system/project-detail">
                     <img src="@/assets/images/brands/slack.png" alt="bitbucket" />
-                    <span>BH1-B3B4</span>
+                    <span>BG17-R1</span>
                   </BLink>
                 </BCol>
                 <BCol>
-                  <BLink class="dropdown-icon-item" href="#!">
+                  <BLink class="dropdown-icon-item" href="/system/project-detail">
                     <img src="@/assets/images/brands/slack.png" alt="dribbble" />
                     <span>BKT22F</span>
                   </BLink>
@@ -406,22 +406,14 @@ export default {
 
               <BRow class="g-0">
                 <BCol>
-                  <BLink class="dropdown-icon-item" href="#!">
-                    <img src="@/assets/images/brands/slack.png" alt="dropbox" />
-                    <span>BKT2CH</span>
-                  </BLink>
-                </BCol>
-                <BCol>
-                  <BLink class="dropdown-icon-item" href="#!">
-                    <img src="@/assets/images/brands/slack.png" alt="mail_chimp" />
-                    <span>BKT2PS</span>
-                  </BLink>
-                </BCol>
-                <BCol>
-                  <BLink class="dropdown-icon-item" href="#!">
+                  <BLink class="dropdown-icon-item" href="/system/project-detail">
                     <img src="@/assets/images/brands/slack.png" alt="slack" />
-                    <span>CS2</span>
+                    <span>BJO-B3B4</span>
                   </BLink>
+                </BCol>
+                <BCol>
+                </BCol>
+                <BCol>
                 </BCol>
               </BRow>
             </div>

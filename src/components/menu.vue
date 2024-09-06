@@ -9,7 +9,8 @@ import {
   DatabaseIcon,
   PieChartIcon,
   ArchiveIcon,
-  LayersIcon
+  LayersIcon,
+  AirplayIcon
 } from "@zhuowenli/vue-feather-icons";
 
 export default {
@@ -20,7 +21,8 @@ export default {
     DatabaseIcon,
     PieChartIcon,
     ArchiveIcon,
-    LayersIcon
+    LayersIcon,
+    AirplayIcon
   },
   data() {
     return {
@@ -221,8 +223,8 @@ export default {
         <li class="nav-item">
           <a class="nav-link menu-link">
             <GridIcon width="24" height="24" />
-            <span data-key="t-apps" class="Menuspan">
-              <router-link :to="{ name: 'projects-list' }" class="MenuText">{{ $t('Attendance') }}</router-link>
+            <span data-key="t-attendance" class="Menuspan">
+              <router-link :to="{ name: 'attendance-summary' }" class="MenuText">{{ $t('Attendance') }}</router-link>
             </span>
           </a>
         </li>
@@ -262,11 +264,33 @@ export default {
           <a class="nav-link menu-link">
             <LayersIcon width="24" height="24" />
             <span data-key="t-system" class="Menuspan">
-              <router-link :to="{ name: 'basic-system' }" class="MenuText">{{ $t('System') }}</router-link>
+              <router-link :to="{ name: 'employee' }" class="MenuText">{{ $t('System') }}</router-link>
             </span>
           </a>
         </li>
+
+        <li class="nav-item menu-item-bottom">
+          <a class="nav-link menu-link">
+            <AirplayIcon width="24" height="24" />
+            <span data-key="t-company" class="Menuspan">
+              <router-link :to="{ name: 'company' }" class="MenuText">{{ $t('Company') }}</router-link>
+            </span>
+          </a>
+          
+        </li>
+
       </ul>
     </template>
   </BContainer>
 </template>
+
+<style scoped>
+.navbar-nav {
+  flex-direction: column !important;
+  height: 90vh !important;
+}
+
+.menu-item-bottom {
+  margin-top: auto;
+}
+</style>
