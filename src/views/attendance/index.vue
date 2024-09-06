@@ -37,17 +37,17 @@ export default {
     <PageHeader
       v-if="currentTab === 'summary'"
       title="Attendance Summary"
-      subTitle="Search Amend Attendance"
+      subTitle="Search Attendance"
     />
     <PageHeader
       v-if="currentTab === 'details'"
       title="Attendance Details"
-      subTitle="Search Amend Attendance"
+      subTitle="Search Attendance"
     />
     <PageHeader
       v-if="currentTab === 'payment'"
       title="Payment"
-      subTitle="Search Amend Attendance"
+      subTitle="Search Attendance"
     />
 
     <!-- Nav tabs -->

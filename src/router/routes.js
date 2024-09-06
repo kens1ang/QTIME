@@ -106,10 +106,10 @@ export default [
   },
  //Attendance folder
  {
-    path: "/attendance/attendance-summary",
-    name: "attendance-summary",
+    path: "/attendance/attendance-search",
+    name: "attendance-search",
     meta: { title: "Attendance", authRequired: true },
-    component: () => import("../views/attendance/attendance-summary.vue"),
+    component: () => import("../views/attendance/search.vue"),
   },
 
  {
