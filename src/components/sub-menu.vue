@@ -58,7 +58,7 @@ export default {
         ];
       }else if (path.startsWith('/attendance/')) {
         return [
-          { name: 'Attendance Details', path: '/attendance/attendance-summary' },
+          { name: 'Attendance', path: '/attendance/attendance-search' },
           { name: 'Dashboard',
             children: [
                 { name: 'Status', path: '' },
