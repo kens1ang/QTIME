@@ -130,31 +130,13 @@ export default [
     component: () => import("../views/dashboard/project-insight/index.vue"),
   },
   {
-    path: "/dashboard/pending-payment",
-    name: "pending-payment",
+    path: "/dashboard/pending-board",
+    name: "pending-board",
     meta: {
-      title: "Pending Payment",
+      title: "Pending Board",
       authRequired: true,
     },
-    component: () => import("../views/dashboard/pending-board/pending-payment.vue"),
-  },
-  {
-    path: "/dashboard/pending-approval",
-    name: "pending-approval",
-    meta: {
-      title: "Pending Approval",
-      authRequired: true,
-    },
-    component: () => import("../views/dashboard/pending-board/pending-approval.vue"),
-  },
-  {
-    path: "/dashboard/reminder-action",
-    name: "reminder-action",
-    meta: {
-      title: "Reminder Action",
-      authRequired: true,
-    },
-    component: () => import("../views/dashboard/pending-board/reminder-action.vue"),
+    component: () => import("../views/dashboard/pending-board/index.vue"),
   },
   {
     path: "/dashboard/project-progress-budget",
@@ -164,6 +146,14 @@ export default [
       authRequired: true,
     },
     component: () => import("../views/dashboard/project-progress-budget/index.vue"),
+  },
+
+  //Attendance Folder
+  {
+    path: "/attendance/index",
+    name: "attendance-index",
+    meta: { title: "Attendance", authRequired: true },
+    component: () => import("../views/attendance/index"),
   },
 
   //end of QTIME
