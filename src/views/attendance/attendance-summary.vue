@@ -448,136 +448,110 @@ export default {
                                             <th scope="col">Remark</th>
                                             <th scope="col">Late In</th>
                                             <th scope="col">OT</th>
-                                            
+                                            <th scope="col">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>
-                                              <div class="flex-shrink-0">
-                                                        <img src="@/assets/images/users/avatar-3.jpg" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        Olivia Lim
-                                                    </div>
+                                              <img src="@/assets/images/users/avatar-3.jpg" alt="" class="avatar-xs rounded-circle" />
+                                                 Olivia Lim 
+                                            </td>
+                                            <td>14:25AM
+                                            </td>
+                                            <td>17:39PM</td>
+                                            <td class="text-success"><input type="text" class="form-control" placeholder="Enter value"></td>
+                                            <td><input type="text" class="form-control" placeholder="Enter value"></td>
+                                            <td><span class="badge bg-danger-subtle text-danger" style="font-size: 13px !important;">6:14:11</span></td>
+                                            <td>0:09:02</td>
+                                            <td>
+                  <div class="d-flex gap-2">
+                    <div class="edit">
+                      <button
+                        class="btn btn-sm btn-info edit-item-btn"
+                        @click="showModal(true)"
+                      >
+                        View OT
+                      </button>
+                    </div>
+                    <div class="remove">
+                      <button
+                        class="btn btn-sm btn-info remove-item-btn"
+                        @click="deleteAlert"
+                      >
+                        View Backcharge
+                      </button>
+                    </div>
+                  </div>
+                </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                              <img src="@/assets/images/users/avatar-3.jpg" alt="" class="avatar-xs rounded-circle" />
+                                               Ken Xiang
+                                            </td>
+                                            <td>8:55AM
+                                            </td>
+                                            <td>17:39PM</td>
+                                            <td class="text-success"><input type="text" class="form-control" placeholder="Enter value"></td>
+                                            <td><input type="text" class="form-control" placeholder="Enter value"></td>
+                                            <td><span class="badge bg-danger-subtle text-danger" style="font-size: 13px !important;">0:25:11</span></td>
+                                            <td>0:09:02</td>
+                                            <td>
+                  <div class="d-flex gap-2">
+                    <div class="edit">
+                      <button
+                        class="btn btn-sm btn-info edit-item-btn"
+                        @click="showModal(true)"
+                      >
+                        View OT
+                      </button>
+                    </div>
+                    <div class="remove">
+                      <button
+                        class="btn btn-sm btn-info remove-item-btn"
+                        @click="deleteAlert"
+                      >
+                        View Backcharge
+                      </button>
+                    </div>
+                  </div>
+                </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                              <img src="@/assets/images/users/avatar-3.jpg" alt="" class="avatar-xs rounded-circle" />
+                                               Mohammad
                                             </td>
                                             <td>07:55AM
                                             </td>
-                                            <td>17:39PM</td>
-                                            <td class="text-success"></td>
-                                            <td></td>
-                                            <td><span class="badge bg-danger-subtle text-danger" style="font-size: 13px !important;">6:14:11</span></td>
-                                            <td>0:09:02</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="responsivetableCheck02">
-                                                    <label class="form-check-label" for="responsivetableCheck02"></label>
-                                                </div>
-                                            </th>
+                                            <td>18:30PM</td>
+                                            <td class="text-success"><input type="text" class="form-control" placeholder="Enter value"></td>
+                                            <td><input type="text" class="form-control" placeholder="Enter value"></td>
+                                            <td>-</td>
+                                            <td><span class="badge bg-danger-subtle text-danger" style="font-size: 13px !important;">1:10:10</span></td>
                                             <td>
-                                                <BLink href="#" class="fw-medium">#VZ2109</BLink>
-                                            </td>
-                                            <td>17 Oct, 02:10</td>
-                                            <td class="text-success"><i class="ri-checkbox-circle-line fs-17 align-middle"></i> Paid</td>
-                                            <td>
-                                                <div class="d-flex gap-2 align-items-center">
-                                                    <div class="flex-shrink-0">
-                                                        <img src="@/assets/images/users/avatar-4.jpg" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        Jackson Graham
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Splashify</td>
-                                            <td>$270.60</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="responsivetableCheck03">
-                                                    <label class="form-check-label" for="responsivetableCheck03"></label>
-                                                </div>
-                                            </th>
-                                            <td>
-                                                <BLink href="#" class="fw-medium">#VZ2108</BLink>
-                                            </td>
-                                            <td>26 Oct, 08:20</td>
-                                            <td class="text-primary"><i class="ri-refresh-line fs-17 align-middle"></i>
-                                                Refunded</td>
-                                            <td>
-                                                <div class="d-flex gap-2 align-items-center">
-                                                    <div class="flex-shrink-0">
-                                                        <img src="@/assets/images/users/avatar-5.jpg" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        Lauren Trujillo
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Wireframing Kit for Figma</td>
-                                            <td>$145.42</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="responsivetableCheck04">
-                                                    <label class="form-check-label" for="responsivetableCheck04"></label>
-                                                </div>
-                                            </th>
-                                            <td>
-                                                <BLink href="#" class="fw-medium">#VZ2107</BLink>
-                                            </td>
-                                            <td>02 Nov, 04:52</td>
-                                            <td class="text-danger"><i class="ri-close-circle-line fs-17 align-middle"></i>
-                                                Cancel</td>
-                                            <td>
-                                                <div class="d-flex gap-2 align-items-center">
-                                                    <div class="flex-shrink-0">
-                                                        <img src="@/assets/images/users/avatar-6.jpg" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        Curtis Weaver
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Wireframing Kit for Figma</td>
-                                            <td>$170.68</td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="responsivetableCheck05">
-                                                    <label class="form-check-label" for="responsivetableCheck05"></label>
-                                                </div>
-                                            </th>
-                                            <td>
-                                                <BLink href="#" class="fw-medium">#VZ2106</BLink>
-                                            </td>
-                                            <td>10 Nov, 07:20</td>
-                                            <td class="text-success"><i class="ri-checkbox-circle-line fs-17 align-middle"></i> Paid</td>
-                                            <td>
-                                                <div class="d-flex gap-2 align-items-center">
-                                                    <div class="flex-shrink-0">
-                                                        <img src="@/assets/images/users/avatar-1.jpg" alt="" class="avatar-xs rounded-circle" />
-                                                    </div>
-                                                    <div class="flex-grow-1">
-                                                        Jason schuller
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>Splashify</td>
-                                            <td>$350.87</td>
+                  <div class="d-flex gap-2">
+                    <div class="edit">
+                      <button
+                        class="btn btn-sm btn-info edit-item-btn"
+                        @click="showModal(true)"
+                      >
+                        View OT
+                      </button>
+                    </div>
+                    <div class="remove">
+                      <button
+                        class="btn btn-sm btn-info remove-item-btn"
+                        @click="deleteAlert"
+                      >
+                        View Backcharge
+                      </button>
+                    </div>
+                  </div>
+                </td>
                                         </tr>
                                     </tbody>
-                                    <tfoot class="table-light">
-                                        <tr>
-                                            <td colspan="6">Total</td>
-                                            <td>$947.55</td>
-                                        </tr>
-                                    </tfoot>
                                 </table>
                             </div>
                         </div>
