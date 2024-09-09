@@ -18,29 +18,38 @@ export default {
                 { value: 'user3', text: 'kenxiang' },
                 // Add more users as needed
             ],
+            membersss: [
+                { value: 'user1', text: 'zylim' },
+                { value: 'user2', text: 'cijie' },
+                { value: 'user3', text: 'kenxiang' },
+            
+            ],
             projectRoles: [
                 { value: 'project_manager', text: 'Project Manager' },
                 { value: 'project_director', text: 'Project Director' },
-                { value: 'qa_qc_person_incharge', text: 'QA/QC Person Incharge' },
+                { value: 'qa_qc_person_incharge', text: 'QA/QC Manager' },
                 { value: 'contract_manager', text: 'Contract Manager' },
-                { value: 'qa_qc_team_members', text: 'QA/QC Team Members' },
-                { value: 'qs_person_incharge', text: 'QS Person Incharge' },
-                { value: 'site_person_incharge', text: 'Site Person Incharge' },
+                { value: 'qs_person_incharge', text: 'Person Incharge' },
                 { value: 'purchasing ', text: 'Purchasing ' },
                 { value: 'site_team_members', text: 'Site Team Members' },
                 { value: 'assistant_project_manager', text: 'Assistant Project Manager' },
-                { value: 'client_person_incharge', text: 'Client Person Incharge' },
-                { value: 'hr_person_incharge', text: 'HR Person Incharge' },
+                { value: 'safety', text: 'Safety' },
+                { value: 'construction_supervisor', text: 'Construction Supervisor' },
             ],
             selectedProjectManager: '',
             selectedProjectMembers: [],
             selectedMembers: [],
+            member: [],
         };
     },
     computed: {
         filteredUsers() {
         // Optional: add any additional filtering logic here
         return this.users;
+        },
+        filteredmember() {
+        // Optional: add any additional filtering logic here
+        return this.membersss;
         },
     },
     components: {
@@ -79,6 +88,11 @@ export default {
         addMembers(selectedValue) {
         if (!this.selectedMembers.includes(selectedValue)) {
             this.selectedMembers.push(selectedValue);
+        }
+        },
+        memberss(selectedValue) {
+        if (!this.member.includes(selectedValue)) {
+            this.member.push(selectedValue);
         }
         },
         handleSubmit() {
@@ -176,105 +190,75 @@ export default {
                                 </BCard>
                             </BCol>
 
-                
                             <BCol xl="12" lg="12">
-                                <BCard no-body>
-                                    <BCardHeader class="card-header bg-dark-subtle">
-                                        <BCardTitle class="mb-0">Organization Chat (Member)</BCardTitle>
-                                    </BCardHeader>
+    <BCard no-body>
+        <BCardHeader class="card-header bg-dark-subtle">
+            <BCardTitle class="mb-0">Organization Chat (Member)</BCardTitle>
+        </BCardHeader>
+        <BCardBody>
+            <div class="hori-sitemap">
+                <!-- Organization Chart -->
+                <ul class="list-unstyled mb-0">
+                    <li class="p-0 parent-title">
+                        <BLink href="javascript: void(0);" class="fw-semibold">Project Director <br>(Loh Beng Ping)</BLink>
+                    </li>
+                </ul>
+                <!-- Project Manager and Contract Manager Row -->
+                <ul class="list-unstyled row g-0 mb-0" >
+                    <!-- Project Manager Column -->
+                    <li class="col-sm-6">
+                        <BLink href="javascript: void(0);" class="fw-semibold">Project Manager <br>(Ang Li Win)</BLink>
+                        <ul class="list-unstyled second-list pt-0">
+                            <li>
+                                <div>
+                                    <BLink href="javascript: void(0);">Assistant Project Manager</BLink>
+                                </div>
+                                <ul class="list-unstyled row g-0 mb-0 justify-content-center" style="width: 120%">
+                    <li class="col-sm-2 text-center">
+                        <BLink href="javascript: void(0);" class="fw-semibold">Construction <br>Supervisor</BLink>
+                    </li>
+                    <li class="col-sm-2 text-center">
+                        <BLink href="javascript: void(0);" class="fw-semibold">Site Person <br> Incharge</BLink>
+                    </li>
+                    <li class="col-sm-2 text-center">
+                        <BLink href="javascript: void(0);" class="fw-semibold">Safety</BLink>
+                    </li>
+                    <li class="col-sm-2 text-center">
+                        <BLink href="javascript: void(0);" class="fw-semibold">QA/QC <br> Person Incharge</BLink>
+                    </li>
+                    <li class="col-sm-2 text-center">
+                        <BLink href="javascript: void(0);" class="fw-semibold">Land</BLink>
+                    </li>
+                    <li class="col-sm-2 text-center">
+                        <BLink href="javascript: void(0);" class="fw-semibold">M&E</BLink>
+                    </li>
+                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Contract Manager Column -->
+                    <li class="col-sm-6">
+                        <BLink href="javascript: void(0);" class="fw-semibold">Contract Manager <br>(CHIN KHOI HOE)</BLink>
+                        <ul class="list-unstyled second-list pt-0">
+                            <li>
+                                <div>
+                                    <BLink href="javascript: void(0);">QS Manager <br>(Ng Pooi Hock)</BLink>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- Additional Roles Row (Single Line) -->
+                
+            </div>
+        </BCardBody>
+    </BCard>
+</BCol>
 
-                                    <BCardBody>
-                                        <div class="hori-sitemap">
-                                            <ul class="list-unstyled mb-0">
-                                                <li class="p-0 parent-title">
-                                                    <BLink href="javascript: void(0);" class="fw-semibold fs-14">Project AR496</BLink>
-                                                </li>
-                                                <ul class="list-unstyled row g-0">
-                                                    <li class="col-sm-4">
-                                                        <BLink href="javascript: void(0);" class="fw-semibold sub-title">Project Manager</BLink>
-                                                        <ul class="list-unstyled second-list pt-0">
-                                                            <li>
-                                                                <div>
-                                                                    <BLink href="javascript: void(0);">Teoh Yin Zheng</BLink>
-                                                                    <BLink href="javascript: void(0);">Ang Li Win</BLink>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="col-sm-4">
-                                                        <BLink href="javascript: void(0);" class="fw-semibold">Project Director</BLink>
-                                                        <ul class="list-unstyled second-list pt-0">
-                                                            <li>
-                                                                <div>
-                                                                    <BLink href="javascript: void(0);">Loh Beng Ping</BLink>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="col-sm-4">
-                                                        <BLink href="javascript: void(0);" class="fw-semibold sub-title">Contract Manager</BLink>
-                                                        <ul class="list-unstyled second-list">
-                                                            <li>
-                                                                <div>
-                                                                    <BLink href="javascript: void(0);">Chin Khoi Hoe</BLink>
-                                                                    <BLink href="javascript: void(0);">Chew Bee Yong</BLink>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <ul class="list-unstyled row g-0 sub-list">
-                                                            <li class="col-sm-3">
-                                                                <BLink href="javascript: void(0);">QS Person Incharge</BLink>
-                                                                <ul class="list-unstyled second-list">
-                                                                    <li>
-                                                                        <div>
-                                                                            <BLink href="javascript: void(0);">Ng Pooi Hock</BLink>
-                                                                            <BLink href="javascript: void(0);">Tan Lay Min</BLink>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li class="col-sm-3">
-                                                                <BLink href="javascript: void(0);">Site Person Incharge</BLink>
-                                                                <ul class="list-unstyled second-list">
-                                                                    <li>
-                                                                        <div>
-                                                                            <BLink href="javascript: void(0);">Dummy</BLink>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li class="col-sm-3">
-                                                                <BLink href="javascript: void(0);">Purchasing</BLink>
-                                                                <ul class="list-unstyled second-list">
-                                                                    <li>
-                                                                        <div>
-                                                                            <BLink href="javascript: void(0);">Ph Hn</BLink>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                            <li class="col-sm-3">
-                                                                <BLink href="javascript: void(0);">Site Team Members</BLink>
-                                                                <ul class="list-unstyled second-list">
-                                                                    <li>
-                                                                        <div>
-                                                                            <BLink href="javascript: void(0);">Lim Choon Haw</BLink>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </ul>
-                                        </div>
-                                    </BCardBody>
-                                </BCard>
-                            </BCol>
                         </BRow>
                     </BTab>
                     
-                    <BTab title="User Access" class="fw-semibold pt-2">
+                    <BTab title="Member" class="fw-semibold pt-2">
                         <BRow class="g-4 mb-3">
                             <BCol sm>
                                 <div class="d-flex">
@@ -298,7 +282,7 @@ export default {
                             <BCol lg="auto">
                                 <div class="hstack gap-2">
                                 <BButton type="button" variant="primary" @click="toggleModal"><i class="ri-share-line me-1 align-bottom"></i>
-                                    Add User Access</BButton>
+                                    Add Member</BButton>
                                 </div>
                             </BCol>
                         </BRow>
@@ -746,7 +730,7 @@ export default {
                 <div class="mb-3">
                     <label for="selected-members" class="form-label">Selected:</label>
                 <div class="selected-members">
-                    <span v-for="(member, index) in selectedMembers" :key="index" class="badge bg-primary me-1">
+                    <span v-for="(member, index) in member" :key="index" class="badge bg-primary me-1">
                     {{ member.text }}
                     </span>
                 </div>
@@ -754,8 +738,8 @@ export default {
                 <div class="mb-3">
                 <label for="additional-members" class="form-label">Search and Select Members</label>
                 <multiselect style="display: block !important;min-height: 30px !important"
-                    v-model="selectedMembers"
-                    :options="filteredUsers"
+                    v-model="member"
+                    :options="filteredmember"
                     :multiple="true"
                     label="text"
                 >
@@ -775,7 +759,7 @@ export default {
                 <BRow class="g-3">
                 <BCol lg="12">
                     <div>
-                    <label for="project-manager" class="form-label">Project Manager</label>
+                    <label for="project-manager" class="form-label">Roles</label>
                     <BFormSelect v-model="selectedProjectManager" :options="projectRoles" :multiple="false" class="mb-3">
                     </BFormSelect>
                     </div>
@@ -817,4 +801,16 @@ export default {
 .multiselect__tag{
     color: white !important;
     display: none !important;
-}</style>
+}
+
+.hori-sitemap {
+    overflow-x: auto;
+    padding: 15px;
+}
+
+.hori-sitemap ul {
+    white-space: nowrap;
+}
+
+
+</style>
