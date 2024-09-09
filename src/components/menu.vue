@@ -224,7 +224,7 @@ export default {
           <a class="nav-link menu-link">
             <GridIcon width="24" height="24" />
             <span data-key="t-attendance" class="Menuspan">
-              <router-link :to="{ name: 'attendance-summary' }" class="MenuText">{{ $t('Attendance') }}</router-link>
+              <router-link :to="{ name: 'attendance-search' }" class="MenuText">{{ $t('Attendance') }}</router-link>
             </span>
           </a>
         </li>
