@@ -15,7 +15,7 @@
       </ul>
     </div>
   </BRow>
-</template>
+</template> 
 
 
 <script>

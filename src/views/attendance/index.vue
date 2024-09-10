@@ -9,7 +9,7 @@ export default {
   data() {
     return {
       title: "Attendance",
-      currentTab: "summary",
+      currentTab: "payment",
       paymentVoucherTitle: "Payment Voucher",
       paymentVoucherModal: false,
     };
@@ -96,6 +96,15 @@ export default {
 
       <!-- Reports -->
       <div class="col-5 text-end">
+        <button
+          v-if="currentTab === 'summary'"
+          type="button"
+          class="btn btn-sm btn-outline-primary waves-effect waves-light me-2"
+        >
+          <i class="ri-money-dollar-circle-line label-icon align-middle fs-16 me-2"></i>Expenses
+          Report
+        </button>
+
         <button
           v-if="currentTab === 'summary'"
           type="button"
