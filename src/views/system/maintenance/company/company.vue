@@ -249,7 +249,7 @@ export default {
           </BCardHeader>
         </BCard>
       </BCol>
-      <BCol xxl="9">
+      <BCol xxl="8">
         <BCard no-body id="companyList">
           <BCardHeader>
             <BRow class="g-2">
@@ -274,7 +274,7 @@ export default {
                         </div>
                       </th>
                       <th class="sort" data-sort="name" scope="col" @click="onSort('name')">
-                        Company Code
+                        Company
                       </th>
                       <th class="sort" data-sort="owner" scope="col" @click="onSort('owner')">Name</th>
                       <th class="sort" data-sort="industry_type" scope="col" @click="onSort('industry_type')">
@@ -365,13 +365,13 @@ export default {
           </BCardBody>
         </BCard>
       </BCol>
-      <BCol xxl="3">
+      <BCol xxl="4">
         <BCard no-body>
           <BCardBody class="text-center">
             <div class="position-relative d-inline-block">
               <div class="avatar-md">
                 <div class="avatar-title bg-light rounded-circle">
-                  <img src="@/assets/images/brands/multi-user.jpg" alt=""
+                  <img src="@/assets/images/brands/multi-user.png" alt=""
                     class="avatar-sm rounded-circle object-fit-cover" id="imageid" />
                 </div>
               </div>
@@ -417,23 +417,32 @@ export default {
                     <td id="eml">info@syntycesolution.com</td>
                   </tr>
                   <tr>
-                    <td class="fw-medium" scope="row">Since</td>
-                    <td id="sic">1993</td>
+                    <td class="fw-medium" scope="row">Contact Person</td>
+                    <td id="eml">+601234567</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-medium" scope="row">Join Date</td>
+                    <td id="sic">09-Jan-2024</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-medium" scope="row">Staff</td>
+                    <td id="sic">200</td>
                   </tr>
                   <tr>
                     <td class="fw-medium" scope="row">Project</td>
                     <td id="project">
-                      <span class="badge badge-label bg-info"><i class="mdi mdi-circle-medium"></i>AR496</span><br>
-                      <span class="badge badge-label bg-info"><i class="mdi mdi-circle-medium"></i>BG17-R1</span><br>
-                      <span class="badge badge-label bg-info"><i class="mdi mdi-circle-medium"></i>BKT22F</span><br>
-                      <span class="badge badge-label bg-info"><i class="mdi mdi-circle-medium"></i>BJO-B3B4</span>
+                      <div class="hstack flex-wrap gap-2 mb-3 mb-lg-0">
+                        <a href="/system/project-detail" class="btn btn-outline-primary btn-border" style="--vz-btn-padding-x: 6px; --vz-btn-padding-y: 3px; font-size: 10px;">AR496</a>
+                        <a href="/system/project-detail" class="btn btn-soft-warning btn-border" style="--vz-btn-padding-x: 6px; --vz-btn-padding-y: 3px; font-size: 10px;">BG17-R1</a>
+                        <a href="/system/project-detail" class="btn btn-soft-dark btn-border" style="--vz-btn-padding-x: 6px; --vz-btn-padding-y: 3px; font-size: 10px;">BKT22F</a>
+                      </div>
                     </td>
                   </tr>
                   <tr>
                     <td></td>
                     <td> <router-link to="/system/company-detail">
                         <BButton type="button" variant="success">
-                            View Detail
+                            View Company Detail
                         </BButton>
                     </router-link></td>
                   </tr>
@@ -452,7 +461,7 @@ export default {
       <b-form id="addform" class="tablelist-form" autocomplete="off">
         <input type="hidden" id="id">
         <BRow class="g-3">
-          <BCol lg="12">
+          <BCol lg="4">
             <div>
               <label for="companyname" class="form-label">Name</label>
               <input type="text" id="companyname" class="form-control" placeholder="Enter company name"
@@ -460,7 +469,7 @@ export default {
               <div class="invalid-feedback">Please enter a company name.</div>
             </div>
           </BCol>
-          <BCol lg="6">
+          <BCol lg="4">
             <div>
               <label for="ownername" class="form-label">Code</label>
               <input type="text" id="ownername" class="form-control" placeholder="Enter code" v-model="event.owner"
@@ -468,12 +477,11 @@ export default {
               <div class="invalid-feedback">Please enter a code.</div>
             </div>
           </BCol>
-          <BCol lg="6">
+          <BCol lg="4">
             <div>
-              <label for="ownername" class="form-label">Registeration Number</label>
-              <input type="text" id="ownername" class="form-control" placeholder="Enter registeration number" v-model="event.owner"
-                :class="{ 'is-invalid': submitted && !event.owner }">
-              <div class="invalid-feedback">Please enter a registeration number.</div>
+              <label for="" class="form-label">Registeration Number</label>
+              <input type="text" id="" class="form-control" placeholder="Enter registeration number"
+             >
             </div>
           </BCol>
           <BCol lg="4">
@@ -524,7 +532,7 @@ export default {
               <div class="invalid-feedback">Please enter a State.</div>
             </div>
           </BCol>
-          <BCol lg="3">
+          <BCol lg="4">
             <div>
               <label for="employee" class="form-label">Country</label>
               <input type="text" id="employee" class="form-control" placeholder="Enter Country" v-model="event.employee"
@@ -532,7 +540,7 @@ export default {
               <div class="invalid-feedback">Please enter a Country.</div>
             </div>
           </BCol>
-          <BCol lg="3">
+          <BCol lg="4">
             <div>
               <label for="website" class="form-label">Prefix</label>
               <input type="text" id="website" class="form-control" placeholder="Enter Prefix" v-model="event.website"
@@ -540,7 +548,7 @@ export default {
               <div class="invalid-feedback">Please enter a Prefix.</div>
             </div>
           </BCol>
-          <BCol lg="6">
+          <BCol lg="4">
             <div>
               <label for="contactemail" class="form-label">Contact Email</label>
               <input type="text" id="contactemail" class="form-control" placeholder="Enter contact email"
@@ -548,7 +556,15 @@ export default {
               <div class="invalid-feedback">Please enter a email.</div>
             </div>
           </BCol>
-          <BCol lg="12">
+          <BCol lg="4">
+            <div>
+              <label for="employee" class="form-label">Contact Person</label>
+              <input type="text" id="employee" class="form-control" placeholder="Enter Contact Person" v-model="event.employee"
+                :class="{ 'is-invalid': submitted && !event.employee }">
+              <div class="invalid-feedback">Please enter a Contact Person.</div>
+            </div>
+          </BCol>
+          <BCol lg="8">
             <div>
               <label for="since" class="form-label">Note</label>
               <input type="text" id="since" class="form-control" placeholder="Enter note" v-model="event.since"

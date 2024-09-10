@@ -11,6 +11,7 @@ import useVuelidate from "@vuelidate/core";
 export default {
   data() {
     return {
+      advancedSearch: false,
       date1: null,
       date: null,
       addCustomerModal: false,
@@ -134,6 +135,9 @@ export default {
   },
   
   methods: {
+    openAdvancedSearch(){
+      this.advancedSearch = true;
+    },
     deleteRecord(index) {
       this.files.splice(index, 1);
       this.filePreviews.splice(index, 1);
@@ -371,41 +375,28 @@ export default {
                         <b-form>
                         <BRow class="g-3">
                             <BCol xl="2">
-                            <div class="search-box">
-                                <input type="text" class="form-control search" style="font-size: 12px;"
-                                placeholder="Search keywords....." v-model="searchQuery" />
-                                <i class="ri-search-line search-icon"></i>
-                            </div>
+                              <div class="search-box d-flex align-items-center">
+            <input
+              type="text"
+              class="form-control search"
+              style="font-size: 12px;"
+              placeholder="Search keywords..."
+              v-model="searchQuery"
+            />
+            <i class="ri-search-line search-icon ms-2"></i>
+            <!-- Settings icon for advanced search -->
+            <i
+              class="ri-settings-2-line ms-2"
+              style="cursor: pointer; font-size: 20px;"
+              @click="openAdvancedSearch"
+            ></i>
+          </div>
                             </BCol>
                             <BCol xl="2"></BCol>
                             <BCol xl="8">
                             <BRow class="g-3">
-                                <BCol sm="3"></BCol>
-                                <BCol sm="2">
-                                <div>
-                                  <div>
-                                    <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" style="font-size: 12px;">
-                                    <option value="" selected>Select Status</option>
-                                    <option value="Merchandising">All</option>
-                                    <option value="Manufacturing">Non-AA</option>
-                                    <option value="Partnership">My Form</option>
-                                    <option value="Corporation">AA</option>
-                                    </select>
-                                  </div>
-                                </div>
-                                </BCol>
-
-                                <BCol sm="3">
-                                  <div>
-                                    <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" style="font-size: 12px;">
-                                    <option value="" selected>Select Project</option>
-                                    <option value="Merchandising">AR496</option>
-                                    <option value="Manufacturing">BG17-R1</option>
-                                    <option value="Partnership">I8B-49</option>
-                                    <option value="Corporation">FORUM 2</option>
-                                    </select>
-                                  </div>
-                                  </BCol>
+                                <BCol sm="8"></BCol>
+                           
 
                                 <BCol sm="3">
                                 <div>
@@ -548,7 +539,7 @@ export default {
     <!-- First Column (Left side) -->
     <BCol md="6" class="mb-3">
       <BFormGroup label="ID:" label-for="dId">
-        <BFormInput id="dId" value="700154" readonly />
+        <BFormInput id="dId" placeholder="700153" readonly />
       </BFormGroup>
 
       <BFormGroup label="RFID:" label-for="rfid">
@@ -598,24 +589,43 @@ export default {
     <BCol md="6" class="mb-3">
 
       <BFormGroup label="Name:" label-for="name">
-        <BFormInput id="name" value="ANG CHIN MEI" readonly />
+        <BFormInput id="name" placeholder="KHOR KHA POO" readonly />
       </BFormGroup>
 
       <BFormGroup label="Type:" label-for="type">
-        <BFormInput id="type" value="Staff" readonly />
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" >
+          <option value="" selected>Select Type</option>
+          <option value="Merchandising">staff</option>
+          <option value="Manufacturing">subcon worker</option>
+          <option value="Manufacturing">operator</option>
+          </select>
       </BFormGroup>
 
 
       <BFormGroup label="Person Incharge:" label-for="incharge">
-        <BFormInput id="incharge" value="" readonly />
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" >
+          <option value="" selected>Select Incharge</option>
+          <option value="Merchandising">Josephine</option>
+          <option value="Manufacturing">aadam</option>
+          </select>
       </BFormGroup>
 
       <BFormGroup label="Schedule:" label-for="schedule">
-        <BFormInput id="schedule" value="PG O1" readonly />
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" >
+          <option value="" selected>Select Schedule</option>
+          <option value="Merchandising">PG 01</option>
+          <option value="Manufacturing">A</option>
+          <option value="Manufacturing">KL 01</option>
+          </select>
       </BFormGroup>
 
       <BFormGroup label="Date Of Birth:" label-for="dob">
-        <BFormInput id="dob" readonly placeholder="dd/mm/yyyy" />
+        <input
+    type="date"
+    class="form-control"
+    id="search-date"
+    placeholder="Select Date"
+  />
       </BFormGroup>
 
       <BFormGroup label="E-Leave Code:" label-for="eleaveCode">
@@ -627,15 +637,15 @@ export default {
       </BFormGroup>
 
       <BFormGroup label="Remark:" label-for="remark">
-        <BFormTextarea id="remark"  />
+        <BFormTextarea id="remark" row="1"  />
       </BFormGroup>
 
-      <BFormGroup label="Active" label-for="active">
-  <BFormRadioGroup id="active" v-model="activeStatus" name="activeStatus">
-    <BFormRadio value="Yes">Yes</BFormRadio>
-    <BFormRadio value="No">No</BFormRadio>
-  </BFormRadioGroup>
-</BFormGroup>
+      <BFormGroup label="Active Link System User" label-for="active">
+        <BFormRadioGroup id="active" v-model="activeStatus" name="activeStatus">
+          <BFormRadio value="Yes">Yes</BFormRadio>
+          <BFormRadio value="No">No</BFormRadio>
+        </BFormRadioGroup>
+      </BFormGroup>
 
     </BCol>
 
@@ -647,18 +657,18 @@ export default {
                                     <caption>User Details</caption>
                                     <thead class="table-success">
                                         <tr>
-                                            <th scope="col">name</th>
+                                            <th scope="col">Username</th>
                                             <th scope="col">Email</th>
-                                            <th scope="col">Staff Code</th>
                                             <th scope="col">Access Level</th>
+                                            <th>Mobile Checkin</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td class="fw-medium">Kpor</td>
                                             <td>kpor@metrio.com.my</td>
-                                            <td>700153</td>
                                             <td>Site</td>
+                                            <td>Yes</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -738,23 +748,34 @@ export default {
         <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
                   <option value="" selected>Select Type</option>
                   <option value="Merchandising">Staff</option>
+                  \<option value="Merchandising">General Worker</option>
                   </select>
       </BFormGroup>
 
 
       <BFormGroup label="Person Incharge:" label-for="incharge">
-        <BFormInput id="incharge" value="" readonly />
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" >
+          <option value="" selected>Select Incharge</option>
+          <option value="Merchandising">Josephine</option>
+          <option value="Manufacturing">aadam</option>
+          </select>
       </BFormGroup>
 
       <BFormGroup label="Schedule:" label-for="schedule">
         <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
           <option value="" selected>Select Schedule</option>
           <option value="Merchandising">PG 01</option>
+          <option value="Merchandising">KL 01</option>
           </select>
       </BFormGroup>
 
       <BFormGroup label="Date Of Birth:" label-for="dob">
-        <BFormInput id="dob" readonly placeholder="dd/mm/yyyy" />
+        <input
+          type="date"
+          class="form-control"
+          id="search-date"
+          placeholder="Select Date"
+        />
       </BFormGroup>
 
       <BFormGroup label="E-Leave Code:" label-for="eleaveCode">
@@ -766,8 +787,54 @@ export default {
       </BFormGroup>
 
       <BFormGroup label="Remark:" label-for="remark">
-        <BFormTextarea id="remark" rows="3" />
+        <BFormTextarea id="remark" rows="1" />
       </BFormGroup>
+
+      <BFormGroup label="Active Link System User" label-for="active">
+        <BFormRadioGroup id="active" v-model="activeStatus" name="activeStatus">
+          <BFormRadio value="Yes" checked>Yes</BFormRadio>
+          <BFormRadio value="No">No</BFormRadio>
+        </BFormRadioGroup>
+      </BFormGroup>
+
+    </BCol>
+
+    <BCol md="12" class="mb-6">
+            <BCardBody>
+              <div class="live-preview">
+                            <div class="table-responsive">
+                                <table class="table caption-top table-nowrap mb-0">
+                                    <caption>User Details</caption>
+                                    <thead class="table-success">
+                                        <tr>
+                                            <th scope="col">Username</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Access Level</th>
+                                            <th>Mobile Checkin</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                          <td class="fw-medium">
+                                            <input type="text" class="form-control" value="Kpor" />
+                                          </td>
+                                          <td>
+                                            <input type="email" class="form-control" value="kpor@metrio.com.my" />
+                                          </td>
+                                          <td>
+                                            <input type="text" class="form-control" value="Site" />
+                                          </td>
+                                          <td>
+                                            <input type="text" class="form-control" value="Yes" />
+                                          </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+            </BCardBody>
+ 
     </BCol>
   </BRow>
       
@@ -777,6 +844,67 @@ export default {
       </div>
     </BModal>
 
+    <BModal v-model="advancedSearch" hide-footer title="Advanced Search" class="v-modal-custom" size="lg">
+  <BRow class="g-3">
+    <BCol sm="6">
+        <label for="search-incharge" class="form-label">Filter by Schedule</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+          <option value="" selected>Select Schedule</option>
+          <option value="Merchandising">PG 01</option>
+          <option value="Manufacturing">KL 01</option>
+          <option value="Partnership">A</option>
+          </select>
+      </BCol>
+      <BCol sm="6">
+        <label for="search-incharge" class="form-label">Filter by Project</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+          <option value="" selected>Select Project</option>
+          <option value="Merchandising">AR496</option>
+          <option value="Manufacturing">FORUM2</option>
+          <option value="Partnership">i8B-49</option>
+          </select>
+      </BCol>
+      <BCol sm="6">
+        <label for="search-id" class="form-label">Search by E-Leave Code</label>
+        <BFormInput
+          id="search-id"
+          placeholder="Enter E-Leave Code"
+        />
+      </BCol>
+      <BCol sm="6">
+        <label for="search-location" class="form-label">Search by Payroll ID</label>
+        <BFormInput
+          id="search-location"
+          placeholder="Enter Payroll ID"
+        />
+      </BCol>
+      <BCol sm="6">
+        <label for="search-payment" class="form-label">Filter by Person Incharge</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" >
+          <option value="" selected>Select Person Incharge</option>
+          <option value="Merchandising">aadam</option>
+          <option value="Manufacturing">Josephine</option>
+          </select>
+      </BCol>
+      <BCol sm="6">
+        <label for="search-payment" class="form-label">Filter by Access Level</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" >
+          <option value="" selected>Select Access Level</option>
+          <option value="Merchandising">Site</option>
+          <option value="Manufacturing">HR</option>
+          </select>
+      </BCol>
+     
+    
+    </BRow>
 
+  <!-- Modal Footer -->
+  <div class="modal-footer v-modal-footer">
+    <BLink href="javascript:void(0);" class="btn btn-link link-success fw-medium" @click="deleteModal = false">
+      <i class="ri-close-line me-1 align-middle"></i> Close
+    </BLink>
+    <BButton type="button" variant="primary">Search</BButton>
+  </div>
+</BModal>
 
 </template>

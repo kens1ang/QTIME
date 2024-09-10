@@ -119,7 +119,7 @@ export default {
     <Layout>
         <PageHeader title="QR Code" pageTitle="System" subTitle="Employee" />
         <BRow class="justify-content-center">
-            <BCol xxl="3">
+            <BCol xxl="4">
                 <BCard no-body id="demo">
                     <BCardHeader class="border-bottom-dashed p-4">
                         <div class="d-sm-flex">
@@ -153,6 +153,9 @@ export default {
                     </BCardHeader>
                     <BCardBody class="p-4">
                         <div class="hstack gap-2 justify-content-end d-print-none mt-4">
+                            <BLink href="/system/employee" class="btn btn-soft-grey"><i
+                                class=" ri-skip-back-line
+ align-bottom me-1"></i> Back</BLink>
                             <BLink href="javascript:window.print()" class="btn btn-soft-primary"><i
                                     class="ri-printer-line align-bottom me-1"></i> Print</BLink>
                             <BLink href="javascript:void(0);" class="btn btn-primary"><i

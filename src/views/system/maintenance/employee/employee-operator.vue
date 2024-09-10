@@ -11,6 +11,7 @@ import DropZone from "@/components/widgets/dropZone";
 export default {
   data() {
     return {
+      advancedSearch: false,
       date1: null,
       date: null,
       addCustomerModal: false,
@@ -46,6 +47,7 @@ export default {
         phone: "Yohanes Laga Kia",
         type: "",
         rfid: "",
+        plate: "KS7",
         createby: "apps",
         payment: "BACK HOE",
         date: "2024-08-27 09:57:17"
@@ -57,6 +59,7 @@ export default {
         phone: "Ririn	",
         type: "	O&L Machinery",
         rfid: "",
+        plate:"KS7",
         createby: "csang",
         payment: "EXCAVATOR EX200",
         date: "2024-08-27 09:57:17"
@@ -138,6 +141,9 @@ export default {
   },
   
   methods: {
+    openAdvancedSearch(){
+      this.advancedSearch = true;
+    },
     deleteRecord(index) {
       this.files.splice(index, 1);
       this.filePreviews.splice(index, 1);
@@ -374,48 +380,27 @@ export default {
                         <b-form>
                         <BRow class="g-3">
                             <BCol xl="2">
-                            <div class="search-box">
-                                <input type="text" class="form-control search"  style="font-size: 12px;"
-                                placeholder="Search keywords....." v-model="searchQuery" />
-                                <i class="ri-search-line search-icon"></i>
-                            </div>
+                              <div class="search-box d-flex align-items-center">
+            <input
+              type="text"
+              class="form-control search"
+              style="font-size: 12px;"
+              placeholder="Search keywords..."
+              v-model="searchQuery"
+            />
+            <i class="ri-search-line search-icon ms-2"></i>
+            <!-- Settings icon for advanced search -->
+            <i
+              class="ri-settings-2-line ms-2"
+              style="cursor: pointer; font-size: 20px;"
+              @click="openAdvancedSearch"
+            ></i>
+          </div>
                             </BCol>
                             <BCol xl="2"></BCol>
                             <BCol xl="8">
                             <BRow class="g-3">
-                                <BCol sm="2">
-                                  <div>
-                                    <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" style="font-size: 12px;">
-                                    <option value="" selected>Select Company</option>
-                                    <option value="Merchandising">All</option>
-                                    <option value="Manufacturing">Faruk</option>
-                                    <option value="Partnership">OLGAD SDN BHD</option>
-                                    <option value="Corporation">QIE (M)</option>
-                                    </select>
-                                  </div>
-                                </BCol>
-                                <BCol sm="3">
-                                  <div>
-                                    <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" style="font-size: 12px;">
-                                    <option value="" selected>Select Machinery</option>
-                                    <option value="Merchandising">All</option>
-                                    <option value="Manufacturing">ACMV-</option>
-                                    <option value="Partnership">ACMV-PODIUM</option>
-                                    <option value="Corporation">BACK HOE</option>
-                                    </select>
-                                  </div>
-                                </BCol>
-                                <BCol sm="3">
-                                  <div>
-                                    <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" style="font-size: 12px;">
-                                    <option value="" selected>Select Status</option>
-                                    <option value="Merchandising">All</option>
-                                    <option value="Manufacturing">Non-AA</option>
-                                    <option value="Partnership">My Form</option>
-                                    <option value="Corporation">AA</option>
-                                    </select>
-                                  </div>
-                                </BCol>
+                               <BCol sm="8"></BCol>
                                 <BCol sm="3">
                                 <div>
                                     <BLink href="/system/employee-qr" class="w-100">
@@ -457,7 +442,7 @@ export default {
                                 <th class="sort" data-sort="phone" @click="onSort('phone')">Incharge</th>
                                 <th class="sort" data-sort="date" @click="onSort('date')">Location</th>
                                 <th class="sort" data-sort="date" @click="onSort('date')">Staff Name</th>
-                                <th>AA Permit</th>
+                                <th>Plate Number</th>
                                 <th class="sort" data-sort="status" @click="onSort('status')">Company</th>
                                 <th class="sort" data-sort="status" @click="onSort('status')">Machinery</th>
                                 <th class="sort" data-sort="status" @click="onSort('status')">Updated</th>
@@ -478,7 +463,7 @@ export default {
                                 <td class="customer_name">{{ item.customer_name }}</td>
                                 <td class="email">{{ item.email }}</td>
                                 <td class="phone">{{ item.phone }}</td>
-                                <td></td>
+                                <td>{{ item.plate }}</td>
                                 <td class="date">{{ item.type }}</td>
                                 <td class="date">{{ item.payment }}</td>
                                 <td class="date">{{ item.createby }}<br>{{ item.date }}</td>
@@ -539,13 +524,19 @@ export default {
       <BModal v-model="createModal" hide-footer title="Create Operator" dialog-class="modal-fullscreen-xl-down" class="v-modal-custom">
   <BRow>
     <BCol md="12" class="mb-3">
+
+      <BFormGroup label="Name:" label-for="name">
+        <BFormInput id="name" readonly />
+      </BFormGroup>
+
+
       <BFormGroup label="RFID:" label-for="rfid">
         <BFormInput id="rfid" readonly />
       </BFormGroup>
 
       <BFormGroup label="Photo:" label-for="name">
         <template v-if="!files.length">
-            <DropZone @drop.prevent="drop" @change="selectedFile" style="height: 422px !important;" />
+            <DropZone @drop.prevent="drop" @change="selectedFile" style="height: 180px !important;" />
         </template>
 
         <template v-else>
@@ -578,10 +569,7 @@ export default {
 
       </BFormGroup>
 
-      <BFormGroup label="Name:" label-for="name">
-        <BFormInput id="name" readonly />
-      </BFormGroup>
-
+     
       <BFormGroup label="Project:" label-for="project">
         <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
                   <option value="" selected>Select Project</option>
@@ -589,10 +577,7 @@ export default {
                   </select>
       </BFormGroup>
 
-      <BFormGroup label="PO No. (Plate No):" label-for="poNo">
-        <BFormInput id="poNo" readonly />
-      </BFormGroup>
-
+      
       <BFormGroup label="Company:" label-for="company">
         <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
                   <option value="" selected>Select Company</option>
@@ -606,6 +591,23 @@ export default {
                   <option value="Merchandising">CRANE - 20TON</option>
                   </select>
       </BFormGroup>
+
+ 
+      <BFormGroup label="PO No. (Plate No):" label-for="poNo">
+        <BFormInput id="poNo" readonly />
+      </BFormGroup>
+
+      <BFormGroup label="Skill Set:" label-for="machinery">
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+          <option value="" selected>Select Skill Set</option>
+          <option value="Merchandising">Skilled</option>
+          <option value="Manufacturing">Semi-Skilled</option>
+          <option value="Partnership">Unskilled</option>
+          </select>
+      </BFormGroup>
+
+
+      
     </BCol>
   </BRow>
 
@@ -648,13 +650,20 @@ export default {
     <BModal v-model="deleteModal" hide-footer title="Edit Operator" dialog-class="modal-fullscreen-xl-down" class="v-modal-custom">
   <BRow>
     <BCol md="12" class="mb-3">
+
+      
+      <BFormGroup label="Name:" label-for="name">
+        <BFormInput id="name" placeholder="Yohanes Laga Kia" readonly />
+      </BFormGroup>
+
+
       <BFormGroup label="RFID:" label-for="rfid">
         <BFormInput id="rfid" readonly />
       </BFormGroup>
 
       <BFormGroup label="Photo:" label-for="name">
         <template v-if="!files.length">
-            <DropZone @drop.prevent="drop" @change="selectedFile" style="height: 422px !important;" />
+            <DropZone @drop.prevent="drop" @change="selectedFile" style="height: 180px !important;" />
         </template>
 
         <template v-else>
@@ -687,10 +696,6 @@ export default {
 
       </BFormGroup>
 
-      <BFormGroup label="Name:" label-for="name">
-        <BFormInput id="name" readonly />
-      </BFormGroup>
-
       <BFormGroup label="Project:" label-for="project">
         <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
                   <option value="" selected>Select Project</option>
@@ -698,10 +703,7 @@ export default {
                   </select>
       </BFormGroup>
 
-      <BFormGroup label="PO No. (Plate No):" label-for="poNo">
-        <BFormInput id="poNo" readonly />
-      </BFormGroup>
-
+    
       <BFormGroup label="Company:" label-for="company">
         <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
                   <option value="" selected>Select Company</option>
@@ -715,6 +717,20 @@ export default {
                   <option value="Merchandising">CRANE - 20TON</option>
                   </select>
       </BFormGroup>
+      
+      <BFormGroup label="PO No. (Plate No):" label-for="poNo">
+        <BFormInput id="poNo" placeholder="KS7" readonly />
+      </BFormGroup>
+
+      <BFormGroup label="Skill Set:" label-for="machinery">
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+          <option value="" selected>Select Skill Set</option>
+          <option value="Merchandising">Skilled</option>
+          <option value="Manufacturing">Semi-Skilled</option>
+          <option value="Partnership">Unskilled</option>
+          </select>
+      </BFormGroup>
+
     </BCol>
   </BRow>
 
@@ -727,5 +743,70 @@ export default {
   </div>
       </BModal>
 
+      <BModal v-model="advancedSearch" hide-footer title="Advanced Search" class="v-modal-custom" size="lg">
+  <BRow class="g-3">
+      <BCol sm="6">
+        <label for="search-incharge" class="form-label">Filter by Project</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+          <option value="" selected>Select Project</option>
+          <option value="Merchandising">AR496</option>
+          <option value="Manufacturing">FORUM2</option>
+          <option value="Partnership">i8B-49</option>
+          </select>
+      </BCol>
+      <BCol sm="6">
+        <label for="search-incharge" class="form-label">Filter by Company</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" style="font-size: 12px;">
+        <option value="" selected>Select Company</option>
+        <option value="Merchandising">All</option>
+        <option value="Manufacturing">Faruk</option>
+        <option value="Partnership">OLGAD SDN BHD</option>
+        <option value="Corporation">QIE (M)</option></select>
+    </BCol>
+    <BCol sm="6">
+      <label for="search-incharge" class="form-label">Filter by Machinery</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" style="font-size: 12px;">
+        <option value="" selected>Select Machinery</option>
+        <option value="Merchandising">All</option>
+        <option value="Manufacturing">ACMV-</option>
+        <option value="Partnership">ACMV-PODIUM</option>
+        <option value="Corporation">BACK HOE</option>
+        </select>
+  
+    </BCol>
+      <BCol sm="6">
+        <label for="search-incharge" class="form-label">Filter by Skill Set</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+          <option value="" selected>Select Skill Set</option>
+          <option value="Merchandising">Skilled</option>
+          <option value="Manufacturing">Semi-Skilled</option>
+          <option value="Partnership">Unskilled</option>
+          </select>
+      </BCol>
+      <BCol sm="6">
+        <label for="search-payment" class="form-label">Filter by Incharge</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" >
+          <option value="" selected>Select Incharge</option>
+          <option value="Merchandising">ksk_myform</option>
+          <option value="Manufacturing">aadam</option>
+          </select>
+      </BCol>
+      <BCol sm="6">
+        <label for="search-date" class="form-label">Search by Plate No</label>
+        <BFormInput
+          id="search-location"
+          placeholder="Enter Plate No"
+        />
+      </BCol>
+    
+    </BRow>
 
+  <!-- Modal Footer -->
+  <div class="modal-footer v-modal-footer">
+    <BLink href="javascript:void(0);" class="btn btn-link link-success fw-medium" @click="deleteModal = false">
+      <i class="ri-close-line me-1 align-middle"></i> Close
+    </BLink>
+    <BButton type="button" variant="primary">Search</BButton>
+  </div>
+</BModal>
 </template>
