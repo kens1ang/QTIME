@@ -8,9 +8,7 @@ export default {
     return {
       modaltoAdd: false,
       modalTitle: "",
-      approvalModalTitle: "Attendance Approval List",
       siteModalTitle: "Site List",
-      approvalModal: false,
       siteModal: false,
     };
   },
@@ -45,9 +43,6 @@ export default {
         this.modalTitle = "Add User";
       }
       this.modaltoAdd = true;
-    },
-    showApprovalModal() {
-      this.approvalModal = true;
     },
     showSiteModal() {
       this.siteModal = true;
@@ -115,7 +110,6 @@ export default {
                 <th>Access</th>
                 <th>Mobile</th>
                 <th>Staff Code</th>
-                <th>Approval List</th>
                 <th>Site List</th>
                 <th>Actions</th>
               </tr>
@@ -144,15 +138,6 @@ export default {
                 <td class="accesslevel">Site</td>
                 <td class="mobileaccess">Yes</td>
                 <td class="staffcode">000117</td>
-                <td>
-                  <button
-                    @click="showApprovalModal"
-                    type="button"
-                    class="btn btn-outline-info btn-icon waves-effect waves-light"
-                  >
-                    <i class="bx bx-file"></i>
-                  </button>
-                </td>
                 <td>
                   <button
                     @click="showSiteModal"
@@ -316,153 +301,6 @@ export default {
       </b-form>
     </BModal>
 
-    <!-- Modal Approval List -->
-    <BModal
-      v-model="approvalModal"
-      modal-class="zoomIn"
-      :title="approvalModalTitle"
-      title-class="exampleModalLabel"
-      header-class="p-3 bg-primary-subtle"
-      content-class="border-0"
-      hide-footer
-      class="v-modal-custom"
-      centered
-      no-fade
-      size="lg"
-    >
-      <div class="row mb-3">
-        <div class="col-4 d-flex flex-column">
-          <h6 class="text-muted">Site</h6>
-          <h5>FORUM2</h5>
-        </div>
-        <div class="col-4 d-flex flex-column">
-          <h6 class="text-muted">Title</h6>
-          <h5>FORUM2</h5>
-        </div>
-        <div class="col-4 d-flex flex-column">
-          <h6 class="text-muted">Incharge</h6>
-          <h5>aadam</h5>
-        </div>
-      </div>
-
-      <div
-        class="accordion accordion-flush overflow-auto"
-        id="accordionPanelsStayOpenExample"
-      >
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-            <button
-              class="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#panelsStayOpen-collapseOne"
-              aria-expanded="true"
-              aria-controls="panelsStayOpen-collapseOne"
-            >
-              General Worker Attendance
-            </button>
-          </h2>
-          <div
-            id="panelsStayOpen-collapseOne"
-            class="accordion-collapse collapse show"
-            aria-labelledby="panelsStayOpen-headingOne"
-          >
-            <div class="accordion-body p-0">
-              <ol class="list-group list-group-flush list-group-numbered">
-                <li class="list-group-item">LOY LIT BARN</li>
-                <li class="list-group-item">TAN MAN TING</li>
-                <li class="list-group-item">CHIN KHOI HOE</li>
-                <li class="list-group-item">Lee Kean Hoe (Chris)</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#panelsStayOpen-collapseTwo"
-              aria-expanded="false"
-              aria-controls="panelsStayOpen-collapseTwo"
-            >
-              Subcon as KSK Attendance
-            </button>
-          </h2>
-          <div
-            id="panelsStayOpen-collapseTwo"
-            class="accordion-collapse collapse"
-            aria-labelledby="panelsStayOpen-headingTwo"
-          >
-            <div class="accordion-body p-0">
-              <ol class="list-group list-group-flush list-group-numbered">
-                <li class="list-group-item">LOY LIT BARN</li>
-                <li class="list-group-item">TAN MAN TING</li>
-                <li class="list-group-item">CHIN KHOI HOE</li>
-                <li class="list-group-item">Lee Kean Hoe (Chris)</li>
-                <li class="list-group-item">Loh Jooi Kheng</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#panelsStayOpen-collapseThree"
-              aria-expanded="false"
-              aria-controls="panelsStayOpen-collapseThree"
-            >
-              Staff Attendance
-            </button>
-          </h2>
-          <div
-            id="panelsStayOpen-collapseThree"
-            class="accordion-collapse collapse"
-            aria-labelledby="panelsStayOpen-headingThree"
-          >
-            <div class="accordion-body p-0">
-              <ol class="list-group list-group-flush">
-                <li class="list-group-item">no data</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#panelsStayOpen-collapseFour"
-              aria-expanded="false"
-              aria-controls="panelsStayOpen-collapseFour"
-            >
-              General Worker Registration
-            </button>
-          </h2>
-          <div
-            id="panelsStayOpen-collapseFour"
-            class="accordion-collapse collapse"
-            aria-labelledby="panelsStayOpen-headingFour"
-          >
-            <div class="accordion-body p-0">
-              <ol class="list-group list-group-flush list-group-numbered">
-                <li class="list-group-item">LOY LIT BARN</li>
-                <li class="list-group-item">TAN MAN TING</li>
-                <li class="list-group-item">CHIN KHOI HOE</li>
-                <li class="list-group-item">Lee Kean Hoe (Chris)</li>
-                <li class="list-group-item">Loh Jooi Kheng</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-    </BModal>
-
     <!-- Modal Site List -->
     <BModal
       v-model="siteModal"
@@ -480,10 +318,6 @@ export default {
       <div class="row mb-3">
         <div class="col-4 d-flex flex-column">
           <h6 class="text-muted">Site</h6>
-          <h5>FORUM2</h5>
-        </div>
-        <div class="col-4 d-flex flex-column">
-          <h6 class="text-muted">Title</h6>
           <h5>FORUM2</h5>
         </div>
         <div class="col-4 d-flex flex-column">

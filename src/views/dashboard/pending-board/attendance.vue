@@ -229,6 +229,10 @@
               <span class="text-warning ms-3">10 days left</span>
             </div>
             <div>
+              <h5>Total</h5>
+              <span class="ms-3">RM 28,468.00</span>
+            </div>
+            <div>
               <h5>Status</h5>
               <span class="ms-3">Waiting approval from YO PEI QI </span>
             </div>
@@ -270,6 +274,10 @@
             <div>
               <h5>Due</h5>
               <span class="text-warning ms-3">10 days left</span>
+            </div>
+            <div>
+              <h5>Total</h5>
+              <span class="ms-3">RM 28,468.00</span>
             </div>
             <div>
               <h5>Status</h5>

@@ -168,35 +168,32 @@ export default {
           </thead>
           <thead class="table-light">
             <tr>
+              <th>Staff Code</th>
               <th>Name</th>
-              <th class="sort">Expired</th>
-              <th class="sort">Date</th>
+              <th>Due</th>
               <th>Status</th>
-              <th>Remark</th>
             </tr>
           </thead>
           <tbody class="list form-check-all">
             <tr>
-              <td>LOY LIT BARN</td>
-              <td></td>
-              <td></td>
+              <td>200161</td>
+              <td>TEOH YIN ZHENG</td>
+              <td>5 days left</td>
               <td>
                 <span class="badge bg-warning-subtle text-warning"
                   >Pending</span
                 >
               </td>
-              <td></td>
             </tr>
             <tr>
-              <td>TEOH YIN ZHENG</td>
-              <td></td>
-              <td></td>
+              <td>200161</td>
+              <td>LOY LIT BARN</td>
+              <td>10 days left</td>
               <td>
                 <span class="badge bg-warning-subtle text-warning"
                   >Pending</span
                 >
               </td>
-              <td></td>
             </tr>
           </tbody>
         </table>
@@ -218,7 +215,7 @@ export default {
     no-fade
     size="xl"
   >
-  <div class="listjs-table" id="customerList">
+    <div class="listjs-table" id="customerList">
       <div
         class="table-responsive table-card"
         style="max-height: 500px; overflow: auto"

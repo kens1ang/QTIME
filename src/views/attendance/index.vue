@@ -9,7 +9,7 @@ export default {
   data() {
     return {
       title: "Attendance",
-      currentTab: "payment",
+      currentTab: "summary",
       paymentVoucherTitle: "Payment Voucher",
       paymentVoucherModal: false,
     };
