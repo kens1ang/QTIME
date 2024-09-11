@@ -5,7 +5,6 @@ import "@vueform/multiselect/themes/default.css";
 import PageHeader from "@/components/page-header";
 import axios from "axios";
 import animationData from "@/components/widgets/msoeawqm.json";
-import flatPickr from "vue-flatpickr-component";
 
 import "flatpickr/dist/flatpickr.css";
 import "@simonwep/pickr/dist/themes/classic.min.css"; // 'classic' theme
@@ -265,7 +264,6 @@ export default {
   components: {
     Layout,
     PageHeader,
-    flatPickr,
   },
 };
 </script>

@@ -1,6 +1,5 @@
 <script>
 import Layout from "@/layouts/main.vue";
-import Multiselect from 'vue-multiselect';
 import "@vueform/multiselect/themes/default.css";
 import { reactive } from 'vue';
 
@@ -74,7 +73,6 @@ export default {
     },
     components: {
         Layout,
-        Multiselect
     },
     methods: {
         toggleDropdown() {
