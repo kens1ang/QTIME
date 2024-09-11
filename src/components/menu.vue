@@ -10,7 +10,8 @@ import {
   PieChartIcon,
   ArchiveIcon,
   LayersIcon,
-  AirplayIcon
+  AirplayIcon,
+  UsersIcon
 } from "@zhuowenli/vue-feather-icons";
 
 export default {
@@ -22,7 +23,8 @@ export default {
     PieChartIcon,
     ArchiveIcon,
     LayersIcon,
-    AirplayIcon
+    AirplayIcon,
+    UsersIcon
   },
   data() {
     return {
@@ -264,7 +266,7 @@ export default {
           <a class="nav-link menu-link">
             <LayersIcon width="24" height="24" />
             <span data-key="t-system" class="Menuspan">
-              <router-link :to="{ name: 'employee' }" class="MenuText">{{ $t('System') }}</router-link>
+              <router-link :to="{ name: 'user-management' }" class="MenuText">{{ $t('System') }}</router-link>
             </span>
           </a>
         </li>
@@ -274,6 +276,12 @@ export default {
             <AirplayIcon width="24" height="24" />
             <span data-key="t-company" class="Menuspan">
               <router-link :to="{ name: 'company' }" class="MenuText">{{ $t('Company') }}</router-link>
+            </span>
+          </a>
+          <a class="nav-link menu-link">
+            <UsersIcon width="24" height="24" />
+            <span data-key="t-system" class="Menuspan">
+              <router-link :to="{ name: 'employee' }" class="MenuText">{{ $t('Employee') }}</router-link>
             </span>
           </a>
           

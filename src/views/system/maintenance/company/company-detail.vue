@@ -2,7 +2,7 @@
 import Layout from "@/layouts/main.vue";
 import Swal from "sweetalert2";
 import { folderList, fileList } from "@/common/data";
-import simplebar from "simplebar-vue"
+// import simplebar from "simplebar-vue"
 import getChartColorsArray from "@/common/getChartColorsArray";
 import PageHeader from "@/components/page-header";
 import { reactive } from 'vue';
@@ -10,6 +10,8 @@ import { reactive } from 'vue';
 export default {
   data() {
     return {
+      weekDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday','Saturday','Sunday'],
+      activeIndex: 2,
       fileModal: false,
       folderModal: false,
       filename_input: '',
@@ -17,6 +19,7 @@ export default {
       folders: folderList,
       filelist: fileList,
       modalShow: false,
+      editModalSchedule: false,
       data12: null,
     projectModal: false,
     collapsedRows: reactive({}),
@@ -44,7 +47,7 @@ export default {
   },
   components: {
     Layout,
-    simplebar,
+    // simplebar,
     PageHeader
   },
   watch: {
@@ -230,6 +233,10 @@ export default {
       this.modalShow = true;
     },
 
+    openEditSchedule() {
+      this.editModalSchedule = true;
+    },
+
     openFolderModal() {
       this.folderModal = true;
       document.getElementById('createfolder-btn').style.display = 'block';
@@ -333,39 +340,41 @@ export default {
 
 <template>
   <Layout>
-    <PageHeader title="Company Detal;" pageTitle="System" subTitle="Company" />
+    <PageHeader title="Company Detail" pageTitle="System" subTitle="Company" />
     <BRow>
       <BCol lg="12">
         <BCard no-body id="orderList">  
           <BCardHeader class="border-0">
             <div class="mt-xl-0 mt-5">
                   <div class="d-flex">
-                    <div class="flex-grow-1">
-                        <div class="avatar-container">
-                            <div class="avatar-md">
-                                <div class="avatar-title bg-light rounded-circle">
-                                    <img src="@/assets/images/brands/multi-user.jpg" alt=""
-                                        class="avatar-sm rounded-circle object-fit-cover" id="imageid" />
-                                </div>
-                            </div>
-                            <h4 class="avatar-text">Alunan Asas</h4>
-                        </div>
-                      <div class="hstack gap-3 flex-wrap">
-                        <div>
-                          <BLink href="#" class="text-primary d-block">Alunan Asas Sdn Bhd</BLink>
-                        </div>
-                        <div class="vr"></div>
-                        <div class="text-muted">
-                            Registeration Number :
-                          <span class="text-body fw-medium">257699-V</span>
-                        </div>
-                        <div class="vr"></div>
-                        <div class="text-muted">
-                          Contract Period End :
-                          <span class="text-body fw-medium">26 Mar, 2024</span>
-                        </div>
-                      </div>
-                    </div>
+                    <div class="flex-container">
+    <!-- First column: Image -->
+    <div class="avatar-container">
+      <div class="avatar-md">
+        <div class="avatar-title bg-light rounded-circle">
+          <img src="@/assets/images/brands/multi-user.png" alt="" class="avatar-sm rounded-circle object-fit-cover" id="imageid" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Second column: Code, Name, Register -->
+    <div class="details-container">
+      <h4 class="text-primary d-block avatar-text">Alunan Asas</h4>
+      <div class="text-muted">
+        Full Name : <span class="text-body fw-medium">Alunan Asas Sdn Bhd</span>
+      </div>
+      <div class="text-muted">
+        Registration Number : <span class="text-body fw-medium">257699-V</span>
+      </div>
+    </div>
+
+    <!-- Third column: Remarks -->
+    <div class="remarks-container">
+      <p>
+        Remarks : <b>Alunan Asas' success stems from its skilled engineering team, extensive machinery, and solid financial backing, positioning it as a leading player in the regional construction and property industry.
+        </b></p>
+    </div>
+  </div>
                     <div class="flex-shrink-0">
                       <div>
                         <BButton type="button" variant="success" class="btn btn-light" data-bs-toggle="tooltip"
@@ -375,50 +384,22 @@ export default {
                       </div>
                     </div>
                   </div>
-                  <div class="mt-4 text-muted">
-                    <h5 class="fs-14">Remarks :</h5>
-                    <p>
-                        Alunan Asas' success stems from its skilled engineering team, extensive machinery, 
-                        and solid financial backing, positioning it as a leading player in the regional 
-                        construction and property industry.
-                    </p>
-                  </div>
-
-
-                  <BRow>
-                    <BCol xl="6">
+                    <BCol xl="12" style="margin-top: -10px;">
                       <div class="mt-4">
                         <h5 class="fs-14">Project :</h5>
                         <div class="d-flex flex-wrap gap-2">
-                          <div v-b-tooltip.hover title="Out of Stock">
-                            <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio1"
-                              disabled />
-                              <span class="badge badge-label bg-info"><i class="mdi mdi-circle-medium"></i>AR496</span>
-                     
-                          </div>
-
-                          <div v-b-tooltip.hover title="04 Items Available">
-                            <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio2" />
-                            <span class="badge badge-label bg-info"><i class="mdi mdi-circle-medium"></i>BG17-R1</span>
-                          </div>
-                          <div v-b-tooltip.hover title="06 Items Available">
-                            <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio3" />
-                      <span class="badge badge-label bg-info"><i class="mdi mdi-circle-medium"></i>BKT22F</span>
-                          </div>
-
-                          <div v-b-tooltip.hover title="Out of Stock">
-                            <input type="radio" class="btn-check" name="productsize-radio" id="productsize-radio4"
-                              disabled />
-                              <span class="badge badge-label bg-info"><i class="mdi mdi-circle-medium"></i>BJO-B3B4</span>
-                          </div>
+                            <div class="hstack flex-wrap gap-2 mb-3 mb-lg-0">
+                        <a href="/system/project-detail" class="btn btn-outline-primary btn-border" style="--vz-btn-padding-x: 6px; --vz-btn-padding-y: 3px; font-size: 10px;">AR496</a>
+                        <a href="/system/project-detail" class="btn btn-soft-warning btn-border" style="--vz-btn-padding-x: 6px; --vz-btn-padding-y: 3px; font-size: 10px;">BG17-R1</a>
+                        <a href="/system/project-detail" class="btn btn-soft-dark btn-border" style="--vz-btn-padding-x: 6px; --vz-btn-padding-y: 3px; font-size: 10px;">BKT22F</a>
+                      </div>
                         </div>
                       </div>
-                    </BCol>
-                  </BRow>
+                    </BCol><br>
 
                 
                   <BRow>
-                    <BCol sm="6">
+                    <BCol sm="4">
                       <div class="mt-3">
                         <h5 class="fs-14">Information :</h5>
                         <ul class="list-unstyled">
@@ -428,7 +409,15 @@ export default {
                           </li>
                           <li class="py-1">
                             <i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i>
-                            Since : 1993
+                            Contact Person : +601234567
+                          </li>
+                          <li class="py-1">
+                            <i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i>
+                            Join Date : 	09-Jan-2024
+                          </li>
+                          <li class="py-1">
+                            <i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i>
+                            Staff : 	200
                           </li>
                           <li class="py-1">
                             <i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i>
@@ -437,9 +426,10 @@ export default {
                         </ul>
                       </div>
                     </BCol>
-                    <BCol sm="6">
-                      <div class="mt-3">
-                        <h5 class="fs-14">Location :</h5>
+                    
+                    <BCol sm="8">
+                      <div class="mt-3" >
+                        <h5 class="fs-14" style="margin-top:15px !important">Location :</h5>
                         <ul class="list-unstyled product-desc-list">
                           <li class="py-1">12 Lorong Limau</li>
                           <li class="py-1">Tamn limau, 13800</li>
@@ -453,550 +443,212 @@ export default {
           </BCardHeader>
           <BCardBody>
                 <BTabs nav-class="nav-tabs-custom card-header-tabs border-bottom-0">
-                    <BTab active title="Schedule" class="nav-item pt-4" style="position: relative; top: 10px;">
-                    <div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-3">
-                        <div class="file-manager-sidebar border"  >
-                            <div class="p-2 d-flex flex-column h-100">
-                                <div class="mb-3">
-                                    <BButton variant="primary" class="w-100" @click="projectModal = !projectModal" ><i
-                                            class="ri-add-line align-bottom" ></i> Add</BButton>
-                                </div>
-                                <ul class="to-do-menu list-unstyled" id="projectlist-data">
-                                    <li>
-                                        <Blink v-b-toggle.velzonAdmin class="nav-link fs-13 active" >
-                                            A</Blink>
-                                    </li>
-                                    <li>
-                                        <Blink v-b-toggle.projectManagement class="nav-link fs-13" >
-                                            KL O1</Blink>
-                                    </li>
-                                    <li>
-                                        <Blink v-b-toggle.projectManagement class="nav-link fs-13">
-                                            KL S1</Blink>
-                                    </li>
-                                    <li>
-                                        <Blink v-b-toggle.projectManagement class="nav-link fs-13">
-                                            KL S2</Blink>
-                                    </li>
-                                    <li>
-                                        <Blink v-b-toggle.projectManagement class="nav-link fs-13">
-                                            PG O1</Blink>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!--end side content-->
-                        <div class="file-manager-content w-100 p-3 py-0 border">
-                            <simplebar class="mx-n3 pt-4 px-4 file-manager-content-scroll" data-simplebar>
-                            <div id="folder-list" class="mb-2">
-                                <BRow class="justify-content-beetwen g-2 mb-3">
-                                <BCol>
-                                    <div class="d-flex align-items-center">
-                                    <div class="flex-shrink-0 me-2 d-block d-lg-none">
-                                        <BButton variant="soft-success" size="sm" type="button" class="btn-icon fs-16 file-menu-btn">
-                                        <i class="ri-menu-2-fill align-bottom"></i>
-                                        </BButton>
-                                        
-                                    </div>
-                                    </div>
-                                </BCol>
-                                </BRow>
+                  <BTab active title="Schedule" class="nav-item pt-4" style="position: relative; top: 10px;">
+      <div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-3">
+        <!-- Sidebar -->
+        <div class="file-manager-sidebar border" style="min-width: 160px !important">
+          <div class="p-2 d-flex flex-column h-100">
+            <div class="mb-3">
+              <BButton variant="primary" class="w-100" @click="projectModal = !projectModal" style="padding: 4px !important;">
+                <i class="ri-add-line align-bottom"></i> Add
+              </BButton>
+            </div>
+            <ul class="to-do-menu list-unstyled" id="projectlist-data">
+              <li><Blink v-b-toggle.velzonAdmin class="nav-link fs-13 active">A</Blink></li>
+              <li><Blink v-b-toggle.projectManagement class="nav-link fs-13">KL O1</Blink></li>
+              <li><Blink v-b-toggle.projectManagement class="nav-link fs-13">KL S1</Blink></li>
+              <li><Blink v-b-toggle.projectManagement class="nav-link fs-13">KL S2</Blink></li>
+              <li><Blink v-b-toggle.projectManagement class="nav-link fs-13">PG O1</Blink></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Gantt Chart Section -->
+        <div class="file-manager-content w-100 p-3 py-0 border" style="min-width: 87%;">
 
-                                <BCard no-body class="product">
-                                <BCardBody>
-                                    <BRow class="gy-3">
-                                    <h3>Monday</h3>
-                                    <BCol sm>
-                                        <ul class="list-inline text-muted">
-                                        <li class="list-inline-item">
-                                            Start Working Hours :  <span class="fw-medium">8:00am</span>
-                                        </li>
-                                        <li class="list-inline-item" style="margin-left: 240px;">
-                                            End Working Hours :  <span class="fw-medium">17:30pm</span>
-                                        </li>
-                                        </ul>
-                                    </BCol>
-                                    <BCol sm="auto" style="margin-top: -43px;">
-                                    <BButton type="button" variant="success" class="btn btn-light" data-bs-toggle="tooltip"
-                                    data-bs-placement="top" @click="openEdit">
-                                        <i class="ri-pencil-fill align-bottom"></i>
-                                    </BButton>
-                                    </BCol>
-                                    </BRow>
-                                    
-                                    <BRow class="mt-3">
-                                        <BCol sm>
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Start Break Time</th>
-                                                        <th>End Break Time</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>12:30 PM</td>
-                                                        <td>1:30 PM</td>
-                                                        <td>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-edit-2-fill text-muted me-2"></i>
-                                                            </BLink>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-delete-bin-fill text-muted"></i>
-                                                            </BLink>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>5:30 PM</td>
-                                                        <td>6:30 PM</td>
-                                                        <td>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-edit-2-fill text-muted me-2"></i>
-                                                            </BLink>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-delete-bin-fill text-muted"></i>
-                                                            </BLink>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </BCol>
-                                    </BRow>
-                                </BCardBody>
-                                </BCard>
+          <div class="d-flex justify-content-between align-items-center mb-3" style="margin-top: 10px;">
+  <div class="d-flex align-items-center">
+    <span class="me-4" style="width:61px">Code :</span>
+    <input type="text" placeholder="A" class="form-control" style="max-width: 300px;padding: 4px;">
+  </div>
+  <div>
+    <BButton type="button" variant="success" @click="submitAction" class="me-2" style="padding: 4px !important;width:35px">
+      <i class=" ri-save-line align-bottom"></i>
+    </BButton>
+    <BButton type="button" variant="danger" @click="deleteAction" style="padding: 4px !important;width:35px">
+      <i class="ri-delete-bin-line align-bottom"></i>
+    </BButton>
+  </div>
+</div>
 
-                                <BCard no-body class="product">
-                                <BCardBody>
-                                    <BRow class="gy-3">
-                                    <h3>Tuesday</h3>
-                                    <BCol sm>
-                                        <ul class="list-inline text-muted">
-                                        <li class="list-inline-item">
-                                            Start Working Hours :  <span class="fw-medium">8:00am</span>
-                                        </li>
-                                        <li class="list-inline-item" style="margin-left: 240px;">
-                                            End Working Hours :  <span class="fw-medium">17:30pm</span>
-                                        </li>
-                                        </ul>
-                                    </BCol>
-                                    <BCol sm="auto" style="margin-top: -43px;">
-                                    <BButton type="button" variant="success" class="btn btn-light" data-bs-toggle="tooltip"
-                                    data-bs-placement="top" @click="openEdit">
-                                        <i class="ri-pencil-fill align-bottom"></i>
-                                    </BButton>
-                                    </BCol>
-                                    </BRow>
-                                    
-                                    <BRow class="mt-3">
-                                        <BCol sm>
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Start Break Time</th>
-                                                        <th>End Break Time</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>12:30 PM</td>
-                                                        <td>1:30 PM</td>
-                                                        <td>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-edit-2-fill text-muted me-2"></i>
-                                                            </BLink>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-delete-bin-fill text-muted"></i>
-                                                            </BLink>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>5:30 PM</td>
-                                                        <td>6:30 PM</td>
-                                                        <td>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-edit-2-fill text-muted me-2"></i>
-                                                            </BLink>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-delete-bin-fill text-muted"></i>
-                                                            </BLink>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </BCol>
-                                    </BRow>
-                                </BCardBody>
-                                </BCard>
 
-                                <BCard no-body class="product">
-                                <BCardBody>
-                                    <BRow class="gy-3">
-                                    <h3>Wednesday</h3>
-                                    <BCol sm>
-                                        <ul class="list-inline text-muted">
-                                        <li class="list-inline-item">
-                                            Start Working Hours :  <span class="fw-medium">8:00am</span>
-                                        </li>
-                                        <li class="list-inline-item" style="margin-left: 240px;">
-                                            End Working Hours :  <span class="fw-medium">17:30pm</span>
-                                        </li>
-                                        </ul>
-                                    </BCol>
-                                    <BCol sm="auto" style="margin-top: -43px;">
-                                    <BButton type="button" variant="success" class="btn btn-light" data-bs-toggle="tooltip"
-                                    data-bs-placement="top" @click="openEdit">
-                                        <i class="ri-pencil-fill align-bottom"></i>
-                                    </BButton>
-                                    </BCol>
-                                    </BRow>
-                                    
-                                    <BRow class="mt-3">
-                                        <BCol sm>
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Start Break Time</th>
-                                                        <th>End Break Time</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>12:30 PM</td>
-                                                        <td>1:30 PM</td>
-                                                        <td>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-edit-2-fill text-muted me-2"></i>
-                                                            </BLink>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-delete-bin-fill text-muted"></i>
-                                                            </BLink>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>5:30 PM</td>
-                                                        <td>6:30 PM</td>
-                                                        <td>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-edit-2-fill text-muted me-2"></i>
-                                                            </BLink>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-delete-bin-fill text-muted"></i>
-                                                            </BLink>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </BCol>
-                                    </BRow>
-                                </BCardBody>
-                                </BCard>
 
-                                <BCard no-body class="product">
-                                <BCardBody>
-                                    <BRow class="gy-3">
-                                    <h3>Thursday</h3>
-                                    <BCol sm>
-                                        <ul class="list-inline text-muted">
-                                        <li class="list-inline-item">
-                                            Start Working Hours :  <span class="fw-medium">8:00am</span>
-                                        </li>
-                                        <li class="list-inline-item" style="margin-left: 240px;">
-                                            End Working Hours :  <span class="fw-medium">17:30pm</span>
-                                        </li>
-                                        </ul>
-                                    </BCol>
-                                    <BCol sm="auto" style="margin-top: -43px;">
-                                    <BButton type="button" variant="success" class="btn btn-light" data-bs-toggle="tooltip"
-                                    data-bs-placement="top" @click="openEdit">
-                                        <i class="ri-pencil-fill align-bottom"></i>
-                                    </BButton>
-                                    </BCol>
-                                    </BRow>
-                                    
-                                    <BRow class="mt-3">
-                                        <BCol sm>
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Start Break Time</th>
-                                                        <th>End Break Time</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>12:30 PM</td>
-                                                        <td>1:30 PM</td>
-                                                        <td>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-edit-2-fill text-muted me-2"></i>
-                                                            </BLink>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-delete-bin-fill text-muted"></i>
-                                                            </BLink>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>5:30 PM</td>
-                                                        <td>6:30 PM</td>
-                                                        <td>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-edit-2-fill text-muted me-2"></i>
-                                                            </BLink>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-delete-bin-fill text-muted"></i>
-                                                            </BLink>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </BCol>
-                                    </BRow>
-                                </BCardBody>
-                                </BCard>
-
-                                <BCard no-body class="product">
-                                <BCardBody>
-                                    <BRow class="gy-3">
-                                    <h3>Friday</h3>
-                                    <BCol sm>
-                                        <ul class="list-inline text-muted">
-                                        <li class="list-inline-item">
-                                            Start Working Hours :  <span class="fw-medium">8:00am</span>
-                                        </li>
-                                        <li class="list-inline-item" style="margin-left: 240px;">
-                                            End Working Hours :  <span class="fw-medium">17:30pm</span>
-                                        </li>
-                                        </ul>
-                                    </BCol>
-                                    <BCol sm="auto" style="margin-top: -43px;">
-                                    <BButton type="button" variant="success" class="btn btn-light" data-bs-toggle="tooltip"
-                                    data-bs-placement="top" @click="openEdit">
-                                        <i class="ri-pencil-fill align-bottom"></i>
-                                    </BButton>
-                                    </BCol>
-                                    </BRow>
-                                    
-                                    <BRow class="mt-3">
-                                        <BCol sm>
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Start Break Time</th>
-                                                        <th>End Break Time</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>12:30 PM</td>
-                                                        <td>1:30 PM</td>
-                                                        <td>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-edit-2-fill text-muted me-2"></i>
-                                                            </BLink>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-delete-bin-fill text-muted"></i>
-                                                            </BLink>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>5:30 PM</td>
-                                                        <td>6:30 PM</td>
-                                                        <td>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-edit-2-fill text-muted me-2"></i>
-                                                            </BLink>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-delete-bin-fill text-muted"></i>
-                                                            </BLink>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </BCol>
-                                    </BRow>
-                                </BCardBody>
-                                </BCard>
-
-                                <BCard no-body class="product">
-                                <BCardBody>
-                                    <BRow class="gy-3">
-                                    <h3>Saturday</h3>
-                                    <BCol sm>
-                                        <ul class="list-inline text-muted">
-                                        <li class="list-inline-item">
-                                            Start Working Hours :  <span class="fw-medium">8:00am</span>
-                                        </li>
-                                        <li class="list-inline-item" style="margin-left: 240px;">
-                                            End Working Hours :  <span class="fw-medium">17:30pm</span>
-                                        </li>
-                                        </ul>
-                                    </BCol>
-                                    <BCol sm="auto" style="margin-top: -43px;">
-                                    <BButton type="button" variant="success" class="btn btn-light" data-bs-toggle="tooltip"
-                                    data-bs-placement="top" @click="openEdit">
-                                        <i class="ri-pencil-fill align-bottom"></i>
-                                    </BButton>
-                                    </BCol>
-                                    </BRow>
-                                    
-                                    <BRow class="mt-3">
-                                        <BCol sm>
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Start Break Time</th>
-                                                        <th>End Break Time</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>12:30 PM</td>
-                                                        <td>1:30 PM</td>
-                                                        <td>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-edit-2-fill text-muted me-2"></i>
-                                                            </BLink>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-delete-bin-fill text-muted"></i>
-                                                            </BLink>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>5:30 PM</td>
-                                                        <td>6:30 PM</td>
-                                                        <td>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-edit-2-fill text-muted me-2"></i>
-                                                            </BLink>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-delete-bin-fill text-muted"></i>
-                                                            </BLink>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </BCol>
-                                    </BRow>
-                                </BCardBody>
-                                </BCard>
-
-                                <BCard no-body class="product">
-                                <BCardBody>
-                                    <BRow class="gy-3">
-                                    <h3>Sunday</h3>
-                                    <BCol sm>
-                                        <ul class="list-inline text-muted">
-                                        <li class="list-inline-item">
-                                            Start Working Hours :  <span class="fw-medium">8:00am</span>
-                                        </li>
-                                        <li class="list-inline-item" style="margin-left: 240px;">
-                                            End Working Hours :  <span class="fw-medium">17:30pm</span>
-                                        </li>
-                                        </ul>
-                                    </BCol>
-                                    <BCol sm="auto" style="margin-top: -43px;">
-                                    <BButton type="button" variant="success" class="btn btn-light" data-bs-toggle="tooltip"
-                                    data-bs-placement="top" @click="openEdit">
-                                        <i class="ri-pencil-fill align-bottom"></i>
-                                    </BButton>
-                                    </BCol>
-                                    </BRow>
-                                    
-                                    <BRow class="mt-3">
-                                        <BCol sm>
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Start Break Time</th>
-                                                        <th>End Break Time</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>12:30 PM</td>
-                                                        <td>1:30 PM</td>
-                                                        <td>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-edit-2-fill text-muted me-2"></i>
-                                                            </BLink>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-delete-bin-fill text-muted"></i>
-                                                            </BLink>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>5:30 PM</td>
-                                                        <td>6:30 PM</td>
-                                                        <td>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-edit-2-fill text-muted me-2"></i>
-                                                            </BLink>
-                                                            <BLink href="#" class="text-body p-1 px-2">
-                                                                <i class="ri-delete-bin-fill text-muted"></i>
-                                                            </BLink>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </BCol>
-                                    </BRow>
-                                </BCardBody>
-                                </BCard>
-
-                            </div>
-                            </simplebar>
-                        </div>
-                    </div>
-                    </BTab>
+          <!-- Gantt Chart -->
+          <div class="gantt-chart-container">
+            <div class="gantt-chart-wrapper">
+              <table class="gantt-chart" style="font-size: 13px;">
+                <thead>
+                  <tr>
+                    <th>Day</th>
+                    <th>6:00am</th>
+                    <th>7:00am</th>
+                    <th>8:00am</th>
+                    <th>9:00am</th>
+                    <th>10:00am</th>
+                    <th>11:00am</th>
+                    <th>12:00pm</th>
+                    <th>1:00pm</th>
+                    <th>2:00pm</th>
+                    <th>3:00pm</th>
+                    <th>4:00pm</th>
+                    <th>5:00pm</th>
+                    <th>6:00pm</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Monday
+                      <button style="    border: none;background-color: transparent;" type="button" variant="grey" @click="openEditSchedule">
+                        <i class="ri-pencil-fill"></i>
+                      </button></td>
+                    <td class="task bg-info-subtle">Start Working</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td  class="bg-success-subtle">First Start Break Time</td>
+                    <td  class="bg-success-subtle">First End Break Time</td>
+                    <td></td>
+                    <td  class="bg-success-subtle">Second Start Break Time</td>
+                    <td  class="bg-success-subtle">Second End Break Time</td>
+                    <td></td>
+                    <td  class="task bg-info-subtle">End Working</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Tuesday
+                      <button style="    border: none;background-color: transparent;" type="button" variant="grey" @click="openEditSchedule">
+                        <i class="ri-pencil-fill"></i>
+                      </button></td>
+                    <td class="task bg-info-subtle">Start Working</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td  class="bg-success-subtle">First Start Break Time</td>
+                    <td  class="bg-success-subtle">First End Break Time</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td  class="task bg-info-subtle">End Working</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Wednesday
+                      <button style="    border: none;background-color: transparent;" type="button" variant="grey" @click="openEditSchedule">
+                        <i class="ri-pencil-fill"></i>
+                      </button></td>
+                    <td class="task bg-info-subtle">Start Working</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td  class="bg-success-subtle">First Start Break Time</td>
+                    <td  class="bg-success-subtle">First End Break Time</td>
+                    <td></td>
+                    <td  class="bg-success-subtle">Second Start Break Time</td>
+                    <td  class="bg-success-subtle">Second End Break Time</td>
+                    <td></td>
+                    <td  class="task bg-info-subtle">End Working</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Thursday
+                      <button style="    border: none;background-color: transparent;" type="button" variant="grey" @click="openEditSchedule">
+                        <i class="ri-pencil-fill"></i>
+                      </button></td>
+                    <td class="task bg-info-subtle">Start Working</td>
+                    <td></td>
+                    <td></td>
+                    <td  class="bg-success-subtle">First Start Break Time</td>
+                    <td></td>
+                    <td  class="bg-success-subtle">First End Break Time</td>
+                    <td></td>
+                    <td  class="bg-success-subtle">Second Start Break Time</td>
+                    <td  class="bg-success-subtle">Second End Break Time</td>
+                    <td></td>
+                    <td  class="task bg-info-subtle">End Working</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Friday
+                      <button style="    border: none;background-color: transparent;" type="button" variant="grey" @click="openEditSchedule">
+                        <i class="ri-pencil-fill"></i>
+                      </button></td>
+                    <td class="task bg-info-subtle">Start Working</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td  class="bg-success-subtle">First Start Break Time</td>
+                    <td  class="bg-success-subtle">First End Break Time</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td  class="task bg-info-subtle">End Working</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Saturday
+                      <button style="    border: none;background-color: transparent;" type="button" variant="grey" @click="openEditSchedule">
+                        <i class="ri-pencil-fill"></i>
+                      </button></td>
+                    <td></td>
+                    <td></td>
+                    <td  class="task bg-info-subtle">Start Working</td>
+                    <td></td>
+                    <td></td>
+                    <td  class="bg-success-subtle">First Start Break Time</td>
+                    <td  class="bg-success-subtle">First End Break Time</td>
+                    <td></td>
+                    <td  class="bg-success-subtle">Second Start Break Time</td>
+                    <td  class="bg-success-subtle">Second End Break Time</td>
+                    <td></td>
+                    <td></td>
+                    <td  class="task bg-info-subtle">End Working</td>
+                  </tr>
+                  <tr>
+                    <td>Sunday
+                      <button style="    border: none;background-color: transparent;" type="button" variant="grey" @click="openEditSchedule">
+                        <i class="ri-pencil-fill"></i>
+                      </button></td>
+                    <td></td>
+                    <td></td>
+                    <td  class="task bg-info-subtle">Start Working</td>
+                    <td></td>
+                    <td  class="bg-success-subtle">First Start Break Time</td>
+                    <td  class="bg-success-subtle">First End Break Time</td>
+                    <td></td>
+                    <td  class="bg-success-subtle">Second Start Break Time</td>
+                    <td  class="bg-success-subtle">Second End Break Time</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td  class="task bg-info-subtle">End Working</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </BTab>
                     <BTab title="Access Permission" class="nav-item pt-1" style="position: relative; top: 10px;">
                         <div class="card-body" >
                         <div class="listjs-table" id="customerList">
-                            <div class="row g-4 mb-3">
-                                <div class="col-sm-auto">
-                                    <button type="button" class="btn btn-soft-primary waves-effect waves-light material-shadow-none" @click="modaltoAdd = !modaltoAdd" style="margin-right: 10px;">
-                                        <i class="ri-add-line align-bottom me-1"></i> Add Permission
-                                    </button>
-                                    <button class="btn btn-soft-danger" @click="deleteAlert">
-                                        <i class="ri-delete-bin-2-line"></i>
-                                    </button>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="d-flex justify-content-sm-end">
-                                        <div class="search-box ms-2">
-                                            <input type="text" class="form-control search" placeholder="Search...">
-                                            <i class="ri-search-line search-icon"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div class="table-responsive table-card mt-3 mb-1" style="max-height: 500px; overflow: auto;">
                                 <table class="table align-middle table-nowrap" id="tabularPermission">
                                     <thead class="table-light">
@@ -1144,84 +796,7 @@ export default {
                     </div>
                     </BTab> 
 
-                    <BTab title="Member Roles" class="nav-item pt-1" style="position: relative; top: 10px;">
-                        <div class="card-body" >
-                        <div class="listjs-table" id="customerList">
-                            <div class="row g-4 mb-3">
-                                <div class="col-sm-auto">
-                                    <button type="button" class="btn btn-soft-primary waves-effect waves-light material-shadow-none" @click="modalAdd = !modalAdd" style="margin-right: 10px;">
-                                        <i class="ri-add-line align-bottom me-1"></i> Add Role
-                                    </button>
-                                    <button class="btn btn-soft-danger" @click="deleteAlert">
-                                        <i class="ri-delete-bin-2-line"></i>
-                                    </button>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="d-flex justify-content-sm-end">
-                                        <div class="search-box ms-2">
-                                            <input type="text" class="form-control search" placeholder="Search...">
-                                            <i class="ri-search-line search-icon"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="table-responsive table-card mt-3 mb-1" style="max-height: 500px; overflow: auto;">
-                                <table class="table align-middle table-nowrap" id="tabularPermission">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th></th>
-                                            <th>Role</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="list form-check-all">
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                Project Director
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="edit">
-                                                        <button class="btn btn-sm btn-success edit-item-btn" @click="showModal(true)">Edit</button>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button class="btn btn-sm btn-danger remove-item-btn" @click="deleteAlert">Remove</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                Project Manager
-                                            </td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <div class="edit">
-                                                        <button class="btn btn-sm btn-success edit-item-btn" @click="showModal(true)">Edit</button>
-                                                    </div>
-                                                    <div class="remove">
-                                                        <button class="btn btn-sm btn-danger remove-item-btn" @click="deleteAlert">Remove</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    </BTab> 
-                    
+              
                 </BTabs>
             </BCardBody>
         </BCard>
@@ -1283,112 +858,276 @@ export default {
             </BForm>
         </BModal>
 
-        <BModal v-model="modalShow" hide-footer title="Schedule" body-class="p-4" content-class="border-0" header-class="p-3 ps-4 bg-success-subtle" class="v-modal-custom" centered>
-            <BRow>
+        <BModal v-model="modalShow" hide-footer title="Schedule" body-class="p-4" content-class="border-0" header-class="p-3 ps-4 bg-success-subtle" class="v-modal-custom" 
+        centered size="lg">
+            <BRow >
             <BCol md="12" class="mb-3">
-            <BFormGroup label="Start Working Hours :" label-for="rfid">
-                <BFormInput id="rfid" readonly />
+            <BFormGroup label="Code Name :" label-for="rfid">
+                <BFormInput id="rfid" readonly placeholder="A" />
             </BFormGroup>
 
-            <BFormGroup label="End Working Hours :" label-for="rfid">
-                <BFormInput id="rfid" readonly />
-            </BFormGroup><br><br>
-
-            <button type="button" class="btn btn-soft-primary" style="margin-left: 89%;">
-                <i class="ri-add-line align-bottom me-1"></i>
-            </button>
-
-            <BFormGroup label="Start Break Time:" label-for="name">
-                <BFormInput id="name" readonly />
-            </BFormGroup>
-
-            <BFormGroup label="End Break Time:" label-for="project">
-                <BFormInput id="project" readonly />
-            </BFormGroup>
             </BCol>
         </BRow>
 
+        
+        
+
       
         <div class="modal-footer v-modal-footer">
-            <button type="button" class="btn w-sm btn-light" @click="fileModal = false">Close</button>
+            <button type="button" class="btn w-sm btn-danger" >Delete</button>
             <button type="button" class="btn w-sm btn-primary" @click="deleteData">Submit</button>
         </div>
         </BModal>
 
-  
-        <BModal v-model="fileModal" hide-footer title="Edit Company" dialog-class="modal-fullscreen-xl-down" class="v-modal-custom">
-            <BRow>
-                <BCol md="12" class="mb-3">
-                <BFormGroup label="Code :" label-for="rfid">
-                    <BFormInput id="rfid" readonly />
-                </BFormGroup>
 
-                <BFormGroup label="Name :" label-for="rfid">
-                    <BFormInput id="rfid" readonly />
-                </BFormGroup>
+        <BModal v-model="editModalSchedule" hide-footer title="Schedule : Monday" body-class="p-4" content-class="border-0" header-class="p-3 ps-4 bg-success-subtle" class="v-modal-custom" 
+    centered size="lg">
+    
+    <!-- Start Working and End Working Inputs -->
+    <BRow class="mb-3">
+        <BCol md="6">
+            Start Working:
+            <BFormInput type="time" class="form-control" />
+        </BCol>
+        <BCol md="6">
+            End Working:
+            <BFormInput type="time" class="form-control" />
+        </BCol>
+    </BRow>
 
+    <!-- Add Button as Icon in Top Right -->
+    <div class="d-flex justify-content-end mb-3">
+        <BButton type="button" variant="success" @click="addBreakTime" class="p-0" style="width: 35px;height: 38px;font-size: 22px;">
+            <i class="ri-add-line icon-size"></i>
+        </BButton>
+    </div>
 
-                <BFormGroup label="Email:" label-for="project">
-                    <BFormInput id="project" readonly />
-                </BFormGroup>
+    <!-- Break Times Table -->
+    <div class="mb-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Break Time</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Repeat for each break time entry -->
+                <tr>
+                    <td>1. Break Time</td>
+                    <td>
+                        <BFormInput type="time" class="form-control" value="12:30" />
+                    </td>
+                    <td>
+                        <BFormInput type="time" class="form-control" value="13:00" />
+                    </td>
+                    <td>
+                        <BButton type="button" variant="danger" @click="deleteBreakTime" class="ms-2 p-0" style="width: 35px;height: 38px;font-size: 22px;">
+                            <i class="ri-delete-bin-2-line icon-size"></i>
+                        </BButton>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2. Break Time</td>
+                    <td>
+                        <BFormInput type="time" class="form-control" value="13:30" />
+                    </td>
+                    <td>
+                        <BFormInput type="time" class="form-control" value="14:00" />
+                    </td>
+                    <td>
+                        <BButton type="button" variant="danger" @click="deleteBreakTime" class="ms-2 p-0" style="width: 35px;height: 38px;font-size: 22px;">
+                            <i class="ri-delete-bin-2-line icon-size"></i>
+                        </BButton>
+                    </td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
 
-                <BFormGroup label="Address 1:" label-for="skillSet">
-                    <BFormInput id="skillSet" readonly />
-                </BFormGroup>
+    <div class="modal-footer v-modal-footer">
+        <button type="button" class="btn w-sm btn-grey">Close</button>
+        <button type="button" class="btn w-sm btn-primary" @click="deleteData">Submit</button>
+    </div>
+</BModal>
 
-                <BFormGroup label="Address 2:" label-for="subcon">
-                    <BFormInput id="subcon" readonly />
-                </BFormGroup>
-
-                <BFormGroup label="Postcode:" label-for="subcon">
-                    <BFormInput id="subcon" readonly />
-                </BFormGroup>
-
-                <BFormGroup label="City:" label-for="subcon">
-                    <BFormInput id="subcon" readonly />
-                </BFormGroup>
-
-                <BFormGroup label="State:" label-for="subcon">
-                    <BFormInput id="subcon" readonly />
-                </BFormGroup>
-
-                <BFormGroup label="Country:" label-for="subcon">
-                    <BFormInput id="subcon" readonly />
-                </BFormGroup>
-                </BCol>
-            </BRow>
-
-        <!-- Row 2: Remark Field -->
-        <BRow>
-            <BCol md="12" class="mb-3">
-            <BFormGroup label="Remark:" label-for="remark">
-                <BFormTextarea id="remark" rows="3" />
-            </BFormGroup>
-            </BCol>
-        </BRow>
-
-        <!-- Modal Footer -->
-        <div class="modal-footer v-modal-footer">
-            <button type="button" class="btn w-sm btn-light" @click="fileModal = false">Close</button>
-            <button type="button" class="btn w-sm btn-primary" @click="deleteData">Submit</button>
+      
+        <BModal v-model="fileModal" hide-footer title="Edit Company"
+      header-class="bg-primary-subtle p-3" class="v-modal-custom" centered size="lg"
+      >
+      <b-form id="addform" class="tablelist-form" autocomplete="off">
+        <input type="hidden" id="id">
+        <BRow class="g-3">
+          <BCol lg="4">
+            <div>
+              <label for="companyname" class="form-label">Name</label>
+              <input type="text" id="companyname" class="form-control" placeholder="Enter company name"
+               >
+              <div class="invalid-feedback">Please enter a company name.</div>
             </div>
-        </BModal>
+          </BCol>
+          <BCol lg="4">
+            <div>
+              <label for="ownername" class="form-label">Code</label>
+              <input type="text" id="ownername" class="form-control" placeholder="Enter code" >
+              <div class="invalid-feedback">Please enter a code.</div>
+            </div>
+          </BCol>
+          <BCol lg="4">
+            <div>
+              <label for="" class="form-label">Registeration Number</label>
+              <input type="text" id="" class="form-control" placeholder="Enter registeration number"
+             >
+            </div>
+          </BCol>
+          <BCol lg="4">
+            <div>
+              <label for="starvalue" class="form-label">Address 1</label>
+              <input type="text" id="starvalue" class="form-control" placeholder="Enter address 1" >
+              <div class="invalid-feedback">Please enter a address 1.</div>
+            </div>
+          </BCol>
+          <BCol lg="4">
+            <div>
+              <label for="location" class="form-label">Address 2</label>
+              <input type="text" id="location" class="form-control" placeholder="Enter address 2">
+              <div class="invalid-feedback">Please enter a address 2.</div>
+            </div>
+          </BCol>
+          <BCol lg="4">
+            <div>
+              <label for="employee" class="form-label">Address 3</label>
+              <input type="text" id="employee" class="form-control" placeholder="Enter address 3" >
+              <div class="invalid-feedback">Please enter a address 3.</div>
+            </div>
+          </BCol>
+          <BCol lg="4">
+            <div>
+              <label for="starvalue" class="form-label">Postcode</label>
+              <input type="text" id="starvalue" class="form-control" placeholder="Enter postcode" >
+              <div class="invalid-feedback">Please enter a postcode.</div>
+            </div>
+          </BCol>
+          <BCol lg="4">
+            <div>
+              <label for="location" class="form-label">City</label>
+              <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+                  <option value="" selected>Select City</option>
+                  <option value="Merchandising">Bukit Mertajam</option>
+                  </select>
+            </div>
+          </BCol>
+          <BCol lg="4">
+            <div>
+              <label for="employee" class="form-label">State</label>
+              <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+                  <option value="" selected>Select State</option>
+                  <option value="Merchandising">Pulau Pinang</option>
+                  </select>
+            </div>
+          </BCol>
+          <BCol lg="4">
+            <div>
+              <label for="employee" class="form-label">Country</label>
+              <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+                  <option value="" selected>Select Country</option>
+                  <option value="Merchandising">Malaysia</option>
+                  </select>
+            </div>
+          </BCol>
+          <BCol lg="4">
+            <div>
+              <label for="website" class="form-label">Prefix</label>
+              <input type="text" id="website" class="form-control" placeholder="Enter Prefix" >
+              <div class="invalid-feedback">Please enter a Prefix.</div>
+            </div>
+          </BCol>
+          <BCol lg="4">
+            <div>
+              <label for="contactemail" class="form-label">Contact Email</label>
+              <input type="text" id="contactemail" class="form-control" placeholder="Enter contact email"
+             >
+              <div class="invalid-feedback">Please enter a email.</div>
+            </div>
+          </BCol>
+          <BCol lg="4">
+            <div>
+              <label for="employee" class="form-label">Contact Person</label>
+              <input type="text" id="employee" class="form-control" placeholder="Enter Contact Person" >
+              <div class="invalid-feedback">Please enter a Contact Person.</div>
+            </div>
+          </BCol>
+          <BCol lg="8">
+            <div>
+              <label for="since" class="form-label">Note</label>
+              <input type="text" id="since" class="form-control" placeholder="Enter note" >
+              <div class="invalid-feedback">Please enter a note.</div>
+            </div>
+          </BCol>
+        </BRow>
+        <div class="hstack gap-2 justify-content-end mt-3">
+          <BButton type="button" variant="light" id="closemodal" @click="addCompanyModal = false">Close</BButton>
+          <BButton type="button" variant="success" id="add-btn" @click="handleSubmit">
+            Update
+          </BButton>
+        </div>
+      </b-form>
+    </BModal>
+  
   </Layout>
 </template>
 
 <style>
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Adjust the gap between columns as needed */
+}
+
 .avatar-container {
-    display: flex;
-    align-items: center;
+  flex: 0 0 auto; /* Fix the image size */
+}
+
+.details-container {
+  width: 25%
+}
+
+.remarks-container {
+  flex: 1; /* This will ensure the remarks take up available space */
+  margin-top: 30px;
 }
 
 .avatar-md {
-    margin-right: 10px; /* Space between the image and text */
+  width: 80px; /* Adjust the size of the avatar image */
+  height: 80px;
 }
 
-.avatar-text {
-    margin: 0; /* Remove default margin */
-    font-size: 1.25rem; /* Adjust the font size as needed */
+.avatar-title img {
+  width: 100%;
+  height: 100%;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.gantt-chart {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.gantt-chart th,
+.gantt-chart td {
+  border: 1px solid #ddd;
+  padding: 6px;
+  text-align: center;
+}
+
+.gantt-chart thead {
+  background-color: #f4f4f4;
 }
 
 </style>

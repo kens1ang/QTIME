@@ -51,6 +51,7 @@ export default {
       editorData: "<p>Tommy Hilfiger men striped pink sweatshirt. Crafted with cotton. Material composition is 100% organic cotton. This is one of the world’s leading designer lifestyle brands and is internationally recognized for celebrating the essence of classic American cool style, featuring preppy with a twist designs.</p><ul><li>Full Sleeve</li><li>Cotton</li><li>All Sizes available</li><li>4 Different Color</li></ul>",
       content: "<h1>Some initial content</h1>",
       date1: null,
+      advancedSearch: false,
       date: null,
       addCustomerModal: false,
       editCustomerModal: false,
@@ -251,6 +252,10 @@ export default {
       this.submitted = false;
     },
 
+    openAdvancedSearch(){
+      this.advancedSearch = true;
+    },
+
 
     toggleModal() {
       this.addCustomerModal = true;
@@ -393,39 +398,27 @@ export default {
         <b-form>
         <BRow class="g-3">
             <BCol xl="2">
-            <div class="search-box">
-                <input type="text" class="form-control search" style="font-size: 12px;"
-                placeholder="Search keywords....." v-model="searchQuery" />
-                <i class="ri-search-line search-icon"></i>
-            </div>
+              <div class="search-box d-flex align-items-center">
+            <input
+              type="text"
+              class="form-control search"
+              style="font-size: 12px;"
+              placeholder="Search keywords..."
+              v-model="searchQuery"
+            />
+            <i class="ri-search-line search-icon ms-2"></i>
+            <!-- Settings icon for advanced search -->
+            <i
+              class="ri-settings-2-line ms-2"
+              style="cursor: pointer; font-size: 20px;"
+              @click="openAdvancedSearch"
+            ></i>
+          </div>
             </BCol>
             <BCol xl="1"></BCol>
             <BCol xl="9">
             <BRow class="g-3">
-                <BCol sm="2">
-                <div>
-                  <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" style="font-size: 12px;">
-                  <option value="" selected>Select Status</option>
-                  <option value="Merchandising">All</option>
-                  <option value="Manufacturing">Non-AA</option>
-                  <option value="Partnership">My Form</option>
-                  <option value="Corporation">AA</option>
-                  </select>
-                </div>
-                </BCol>
-
-                <BCol sm="2">
-                <div>
-                  <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" style="font-size: 12px;">
-                  <option value="" selected>Select Project</option>
-                  <option value="Merchandising">AR496</option>
-                  <option value="Manufacturing">BG17-R1</option>
-                  <option value="Partnership">I8B-49</option>
-                  <option value="Corporation">FORUM 2</option>
-                  </select>
-                </div>
-                </BCol>
-                
+                 <BCol sm="2"></BCol>
                 <BCol sm="2">
                 <div>
                     <BLink href="/system/employee-qr" class="w-100" >
@@ -446,20 +439,20 @@ export default {
                 </div>
                 </BCol>
 
-                <BCol sm="2">
+                <BCol sm="3">
                 <div>
                     <BLink href="" class="w-100">
-                        <BButton type="button" variant="info" class="w-100" style="font-size: 12px;">
-                            <i class=" ri-file-transfer-line me-2 align-bottom"></i>KSK Transfer
+                        <BButton type="button" variant="light" class="w-100" style="font-size: 12px;">
+                            <i class=" ri-file-transfer-line me-2 align-bottom"></i>General Worker Transfer
                         </BButton>
                     </BLink>
                 </div>
                 </BCol>
-                <BCol sm="3">
+                <BCol sm="4">
                 <div>
                     <BLink href="" class="w-100" >
-                        <BButton type="button" class="w-100" variant="info" style="font-size: 12px;">
-                            <i class="ri-registered-line align-bottom"></i> Update KSK Resignation
+                        <BButton type="button" class="w-100" variant="light" style="font-size: 12px;">
+                            <i class="ri-registered-line align-bottom"></i> Update General Worker Resignation
                         </BButton>
                     </BLink>
                 </div>
@@ -590,13 +583,16 @@ export default {
     <!-- First Column (Left side) -->
     <BCol md="6" class="mb-3">
       <BFormGroup label="Project:" label-for="dId">
-        <BFormInput id="dId" value="" readonly />
+        <BFormInput id="dId" placeholder="AR496"   />
       </BFormGroup>
 
       <BFormGroup label="RFID:" label-for="rfid">
         <BFormInput id="rfid" readonly />
       </BFormGroup>
 
+      <BFormGroup label="Name:" label-for="rfid">
+        <BFormInput id="rfid" placeholder="	AHMAD WILDANUL FAJRI" readonly />
+      </BFormGroup>
       
 
       <BFormGroup label="Photo:" label-for="name">
@@ -641,44 +637,80 @@ export default {
     <!-- Second Column (Right side) -->
     <BCol md="6" class="mb-3">
 
+      <BFormGroup label="Incharge:" label-for="skillSet">
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" >
+          <option value="" selected>Select Incharge</option>
+          <option value="Merchandising">ksk_myform</option>
+          <option value="Manufacturing">aadam</option>
+          </select>
+      </BFormGroup>
       <BFormGroup label="Hour Rate:" label-for="hourRate">
-        <BFormInput id="hourRate" value="8.125" readonly />
+        <BFormInput id="hourRate" placeholder="8.125" readonly />
       </BFormGroup>
 
       <BFormGroup label="Day Wage:" label-for="dayWage">
-        <BFormInput id="dayWage" value="65.00" readonly />
+        <BFormInput id="dayWage" placeholder="65.00" readonly />
       </BFormGroup>
 
       <BFormGroup label="Skill Set:" label-for="skillSet">
-        <BFormInput id="skillSet" value="Skilled" readonly />
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" >
+          <option value="" selected>Select Skill Set</option>
+          <option value="Merchandising">Skilled</option>
+          <option value="Manufacturing">Semi-Skilled</option>
+          <option value="Partnership">Unskilled</option>
+          </select>
       </BFormGroup>
 
       <BFormGroup label="Passport No:" label-for="otherPermit">
-        <BFormInput id="otherPermit" readonly />
+        <BFormInput id="otherPermit" placeholder="E5243867" readonly />
       </BFormGroup>
 
       <BFormGroup label="Passport Photo:" label-for="location">
-        <BFormInput id="location" value="" readonly />
+        <BFormFile
+          id="passportPhoto"
+          accept="image/*"
+          @change="onFileChange"
+          placeholder="Choose a file or drag it here..."
+        />
       </BFormGroup>
 
       <BFormGroup label="Passport Expired Date:" label-for="incharge">
-        <BFormInput id="incharge" value="" readonly />
+        <input
+    type="date"
+    class="form-control"
+    id="search-date"
+    placeholder="Select Date"
+  />
       </BFormGroup>
 
       <BFormGroup label="AA Permit:" label-for="loanWithAgent">
-        <BFormInput id="loanWithAgent" value="0" readonly />
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" >
+          <option value="" selected>Select AA Permit</option>
+          <option value="Merchandising">No</option>
+          <option value="Manufacturing">Yes</option>
+          <option value="Partnership">Myform</option>
+          </select>
       </BFormGroup>
 
       <BFormGroup label="Commencement Date:" label-for="dob">
-        <BFormInput id="dob" value="01/01/1990" readonly placeholder="dd/mm/yyyy" />
+        <input
+    type="date"
+    class="form-control"
+    id="search-date"
+    placeholder="Select Date"
+  />
       </BFormGroup>
 
       <BFormGroup label="Pay To:" label-for="payrollId">
-        <BFormInput id="payrollId" readonly />
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" >
+          <option value="" selected>Select Payment</option>
+          <option value="Merchandising">Cash</option>
+          <option value="Manufacturing">Incharge</option>
+          </select>
       </BFormGroup>
 
       <BFormGroup label="Remark:" label-for="remark">
-        <BFormTextarea id="remark" rows="3" />
+        <BFormTextarea id="remark" rows="1" />
       </BFormGroup>
     </BCol>
   </BRow>
@@ -689,6 +721,85 @@ export default {
       <i class="ri-close-line me-1 align-middle"></i> Close
     </BLink>
     <BButton type="button" variant="primary">Submit</BButton>
+  </div>
+</BModal>
+
+<BModal v-model="advancedSearch" hide-footer title="Advanced Search" class="v-modal-custom" size="lg">
+  <BRow class="g-3">
+    <BCol sm="6">
+        <label for="search-incharge" class="form-label">Filter by Status</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+          <option value="" selected>Select Status</option>
+          <option value="Merchandising">AA Permit</option>
+          <option value="Manufacturing">Non AA</option>
+          <option value="Partnership">Unskilled</option>
+          </select>
+      </BCol>
+      <BCol sm="6">
+        <label for="search-incharge" class="form-label">Filter by Project</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+          <option value="" selected>Select Project</option>
+          <option value="Merchandising">AR496</option>
+          <option value="Manufacturing">FORUM2</option>
+          <option value="Partnership">i8B-49</option>
+          </select>
+      </BCol>
+      <BCol sm="6">
+        <label for="search-id" class="form-label">Search by Hour Rate</label>
+        <BFormInput
+          id="search-id"
+          placeholder="Enter Hour Rate"
+        />
+      </BCol>
+      <BCol sm="6">
+        <label for="search-incharge" class="form-label">Filter by Skill Set</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+          <option value="" selected>Select Skill Set</option>
+          <option value="Merchandising">Skilled</option>
+          <option value="Manufacturing">Semi-Skilled</option>
+          <option value="Partnership">Unskilled</option>
+          </select>
+      </BCol>
+      <BCol sm="6">
+        <label for="search-location" class="form-label">Search by Passport No</label>
+        <BFormInput
+          id="search-location"
+          placeholder="Enter Location"
+        />
+      </BCol>
+      <BCol sm="6">
+        <label for="search-payment" class="form-label">Filter by Payment Method</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" >
+          <option value="" selected>Select Payment Method</option>
+          <option value="Merchandising">Cash</option>
+          <option value="Manufacturing">Instapay</option>
+          </select>
+      </BCol>
+      <BCol sm="6">
+        <label for="search-date" class="form-label">Search by Commencement Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="search-date"
+          placeholder="Select Date"
+        />
+      </BCol>
+      <BCol sm="6">
+        <label for="search-payment" class="form-label">Search by Passport No</label>
+        <BFormInput
+          id="search-location"
+          placeholder="Enter Location"
+        />
+      </BCol>
+    
+    </BRow>
+
+  <!-- Modal Footer -->
+  <div class="modal-footer v-modal-footer">
+    <BLink href="javascript:void(0);" class="btn btn-link link-success fw-medium" @click="deleteModal = false">
+      <i class="ri-close-line me-1 align-middle"></i> Close
+    </BLink>
+    <BButton type="button" variant="primary">Search</BButton>
   </div>
 </BModal>
 

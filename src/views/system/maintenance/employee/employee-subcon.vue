@@ -11,6 +11,7 @@ import DropZone from "@/components/widgets/dropZone";
 export default {
   data() {
     return {
+      advancedSearch: false,
       date1: null,
       date: null,
       createModal: false,
@@ -42,12 +43,12 @@ export default {
       customerList: [{
           id: 1790219,
           customer_name: "csang",
-          email: "JINGGONG CONSTRUCTION SDN BHD-FORMWORK (TIMBER)-",
+          email: "CHAPTER/LA001",
           phone: "Rahmad Ramadoni Nasti",
           type: "Subcon Worker",
           rfid: "E2806995000050199ED789EC	",
           createby: "KELVIN",
-          payment: "MAT DALI",
+          payment: "ALUNAN ASAS SDN BHD_ACMV-" ,
           trade: "CONCRETE",
           location: "",
           Skill:"Semi-Skilled",
@@ -56,12 +57,12 @@ export default {
         {
           id: 1790218,
           customer_name: "csang",
-          email: "JINGGONG CONSTRUCTION SDN BHD-FORMWORK (TIMBER)-",
+          email: "FORURM/LA001",
           phone: "Samawi",
           type: "Subcon Worker",
           rfid: "E2806995000040199ED78DF1	",
           createby: "KELVIN",
-          payment: "MAT DALI",
+          payment: "ALUNAN ASAS SDN BHD_ACMV-",
           trade: "CONCRETE",
           location:"",
           Skill:"Semi-Skilled",
@@ -145,6 +146,9 @@ export default {
   },
   
   methods: {
+    openAdvancedSearch(){
+      this.advancedSearch = true;
+    },
     deleteRecord(index) {
       this.files.splice(index, 1);
       this.filePreviews.splice(index, 1);
@@ -382,29 +386,30 @@ export default {
                         <b-form>
                         <BRow class="g-3">
                             <BCol xl="2">
-                            <div class="search-box">
-                                <input type="text" class="form-control search" style="font-size: 12px;"
-                                placeholder="Search keywords....." v-model="searchQuery" />
-                                <i class="ri-search-line search-icon"></i>
-                            </div>
+                              <div class="search-box d-flex align-items-center">
+            <input
+              type="text"
+              class="form-control search"
+              style="font-size: 12px;"
+              placeholder="Search keywords..."
+              v-model="searchQuery"
+            />
+            <i class="ri-search-line search-icon ms-2"></i>
+            <!-- Settings icon for advanced search -->
+            <i
+              class="ri-settings-2-line ms-2"
+              style="cursor: pointer; font-size: 20px;"
+              @click="openAdvancedSearch"
+            ></i>
+          </div>
                             </BCol>
                             <BCol xl="2"></BCol>
                             <BCol xl="8">
                             <BRow class="g-3">
-                                <BCol sm="5"></BCol>
+                                <BCol sm="8"></BCol>
                               
 
-                <BCol sm="3">
-                <div>
-                  <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" style="font-size: 12px;">
-                  <option value="" selected>Select Project</option>
-                  <option value="Merchandising">AR496</option>
-                  <option value="Manufacturing">BG17-R1</option>
-                  <option value="Partnership">I8B-49</option>
-                  <option value="Corporation">FORUM 2</option>
-                  </select>
-                </div>
-                </BCol>
+              
                                
                                 <BCol sm="3">
                                 <div>
@@ -444,12 +449,13 @@ export default {
                                 <th></th>
                                 <th class="sort" data-sort="customer_name" @click="onSort('customer')">ID</th>
                                 <th class="sort" data-sort="email" @click="onSort('email')">RFID</th>
+                                
                                 <th class="sort" data-sort="phone" @click="onSort('phone')">Incharge</th>
+                                <th class="sort" data-sort="status" @click="onSort('status')">Location 1</th>
+                                <th class="sort" data-sort="status" @click="onSort('status')">Staff Name</th>
                                 <th class="sort" data-sort="date" @click="onSort('date')">LA</th>
                                 <th>Subcon</th>
-                                <th class="sort" data-sort="status" @click="onSort('status')">Staff Name</th>
-                                <th class="sort" data-sort="status" @click="onSort('status')">Type</th>
-                                <th class="sort" data-sort="status" @click="onSort('status')">Location 1</th>
+                                <th>Trade</th>
                                 <th class="sort" data-sort="status" @click="onSort('status')">Skill Set</th>
                                 <th class="sort" data-sort="action">Action</th>
                                 </tr>
@@ -465,12 +471,15 @@ export default {
                                   class="avatar-xs rounded-circle object-fit-cover" id="imageid" /></td>
                                 <td>{{ item.id }}</td>
                                 <td>{{ item.rfid }}</td>
+                                
+                                
                                 <td class="customer_name">{{ item.customer_name }}</td>
+                                <td class="date">{{ item.location }}</td>
+                                <td class="phone">{{ item.phone }}</td>
                                 <td class="email">{{ item.email }}</td>
                                 <td class="date">{{ item.payment }}</td>
-                                <td class="phone">{{ item.phone }}</td>
-                                <td class="date">{{ item.type }}</td>
-                                <td class="date">{{ item.location }}</td>
+                                <td class="date">{{ item.trade }}</td>
+                               
                                 <td class="date">{{ item.Skill }}</td>
                                 <td>
                                     <ul class="list-inline hstack gap-2 mb-0">
@@ -552,12 +561,12 @@ export default {
       <BRow>
         <BCol md="12" class="mb-3">
           <BFormGroup label="RFID:" label-for="rfid">
-            <BFormInput id="rfid" readonly />
+            <BFormInput id="rfid" placeholder="E2806995000050199ED789EC" readonly />
           </BFormGroup>
 
           <BFormGroup label="Photo:" label-for="name">
         <template v-if="!files.length">
-            <DropZone @drop.prevent="drop" @change="selectedFile" style="height: 422px !important;" />
+            <DropZone @drop.prevent="drop" @change="selectedFile" style="height: 180px !important;" />
         </template>
 
         <template v-else>
@@ -591,7 +600,7 @@ export default {
       </BFormGroup>
 
           <BFormGroup label="Name:" label-for="name">
-            <BFormInput id="name" readonly />
+            <BFormInput id="name" placeholder="Rahmad Ramadoni Nasti" readonly />
           </BFormGroup>
 
           <BFormGroup label="Project:" label-for="project">
@@ -602,7 +611,12 @@ export default {
           </BFormGroup>
 
           <BFormGroup label="Skill Set:" label-for="skillSet">
-            <BFormInput id="skillSet" readonly />
+            <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+                  <option value="" selected>Select Skill Set</option>
+                  <option value="Merchandising">Semi-Skilled</option>
+                  <option value="Manufacturing">Skilled</option>
+                  <option value="Manufacturing">Unskilled</option>
+                  </select>
           </BFormGroup>
 
           <BFormGroup label="Subcon:" label-for="subcon">
@@ -615,7 +629,7 @@ export default {
                 </div>
           </BFormGroup>
           <BFormGroup label="Remark:" label-for="remark">
-            <BFormTextarea id="remark" rows="3" />
+            <BFormTextarea id="remark" rows="1" />
           </BFormGroup>
         </BCol>
       </BRow>
@@ -637,7 +651,7 @@ export default {
 
           <BFormGroup label="Photo:" label-for="name">
         <template v-if="!files.length">
-            <DropZone @drop.prevent="drop" @change="selectedFile" style="height: 422px !important;" />
+            <DropZone @drop.prevent="drop" @change="selectedFile" style="height: 180px !important;" />
         </template>
 
         <template v-else>
@@ -682,7 +696,12 @@ export default {
           </BFormGroup>
 
           <BFormGroup label="Skill Set:" label-for="skillSet">
-            <BFormInput id="skillSet" readonly />
+            <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+                  <option value="" selected>Select Skill Set</option>
+                  <option value="Merchandising">Semi-Skilled</option>
+                  <option value="Manufacturing">Skilled</option>
+                  <option value="Manufacturing">Unskilled</option>
+                  </select>
           </BFormGroup>
 
           <BFormGroup label="Subcon:" label-for="subcon">
@@ -695,7 +714,7 @@ export default {
                 </div>
           </BFormGroup>
           <BFormGroup label="Remark:" label-for="remark">
-            <BFormTextarea id="remark" rows="3" />
+            <BFormTextarea id="remark" rows="1" />
           </BFormGroup>
         </BCol>
       </BRow>
@@ -706,5 +725,64 @@ export default {
       </div>
     </BModal>
 
+    <BModal v-model="advancedSearch" hide-footer title="Advanced Search" class="v-modal-custom" size="lg">
+  <BRow class="g-3">
+      <BCol sm="6">
+        <label for="search-incharge" class="form-label">Filter by Project</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+          <option value="" selected>Select Project</option>
+          <option value="Merchandising">AR496</option>
+          <option value="Manufacturing">FORUM2</option>
+          <option value="Partnership">i8B-49</option>
+          </select>
+      </BCol>
+      <BCol sm="6">
+        <label for="search-incharge" class="form-label">Filter by Skill Set</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+          <option value="" selected>Select Skill Set</option>
+          <option value="Merchandising">Skilled</option>
+          <option value="Manufacturing">Semi-Skilled</option>
+          <option value="Partnership">Unskilled</option>
+          </select>
+      </BCol>
+      <BCol sm="6">
+        <label for="search-payment" class="form-label">Filter by Subcon</label>
+        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+                  <option value="" selected>Select Subcon</option>
+                  <option value="Merchandising">BABUL_FENCE-</option>
+                  <option value="Manufacturing">BABUL_MASONRY-</option>
+                  </select>
+      </BCol>
+      <BCol sm="6">
+        <label for="search-date" class="form-label">Searcg by Trade</label>
+        <BFormInput
+          id="search-location"
+          placeholder="Enter Trade"
+        />
+      </BCol>
+      <BCol sm="6">
+        <label for="search-payment" class="form-label">Search by LA</label>
+        <BFormInput
+          id="search-location"
+          placeholder="Enter LA"
+        />
+      </BCol>
+      <BCol sm="6">
+        <label for="search-payment" class="form-label">Search by Location 1</label>
+        <BFormInput
+          id="search-location"
+          placeholder="Enter Location 1"
+        />
+      </BCol>
+    
+    </BRow>
 
+  <!-- Modal Footer -->
+  <div class="modal-footer v-modal-footer">
+    <BLink href="javascript:void(0);" class="btn btn-link link-success fw-medium" @click="deleteModal = false">
+      <i class="ri-close-line me-1 align-middle"></i> Close
+    </BLink>
+    <BButton type="button" variant="primary">Search</BButton>
+  </div>
+</BModal>
 </template>

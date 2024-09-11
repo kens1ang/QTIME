@@ -32,9 +32,9 @@ export default {
         },
         showModal(isEdit) {
             if (isEdit) {
-                this.modalTitle = 'Edit Company';
+                this.modalTitle = 'Edit Project';
             } else {
-                this.modalTitle = 'Add Company';
+                this.modalTitle = 'Add Project';
             }
             this.modaltoAdd = true;
         }
@@ -80,7 +80,7 @@ export default {
                                 <th class="sort" data-sort="code">Code</th>
                                 <th class="sort" data-sort="name">Name</th>
                                 <th class="sort" data-sort="regNo">Contract Value</th>
-                                <th class="sort" data-sort="regNo">Period</th>
+                                <th class="sort" data-sort="regNo">Dip Period</th>
                                 <th>Actual Start Date</th>
                                 <th>Actual End Date</th>
                                 <th>Action</th>
@@ -257,16 +257,26 @@ export default {
                         <input type="email" class="form-control" id="boardName" placeholder="Enter contract value">
                     </BCol>
                     <BCol lg="6">     
-                        <label for="staffcode" class="form-label">Period</label>
-                        <input type="text" class="form-control" id="boardName" placeholder="Enter period">
+                        <label for="staffcode" class="form-label">DIP Period</label>
+                        <input type="text" class="form-control" id="boardName" placeholder="Enter dip period">
                     </BCol>
                     <BCol lg="6">     
                         <label for="accesslevel" class="form-label">Actual Start Date</label>
-                        <input type="text" class="form-control" id="boardName" placeholder="Enter actual start date">
+                        <input
+    type="date"
+    class="form-control"
+    id="search-date"
+    placeholder="Select Date"
+  />
                     </BCol>
                     <BCol lg="6"> 
                         <label for="mobileaccess">Actual End Date</label>
-                        <input type="text" class="form-control" id="boardName" placeholder="Enter actual end date">
+                        <input
+    type="date"
+    class="form-control"
+    id="search-date"
+    placeholder="Select Date"
+  />
                     </BCol>
                     <BCol lg="6"> 
                         <label for="qawardaccess">Prefix</label>

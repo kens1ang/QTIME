@@ -385,19 +385,19 @@ export default {
             <div class="p-2">
               <BRow class="g-0">
                 <BCol>
-                  <BLink class="dropdown-icon-item" href="/system/project-detail">
+                  <BLink class="dropdown-icon-item">
                     <img src="@/assets/images/brands/slack.png" alt="Github" />
                     <span>AR496</span>
                   </BLink>
                 </BCol>
                 <BCol>
-                  <BLink class="dropdown-icon-item" href="/system/project-detail">
+                  <BLink class="dropdown-icon-item">
                     <img src="@/assets/images/brands/slack.png" alt="bitbucket" />
                     <span>BG17-R1</span>
                   </BLink>
                 </BCol>
                 <BCol>
-                  <BLink class="dropdown-icon-item" href="/system/project-detail">
+                  <BLink class="dropdown-icon-item">
                     <img src="@/assets/images/brands/slack.png" alt="dribbble" />
                     <span>BKT22F</span>
                   </BLink>
@@ -406,7 +406,7 @@ export default {
 
               <BRow class="g-0">
                 <BCol>
-                  <BLink class="dropdown-icon-item" href="/system/project-detail">
+                  <BLink class="dropdown-icon-item">
                     <img src="@/assets/images/brands/slack.png" alt="slack" />
                     <span>BJO-B3B4</span>
                   </BLink>

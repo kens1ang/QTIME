@@ -274,69 +274,7 @@ export default {
   <Layout>
     <PageHeader title="Search Attendance" pageTitle="Attendance"/>
     <BRow>
-      <BCol xl="12" lg="12">
-        <BRow class="g-3">
-          <BCol xl="12">
-            <BRow class="g-3">
-              <BCol sm="5"></BCol>
-              <BCol sm="2">
-                <div>
-                  <select
-                    class="form-control"
-                    data-trigger
-                    name="choices-single-default"
-                    id="choices-single-default"
-                  >
-                    <option value="" selected>Select Period</option>
-                    <option value="Merchandising">1</option>
-                    <option value="Manufacturing">2</option>
-                  </select>
-                </div>
-              </BCol>
-              <BCol sm="3">
-                <div>
-                  <select
-                    class="form-control"
-                    data-trigger
-                    name="choices-single-default"
-                    id="choices-single-default"
-                  >
-                    <option value="" selected>Select Month</option>
-                    <option value="Merchandising">January</option>
-                    <option value="Manufacturing">February</option>
-                    <option value="Partnership">March</option>
-                    <option value="Corporation">April</option>
-                    <option value="Corporation">May</option>
-                    <option value="Corporation">June</option>
-                    <option value="Corporation">July</option>
-                    <option value="Corporation">August</option>
-                    <option value="Corporation">September</option>
-                    <option value="Corporation">Octorber</option>
-                    <option value="Corporation">November</option>
-                    <option value="Corporation">December</option>
-                  </select>
-                </div>
-              </BCol>
-              <BCol sm="2">
-                <div>
-                  <select
-                    class="form-control"
-                    data-trigger
-                    name="choices-single-default"
-                    id="choices-single-default"
-                  >
-                    <option value="" selected>Select Year</option>
-                    <option value="Merchandising">2024</option>
-                    <option value="Manufacturing">2023</option>
-                    <option value="Partnership">2022</option>
-                    <option value="Corporation">2021</option>
-                  </select>
-                </div>
-              </BCol>
-            </BRow>
-          </BCol>
-        </BRow></BCol
-      >
+     
       <BCol xl="12" lg="12">
         <br /><br />
         <div>
@@ -354,11 +292,53 @@ export default {
                           Search Amend Attendance
                         </div>
                       </template>
+                      <br>
                       <div>
-                        <h5 class="mb-1">Site : AR496</h5>
-                        <h6 class="mb-1">Date : 1-Sep-2024 to 15-Sep-2024</h6>
-                        <br />
-                      </div>
+  <!-- Container for Site and Date on the Left, Filters on the Right -->
+  <BRow class="align-items-center justify-content-between">
+    
+    <!-- Left Side: Site and Date -->
+    <BCol sm="6">
+      <h5 class="mb-1">Site: AR496</h5>
+      <h6 class="mb-1">Date: 1-Sep-2024 to 15-Sep-2024</h6>
+    </BCol>
+    
+    <!-- Right Side: Filters -->
+    <BCol sm="6">
+      <BRow class="g-3 justify-content-end">
+        
+        <BCol sm="3">
+          <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+            <option value="" selected>Select Period</option>
+            <option value="Merchandising">1</option>
+            <option value="Manufacturing">2</option>
+          </select>
+        </BCol>
+
+        <BCol sm="4">
+          <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+            <option value="" selected>Select Month</option>
+            <option value="Merchandising">January</option>
+            <option value="Manufacturing">February</option>
+            <!-- Other months here -->
+          </select>
+        </BCol>
+
+        <BCol sm="3">
+          <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
+            <option value="" selected>Select Year</option>
+            <option value="Merchandising">2024</option>
+            <option value="Manufacturing">2023</option>
+            <!-- Other years here -->
+          </select>
+        </BCol>
+
+      </BRow>
+    </BCol>
+    
+  </BRow>
+</div><br>
+
                       <div>
                         <table
                           class="table align-middle table-nowrap"
@@ -433,7 +413,7 @@ export default {
                               </td>
                             </tr>
                             <tr>
-                              <td class="name">External</td>
+                              <td class="name">Subcon Worker</td>
                               <td class="username">Printed</td>
                               <td>
                                 <div class="d-flex gap-2">
@@ -453,7 +433,7 @@ export default {
                               </td>
                             </tr>
                             <tr>
-                              <td class="name">Subcon as KSK</td>
+                              <td class="name">Subcon as General Worker</td>
                               <td class="username">Printed</td>
                               <td>
                                 <div class="d-flex gap-2">
@@ -487,49 +467,31 @@ export default {
                       </template>
                       <div>
                         <h5 class="mb-1">Site : AR496</h5>
-                        <h6 class="mb-1">Date : 1-Sep-2024 to 15-Sep-2024</h6>
+                        <h6 class="mb-1">Date : 15-Sep-2024</h6>
                         <br />
                       </div>
 
                       <BCardBody>
-                        <div class="row align-items-center">
-                          <!-- Label "Date" in the first column -->
-                          <label class="col-auto form-label mb-0"
-                            >Select Date</label
-                          >
-
-                          <!-- Flatpickr input in the second column -->
-                          <div class="col">
-                            <flat-pickr
-                              v-model="date3"
-                              class="form-control flatpickr-input"
-                              :config="{
-                                minDate: '2023-09-01', // Set your min date here
-                                maxDate: '2023-09-15', // Set your max date here
-                              }"
-                            >
-                            </flat-pickr>
-                          </div>
-                        </div>
-                        <br />
+                        
                         <div class="live-preview">
                           <div class="table-responsive">
+                            <h6>My Attendance</h6>
                             <table class="table align-middle table-nowrap mb-0">
                               <thead class="table-light">
                                 <tr>
-                                  <th scope="col">Member Name</th>
-                                  <th scope="col">In</th>
-                                  <th scope="col">Out</th>
-                                  <th scope="col">Applied</th>
-                                  <th scope="col">Remark</th>
-                                  <th scope="col">Late In</th>
-                                  <th scope="col">OT</th>
-                                  <th scope="col">Actions</th>
+                                  <th style="font-size: 13px" scope="col">Name</th>
+                                  <th style="font-size: 13px" scope="col">In</th>
+                                  <th style="font-size: 13px" scope="col">Out</th>
+                                  <th style="font-size: 13px" scope="col">Applied</th>
+                                  <th style="font-size: 13px" scope="col">Remark</th>
+                                  <th style="font-size: 13px" scope="col">Late In</th>
+                                  <th style="font-size: 13px" scope="col">OT</th>
+                                  <th style="font-size: 13px" scope="col">Actions</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <tr>
-                                  <td>
+                                  <td style="font-size: 13px">
                                     <img
                                       src="@/assets/images/users/avatar-3.jpg"
                                       alt=""
@@ -537,31 +499,31 @@ export default {
                                     />
                                     Olivia Lim
                                   </td>
-                                  <td>14:25AM</td>
-                                  <td>17:39PM</td>
-                                  <td class="text-success">
+                                  <td style="font-size: 13px">14:25AM</td>
+                                  <td style="font-size: 13px">17:39PM</td>
+                                  <td style="font-size: 13px" class="text-success">
                                     <input
                                       type="text"
                                       class="form-control"
                                       placeholder="Enter value"
                                     />
                                   </td>
-                                  <td>
+                                  <td style="font-size: 13px">
                                     <input
                                       type="text"
                                       class="form-control"
                                       placeholder="Enter value"
                                     />
                                   </td>
-                                  <td>
+                                  <td style="font-size: 13px">
                                     <span
                                       class="badge bg-danger-subtle text-danger"
                                       style="font-size: 13px !important"
                                       >6:14:11</span
                                     >
                                   </td>
-                                  <td>0:09:02</td>
-                                  <td>
+                                  <td style="font-size: 13px">0:09:02</td>
+                                  <td style="font-size: 13px">
                                     <div class="d-flex gap-2">
                                       <div class="edit">
                                         <button
@@ -581,32 +543,54 @@ export default {
                                     </div>
                                   </td>
                                 </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div><br><br><br>
+
+                        <div class="live-preview">
+                          <div class="table-responsive">
+                            <h6>Team Member Attendance</h6>
+                            <table class="table align-middle table-nowrap mb-0">
+                              <thead class="table-light">
                                 <tr>
-                                  <td>
+                                  <th  style="font-size: 13px" scope="col">Name</th>
+                                  <th  style="font-size: 13px" scope="col">In</th>
+                                  <th  style="font-size: 13px" scope="col">Out</th>
+                                  <th  style="font-size: 13px" scope="col">Applied</th>
+                                  <th  style="font-size: 13px" scope="col">Remark</th>
+                                  <th  style="font-size: 13px" scope="col">Late In</th>
+                                  <th  style="font-size: 13px" scope="col">OT</th>
+                                  <th  style="font-size: 13px" scope="col">Actions</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td style="font-size: 13px">
                                     <img
                                       src="@/assets/images/users/avatar-3.jpg"
                                       alt=""
                                       class="avatar-xs rounded-circle"
                                     />
-                                    Ken Xiang
+                                    ANG CHIN MEI
                                   </td>
-                                  <td>8:55AM</td>
-                                  <td>17:39PM</td>
-                                  <td class="text-success">
+                                  <td style="font-size: 13px">8:55AM</td>
+                                  <td style="font-size: 13px">17:39PM</td>
+                                  <td style="font-size: 13px" class="text-success">
                                     <input
                                       type="text"
                                       class="form-control"
                                       placeholder="Enter value"
                                     />
                                   </td>
-                                  <td>
+                                  <td style="font-size: 13px">
                                     <input
                                       type="text"
                                       class="form-control"
                                       placeholder="Enter value"
                                     />
                                   </td>
-                                  <td>
+                                  <td style="font-size: 13px">
                                     <span
                                       class="badge bg-danger-subtle text-danger"
                                       style="font-size: 13px !important"
@@ -614,7 +598,7 @@ export default {
                                     >
                                   </td>
                                   <td>0:09:02</td>
-                                  <td>
+                                  <td style="font-size: 13px">
                                     <div class="d-flex gap-2">
                                       <div class="edit">
                                         <button
@@ -635,39 +619,39 @@ export default {
                                   </td>
                                 </tr>
                                 <tr>
-                                  <td>
+                                  <td style="font-size: 13px">
                                     <img
                                       src="@/assets/images/users/avatar-3.jpg"
                                       alt=""
                                       class="avatar-xs rounded-circle"
                                     />
-                                    Mohammad
+                                    YONG CHUEN
                                   </td>
-                                  <td>07:55AM</td>
-                                  <td>18:30PM</td>
-                                  <td class="text-success">
+                                  <td style="font-size: 13px">07:55AM</td>
+                                  <td style="font-size: 13px">18:30PM</td>
+                                  <td style="font-size: 13px" class="text-success">
                                     <input
                                       type="text"
                                       class="form-control"
                                       placeholder="Enter value"
                                     />
                                   </td>
-                                  <td>
+                                  <td style="font-size: 13px">
                                     <input
                                       type="text"
                                       class="form-control"
                                       placeholder="Enter value"
                                     />
                                   </td>
-                                  <td>-</td>
-                                  <td>
+                                  <td style="font-size: 13px">-</td>
+                                  <td style="font-size: 13px">
                                     <span
                                       class="badge bg-danger-subtle text-danger"
                                       style="font-size: 13px !important"
                                       >1:10:10</span
                                     >
                                   </td>
-                                  <td>
+                                  <td style="font-size: 13px">
                                     <div class="d-flex gap-2">
                                       <div class="edit">
                                         <button

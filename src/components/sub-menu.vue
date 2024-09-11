@@ -173,9 +173,6 @@ export default {
       }
       else if (path.startsWith('/system/')) {
         return [
-          { name: 'Employee' , path: '/system/employee' ,
-            
-           },
           { name: 'Admin', path: '/system/user-management' ,
             children: [
                   { name: 'System User', path: '/system/user-management' },
