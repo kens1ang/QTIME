@@ -10,8 +10,8 @@ export default {
     return {
       title: "Attendance",
       currentTab: "summary",
-      paymentVoucherTitle: "Payment Voucher",
       paymentVoucherModal: false,
+      paymentVoucherTitle: "Print Payment",
     };
   },
   components: {
@@ -94,8 +94,9 @@ export default {
         </div>
       </div>
 
-      <!-- Reports -->
+      <!-- buttons -->
       <div class="col-5 text-end">
+        <!--Expenses report-->
         <button
           v-if="currentTab === 'summary'"
           type="button"
@@ -105,6 +106,7 @@ export default {
           Report
         </button>
 
+        <!--Hours report-->
         <button
           v-if="currentTab === 'summary'"
           type="button"
@@ -114,6 +116,7 @@ export default {
           Report
         </button>
 
+        <!--AA only report-->
         <button
           v-if="currentTab === 'payment'"
           type="button"
@@ -125,6 +128,7 @@ export default {
           AA Only Attendance Summary
         </button>
 
+        <!--AAC attendance report-->
         <button
           v-if="currentTab === 'payment'"
           type="button"
@@ -136,6 +140,7 @@ export default {
           ACC Attendance Summary
         </button>
 
+        <!--HR payroll report-->
         <button
           v-if="currentTab === 'payment'"
           type="button"
@@ -147,6 +152,7 @@ export default {
           HR Payroll Report
         </button>
 
+        <!--Instapay report-->
         <button
           v-if="currentTab === 'payment'"
           type="button"
@@ -158,16 +164,18 @@ export default {
           Instapay Report
         </button>
 
+        <!--Print Payment-->
         <button
-          v-if="currentTab === 'payment'"
+          v-if="currentTab === 'details'"
           type="button"
-          class="btn mt-2 btn-sm btn-outline-primary waves-effect waves-light me-2"
-          @click="showPaymentVoucherModal"
+          class="btn btn-sm btn-outline-primary waves-effect waves-light me-2"
+          @click="showPaymentVoucherModal()"
         >
-          <i class="ri-ticket-line label-icon align-middle fs-16 me-2"></i>
-          Payment Voucher
+          <i class=" ri-bill-line label-icon align-middle fs-16 me-2"></i>
+          Print Payment
         </button>
 
+        <!--Export excel-->
         <button
           v-if="currentTab === 'details'"
           type="button"
@@ -177,6 +185,7 @@ export default {
           >Export Excel
         </button>
 
+        <!--Export excel analytics-->
         <button
           v-if="currentTab === 'details'"
           type="button"
@@ -203,7 +212,7 @@ export default {
       <Payment />
     </div>
 
-    <!-- Payment Voucher -->
+    <!-- Print Payment -->
     <BModal
       v-model="paymentVoucherModal"
       modal-class="zoomIn"
@@ -217,36 +226,37 @@ export default {
       no-fade
       size="lg"
     >
-      <div class="d-flex align-items-center mb-3">
+      <div class="d-flex align-items-center mb-3 gap-3">
         <h5 class="fw-bold me-auto">Cash -- Total: RM 3,055.69</h5>
         <button
           type="button"
-          class="btn btn-outline-primary waves-effect waves-light me-3"
+          class="btn btn-outline-primary waves-effect waves-light"
         >
-          Print Incharge
+          Print Voucher
         </button>
         <button
           type="button"
           class="btn btn-outline-primary waves-effect waves-light"
         >
-          Print Individual
+          Print Payslip
         </button>
       </div>
-      <div class="d-flex align-items-center mb-3">
+      <div class="d-flex align-items-center mb-3 gap-3">
         <h5 class="fw-bold me-auto">Instapay -- Total: RM 42,934.00</h5>
         <button
           type="button"
-          class="btn btn-outline-primary waves-effect waves-light me-3"
+          class="btn btn-outline-primary waves-effect waves-light"
         >
-          Print Incharge
+          Print Voucher
         </button>
         <button
           type="button"
           class="btn btn-outline-primary waves-effect waves-light"
         >
-          Print Individual
+          Print Payslip
         </button>
       </div>
     </BModal>
+
   </Layout>
 </template>

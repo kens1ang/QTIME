@@ -75,7 +75,7 @@ export default {
             class="btn btn-outline-primary waves-effect waves-light material-shadow-none me-3"
             @click="showPaymentAdjModal"
           >
-          <i class='bx bx-slider me-1'></i>Payment Adjustment
+            <i class="bx bx-slider me-1"></i>Payment Adjustment
           </button>
           <button
             type="button"
@@ -853,142 +853,364 @@ export default {
     no-fade
     size="xl"
   >
-    <table class="table table-nowrap">
-      <thead>
-        <tr>
-          <th>Staffcode</th>
-          <th>Name</th>
-          <th>Sub total (RM)</th>
-          <th>Adjustment</th>
-          <th>Remark</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>300822</td>
-          <td>Asmadi</td>
-          <td>96.25</td>
-          <td>
-            <div class="input-group mb-1">
-              <span class="input-group-text" id="basic-addon1">+</span>
-              <input
-                type="number"
-                class="form-control form-control-sm"
-                placeholder="Addition"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-              />
-            </div>
-            <div class="input-group">
-              <span class="input-group-text" id="basic-addon1">-</span>
-              <input
-                type="number"
-                class="form-control form-control-sm"
-                placeholder="Deduction"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-              />
-            </div>
-          </td>
-          <td>
-            <textarea
-              class="form-control mb-1"
-              id="exampleFormControlTextarea5"
-              rows="1"
-              placeholder="Remark for Addition"
-            ></textarea>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea5"
-              rows="1"
-              placeholder="Remark for Deduction"
-            ></textarea>
-          </td>
-        </tr>
-        <tr>
-          <td>300822</td>
-          <td>Asmadi</td>
-          <td>96.25</td>
-          <td>
-            <div class="input-group mb-1">
-              <span class="input-group-text" id="basic-addon1">+</span>
-              <input
-                type="number"
-                class="form-control form-control-sm"
-                placeholder="Addition"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-              />
-            </div>
-            <div class="input-group">
-              <span class="input-group-text" id="basic-addon1">-</span>
-              <input
-                type="number"
-                class="form-control form-control-sm"
-                placeholder="Deduction"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-              />
-            </div>
-          </td>
-          <td>
-            <textarea
-              class="form-control mb-1"
-              id="exampleFormControlTextarea5"
-              rows="1"
-              placeholder="Remark for Addition"
-            ></textarea>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea5"
-              rows="1"
-              placeholder="Remark for Deduction"
-            ></textarea>
-          </td>
-        </tr>
-        <tr>
-          <td>300822</td>
-          <td>Asmadi</td>
-          <td>96.25</td>
-          <td>
-            <div class="input-group mb-1">
-              <span class="input-group-text" id="basic-addon1">+</span>
-              <input
-                type="number"
-                class="form-control form-control-sm"
-                placeholder="Addition"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-              />
-            </div>
-            <div class="input-group">
-              <span class="input-group-text" id="basic-addon1">-</span>
-              <input
-                type="number"
-                class="form-control form-control-sm"
-                placeholder="Deduction"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-              />
-            </div>
-          </td>
-          <td>
-            <textarea
-              class="form-control mb-1"
-              id="exampleFormControlTextarea5"
-              rows="1"
-              placeholder="Remark for Addition"
-            ></textarea>
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea5"
-              rows="1"
-              placeholder="Remark for Deduction"
-            ></textarea>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <div class="col-sm">
+        <div class="d-flex justify-content-sm-end">
+          <div class="search-box ms-2">
+            <input
+              type="text"
+              class="form-control search"
+              placeholder="Search..."
+            />
+            <i class="ri-search-line search-icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive scrollable-table-container">
+      <table class="table table-nowrap">
+        <thead>
+          <tr>
+            <th>Staffcode</th>
+            <th>Name</th>
+            <th>Sub total (RM)</th>
+            <th>Adjustment</th>
+            <th>Remark</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>300822</td>
+            <td>Asmadi</td>
+            <td>96.25</td>
+            <td>
+              <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon1">+</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Addition"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">-</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Deduction"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </td>
+            <td>
+              <textarea
+                class="form-control mb-1"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Addition"
+              ></textarea>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Deduction"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>300822</td>
+            <td>Asmadi</td>
+            <td>96.25</td>
+            <td>
+              <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon1">+</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Addition"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">-</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Deduction"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </td>
+            <td>
+              <textarea
+                class="form-control mb-1"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Addition"
+              ></textarea>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Deduction"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>300822</td>
+            <td>Asmadi</td>
+            <td>96.25</td>
+            <td>
+              <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon1">+</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Addition"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">-</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Deduction"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </td>
+            <td>
+              <textarea
+                class="form-control mb-1"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Addition"
+              ></textarea>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Deduction"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>300822</td>
+            <td>Asmadi</td>
+            <td>96.25</td>
+            <td>
+              <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon1">+</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Addition"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">-</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Deduction"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </td>
+            <td>
+              <textarea
+                class="form-control mb-1"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Addition"
+              ></textarea>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Deduction"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>300822</td>
+            <td>Asmadi</td>
+            <td>96.25</td>
+            <td>
+              <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon1">+</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Addition"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">-</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Deduction"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </td>
+            <td>
+              <textarea
+                class="form-control mb-1"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Addition"
+              ></textarea>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Deduction"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>300822</td>
+            <td>Asmadi</td>
+            <td>96.25</td>
+            <td>
+              <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon1">+</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Addition"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">-</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Deduction"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </td>
+            <td>
+              <textarea
+                class="form-control mb-1"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Addition"
+              ></textarea>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Deduction"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>300822</td>
+            <td>Asmadi</td>
+            <td>96.25</td>
+            <td>
+              <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon1">+</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Addition"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">-</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Deduction"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </td>
+            <td>
+              <textarea
+                class="form-control mb-1"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Addition"
+              ></textarea>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Deduction"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>300822</td>
+            <td>Asmadi</td>
+            <td>96.25</td>
+            <td>
+              <div class="input-group mb-1">
+                <span class="input-group-text" id="basic-addon1">+</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Addition"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1">-</span>
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  placeholder="Deduction"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </td>
+            <td>
+              <textarea
+                class="form-control mb-1"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Addition"
+              ></textarea>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea5"
+                rows="1"
+                placeholder="Remark for Deduction"
+              ></textarea>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="modal-footer v-modal-footer">
       <div class="hstack gap-2 justify-content-end">
@@ -1002,3 +1224,11 @@ export default {
     </div>
   </BModal>
 </template>
+
+<style>
+.scrollable-table-container {
+  max-height: 400px; /* Set the maximum height for the container */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Hide horizontal scrolling */
+}
+</style>

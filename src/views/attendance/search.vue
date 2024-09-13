@@ -7,8 +7,8 @@ import axios from "axios";
 import animationData from "@/components/widgets/msoeawqm.json";
 
 import "flatpickr/dist/flatpickr.css";
-import "@simonwep/pickr/dist/themes/classic.min.css"; // 'classic' theme
-import "@simonwep/pickr/dist/themes/monolith.min.css"; // 'monolith' theme
+import "@simonwep/pickr/dist/themes/classic.min.css"; 
+import "@simonwep/pickr/dist/themes/monolith.min.css"; 
 import "@simonwep/pickr/dist/themes/nano.min.css";
 
 export default {

@@ -112,6 +112,13 @@ export default [
     component: () => import("../views/attendance/search.vue"),
   },
 
+  {
+    path: "/attendance/index",
+    name: "attendance-index",
+    meta: { title: "Attendance", authRequired: true },
+    component: () => import("../views/attendance/index"),
+  },
+
  {
     path: "/system/schedule",
     name: "schedule",
@@ -146,14 +153,6 @@ export default [
       authRequired: true,
     },
     component: () => import("../views/dashboard/project-progress-budget/index.vue"),
-  },
-
-  //Attendance Folder
-  {
-    path: "/attendance/index",
-    name: "attendance-index",
-    meta: { title: "Attendance", authRequired: true },
-    component: () => import("../views/attendance/index"),
   },
 
   //end of QTIME
