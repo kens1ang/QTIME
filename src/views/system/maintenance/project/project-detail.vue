@@ -2,6 +2,11 @@
 import Layout from "@/layouts/main.vue";
 import "@vueform/multiselect/themes/default.css";
 import { reactive } from 'vue';
+<<<<<<< Updated upstream
+=======
+import Choices from 'choices.js';
+import Gannt from "@/views/system/maintenance/project/gannt.vue";
+>>>>>>> Stashed changes
 
 export default {
     data() {
@@ -73,6 +78,10 @@ export default {
     },
     components: {
         Layout,
+<<<<<<< Updated upstream
+=======
+        Gannt
+>>>>>>> Stashed changes
     },
     methods: {
         toggleDropdown() {
@@ -177,14 +186,14 @@ export default {
                                         </BCol>
                                         <BCol md>
                                             <div>
-                                                <h4 class="fw-bold">Project Code : AR496</h4>
+                                                <h4 class="fw-bold">AR496</h4>
                                                 <div class="hstack gap-3 flex-wrap">
-                                                    <div><i class="ri-building-line align-bottom me-1"></i> ALUNAS ASAS SDN BHD
+                                                  <div><i class=" ri-projector-line align-bottom me-1"></i> Aunggun Residence 
+                                                  </div><div class="vr"></div>
+                                                    <div><i class="ri-building-line align-bottom me-1" ></i> ALUNAS ASAS SDN BHD
                                                     </div>
                                                     <div class="vr"></div>
-                                                    <div>Contract End Date : <span class="fw-medium">29 Dec, 2024</span></div>
-                                                    <div class="vr"></div>
-                                                    <BBadge pill class="bg-sucess fs-12" style="background-color: green !important;">Completed</BBadge>
+                                                    <BBadge pill class="bg-warning fs-12" >Left 10 Days</BBadge>
                                                 </div>
                                             </div>
                                         </BCol>
@@ -203,15 +212,15 @@ export default {
                     <BTab title="Detail" active class="fw-semibold pt-2">
                         <BRow>
                             <BCol xl="12" lg="12">
+                          
                                 <BCard no-body>
+                              
                                     <BCardBody>
                                         <div class="text-muted">
-                                            <div class="d-flex justify-content-between align-items-center mb-3">
-  <!-- Description on the Left -->
-  <h6 class="mb-0 fw-semibold text-uppercase">Description</h6>
-
-  <!-- Button on the Right -->
-  <BButton 
+                                          <div class="d-flex justify-content-between align-items-center">
+                                            <h6 class="mb-3 fw-semibold text-uppercase">Overview</h6>
+                                           
+                                            <BButton 
     type="button" 
     variant="success" 
     class="btn btn-light"
@@ -223,127 +232,69 @@ export default {
   </BButton>
 </div>
 
-                                            <p>Sample Description for Project AR496</p>
-                                            <div class="d-flex justify-content-between">
-  <!-- Left side list items -->
-  <ul class="ps-4 vstack gap-2 me-2">
-    <li>Project Name :</li>
-    <li>Contract Start Date : 15 Sep 2021</li>
-    <li>Progress : 100%</li>
-    <li>Completed Day : 100days</li>
-  </ul>
+                                            <ul class="ps-4 vstack gap-2">
+                                                <li>Description : Sample description of project AR406</li>
+                                                <li>Prefix :</li>
+                                                <li>DLP : 2</li>
+                                            </ul>
 
-  <!-- Right side list items -->
-  <ul class="ps-4 vstack gap-2 ms-2">
-    <li>Contract Value :</li>
-    <li>Prefix :</li>
-    <li>DIP Period :</li>
-  </ul>
-</div>
+                                            <div class="pt-3 border-top border-top-dashed mt-4">
+                                                <BRow gy-3>
 
+                                                    <BCol lg="3" sm="6">
+                                                        <div>
+                                                            <p class="mb-2 text-uppercase fw-medium">Contract Start Date :</p>
+                                                            <h5 class="fs-15 mb-0">15 Sep, 2021</h5>
+                                                        </div>
+                                                    </BCol>
+                                                    <BCol lg="3" sm="6">
+                                                        <div>
+                                                            <p class="mb-2 text-uppercase fw-medium">Contract End Date :</p>
+                                                            <h5 class="fs-15 mb-0">29 Dec, 2024</h5>
+                                                        </div>
+                                                    </BCol>
+                                                    <BCol lg="3" sm="6">
+                                                        <div>
+                                                            <p class="mb-2 text-uppercase fw-medium">Contract Value :</p>
+                                                            <h5 class="fs-15 mb-0">100 million</h5>
+                                                        </div>
+                                                    </BCol>
+                                                    <BCol lg="3" sm="6">
+                                                        <div>
+                                                            <p class="mb-2 text-uppercase fw-medium">Status :</p>
+                                                            <BBadge tag="div" class="bg-warning fs-12">On Going</BBadge>
+                                                        </div>
+                                                    </BCol>
+                                                </BRow>
+                                            </div>
 
-                                            
                                         </div>
                                     </BCardBody>
-                                </BCard>
+                                  </BCard>
                             </BCol>
 
                             <BCol xl="12" lg="12">
     <BCard no-body>
         <BCardHeader class="card-header bg-dark-subtle d-flex justify-content-between align-items-center">
-  <BCardTitle class="mb-0">Organization Chart</BCardTitle>
-  <div class="hstack gap-2">
-    <BButton 
-      type="button" 
-      variant="primary" 
-      @click="toggleModal"
-    >
-      <i class="ri-share-line me-1 align-bottom"></i>
-      Manage Member
-    </BButton>
-  </div>
-</BCardHeader>
+            <BCardTitle class="mb-0">Organization Chart</BCardTitle>
+            <div class="hstack gap-2">
+                <BButton 
+                  type="button" 
+                  variant="primary" 
+                  @click="toggleModal"
+                >
+                  <i class="ri-share-line me-1 align-bottom"></i>
+                  Manage Member
+                </BButton>
+            </div>
+        </BCardHeader>
         <BCardBody>
-            <div class="hori-sitemap">
-                <!-- Organization Chart -->
-                <ul class="list-unstyled mb-0">
-                    <li class="p-0 parent-title">
-                        <BLink href="javascript: void(0);" class="fw-semibold">Project Director <br>
-                            <span class="small-text">1. Loh Beng Ping</span></BLink>
-                    </li>
-                </ul>
-                <!-- Project Manager and Contract Manager Row -->
-                <ul class="list-unstyled row g-0 mb-0" >
-                    <!-- Project Manager Column -->
-                    <li class="col-sm-6">
-                        <BLink href="javascript: void(0);" class="fw-semibold">Project Manager/Senior Project Manager
-                             <br><span class="small-text">1. Ang Li Win</span></BLink>
-                        <ul class="list-unstyled second-list pt-0">
-                            <li>
-                                <div>
-                                    <BLink href="javascript: void(0);">Assistant Project Manager/Senior Manager</BLink>
-                                </div>
-                                <ul class="list-unstyled second-list pt-0">
-                                    <li>
-                                        <div>
-                                            <BLink href="javascript: void(0);">Engineer Manager</BLink>
-                                        </div>
-                                        <ul class="list-unstyled row g-0 mb-0 justify-content-center" style="width: 130%">
-                                            <li class="col-sm-2 text-center">
-                                                <BLink href="javascript: void(0);" class="fw-semibold">Construction <br>Supervisor</BLink>
-                                            </li>
-                                            <li class="col-sm-2 text-center">
-                                                <BLink href="javascript: void(0);" class="fw-semibold">Architect</BLink>
-                                            </li>
-                                            <li class="col-sm-2 text-center">
-                                                <BLink href="javascript: void(0);" class="fw-semibold">Site <br> Clock</BLink>
-                                            </li>
-                                            <li class="col-sm-1 text-center">
-                                                <BLink href="javascript: void(0);" class="fw-semibold">Safety</BLink>
-                                            </li>
-                                            <li class="col-sm-2 text-center">
-                                                <BLink href="javascript: void(0);" class="fw-semibold">QA/QC <br> Person Incharge</BLink>
-                                            </li>
-                                            <li class="col-sm-2 text-center">
-                                                <BLink href="javascript: void(0);" class="fw-semibold">Land</BLink>
-                                            </li>
-                                            <li class="col-sm-1 text-center">
-                                                <BLink href="javascript: void(0);" class="fw-semibold">M&E</BLink>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                  
-                    </li>
-                    <!-- Contract Manager Column -->
-                    <li class="col-sm-6">
-    <BLink href="javascript: void(0);" class="fw-semibold">Contract Manager <br>
-        <span class="small-text">1. CHIN KHOI HOE</span>
-        <br><span class="small-text">2. NG POOI HOCK</span>
-    </BLink>
-    <ul class="list-unstyled second-list pt-0 d-flex flex-wrap" style="margin-left:43%">
-        <li class="me-5">
-            <div>
-                <BLink href="javascript: void(0);">QS</BLink>
-            </div>
-        </li>
-        <li>
-            <div>
-                <BLink href="javascript: void(0);">QS</BLink>
-            </div>
-        </li>
-    </ul>
-</li>
-
-                </ul>
-                <!-- Additional Roles Row (Single Line) -->
-                
-            </div>
+         <Gannt />
         </BCardBody>
     </BCard>
 </BCol>
+
+
 
                         </BRow>
                     </BTab>
@@ -537,7 +488,7 @@ export default {
                 style="width: 75px; height: 75px"
               ></lord-icon>
               <h5 class="mt-2">Sorry! No Result Found</h5>
-              <p class="text-muted mb-0">
+              <p class="text-muted mb-0 fs-12">
                 We've searched more than 150+ Orders We did not find any orders
                 for you search.
               </p>
@@ -601,14 +552,20 @@ export default {
                             <BCol>
                                 <BCard no-body class="border-0 overflow-hidden">
                                     <BLink class="card-header bg-danger-subtle" role="button" v-b-toggle.leadDiscovered>
+<<<<<<< Updated upstream
                                         <div class="d-flex justify-content-between align-items-center mb-2">
                                         <h5 class="card-title text-uppercase fw-semibold mb-0 fs-15">Attendance Approval Email List</h5>
+=======
+                                        <div class="d-flex justify-content-between align-items-center mb-2" style="height: 38px;">
+                                        <h5 class="card-title text-uppercase fw-semibold mb-0 fs-15">General Worker Attendance Approval Email List</h5>
+>>>>>>> Stashed changes
                               
                                         </div>
                                     </BLink>
                                     <BCard no-body >
-                                        <BCardBody>
+                                        <BCardBody style="padding: 0px 0px 0px 15px;">
                                             <BLink class="d-flex align-items-center" role="button" v-b-toggle.leadDiscovered1>
+<<<<<<< Updated upstream
                                                 <div class="avatar-sm img-thumbnail rounded-circle">
                                                     <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
                                                         TK
@@ -667,6 +624,85 @@ export default {
                                                     <p class="text-muted mb-0">Incharge : Staff</p>
                                                     
                                                 </div>
+=======
+                                                <table class="table table-borderless align-middle">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        TK
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td> 
+                                                              <h6 class="fs-14 mb-1">David Ong Tai Kheng</h6>
+                                                              <p class="text-muted mb-0 fs-12">Roles : Site Team Member</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        TM                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <!-- Member Details Column -->
+                                                            <td>
+                                                                <h6 class="fs-14 mb-1">
+                                                                    TAN MAN TING
+                                                                
+                                                                </h6>
+                                                                <p class="text-muted mb-0 fs-12">Roles : Site Team Member</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        KT
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td> 
+                                                              <h6 class="fs-14 mb-1">Keng Tian</h6>
+                                                              <p class="text-muted mb-0 fs-12">Roles : Site Team Member</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>4.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        JK
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td> 
+                                                              <h6 class="fs-14 mb-1">Ooi Jun Kai</h6>
+                                                              <p class="text-muted mb-0 fs-12">Roles : Site Team Member</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>5.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        LK
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td> 
+                                                              <h6 class="fs-14 mb-1">Lim Lai Kai</h6>
+                                                              <p class="text-muted mb-0 fs-12">Roles : Site Team Member</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </BLink>
                                         </BCardBody>
                                     </BCard>
@@ -675,7 +711,186 @@ export default {
                             </BCol>
 
                             <BCol>
-                                <BCard no-body>
+                                <BCard no-body class="border-0 overflow-hidden">
+                                    <BLink class="card-header bg-danger-subtle" role="button" v-b-toggle.leadDiscovered>
+                                        <div class="d-flex justify-content-between align-items-center mb-2" style="height: 38px;">
+                                        <h5 class="card-title text-uppercase fw-semibold mb-0 fs-15">Subcon as General Worker Attendance Approval Email List</h5>
+                                        </div>
+                                    </BLink>
+                                    <BCard no-body >
+                                        <BCardBody  style="padding: 0px 0px 0px 15px;">
+                                            <BLink class="d-flex align-items-center" role="button" v-b-toggle.leadDiscovered1>
+                                                <table class="table table-borderless align-middle">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        TK
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <!-- Member Details Column -->
+                                                            <td>
+                                                                <h6 class="fs-14 mb-1">
+                                                                    David Ong Tai Kheng
+                                                                
+                                                                </h6>
+                                                                <p class="text-muted mb-0 fs-12">Roles: Member</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        TM                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <!-- Member Details Column -->
+                                                            <td>
+                                                                <h6 class="fs-14 mb-1">
+                                                                    TAN MAN TING
+                                                                
+                                                                </h6>
+                                                                <p class="text-muted mb-0 fs-12">Roles : Site Team Member</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </BLink>
+                                        </BCardBody>
+                                    </BCard>
+                                </BCard>
+                                
+                            </BCol>
+
+                            <BCol>
+                                <BCard no-body class="border-0 overflow-hidden">
+                                    <BLink class="card-header bg-danger-subtle" role="button" v-b-toggle.leadDiscovered>
+                                        <div class="d-flex justify-content-between align-items-center mb-2" style="height: 38px;">
+                                        <h5 class="card-title text-uppercase fw-semibold mb-0 fs-15">Subcon Worker Attendance Approval Email List</h5>
+                              
+                                        </div>
+                                    </BLink>
+                                    <BCard no-body >
+                                        <BCardBody  style="padding: 0px 0px 0px 15px;">
+                                            <BLink class="d-flex align-items-center" role="button" v-b-toggle.leadDiscovered1>
+                                                <table class="table table-borderless align-middle">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        TK
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <!-- Member Details Column -->
+                                                            <td>
+                                                                <h6 class="fs-14 mb-1">
+                                                                    David Ong Tai Kheng
+                                                                
+                                                                </h6>
+                                                                <p class="text-muted mb-0 fs-12">Roles: Member</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        TM                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <!-- Member Details Column -->
+                                                            <td>
+                                                                <h6 class="fs-14 mb-1">
+                                                                    TAN MAN TING
+                                                                
+                                                                </h6>
+                                                                <p class="text-muted mb-0 fs-12">Roles : Site Team Member</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </BLink>
+                                        </BCardBody>
+                                    </BCard>
+                                </BCard>
+                                
+                            </BCol>
+
+                            <BCol>
+                                <BCard no-body class="border-0 overflow-hidden">
+                                    <BLink class="card-header bg-danger-subtle" role="button" v-b-toggle.leadDiscovered>
+                                        <div class="d-flex justify-content-between align-items-center mb-2" style="height: 38px;">
+                                        <h5 class="card-title text-uppercase fw-semibold mb-0 fs-15">Staff Attendance Approval Email List</h5>
+                              
+                                        </div>
+                                    </BLink>
+                                    <BCard no-body >
+                                        <BCardBody  style="padding: 0px 0px 0px 15px;">
+                                            <BLink class="d-flex align-items-center" role="button" v-b-toggle.leadDiscovered1>
+                                                <table class="table table-borderless align-middle">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        TK
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <!-- Member Details Column -->
+                                                            <td>
+                                                                <h6 class="fs-14 mb-1">
+                                                                    David Ong Tai Kheng
+                                                                
+                                                                </h6>
+                                                                <p class="text-muted mb-0 fs-12">Roles: Member</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        TM                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <!-- Member Details Column -->
+                                                            <td>
+                                                                <h6 class="fs-14 mb-1">
+                                                                    TAN MAN TING
+                                                                
+                                                                </h6>
+                                                                <p class="text-muted mb-0 fs-12">Roles : Site Team Member</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+>>>>>>> Stashed changes
+                                            </BLink>
+                                        </BCardBody>
+                                    </BCard>
+                                </BCard>
+                            </BCol>
+
+                            <BCol>
+                                <BCard no-body class="border-0 overflow-hidden">
                                     <BLink class="card-header bg-success-subtle" role="button" v-b-toggle.contactInitiated>
                                         <div class="d-flex justify-content-between align-items-center mb-2">
                                         <h5 class="card-title text-uppercase fw-semibold mb-0 fs-14">Work Order Approval Email List</h5>
@@ -683,8 +898,9 @@ export default {
                                         </div>
                                     </BLink>
                                     <BCard no-body >
-                                        <BCardBody>
+                                        <BCardBody  style="padding: 0px 0px 0px 15px;">
                                             <BLink class="d-flex align-items-center" role="button" v-b-toggle.contactInitiated3>
+<<<<<<< Updated upstream
                                                 <div class="avatar-sm img-thumbnail rounded-circle">
                                                     <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
                                                         BP
@@ -730,6 +946,90 @@ export default {
                                                     <p class="text-muted mb-0">Incharge : Staff</p>
                                                     
                                                 </div>
+=======
+                                                <table class="table table-borderless align-middle">
+                                                    <tbody>
+                                                        <tr>
+                                                             <td>1.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        OL
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <h6 class="fs-14 mb-1">
+                                                                    Olivia Lim Oli Via
+                                                                
+                                                                </h6>
+                                                                <p class="text-muted mb-0 fs-12">Roles: Member</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        LM
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                            <td>
+                                                                <h6 class="fs-14 mb-1">
+                                                                    TAN LAY MIN 
+                                                                
+                                                                </h6>
+                                                                <p class="text-muted mb-0 fs-12">Roles: QS Manager</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        KT
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td> 
+                                                              <h6 class="fs-14 mb-1">Keng Tian</h6>
+                                                              <p class="text-muted mb-0 fs-12">Roles : Site Team Member</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>4.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        JK
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td> 
+                                                              <h6 class="fs-14 mb-1">Ooi Jun Kai</h6>
+                                                              <p class="text-muted mb-0 fs-12">Roles : Site Team Member</p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>5.</td>
+                                                            <td style="width: 50px;">
+                                                                <div class="avatar-sm img-thumbnail rounded-circle">
+                                                                    <div class="avatar-title bg-primary-subtle text-primary rounded-circle">
+                                                                        LK
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td> 
+                                                              <h6 class="fs-14 mb-1">Lim Lai Kai</h6>
+                                                              <p class="text-muted mb-0 fs-12">Roles : Site Team Member</p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+>>>>>>> Stashed changes
                                             </BLink>
                                         </BCardBody>
                                     </BCard>
@@ -739,8 +1039,13 @@ export default {
                             <BCol>
                                 <BCard no-body>
                                     <BLink class="card-header bg-warning-subtle" role="button" v-b-toggle.needsIdentified>
+<<<<<<< Updated upstream
                                         <div class="d-flex justify-content-between align-items-center mb-2">
                                         <h5 class="card-title text-uppercase fw-semibold mb-1 fs-15">Registration Approval Email List</h5>
+=======
+                                        <div class="d-flex justify-content-between align-items-center mb-2" style="height: 38px;">
+                                        <h5 class="card-title text-uppercase fw-semibold mb-1 fs-15">General Worker Registration Approval Email List</h5>
+>>>>>>> Stashed changes
                                   
                                         </div>
                                     </BLink>
@@ -750,8 +1055,13 @@ export default {
                             <BCol>
                                 <BCard no-body>
                                     <BLink class="card-header bg-info-subtle" role="button" v-b-toggle.meetingArranged>
+<<<<<<< Updated upstream
                                         <div class="d-flex justify-content-between align-items-center mb-2">
                                         <h5 class="card-title text-uppercase fw-semibold mb-1 fs-15">Resignation Approval Email List</h5>
+=======
+                                        <div class="d-flex justify-content-between align-items-center mb-2" style="height: 38px;">
+                                        <h5 class="card-title text-uppercase fw-semibold mb-1 fs-15">General Worker Resignation Approval Email List</h5>
+>>>>>>> Stashed changes
                                 
                                         </div>
                                     </BLink>
@@ -994,13 +1304,18 @@ export default {
                                     <option value="Manufacturing">Project Director</option>
                                     <option value="Merchandising">Project Manager</option>
                                     <option value="Merchandising">Assistant Project Manager</option>
+                                    <option value="Manufacturing">Site</option>
                                     <option value="Partnership" selected>Contract Manager</option>
+                                    <option value="Corporation">QS</option>
                                     <option value="Manufacturing">QA/QC Manager </option>
+                                    <option value="Merchandising">QA/QC</option>
                                     <option value="Manufacturing">Purchasing</option>
-                                    <option value="Manufacturing">Site Team Member</option>
-                                    <option value="Corporation">Safety</option>
-                                    <option value="Merchandising">Construction Supervisor</option>
-                                    <option value="Manufacturing">Person Incharge</option>
+                                    <option value="Manufacturing">Account</option>
+                                    <option value="Manufacturing">HR</option>
+                                    <option value="Manufacturing">Purchaser</option>
+                                    <option value="Manufacturing">Client</option>
+                                    <option value="Manufacturing">Consultan</option>
+                                    <option value="Manufacturing">View</option>
                                     </select>
                     </div>
                 </BCol>
@@ -1122,15 +1437,15 @@ export default {
                         <input type="text" class="form-control" id="boardName" value="Sample Description for Project AR496" placeholder="Enter description">
                     </BCol>
                     <BCol lg="6">     
-                        <label for="email" class="form-label">Contract Value</label>
-                        <input type="email" class="form-control" id="boardName" placeholder="Enter contract value">
-                    </BCol>
-                    <BCol lg="6">     
                         <label for="staffcode" class="form-label">DIP Period</label>
                         <input type="text" class="form-control" id="boardName" placeholder="Enter dip period">
                     </BCol>
                     <BCol lg="6">     
-                        <label for="accesslevel" class="form-label">Actual Start Date</label>
+                        <label for="email" class="form-label">Contract Value</label>
+                        <input type="email" class="form-control" id="boardName" placeholder="Enter contract value">
+                    </BCol>
+                    <BCol lg="6">     
+                        <label for="accesslevel" class="form-label">Contract Start Date</label>
                         <input
     type="date"
     class="form-control"
@@ -1139,7 +1454,7 @@ export default {
   />
                     </BCol>
                     <BCol lg="6"> 
-                        <label for="mobileaccess">Actual End Date</label>
+                        <label for="mobileaccess">Contract End Date</label>
                         <input
     type="date"
     class="form-control"
@@ -1165,39 +1480,6 @@ export default {
     display: none !important;
 }
 
-.hori-sitemap {
-    overflow-x: auto;
-    padding: 15px;
-}
-
-.hori-sitemap ul {
-    white-space: nowrap;
-}
-
-.small-text {
-    font-size: 0.8rem; /* Adjust size as needed */
-    font-weight: normal; /* Ensure it's not bold */
-}
-
-
-
-.team-card-header {
-  padding: 1rem;
-  position: relative;
-}
-.card-body-scroll {
-  max-height: 400px; /* Adjust this value as needed */
-  overflow-y: auto;
-}
-.member-list {
-  list-style-type: none;
-  padding: 0;
-}
-.member-list li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
 .avatar-sm {
   width: 30px;
   height: 30px;
@@ -1206,10 +1488,7 @@ export default {
   justify-content: center;
   font-size: 0.75rem;
 }
-.member-info {
-  flex-grow: 1;
-  margin-left: 1rem;
-}
+
 .icon-btn {
   font-size: 1rem;
   color: #6c757d;

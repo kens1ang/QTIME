@@ -447,7 +447,13 @@ export default {
                                     </div>
                                 </th>
                                 <th></th>
+<<<<<<< Updated upstream
                                 <th class="sort" data-sort="customer_name" @click="onSort('customer')">ID</th>
+=======
+                                <th class="sort" data-sort="customer_name" @click="onSort('customer')">Staff Code</th>
+                                
+                                <th class="sort" data-sort="status" @click="onSort('status')">Name</th>
+>>>>>>> Stashed changes
                                 <th class="sort" data-sort="email" @click="onSort('email')">RFID</th>
                                 
                                 <th class="sort" data-sort="phone" @click="onSort('phone')">Incharge</th>
@@ -541,7 +547,7 @@ export default {
                     <img src="@/assets/images/qr-code.png" class="card-logo card-qr-code"
                         alt="logo dark" height="120">
                     <h6 class="text-muted text-uppercase fw-bold" style="margin-top: 12px;">ID : 2880052</h6>
-                    <p class="text-muted mb-1" id="address-details">Staff Name : Yohanes Laga Kia</p>
+                    <p class="text-muted mb-1" id="address-details">Name : Yohanes Laga Kia</p>
                     <p class="text-muted mb-1" id="address-details">Staff Code : 711024</p>
                 </div>
             </div>

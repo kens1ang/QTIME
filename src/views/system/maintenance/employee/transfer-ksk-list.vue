@@ -7,6 +7,7 @@ import animationData1 from "@/components/widgets/gsqxdxog.json";
 import { ref, watch } from "vue";
 import useVuelidate from "@vuelidate/core";
 import DropZone from "@/components/widgets/dropZone";
+import Choices from 'choices.js';
 
 export default {
   data() {
@@ -46,10 +47,10 @@ export default {
         email: "R6A6B-191",
         phone: "Yohanes Laga Kia",
         type: "",
-        rfid: "",
+        rfid: "AA",
         plate: "KS7",
         createby: "apps",
-        payment: "BACK HOE",
+        payment: "Cash",
         date: "2024-08-27 09:57:17"
         },
         {
@@ -58,10 +59,10 @@ export default {
         email: "CU1C",
         phone: "Ririn	",
         type: "	O&L Machinery",
-        rfid: "",
+        rfid: "AA",
         plate:"KS7",
         createby: "csang",
-        payment: "EXCAVATOR EX200",
+        payment: "Cash",
         date: "2024-08-27 09:57:17"
         },
         ],
@@ -141,6 +142,87 @@ export default {
   },
   
   methods: {
+    initializeChoices() {
+      new Choices(this.$refs.selectElement, {
+        searchEnabled: true,
+        itemSelectText: '',
+        placeholder: true,
+        placeholderValue: 'Search Project',
+      });
+      new Choices(this.$refs.selectElement1, {
+        searchEnabled: true,
+        itemSelectText: '',
+        placeholder: true,
+        placeholderValue: 'Search Project',
+      });
+      new Choices(this.$refs.selectElement2, {
+        searchEnabled: true,
+        itemSelectText: '',
+        placeholder: true,
+        placeholderValue: 'Search Project',
+      });
+      new Choices(this.$refs.selectElement3, {
+        searchEnabled: true,
+        itemSelectText: '',
+        placeholder: true,
+        placeholderValue: 'Search Company',
+      });
+      new Choices(this.$refs.selectElement4, {
+        searchEnabled: true,
+        itemSelectText: '',
+        placeholder: true,
+        placeholderValue: 'Search Company',
+      });
+      new Choices(this.$refs.selectElement5, {
+        searchEnabled: true,
+        itemSelectText: '',
+        placeholder: true,
+        placeholderValue: 'Search Company',
+      });
+      new Choices(this.$refs.selectElement6, {
+        searchEnabled: true,
+        itemSelectText: '',
+        placeholder: true,
+        placeholderValue: 'Search Machinery',
+      });
+      new Choices(this.$refs.selectElement7, {
+        searchEnabled: true,
+        itemSelectText: '',
+        placeholder: true,
+        placeholderValue: 'Search Machinery',
+      });
+      new Choices(this.$refs.selectElement8, {
+        searchEnabled: true,
+        itemSelectText: '',
+        placeholder: true,
+        placeholderValue: 'Search Plate No',
+      });
+      new Choices(this.$refs.selectElement9, {
+        searchEnabled: true,
+        itemSelectText: '',
+        placeholder: true,
+        placeholderValue: 'Search Plate No',
+      });
+      new Choices(this.$refs.selectElement10, {
+        searchEnabled: true,
+        itemSelectText: '',
+        placeholder: true,
+        placeholderValue: 'Search Plate No',
+      });
+      new Choices(this.$refs.selectElement11, {
+        searchEnabled: true,
+        itemSelectText: '',
+        placeholder: true,
+        placeholderValue: 'Search Plate No',
+      });
+      
+      new Choices(this.$refs.selectElement12, {
+        searchEnabled: true,
+        itemSelectText: '',
+        placeholder: true,
+        placeholderValue: 'Search Person Incharge',
+      });
+    },
     openAdvancedSearch(){
       this.advancedSearch = true;
     },
@@ -330,6 +412,7 @@ export default {
     return { dropzoneFile, files, filePreviews, drop, selectedFile, v$: useVuelidate() };
   },
   mounted() {
+    this.initializeChoices();
     var checkAll = document.getElementById("checkAll");
     if (checkAll) {
       checkAll.onclick = function () {
@@ -375,8 +458,7 @@ export default {
 
 
 <template>
- <BCard no-body id="customerList">
-                    <BCardBody class="border-bottom-dashed border-bottom">
+                    <BCardBody >
                         <b-form>
                         <BRow class="g-3">
                             <BCol xl="2">
@@ -405,26 +487,28 @@ export default {
                                 <div>
                                     <BLink href="/system/employee-qr" class="w-100">
                                         <BButton type="button" variant="warning" class="w-100" style="font-size: 12px;">
-                                            <i class="ri-qr-code-line me-2 align-bottom"></i>Bulk Print QR
+                                            <i class="ri-qr-code-line me-2 align-bottom"></i>Bulk Transfer
                                         </BButton>
                                     </BLink>
                                 </div>
                                 </BCol>
-
                                 <BCol sm="1">
                                 <div>
                                     <BLink href="" class="w-100">
-                                        <BButton type="button" variant="success" class="w-100" @click="createModaltoggle" style="font-size: 12px;">
-                                          <i class="ri-user-add-line"></i>
+                                        <BButton type="button" variant="light" class="w-100" style="font-size: 12px;">
+                                            <i class="ri-download-2-line"></i>
                                         </BButton>
                                     </BLink>
                                 </div>
                                 </BCol>
                             </BRow>
                             </BCol>
+
+                            <BCol xl="12"><BBadge variant="light-subtle" class="badge rounded-pill bg-light text-body" style="line-height: 1.95 !important;width: 8%;" ><i class=" ri-close-line"></i>
+              AA Permit: AA </BBadge></BCol>
                         </BRow>
                         </b-form>
-                    </BCardBody>
+                    </BCardBody><br><br>
                     <BCardBody>
                         <div>
                         <div class="table-responsive table-card mb-1">
@@ -437,21 +521,13 @@ export default {
                                     </div>
                                 </th>
                                 <th></th>
-<<<<<<< Updated upstream
-                                <th class="sort" data-sort="customer_name" @click="onSort('customer')">ID</th>
-=======
                                 <th class="sort" data-sort="customer_name" @click="onSort('customer')">Staff Code</th>
                                 <th class="sort" data-sort="date" @click="onSort('date')">Name</th>
->>>>>>> Stashed changes
-                                <th class="sort" data-sort="email" @click="onSort('email')">RFID</th>
-                                <th class="sort" data-sort="phone" @click="onSort('phone')">Incharge</th>
-                                <th class="sort" data-sort="date" @click="onSort('date')">Location</th>
-                                <th class="sort" data-sort="date" @click="onSort('date')">Staff Name</th>
-                                <th>Plate Number</th>
-                                <th class="sort" data-sort="status" @click="onSort('status')">Company</th>
-                                <th class="sort" data-sort="status" @click="onSort('status')">Machinery</th>
+                                <th class="sort" data-sort="phone" @click="onSort('phone')">Person Incharge</th>
+                                <th>Location</th>
+                                <th class="sort" data-sort="date" @click="onSort('date')">AA Permit</th>
+                                <th class="sort" data-sort="status" @click="onSort('status')">Payment Method</th>
                                 <th class="sort" data-sort="status" @click="onSort('status')">Updated</th>
-                                <th class="sort" data-sort="action">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="list form-check-all">
@@ -464,31 +540,12 @@ export default {
                                 <td><img src="@/assets/images/brands/multi-user.jpg" alt=""
                                   class="avatar-xs rounded-circle object-fit-cover" id="imageid" /></td>
                                 <td>{{ item.id }}</td>
-                                <td>{{ item.rfid }}</td>
+                                <td class="phone">{{ item.phone }}</td>
                                 <td class="customer_name">{{ item.customer_name }}</td>
                                 <td class="email">{{ item.email }}</td>
-                                <td class="phone">{{ item.phone }}</td>
-                                <td>{{ item.plate }}</td>
-                                <td class="date">{{ item.type }}</td>
+                                <td class="date">{{ item.rfid }}</td>
                                 <td class="date">{{ item.payment }}</td>
                                 <td class="date">{{ item.createby }}<br>{{ item.date }}</td>
-                                <td>
-                                    <ul class="list-inline hstack gap-2 mb-0">
-                                    <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                        data-bs-placement="top" title="Edit">
-                                        <BLink variant="text-primary" class="d-inline-block edit-item-btn"  @click="deleteModalToggle(item)"
-                                       >
-                                        <i class="ri-pencil-fill fs-16"></i>
-                                        </BLink>
-                                    </li>
-                                    <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                                        data-bs-placement="top" title="Remove">
-                                        <BLink class="text-warning d-inline-block remove-item-btn" @click="editDetails(item)">
-                                        <i class="ri-qr-code-line fs-16"></i>
-                                        </BLink>
-                                    </li>
-                                    </ul>
-                                </td>
                                 </tr>
                             </tbody>
                             </table>
@@ -522,13 +579,26 @@ export default {
                         </div>
                         </div>
                     </BCardBody>
-                    </BCard>
-
+                   
    
 
       <BModal v-model="createModal" hide-footer title="Create Operator" dialog-class="modal-fullscreen-xl-down" class="v-modal-custom">
   <BRow>
     <BCol md="12" class="mb-3">
+
+      <BFormGroup label="Project:" label-for="project">
+        <select
+        class="form-control"
+        name="choices-single-default"
+        id="choices-single-default"
+        placeholder="Search Project"
+        ref="selectElement"
+      >
+        <option value="Choice 1">AR496</option>
+        <option value="Choice 2">FORUM 2</option>
+        <option value="Choice 3">	i8B-49</option>
+      </select>
+      </BFormGroup>
 
       <BFormGroup label="Name:" label-for="name">
         <BFormInput id="name" readonly />
@@ -559,7 +629,7 @@ export default {
                             </div>
                         </div>
                         <div class="flex-shrink-0 ms-3">
-                            <BButton class="btn btn-soft-danger" size="sm" @click="deleteRecord(index)">
+                            <BButton clas  s="btn btn-soft-danger" size="sm" @click="deleteRecord(index)">
                                 Remove
                             </BButton>
                         </div>
@@ -567,7 +637,7 @@ export default {
                     <div v-if="filePreviews[index]">
                         <img v-if="file.type.startsWith('image/')" :src="filePreviews[index]" class="img-fluid mt-2" style="max-width: 100%; height: auto;" />
                         <video v-if="file.type.startsWith('video/')" :src="filePreviews[index]" class="img-fluid mt-2" controls style="max-width: 100%; height: auto;" />
-                    </div>
+                    </div> 
                 </div>
             </ul>
         </template>
@@ -575,31 +645,46 @@ export default {
       </BFormGroup>
 
      
-      <BFormGroup label="Project:" label-for="project">
-        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
-                  <option value="" selected>Select Project</option>
-                  <option value="Merchandising">AR496</option>
-                  </select>
-      </BFormGroup>
+    
 
       
       <BFormGroup label="Company:" label-for="company">
-        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
-                  <option value="" selected>Select Company</option>
-                  <option value="Merchandising">EWE CRANE</option>
-                  </select>
+                  <select
+        class="form-control"
+        name="choices-single-default"
+        id="choices-single-default"
+        placeholder="Search Company"
+        ref="selectElement3"
+      >
+      <option value="Choice 2">EWE CRANE</option>
+        <option value="Manufacturing">Faruk</option>
+        <option value="Partnership">OLGAD SDN BHD</option>
+        <option value="Corporation">QIE (M)</option>
+      </select>
       </BFormGroup>
 
       <BFormGroup label="Machinery:" label-for="machinery">
-        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
-                  <option value="" selected>Select Machinery</option>
-                  <option value="Merchandising">CRANE - 20TON</option>
-                  </select>
+                  <select
+        class="form-control"
+        name="choices-single-default"
+        id="choices-single-default"
+        placeholder="Search Machinery"
+        ref="selectElement6"
+      >
+      <option value="Merchandising">CRANE - 20TON</option>
+      </select>
       </BFormGroup>
 
  
-      <BFormGroup label="PO No. (Plate No):" label-for="poNo">
-        <BFormInput id="poNo" readonly />
+      <BFormGroup label="Plate No:" label-for="poNo">
+        <select
+        class="form-control"
+        name="choices-single-default"
+        id="choices-single-default"
+        placeholder="Search Machinery"
+        ref="selectElement9"
+      >
+      </select>
       </BFormGroup>
 
       <BFormGroup label="Skill Set:" label-for="machinery">
@@ -657,6 +742,21 @@ export default {
     <BCol md="12" class="mb-3">
 
       
+      <BFormGroup label="Project:" label-for="project">
+        <select
+        class="form-control"
+        name="choices-single-default"
+        id="choices-single-default"
+        placeholder="Search Project"
+        ref="selectElement1"
+      >
+        <option value="Choice 1">AR496</option>
+        <option value="Choice 2">FORUM 2</option>
+        <option value="Choice 3">	i8B-49</option>
+      </select>
+      </BFormGroup>
+
+
       <BFormGroup label="Name:" label-for="name">
         <BFormInput id="name" placeholder="Yohanes Laga Kia" readonly />
       </BFormGroup>
@@ -701,30 +801,43 @@ export default {
 
       </BFormGroup>
 
-      <BFormGroup label="Project:" label-for="project">
-        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
-                  <option value="" selected>Select Project</option>
-                  <option value="Merchandising">AR496</option>
-                  </select>
-      </BFormGroup>
-
     
       <BFormGroup label="Company:" label-for="company">
-        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
-                  <option value="" selected>Select Company</option>
-                  <option value="Merchandising">EWE CRANE</option>
-                  </select>
+        <select
+        class="form-control"
+        name="choices-single-default"
+        id="choices-single-default"
+        placeholder="Search Company"
+        ref="selectElement4"
+      >
+      <option value="Choice 2">EWE CRANE</option>
+        <option value="Manufacturing">Faruk</option>
+        <option value="Partnership">OLGAD SDN BHD</option>
+        <option value="Corporation">QIE (M)</option>
+      </select>
       </BFormGroup>
 
       <BFormGroup label="Machinery:" label-for="machinery">
-        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
-                  <option value="" selected>Select Machinery</option>
-                  <option value="Merchandising">CRANE - 20TON</option>
-                  </select>
+        <select
+        class="form-control"
+        name="choices-single-default"
+        id="choices-single-default"
+        placeholder="Search Machinery"
+        ref="selectElement7"
+      >
+      <option value="Merchandising">CRANE - 20TON</option>
+      </select>
       </BFormGroup>
       
-      <BFormGroup label="PO No. (Plate No):" label-for="poNo">
-        <BFormInput id="poNo" placeholder="KS7" readonly />
+      <BFormGroup label="Plate No:" label-for="poNo">
+        <select
+        class="form-control"
+        name="choices-single-default"
+        id="choices-single-default"
+        placeholder="Search Plate No"
+        ref="selectElement10"
+      >
+      </select>
       </BFormGroup>
 
       <BFormGroup label="Skill Set:" label-for="machinery">
@@ -749,62 +862,68 @@ export default {
       </BModal>
 
       <BModal v-model="advancedSearch" hide-footer title="Advanced Search" class="v-modal-custom" size="lg">
+        <br>
   <BRow class="g-3">
       <BCol sm="6">
         <label for="search-incharge" class="form-label">Filter by Project</label>
-        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
-          <option value="" selected>Select Project</option>
-          <option value="Merchandising">AR496</option>
-          <option value="Manufacturing">FORUM2</option>
-          <option value="Partnership">i8B-49</option>
-          </select>
+        <select
+        class="form-control"
+        name="choices-single-default"
+        id="choices-single-default"
+        placeholder="Search Project"
+        ref="selectElement2"
+      >
+        <option value="Choice 1">AR496</option>
+        <option value="Choice 2">FORUM 2</option>
+        <option value="Choice 3">	i8B-49</option>
+      </select>
       </BCol>
       <BCol sm="6">
         <label for="search-incharge" class="form-label">Filter by Company</label>
-        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" style="font-size: 12px;">
-        <option value="" selected>Select Company</option>
-        <option value="Merchandising">All</option>
+        <select
+        class="form-control"
+        name="choices-single-default"
+        id="choices-single-default"
+        placeholder="Search Company"
+        ref="selectElement5"
+      >
+        <option value="Choice 2">EWE CRANE</option>
         <option value="Manufacturing">Faruk</option>
         <option value="Partnership">OLGAD SDN BHD</option>
-        <option value="Corporation">QIE (M)</option></select>
+        <option value="Corporation">QIE (M)</option>
+      </select>
     </BCol>
     <BCol sm="6">
-      <label for="search-incharge" class="form-label">Filter by Machinery</label>
+      <label for="search-incharge" class="form-label">Filter by AA Permit</label>
         <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" style="font-size: 12px;">
-        <option value="" selected>Select Machinery</option>
+        <option value="" selected>Select AA Permit</option>
         <option value="Merchandising">All</option>
-        <option value="Manufacturing">ACMV-</option>
-        <option value="Partnership">ACMV-PODIUM</option>
-        <option value="Corporation">BACK HOE</option>
+        <option value="Manufacturing">AA</option>
+        <option value="Partnership">NON AA</option>
         </select>
   
     </BCol>
       <BCol sm="6">
-        <label for="search-incharge" class="form-label">Filter by Skill Set</label>
+        <label for="search-incharge" class="form-label">Filter by Payment Method</label>
         <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
-          <option value="" selected>Select Skill Set</option>
-          <option value="Merchandising">Skilled</option>
-          <option value="Manufacturing">Semi-Skilled</option>
-          <option value="Partnership">Unskilled</option>
+          <option value="" selected>Select Payment Method</option>
+          <option value="Merchandising">Cash</option>
           </select>
       </BCol>
       <BCol sm="6">
-        <label for="search-payment" class="form-label">Filter by Incharge</label>
-        <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default" >
-          <option value="" selected>Select Incharge</option>
-          <option value="Merchandising">ksk_myform</option>
-          <option value="Manufacturing">aadam</option>
-          </select>
+        <label for="search-payment" class="form-label">Filter by Person Incharge</label>
+        <select
+        class="form-control"
+        name="choices-single-default"
+        id="choices-single-default"
+        placeholder="Search Person Incharge"
+        ref="selectElement12"
+      >
+        <option value="Choice 1">ksk_myform</option>
+        <option value="Choice 2">aadam</option>
+      </select>
       </BCol>
-      <BCol sm="6">
-        <label for="search-date" class="form-label">Search by Plate No</label>
-        <BFormInput
-          id="search-location"
-          placeholder="Enter Plate No"
-        />
-      </BCol>
-    
-    </BRow>
+    </BRow> 
 
   <!-- Modal Footer -->
   <div class="modal-footer v-modal-footer">
@@ -815,3 +934,9 @@ export default {
   </div>
 </BModal>
 </template>
+
+<style>
+.form-label {
+  font-size: 12px;
+}
+</style>

@@ -10,7 +10,11 @@ import { reactive } from 'vue';
 export default {
   data() {
     return {
+<<<<<<< Updated upstream
       weekDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday','Saturday','Sunday'],
+=======
+      Autoplay, Mousewheel,
+>>>>>>> Stashed changes
       activeIndex: 2,
       fileModal: false,
       folderModal: false,
@@ -22,7 +26,7 @@ export default {
       editModalSchedule: false,
       data12: null,
     projectModal: false,
-    collapsedRows: reactive({}),
+    collapsedRows: reactive({ row1: true,}),
     modaltoAdd: false,
     modalAdd: false,
       series: [27.01, 20.87, 33.54, 37.58],
@@ -69,7 +73,19 @@ export default {
       });
     })
   },
+  computed: {
+    maxBreaks() {
+      return Math.max(...this.days.map(day => day.schedule.breaks.length));
+    }
+  },
   methods: {
+<<<<<<< Updated upstream
+=======
+  
+    setViewMode(mode) {
+    this.viewMode = mode;
+  },
+>>>>>>> Stashed changes
         toggleRow(rowId) {
             if (this.collapsedRows[rowId]) {
                 delete this.collapsedRows[rowId];
@@ -401,8 +417,13 @@ export default {
                   <BRow>
                     <BCol sm="4">
                       <div class="mt-3">
+<<<<<<< Updated upstream
                         <h5 class="fs-14">Information :</h5>
                         <ul class="list-unstyled">
+=======
+                        <h5 class="fs-14" style="text-decoration: underline">Information :</h5>
+                        <ul class="list-unstyled" style="line-height: 11px;">
+>>>>>>> Stashed changes
                           <li class="py-1">
                             <i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i>
                             Contact Email : 	info@syntycesolution.com
@@ -413,11 +434,15 @@ export default {
                           </li>
                           <li class="py-1">
                             <i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i>
+<<<<<<< Updated upstream
                             Join Date : 	09-Jan-2024
                           </li>
                           <li class="py-1">
                             <i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i>
                             Staff : 	200
+=======
+                            Phone : +601234567
+>>>>>>> Stashed changes
                           </li>
                           <li class="py-1">
                             <i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i>
@@ -425,10 +450,26 @@ export default {
                           </li>
                         </ul>
                       </div>
+                      <br>
+
+                      <div class="mt-3">
+                        <h5 class="fs-14" style="text-decoration: underline">Subscription :</h5>
+                        <ul class="list-unstyled" style="line-height: 11px;">
+                          <li class="py-1">
+                            <i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i>
+                            Subscription : <a href="" style="text-decoration: underline double !important;">Plan A</a>
+                          </li>
+                          <li class="py-1">
+                            <i class="mdi mdi-circle-medium me-1 text-muted align-middle"></i>
+                            Subscription Due : 09-Jan-2025
+                          </li>
+                        </ul>
+                      </div>
                     </BCol>
                     
                     <BCol sm="8">
                       <div class="mt-3" >
+<<<<<<< Updated upstream
                         <h5 class="fs-14" style="margin-top:15px !important">Location :</h5>
                         <ul class="list-unstyled product-desc-list">
                           <li class="py-1">12 Lorong Limau</li>
@@ -436,12 +477,127 @@ export default {
                           <li class="py-1">Bukit Jali</li>
                           <li class="py-1">Kuala Lumpur, Malaysia</li>
                         </ul>
+=======
+                        <h5 class="fs-14" style="margin-top:15px !important;text-decoration: underline">Location :</h5>
+                        <p>12 Lorong Limau <br>Tamn limau, 13800<br>Bukit Jali<br>Kuala Lumpur, Malaysia
+                      </p>
+                      </div><br><br>
+                      <div class="mt-3" >
+                        <h5 class="fs-14" style="text-decoration: underline;">Remark :</h5>
+                        <p>Alunan Asas' success stems from its skilled engineering team, extensive machinery, and solid financial backing, positioning it as a leading player in the regional construction and property industry.
+       </p>
+>>>>>>> Stashed changes
                       </div>
                     </BCol>
+<<<<<<< Updated upstream
+=======
+                    <BCol sm="1"></BCol>
+
+                    <BCol sm="3">
+                      <div class="mt-3" >
+                        <div style="display: flex; justify-content: space-between; align-items: center;width: 93%">
+              <h6 class="text-muted fw-semibold mb-4">
+                Project
+              </h6>
+              <a href="/system/project-list" style="text-decoration: underline double !important;font-size: 13px;margin-top: -24px">
+                +10 More Projects
+              </a>
+            </div>
+                          </div>
+                        
+                        <BCardBody class="p-4">
+            
+
+            <swiper class="vertical-swiper" :direction="'vertical'" :modules="[Autoplay, Mousewheel]" :slidesPerView="3"
+              :spaceBetween="5" :mousewheel="true" :loop="true" :autoplay="{ delay: 2500, disableOnInteraction: false }"
+              style="    height: 223px;margin-top: -17px;margin-left: -22px;">
+             
+              <swiper-slide>
+                <div class="swiper-slide">
+                  <BCard no-body class="border border-dashed shadow-none">
+                    <BCardBody>
+                      <div class="d-flex">
+                        <div class="flex-shrink-0">
+                          <img src="@/assets/images/companies/img-3.png" alt="" class="avatar-sm rounded" />
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      AR496<br>
+      <small>Aunggun Residence</small>
+    </div>
+    <span class="badge bg-success-subtle text-success mb-2">Completed</span>
+  </div>
+</div>
+                      </div>
+                    </BCardBody>
+                  </BCard>
+                </div>
+              </swiper-slide>
+              <swiper-slide>
+                <div class="swiper-slide">
+                  <BCard no-body class="border border-dashed shadow-none">
+                    <BCardBody>
+                      <div class="d-flex">
+                        <div class="flex-shrink-0 avatar-sm">
+                          <div class="avatar-title bg-light rounded">
+                            <img src="@/assets/images/companies/img-8.png" alt="" height="30" />
+                          </div>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      SA10-202<br>
+      <small>Serenia Anisa</small>
+    </div>
+    <span class="badge bg-warning-subtle text-warning mb-2">On Going</span>
+  </div>
+</div>
+                      </div>
+                    </BCardBody>
+                  </BCard>
+                </div>
+              </swiper-slide>
+              <swiper-slide>
+                <div class="swiper-slide">
+                  <BCard no-body class="border border-dashed shadow-none">
+                    <BCardBody>
+                      <div class="d-flex">
+                        <div class="flex-shrink-0 avatar-sm">
+                          <div class="avatar-title bg-light rounded">
+                            <img src="@/assets/images/companies/img-1.png" alt="" height="30" />
+                          </div>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      BKT2PS<br>
+      <small>Petrol Station</small>
+    </div>
+    <span class="badge bg-warning-subtle text-warning mb-2">On Going</span>
+  </div>
+</div>
+                      </div>
+                    </BCardBody>
+                  </BCard>
+                </div>
+              </swiper-slide>
+            </swiper>
+            <!-- <div class="text-center mt-3">
+              <BLink href="/system/project-list/" class="link-primary">View All Project
+                <i class="ri-arrow-right-line align-bottom ms-1"></i>
+              </BLink>
+            </div> -->
+          </BCardBody>
+                    </BCol>
+
+                    <BCol sm="1"></BCol>
+>>>>>>> Stashed changes
                   </BRow>
                 </div>
           </BCardHeader>
           <BCardBody>
+<<<<<<< Updated upstream
                 <BTabs nav-class="nav-tabs-custom card-header-tabs border-bottom-0">
                   <BTab active title="Schedule" class="nav-item pt-4" style="position: relative; top: 10px;">
       <div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-3">
@@ -643,6 +799,220 @@ export default {
             </div>
           </div>
         </div>
+=======
+                <BTabs nav-class="nav-tabs-custom card-header-tabs border-bottom-0">          
+  <BTab active title="Schedule" class="nav-item pt-4" style="position: relative; top: 10px;">
+    <div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-3">
+      <!-- Sidebar -->
+      <div class="file-manager-sidebar border" style="min-width: 160px !important">
+        <div class="p-2 d-flex flex-column h-100">
+          <div class="mb-3">
+            <BButton variant="primary" class="w-100" @click="projectModal = !projectModal" style="padding: 4px !important;">
+              <i class="ri-add-line align-bottom"></i> Add
+            </BButton>
+          </div>
+          <ul class="to-do-menu list-unstyled" id="projectlist-data">
+            <li><Blink v-b-toggle.velzonAdmin class="nav-link fs-13 active">A</Blink></li>
+            <li><Blink v-b-toggle.projectManagement class="nav-link fs-13">KL O1</Blink></li>
+            <li><Blink v-b-toggle.projectManagement class="nav-link fs-13">KL S1</Blink></li>
+            <li><Blink v-b-toggle.projectManagement class="nav-link fs-13">KL S2</Blink></li>
+            <li><Blink v-b-toggle.projectManagement class="nav-link fs-13">PG O1</Blink></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Gantt Chart Section -->
+      <div class="file-manager-content w-100 p-3 py-0 border" style="min-width: 87%;">
+        <div class="d-flex justify-content-between align-items-center mb-3" style="margin-top: 10px;">
+          <div class="d-flex align-items-center">
+            <span class="me-4" style="width:61px">Code :</span>
+            <input type="text" placeholder="A" class="form-control" style="max-width: 300px; padding: 4px;">
+          </div>
+          <div>
+            <BButton type="button" variant="danger" @click="deleteAction" style="padding: 4px !important; width:35px">
+              <i class="ri-delete-bin-line align-bottom"></i>
+            </BButton>
+          </div>
+        </div>
+        <!---Schedule Chart -->
+        <div class="schedule-chart-container">
+          <div class="schedule-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+
+  <div class="schedule-labels" style="display: inline-block;">Reference : 
+    <span style="display: inline-block; margin-right: 20px;margin-left: 15px;">
+      <span style="background-color: #daf4f0;width: 40px; height: 12px; display: inline-block; margin-right: 5px;"></span>
+      Start/End Working
+    </span>
+    <span style="display: inline-block; margin-right: 20px;">
+      <span style="background-color: #fef4e4;color:#ffc00a;; width: 40px; height: 12px; display: inline-block; margin-right: 5px;"></span>
+      Break Time
+    </span>
+  </div>
+
+</div>
+
+
+  <div class="schedule-chart-wrapper">
+    <!-- table hourly-->
+    <table class="schedule-chart" style="font-size: 13px; width: 100%; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th>Sunday
+        <button style="border: none; background-color: transparent;" type="button" variant="grey" @click="openEditSchedule(day)">
+          <i class="ri-pencil-fill" style="color: #666;"></i>
+        </button>
+      </th>
+      <th>Monday
+        <button style="border: none; background-color: transparent;" type="button" variant="grey" @click="openEditSchedule(day)">
+          <i class="ri-pencil-fill" style="color: #666;"></i>
+        </button>
+      </th>
+      <th>Tuesday
+        <button style="border: none; background-color: transparent;" type="button" variant="grey" @click="openEditSchedule(day)">
+          <i class="ri-pencil-fill" style="color: #666;"></i>
+        </button>
+      </th>
+      <th>Wednesday
+        <button style="border: none; background-color: transparent;" type="button" variant="grey" @click="openEditSchedule(day)">
+          <i class="ri-pencil-fill" style="color: #666;"></i>
+        </button>
+      </th>
+      <th>Thursday
+        <button style="border: none; background-color: transparent;" type="button" variant="grey" @click="openEditSchedule(day)">
+          <i class="ri-pencil-fill" style="color: #666;"></i>
+        </button>
+      </th>
+      <th>Friday
+        <button style="border: none; background-color: transparent;" type="button" variant="grey" @click="openEditSchedule(day)">
+          <i class="ri-pencil-fill" style="color: #666;"></i>
+        </button>
+      </th>
+      <th>Saturday
+        <button style="border: none; background-color: transparent;" type="button" variant="grey" @click="openEditSchedule(day)">
+          <i class="ri-pencil-fill" style="color: #666;"></i>
+        </button>
+      </th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td style="background-color: #daf4f0;color:#105304;">07:30</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td style="background-color: #daf4f0;color:#105304;">08:00</td>
+      <td style="background-color: #daf4f0;color:#105304;">08:00</td>
+      <td style="background-color: #daf4f0;color:#105304;">08:00</td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="background-color: #daf4f0;color:#105304;">08:30</td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td></td>
+      
+    </tr>
+    <tr>
+      <td></td>
+      <td style="background-color: #fef4e4;color:#ffc00a;">12:30 - 13:30</td>
+      <td style="background-color: #fef4e4;color:#ffc00a;">12:30 - 13:30</td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #fef4e4;color:#ffc00a;">12:30 - 13:30</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #fef4e4;color:#ffc00a;">14:30 - 15:30</td>
+      <td style="background-color: #fef4e4;color:#ffc00a;">14:30 - 15:30</td>
+      <td style="background-color: #fef4e4;color:#ffc00a;">14:30 - 15:30</td>
+      <td style="background-color: #fef4e4;color:#ffc00a;">14:30 - 15:30</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #fef4e4;color:#ffc00a;">16:30 - 17:30</td>
+      <td style="background-color: #fef4e4;color:#ffc00a;">16:30 - 17:30</td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #fef4e4;color:#ffc00a;">18:30 - 19:30</td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #daf4f0;color:#105304;">19:30</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #daf4f0;color:#105304;"></td>
+      <td style="background-color: #daf4f0;color:#105304;">22:00</td>
+      <td style="background-color: #daf4f0;color:#105304;">22:00</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="background-color: #daf4f0;color:#105304;">23:00</td>
+      <td style="background-color: #daf4f0;color:#105304;">23:00</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+
+  </div>
+</div>
+
+
+>>>>>>> Stashed changes
       </div>
     </BTab>
                     <BTab title="Access Permission" class="nav-item pt-1" style="position: relative; top: 10px;">
@@ -652,11 +1022,16 @@ export default {
                             <div class="table-responsive table-card mt-3 mb-1" style="max-height: 500px; overflow: auto;">
                                 <table class="table align-middle table-nowrap" id="tabularPermission">
                                     <thead class="table-light">
+                                      <tr>
+                                            <th ></th>
+                                            <th ></th>
+                                            <th colspan="10" style="text-align: center;">Project Access</th>
+                                            <th colspan="2" >Global Access</th>
+                                        </tr>
                                         <tr>
                                             <th></th>
-                                            <th>Permissions</th>
+                                            <th >Permissions</th>
                                             <th>AC</th>
-                                            <th>ADMIN</th>
                                             <th>APM</th>
                                             <th>CM</th>
                                             <th>PD</th>
@@ -664,10 +1039,10 @@ export default {
                                             <th>PURC</th>
                                             <th>QC</th>
                                             <th>QS</th>
-                                            <th>SA</th>
                                             <th>SITE</th>
-                                            <th>SSA</th>
                                             <th>VIEW</th>
+                                            <th >SA</th>
+                                            <th >SSA</th>
                                         </tr>
                                     </thead>
                                     <tbody class="list form-check-all">
@@ -677,105 +1052,46 @@ export default {
                                                     <i style="font-size: 20px;" :class="collapsedRows['row1'] ? 'bx bx-chevron-up' : 'bx bx-chevron-down'"></i>
                                                 </button>
                                             </td>
-                                            <td>
+                                            <td >
                                                 Attendance
                                             </td>
                                             <td>
-                                                <div class="form-check form-check-outline form-check-success">
-                                                    <input class="form-check-input" type="checkbox" id="formCheck15" checked>
-                                                    <label class="form-check-label" for="formCheck15">
-                                                    </label>
-                                                </div>
+                                                
                                             </td>
                                             <td>
-                                                <div class="form-check form-check-outline form-check-success">
-                                                    <input class="form-check-input" type="checkbox" id="formCheck15" checked>
-                                                    <label class="form-check-label" for="formCheck15">
-                                                    </label>
-                                                </div>
+                                                
                                             </td>
                                             <td>
-                                                <div class="form-check form-check-outline form-check-success">
-                                                    <input class="form-check-input" type="checkbox" id="formCheck15" checked>
-                                                    <label class="form-check-label" for="formCheck15">
-                                                    </label>
-                                                </div>
+                                                
                                             </td>
                                             <td>
-                                                <div class="form-check form-check-outline form-check-success">
-                                                    <input class="form-check-input" type="checkbox" id="formCheck15" checked>
-                                                    <label class="form-check-label" for="formCheck15">
-                                                    </label>
-                                                </div>
+                                                
                                             </td>
                                             <td>
-                                                <div class="form-check form-check-outline form-check-success">
-                                                    <input class="form-check-input" type="checkbox" id="formCheck15" checked>
-                                                    <label class="form-check-label" for="formCheck15">
-                                                    </label>
-                                                </div>
+                                                
                                             </td>
                                             <td>
-                                                <div class="form-check form-check-outline form-check-success">
-                                                    <input class="form-check-input" type="checkbox" id="formCheck15" checked>
-                                                    <label class="form-check-label" for="formCheck15">
-                                                    </label>
-                                                </div>
+                                                
                                             </td>
                                             <td>
-                                                <div class="form-check form-check-outline form-check-success">
-                                                    <input class="form-check-input" type="checkbox" id="formCheck15" checked>
-                                                    <label class="form-check-label" for="formCheck15">
-                                                    </label>
-                                                </div>
+                                                
                                             </td>
                                             <td>
-                                                <div class="form-check form-check-outline form-check-success">
-                                                    <input class="form-check-input" type="checkbox" id="formCheck15" checked>
-                                                    <label class="form-check-label" for="formCheck15">
-                                                    </label>
-                                                </div>
+                                                
                                             </td>
                                             <td>
-                                                <div class="form-check form-check-outline form-check-success">
-                                                    <input class="form-check-input" type="checkbox" id="formCheck15" checked>
-                                                    <label class="form-check-label" for="formCheck15">
-                                                    </label>
-                                                </div>
+                                                
                                             </td>
                                             <td>
-                                                <div class="form-check form-check-outline form-check-success">
-                                                    <input class="form-check-input" type="checkbox" id="formCheck15" checked>
-                                                    <label class="form-check-label" for="formCheck15">
-                                                    </label>
-                                                </div>
+                                            </td>
+                                            <td >
                                             </td>
                                             <td>
-                                                <div class="form-check form-check-outline form-check-success">
-                                                    <input class="form-check-input" type="checkbox" id="formCheck15" checked>
-                                                    <label class="form-check-label" for="formCheck15">
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-check form-check-outline form-check-success">
-                                                    <input class="form-check-input" type="checkbox" id="formCheck15" checked>
-                                                    <label class="form-check-label" for="formCheck15">
-                                                    </label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-check form-check-outline form-check-success">
-                                                    <input class="form-check-input" type="checkbox" id="formCheck15" checked>
-                                                    <label class="form-check-label" for="formCheck15">
-                                                    </label>
-                                                </div>
                                             </td>
                                         </tr>
                                         <tr v-show="collapsedRows['row1']" class="collapseRow">
                                             <td></td>
-                                            <td colspan="1">Edit Attendance</td>
-                                            <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck1" checked></div></td>
+                                            <td colspan="1" >Edit Attendance</td>
                                             <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck2" checked></div></td>
                                             <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck3" checked></div></td>
                                             <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck4" checked></div></td>
@@ -786,7 +1102,7 @@ export default {
                                             <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck9" checked></div></td>
                                             <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck10" checked></div></td>
                                             <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck11" checked></div></td>
-                                            <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck12" checked></div></td>
+                                            <td ><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck12" checked></div></td>
                                             <td><div class="form-check form-check-outline form-check-success"><input class="form-check-input" type="checkbox" id="formCheck13" checked></div></td>
                                         </tr>
                                     </tbody>
@@ -1114,6 +1430,7 @@ export default {
   font-size: 14px;
 }
 
+<<<<<<< Updated upstream
 .gantt-chart {
   width: 100%;
   border-collapse: collapse;
@@ -1130,4 +1447,46 @@ export default {
   background-color: #f4f4f4;
 }
 
+=======
+
+.schedule-chart-wrapper {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.schedule-chart {
+  width: 100%;
+  border-collapse: collapse;
+  border: 0.5px solid #d5d8dc;
+}
+
+.schedule-chart th, .schedule-chart td {
+  padding: 12px;
+  text-align: center;
+  border: 0.5px solid #d5d8dc;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.schedule-chart thead th {
+  background-color: #f6f6f6;
+  font-weight: bold;
+  color: #333;
+}
+
+.schedule-chart tbody tr {
+  height: 45px; /* Set a fixed height for rows */
+}
+
+.schedule-chart tbody tr:hover {
+  background-color: #e6f7ff;
+}
+
+.schedule-chart th {
+  position: sticky;
+  top: 0;
+}
+
+
+>>>>>>> Stashed changes
 </style>

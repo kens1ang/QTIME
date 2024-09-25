@@ -104,13 +104,13 @@ export default [
     meta: { title: "Employee QR", authRequired: true },
     component: () => import("../views/system/maintenance/employee/employee-qr.vue"),
   },
- //Attendance folder
- {
-    path: "/attendance/attendance-search",
-    name: "attendance-search",
-    meta: { title: "Attendance", authRequired: true },
-    component: () => import("../views/attendance/search.vue"),
+  {
+    path: "/system/general-transfer",
+    name: "general-transfer",
+    meta: { title: "General Worker Transfer", authRequired: true },
+    component: () => import("../views/system/maintenance/employee/general-transfer.vue"),
   },
+<<<<<<< Updated upstream
 
   {
     path: "/attendance/index",
@@ -120,12 +120,47 @@ export default [
   },
 
  {
+=======
+  {
+    path: "/system/general-resignation",
+    name: "general-resignation",
+    meta: { title: "General Worker Resignation", authRequired: true },
+    component: () => import("../views/system/maintenance/employee/general-resignation.vue"),
+  },
+  {
+>>>>>>> Stashed changes
     path: "/system/schedule",
     name: "schedule",
     meta: { title: "Schedule", authRequired: true },
     component: () => import("../views/system/maintenance/schedule.vue"),
   },
 
+<<<<<<< Updated upstream
+=======
+
+  //Attendance folder
+  {
+    path: "/attendance/attendance-search",
+    name: "attendance-search",
+    meta: { title: "Attendance", authRequired: true },
+    component: () => import("../views/attendance/search.vue"),
+  },
+  {
+    path: "/attendance/preot-overview",
+    name: "preot-overview",
+    meta: { title: "Pre OT Overview", authRequired: true },
+    component: () => import("../views/attendance/preot-overview.vue"),
+  },
+  {
+    path: "/attendance/index",
+    name: "attendance-index",
+    meta: { title: "Attendance", authRequired: true },
+    component: () => import("../views/attendance/index"),
+  },
+
+
+ 
+>>>>>>> Stashed changes
   // Dashboard Folder
   {
     path: "/",
@@ -155,6 +190,23 @@ export default [
     component: () => import("../views/dashboard/project-progress-budget/index.vue"),
   },
 
+<<<<<<< Updated upstream
+=======
+  // Profile
+  {
+    path: "/pages/profile",
+    name: "profile",
+    meta: { title: "Profile", authRequired: true },
+    component: () => import("../views/pages/profile/simple"),
+  },
+  {
+    path: "/pages/profile-setting",
+    name: "profile-setting",
+    meta: { title: "Setting", authRequired: true },
+    component: () => import("../views/pages/profile/setting"),
+  },
+
+>>>>>>> Stashed changes
   //end of QTIME
 
   {
@@ -872,18 +924,7 @@ export default [
     meta: { title: "Starter", authRequired: true },
     component: () => import("../views/pages/starter"),
   },
-  {
-    path: "/pages/profile",
-    name: "profile",
-    meta: { title: "Profile", authRequired: true },
-    component: () => import("../views/pages/profile/simple"),
-  },
-  {
-    path: "/pages/profile-setting",
-    name: "profile-setting",
-    meta: { title: "Setting", authRequired: true },
-    component: () => import("../views/pages/profile/setting"),
-  },
+  
   {
     path: "/pages/maintenance",
     name: "maintenance",
