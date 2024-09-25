@@ -59,17 +59,32 @@ export default {
       }else if (path.startsWith('/attendance/')) {
         return [
           { name: 'Attendance', path: '/attendance/attendance-search' },
-          { name: 'Pre-OT Overview', path: '/attendance/preot-overview' },
-          
-        ];
-      }else if (path.startsWith('/invoices/')) {
-        return [
-        { name: 'Work Order',
+          { name: 'Dashboard',
+            children: [
+                { name: 'Status', path: '' },
+            ]
+           },
+          { name: 'OT Management',
+            children: [
+                { name: 'Pre-OT Request', path: '' },
+                { name: 'Pre-OT Approval', path: '' },
+            ]
+           },
+          { name: 'BC Management',
+            children: [
+                { name: 'BC Insight', path: '' },
+                { name: 'BC Reminder', path: '' },
+            ]
+           },
+          { name: 'Work Order',
             children: [
                 { name: 'Work Order List', path: '' },
                 { name: 'Library Maintenance', path: '' },
             ]
           },
+        ];
+      }else if (path.startsWith('/invoices/')) {
+        return [
           { name: 'Personal Task Dashboard',
             children: [
                 { name: 'Active Task Listing', path: '' },

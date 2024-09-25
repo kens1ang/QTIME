@@ -281,26 +281,12 @@ export default {
                         Registration Number
                       </th>
                       <th class="sort" data-sort="star_value" scope="col" @click="onSort('star_value')">
-<<<<<<< Updated upstream
                         Address
                       </th>
                       <th class="sort" data-sort="location" scope="col" @click="onSort('location               ')">
                         Prefix
                       </th>
                       <th scope="col">Action</th>
-=======
-                        Subscription Due
-                      </th>
-                      <th class="sort" data-sort="location" scope="col" @click="onSort('location')">
-                        State
-                      </th>
-                      <th class="sort" data-sort="location" scope="col" @click="onSort('location')">
-                        Joined Since
-                      </th>
-                      <th class="sort" data-sort="star_value" scope="col" @click="onSort('star_value')">
-                        Status
-                      </th>
->>>>>>> Stashed changes
                     </tr>
                   </thead>
                   <tbody class="list form-check-all">
@@ -344,11 +330,6 @@ export default {
                           </li>
                         </ul>
                       </td>
-<<<<<<< Updated upstream
-=======
-                      
-                      <td  class="industry_type"><span class="badge bg-success-subtle text-success mb-2">{{ data.status }}</span></td>
->>>>>>> Stashed changes
                     </tr>
                   </tbody>
                 </table>
@@ -470,107 +451,6 @@ export default {
               
             </div>
           </BCardBody>
-<<<<<<< Updated upstream
-=======
-          <BCardBody class="p-4 border-top border-top-dashed">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <h6 class="text-muted fw-semibold mb-4">
-                Project
-              </h6>
-              <a href="/system/project-list" style="text-decoration: underline double !important;font-size: 13px;margin-top: -24px">
-                +10 More Projects
-              </a>
-            </div>
-
-            <swiper class="vertical-swiper" :direction="'vertical'" :modules="[Autoplay, Mousewheel]" :slidesPerView="3"
-              :spaceBetween="10" :mousewheel="true" :loop="true" :autoplay="{ delay: 2500, disableOnInteraction: false }"
-              style="height: 260px">
-             
-              <swiper-slide>
-                <div class="swiper-slide">
-                  <BCard no-body class="border border-dashed shadow-none">
-                    <BCardBody>
-                      <div class="d-flex">
-                        <div class="flex-shrink-0">
-                          <img src="@/assets/images/companies/img-3.png" alt="" class="avatar-sm rounded" />
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-  <div class="d-flex justify-content-between align-items-center">
-    <div>
-      <b>BKT2PS</b><br>
-      <small>Petrol Station</small>
-    </div>
-    <span class="badge bg-warning-subtle text-warning mb-2">On Going</span>
-  </div>
-</div>
-
-                      </div>
-                    </BCardBody>
-                  </BCard>
-                </div>
-              </swiper-slide>
-              <swiper-slide>
-                <div class="swiper-slide">
-                  <BCard no-body class="border border-dashed shadow-none">
-                    <BCardBody>
-                      <div class="d-flex">
-                        <div class="flex-shrink-0 avatar-sm">
-                          <div class="avatar-title bg-light rounded">
-                            <img src="@/assets/images/companies/img-8.png" alt="" height="30" />
-                          </div>
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-  <div class="d-flex justify-content-between align-items-center">
-    <div>
-      <b>SA10-202</b><br>
-      <small>Serenia Anisa</small>
-    </div>
-    <span class="badge bg-warning-subtle text-warning mb-2">On Going</span>
-  </div>
-</div>
-                      </div>
-                    </BCardBody>
-                  </BCard>
-                </div>
-              </swiper-slide>
-              <swiper-slide>
-                <div class="swiper-slide">
-                  <BCard no-body class="border border-dashed shadow-none">
-                    <BCardBody>
-                      <div class="d-flex">
-                        <div class="flex-shrink-0 avatar-sm">
-                          <div class="avatar-title bg-light rounded">
-                            <img src="@/assets/images/companies/img-1.png" alt="" height="30" />
-                          </div>
-                        </div>
-                        <div class="flex-grow-1 ms-3">
-  <div class="d-flex justify-content-between align-items-center">
-    <div>
-      <b>AR496</b><br>
-      <small>Aunggun Residence</small>
-    </div>
-    <span class="badge bg-success-subtle text-success mb-2">Completed</span>
-  </div>
-</div>
-                      
-                      </div>
-                    </BCardBody>
-                  </BCard>
-                </div>
-              </swiper-slide>
-            
-            </swiper>
-
-            <div class="text-center mt-3 d-flex justify-content-center">
-           
-              <BLink href="/system/company-detail"  class="badge bg-success-subtle text-success" style="line-height: 3;font-size:13px;border-radius:10px;margin-left: 10px;">
-                View Company Detail
-                <i class="ri-arrow-right-line align-bottom ms-1"></i>
-              </BLink>
-            </div>
-
-          </BCardBody>
->>>>>>> Stashed changes
         </BCard>
       </BCol>
     </BRow>

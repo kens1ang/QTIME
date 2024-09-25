@@ -732,6 +732,11 @@ export default {
               <span class="align-middle"> Help</span>
             </router-link>
             <div class="dropdown-divider"></div>
+            <router-link class="dropdown-item" to="/pages/profile-setting">
+              <BBadge variant="success-subtle" class="bg-success-subtle text-success mt-1 float-end">New</BBadge><i
+                class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
+              <span class="align-middle">Settings</span>
+            </router-link>
             <router-link class="dropdown-item" to="/logout"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i>
               <span class="align-middle" data-key="t-logout"> Logout</span>
             </router-link>

@@ -393,36 +393,9 @@ export default {
 
 
 <template>
-<<<<<<< Updated upstream
  <BCard no-body id="customerList">
     <BCardBody class="border-bottom-dashed border-bottom">
         <b-form>
-=======
-      <div class="d-flex justify-content-start" style="margin-top:-20px">
-  <div class="me-2">
-    <BLink href="/system/general-transfer" class="w-100">
-      <button
-            type="button" 
-            class="btn btn-outline-primary waves-effect waves-light material-shadow-none me-3" style="font-size: 12px"
-          >
-          <i class='bx bx-slider me-1'></i>General Worker Transfer
-          </button>
-    </BLink>
-  </div><br>
-  <div>  
-    <BLink href="/system/general-resignation" class="w-100">
-      <button
-            type="button"
-            class="btn btn-outline-primary waves-effect waves-light material-shadow-none me-3" style="font-size:12px"
-          >
-          <i class='bx bx-slider me-1'></i>Update General Worker Resignation
-          </button>
-    </BLink>
-  </div>
-</div><br>
-
-    <BCardBody>
->>>>>>> Stashed changes
         <BRow class="g-3">
             <BCol xl="2">
               <div class="search-box d-flex align-items-center">
@@ -501,12 +474,7 @@ export default {
                     </div>
                 </th>
                 <th></th>
-<<<<<<< Updated upstream
                 <th class="sort" data-sort="customer_name" @click="onSort('customer')">ID</th>
-=======
-                <th class="sort" data-sort="customer_name" @click="onSort('customer')">Staff Code</th>
-                <th class="sort" data-sort="status" @click="onSort('status')">Name</th>
->>>>>>> Stashed changes
                 <th class="sort" data-sort="email" @click="onSort('email')">RFID</th>
                 <th class="sort" data-sort="phone" @click="onSort('phone')">Incharge</th>
                 <th class="sort" data-sort="date" @click="onSort('date')">Location</th>
@@ -594,7 +562,7 @@ export default {
                     <img src="@/assets/images/qr-code.png" class="card-logo card-qr-code"
                         alt="logo dark" height="120">
                     <h6 class="text-muted text-uppercase fw-bold" style="margin-top: 12px;">ID : 2880052</h6>
-                    <p class="text-muted mb-1" id="address-details">Name : Yohanes Laga Kia</p>
+                    <p class="text-muted mb-1" id="address-details">Staff Name : Yohanes Laga Kia</p>
                     <p class="text-muted mb-1" id="address-details">Staff Code : 711024</p>
                 </div>
             </div>

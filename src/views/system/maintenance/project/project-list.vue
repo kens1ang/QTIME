@@ -80,9 +80,9 @@ export default {
                                 <th class="sort" data-sort="code">Code</th>
                                 <th class="sort" data-sort="name">Name</th>
                                 <th class="sort" data-sort="regNo">Contract Value</th>
-                                <th>Contract Start Date</th>
-                                <th>Contract End Date</th>
-                                <th>Day Left</th>
+                                <th class="sort" data-sort="regNo">Dip Period</th>
+                                <th>Actual Start Date</th>
+                                <th>Actual End Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -97,11 +97,11 @@ export default {
                                     <a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a>
                                 </td>
                                 <td class="code">AR496</td>
-                                <td class="name">Aunggun Residence</td>
-                                <td>100 million</td>
+                                <td class="name">AR496</td>
+                                <td></td>
+                                <td class="">2</td>
                                 <td class="mobileaccess">30-7-2024</td>
                                 <td>1-8-2024</td>
-                                <td><span class="badge bg-warning-subtle text-warning mb-2">10 Days</span></td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <div class="view">
@@ -127,13 +127,12 @@ export default {
                                 <td class="id" style="display:none;">
                                     <a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a>
                                 </td>
-                                <td class="code">SA10-202</td>
-                                <td class="name">Serenia Anisa</td>
-                                <td>200 million</td>
+                                <td class="code">BG17-R1</td>
+                                <td class="name">BG17-R1</td>
+                                <td></td>
+                                <td class="">2</td>
                                 <td class="mobileaccess">30-7-2024</td>
                                 <td>1-8-2024</td>
-                                <td>
-                                    <span class="badge bg-success-subtle text-success mb-2">0 Days</span></td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <div class="view">
@@ -159,13 +158,12 @@ export default {
                                 <td class="id" style="display:none;">
                                     <a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a>
                                 </td>
-                                <td class="code">BKT2PS</td>
-                                <td class="name">Petrol Station</td>
-                                <td>250 million</td>
+                                <td class="code">BKT22F</td>
+                                <td class="name">BKT22F</td>
+                                <td></td>
+                                <td class="">2</td>
                                 <td class="mobileaccess">30-7-2024</td>
                                 <td>1-08-2024</td>
-                                <td><span class="badge bg-warning-subtle text-warning mb-2">100 Days</span>
-                                   </td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <div class="view">
@@ -191,12 +189,12 @@ export default {
                                 <td class="id" style="display:none;">
                                     <a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a>
                                 </td>
-                                <td class="code">BH1-B3B4</td>
-                                <td class="name">Bangsar Hill Park</td>
-                                <td>300 million</td>
-                                                                <td>01-01-2025</td>
-                                                                <td>01-08-2026</td>
-                                                                <td><span class="badge bg-dark-subtle text-dark mb-2">400 Days</span></td>
+                                <td class="code">BJO-B3B4</td>
+                                <td class="name">BJO-B3B4</td>
+                                <td></td>
+                                <td class="">2</td>
+                                                                <td>1-8-2024</td>
+                                                                <td>1-08-2024</td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <div class="view">
@@ -255,37 +253,35 @@ export default {
                         <input type="text" class="form-control" id="boardName" placeholder="Enter description">
                     </BCol>
                     <BCol lg="6">     
-                        <label for="staffcode" class="form-label">DLP Period</label>
-                        <input type="text" class="form-control" id="boardName" placeholder="Enter dlp period">
+                        <label for="email" class="form-label">Contract Value</label>
+                        <input type="email" class="form-control" id="boardName" placeholder="Enter contract value">
+                    </BCol>
+                    <BCol lg="6">     
+                        <label for="staffcode" class="form-label">DIP Period</label>
+                        <input type="text" class="form-control" id="boardName" placeholder="Enter dip period">
+                    </BCol>
+                    <BCol lg="6">     
+                        <label for="accesslevel" class="form-label">Actual Start Date</label>
+                        <input
+    type="date"
+    class="form-control"
+    id="search-date"
+    placeholder="Select Date"
+  />
+                    </BCol>
+                    <BCol lg="6"> 
+                        <label for="mobileaccess">Actual End Date</label>
+                        <input
+    type="date"
+    class="form-control"
+    id="search-date"
+    placeholder="Select Date"
+  />
                     </BCol>
                     <BCol lg="6"> 
                         <label for="qawardaccess">Prefix</label>
                         <input type="text" class="form-control" id="boardName" placeholder="Enter prefix">
                     </BCol>
-                    <BCol lg="6">     
-                        <label for="email" class="form-label">Contract Value</label>
-                        <input type="email" class="form-control" id="boardName" placeholder="Enter contract value">
-                    </BCol>
-                    
-                    <BCol lg="6">     
-                        <label for="accesslevel" class="form-label">Contract Start Date</label>
-                        <input
-    type="date"
-    class="form-control"
-    id="search-date"
-    placeholder="Select Date"
-  />
-                    </BCol>
-                    <BCol lg="6"> 
-                        <label for="mobileaccess">Contract End Date</label>
-                        <input
-    type="date"
-    class="form-control"
-    id="search-date"
-    placeholder="Select Date"
-  />
-                    </BCol>
-                    
                     <div class="modal-footer v-modal-footer">
                         <div class="hstack gap-2 justify-content-end">
                             <BButton type="button" variant="light" @click="modaltoAdd = false">Cancel</BButton>

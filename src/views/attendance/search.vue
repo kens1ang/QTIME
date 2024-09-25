@@ -296,13 +296,12 @@ export default {
   <BRow class="align-items-center justify-content-between">
     
     <!-- Left Side: Site and Date -->
-    <BCol sm="4">
+    <BCol sm="6">
       <h5 class="mb-1">Site: AR496</h5>
       <h6 class="mb-1">Date: 1-Sep-2024 to 15-Sep-2024</h6>
     </BCol>
     
     <!-- Right Side: Filters -->
-<<<<<<< Updated upstream
     <BCol sm="6">
       <BRow class="g-3 justify-content-end">
         
@@ -313,35 +312,6 @@ export default {
             <option value="Manufacturing">2</option>
           </select>
         </BCol>
-=======
-    <BCol sm="8">
-    <BRow class="g-3 justify-content-end align-items-center">
-      <BCol sm="3"></BCol>
-      <BCol sm="2">
-  <div class="form-group">
-    <div class="btn-group" role="group" aria-label="Period Switch" style="margin-left: -60px;height:30px">
-      <button 
-        type="button" 
-        style="width:88px;font-size: 12px;"
-        class="btn btn-outline-primary" 
-        :class="{ active: isPeriod1 }" 
-        @click="isPeriod1 = true"
-      >
-        Period 1
-      </button>
-      <button 
-        type="button" 
-        style="width:88px;font-size: 12px;"
-        class="btn btn-outline-primary" 
-        :class="{ active: !isPeriod1 }" 
-        @click="isPeriod1 = false"
-      >
-        Period 2
-      </button>
-    </div>
-  </div>
-</BCol>
->>>>>>> Stashed changes
 
         <BCol sm="4">
           <select class="form-control" data-trigger name="choices-single-default" id="choices-single-default">
@@ -555,20 +525,15 @@ export default {
                                     <div class="d-flex gap-2">
                                       <div class="edit">
                                         <button
-                                      class="btn btn-sm btn-outline-success edit-item-btn"
-                                    >
-                                      <router-link
-                                        :to="{ name: 'preot-overview' }"
-                                        class="MenuText"
-                                      >
-                                        View OT
-                                      </router-link>
-                                    </button>
+                                          class="btn btn-sm btn-info edit-item-btn"
+                                        >
+                                          View OT
+                                        </button>
                                       </div>
                                       <div class="remove">
                                         <button
                                           class="btn btn-sm btn-info remove-item-btn"
-                                          
+                                          @click="deleteAlert"
                                         >
                                           View Backcharge
                                         </button>
@@ -635,20 +600,15 @@ export default {
                                     <div class="d-flex gap-2">
                                       <div class="edit">
                                         <button
-                                      class="btn btn-sm btn-outline-success edit-item-btn"
-                                    >
-                                      <router-link
-                                        :to="{ name: 'preot-overview' }"
-                                        class="MenuText"
-                                      >
-                                        View OT
-                                      </router-link>
-                                    </button>
+                                          class="btn btn-sm btn-info edit-item-btn"
+                                        >
+                                          View OT
+                                        </button>
                                       </div>
                                       <div class="remove">
                                         <button
                                           class="btn btn-sm btn-info remove-item-btn"
-                                          
+                                          @click="deleteAlert"
                                         >
                                           View Backcharge
                                         </button>
@@ -693,20 +653,15 @@ export default {
                                     <div class="d-flex gap-2">
                                       <div class="edit">
                                         <button
-                                      class="btn btn-sm btn-outline-success edit-item-btn"
-                                    >
-                                      <router-link
-                                        :to="{ name: 'preot-overview' }"
-                                        class="MenuText"
-                                      >
-                                        View OT
-                                      </router-link>
-                                    </button>
+                                          class="btn btn-sm btn-info edit-item-btn"
+                                        >
+                                          View OT
+                                        </button>
                                       </div>
                                       <div class="remove">
                                         <button
                                           class="btn btn-sm btn-info remove-item-btn"
-                                          
+                                          @click="deleteAlert"
                                         >
                                           View Backcharge
                                         </button>

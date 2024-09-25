@@ -408,7 +408,6 @@ export default {
                                 </div>
                                 </BCol>
 
-<<<<<<< Updated upstream
                                 <BCol sm="1">
                                 <div>
                                     <BLink href="" class="w-100">
@@ -510,120 +509,6 @@ export default {
                         </div>
                     </BCardBody>
                     </BCard>
-=======
-                <BCol sm="1">
-                <div>
-                    <BLink href="" class="w-100">
-                        <BButton type="button" variant="success" class="w-100" style="font-size: 12px;" @click="createModaltoggle">
-                            <i class="ri-user-add-line"></i>
-                        </BButton>
-                    </BLink>
-                </div>
-                </BCol>
-
-                <BCol sm="1">
-                <div>
-                    <BLink href="" class="w-100">
-                        <BButton type="button" variant="light" class="w-100" style="font-size: 12px;">
-                            <i class="ri-download-2-line"></i>
-                        </BButton>
-                    </BLink>
-                </div>
-                </BCol>
-            </BRow>
-            </BCol>
-
-
-        </BRow>
-        </b-form>
-    </BCardBody><br><br>
-    <BCardBody>
-        <div>
-        <div class="table-responsive table-card mb-1">
-            <table class="table align-middle" id="customerTable">
-            <thead class="table-light text-muted">
-                <tr>
-                <th scope="col" style="width: 50px">
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="checkAll" value="option" />
-                    </div>
-                </th>
-                <th></th>
-                <th class="sort" data-sort="customer_name" @click="onSort('customer')">Staff Code</th>
-                <th class="sort" data-sort="status" @click="onSort('status')">Name</th>
-                <th class="sort" data-sort="email" @click="onSort('email')">RFID</th>
-                <th class="sort" data-sort="phone" @click="onSort('phone')">Person Incharge</th>
-                <th class="sort" data-sort="date" @click="onSort('date')">Project</th>
-                <th class="sort" data-sort="status" @click="onSort('status')">Updated</th>
-                <th class="sort" data-sort="action">Action</th>
-                </tr>
-            </thead>
-            <tbody class="list form-check-all">
-                <tr v-for="(item, index) of customerList" :key="index">
-                <td scope="row">
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="chk_child" value="option1" />
-                    </div>
-                </td>
-                <td><img src="@/assets/images/brands/multi-user.jpg" alt=""
-                  class="avatar-xs rounded-circle object-fit-cover" id="imageid" /></td>
-                <td>{{ item.id }}</td>
-                <td class="phone">{{ item.phone }}</td>
-                <td>{{ item.rfid }}</td>
-                <td class="customer_name">{{ item.customer_name }}</td>
-                <td class="email">{{ item.email }}</td>
-                <td class="date">{{ item.createby }}<br>{{ item.date }}</td>
-                <td>
-                    <ul class="list-inline hstack gap-2 mb-0">
-                    <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                        data-bs-placement="top" title="Edit">
-                        <BLink variant="text-primary" class="d-inline-block edit-item-btn" @click="deleteModalToggle(item)"
-                        >
-                        <i class="ri-pencil-fill fs-16"></i>
-                        </BLink>
-                    </li>
-                    <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover"
-                        data-bs-placement="top" title="Remove">
-                        <BLink class="text-warning d-inline-block remove-item-btn" @click="editDetails(item)">
-                        <i class="ri-qr-code-line fs-16"></i>
-                        </BLink>
-                    </li>
-                    </ul>
-                </td>
-                </tr>
-            </tbody>
-            </table>
-            <div class="noresult" v-if="resultQuery.length < 1">
-            <div class="text-center">
-                <lottie class="avatar-xl" colors="primary:#25a0e2,secondary:#00bd9d" :options="defaultOptions"
-                :height="75" :width="75" />
-                <h5 class="mt-2">Sorry! No Result Found</h5>
-                <p class="text-muted mb-0">
-                We've searched more than 150+ customer We did not find any
-                customer for you search.
-                </p>
-            </div>
-            </div>
-        </div>
-        <div class="d-flex justify-content-end" v-if="resultQuery.length >= 1">
-            <div class="pagination-wrap hstack gap-2">
-            <BLink class="page-item pagination-prev" href="#" :disabled="page <= 1" @click="page--">
-                Previous
-            </BLink>
-            <ul class="pagination listjs-pagination mb-0">
-                <li :class="{ active: pageNumber == page, disabled: pageNumber == '...', }"
-                v-for="(pageNumber, index) in pages" :key="index" @click="page = pageNumber">
-                <BLink class="page" href="#">{{ pageNumber }}</BLink>
-                </li>
-            </ul>
-            <BLink class="page-item pagination-next" href="#" @click="page++" :disabled="page >= pages.length">
-                Next
-            </BLink>
-            </div>
-        </div>
-        </div>
-    </BCardBody>
->>>>>>> Stashed changes
     <BModal v-model="addCustomerModal" id="showModal" hide-footer :title="dataEdit ? 'QR Code' : 'Add Customer'"
       header-class="p-3 bg-light" class="v-modal-custom" centered>
       <b-form action="#" id="addform" class="tablelist-form" autocomplete="off">
@@ -633,7 +518,7 @@ export default {
                     <img src="@/assets/images/qr-code.png" class="card-logo card-qr-code"
                         alt="logo dark" height="120">
                     <h6 class="text-muted text-uppercase fw-bold" style="margin-top: 12px;">ID : 2880052</h6>
-                    <p class="text-muted mb-1" id="address-details">Name : Yohanes Laga Kia</p>
+                    <p class="text-muted mb-1" id="address-details">Staff Name : Yohanes Laga Kia</p>
                     <p class="text-muted mb-1" id="address-details">Staff Code : 711024</p>
                 </div>
             </div>
